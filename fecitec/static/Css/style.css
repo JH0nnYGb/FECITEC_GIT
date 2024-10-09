@@ -57,112 +57,48 @@ span {
 }
 
 /* ESTILO DO NAVBAR */
-.nav-bar{
-    position: relative;
+
+.nav-bar {
     display: flex;
-    width:100%;
-    height: 45px;
-    justify-content: space-between;
-    border-radius: 8px;
-    font-size: 0;
-    box-shadow: 2px 3px 0 rgba(0,0,0,.1);
-}
-
-.nav-bar a{
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #000000;
-    text-decoration: none;
-    line-height: 40px;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 20px 0;
     position: relative;
-    z-index: 1;
-    text-align: center;
-    display: inline-block;
-
 }
+
+.nav-bar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
 /*Classe que fica animada em baixo do nome */
-nav .animation{
+.nav-bar a::after {
+    content: '';
     position: absolute;
-    height: 5px;
-    bottom: 0;
-    z-index: 0;
+    width: 0;
+    height: 3px;
     background-color: #007BFF;
-    border-radius: 8px;
-    transition: all .5s ease 0s;
-    
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
 }
 
-
-a:nth-child(1){
-    width: 100px;
-}
-nav .start-home,a:nth-child(1):hover~ .animation{
-    width: 58px;
-    left: 20px;
+/* Quando passar o mouse */
+.nav-bar a:hover::after {
+    width: 100%;
 }
 
-a:nth-child(2){
-    width: 110px;
-}
-nav .start-cronograma,a:nth-child(2):hover~ .animation{
-    width: 130px;
-    left: 148px;
+/* Mudança de cor e efeito de subida do texto ao passar o mouse */
+.nav-bar a:hover {
+    color: #007BFF;
+    transform: translateY(-5px);
 }
 
-a:nth-child(3){
-    width: 100px;
-}
-nav .start-submissao,a:nth-child(3):hover~ .animation{
-    width: 102px;
-    left: 324px;
-}
-
-a:nth-child(4){
-    width: 160px;
-}
-nav .start-aprovados,a:nth-child(4):hover~ .animation{
-    width: 100px;
-    left: 510px;
-}
-
-a:nth-child(5){
-    width: 120px;
-}
-nav .start-certificados,a:nth-child(5):hover~ .animation{
-    width: 110px;
-    left: 46.9rem;
-}
-
-a:nth-child(6){
-    width: 120px;
-}
-nav .start-regulamento,a:nth-child(6):hover~ .animation{
-    width: 126px;
-    left: 58.2rem;
-}
-
-a:nth-child(7){
-    width: 120px;
-}
-nav .start-comissao,a:nth-child(7):hover~ .animation{
-    width: 90px;
-    left: 71.2rem;
-}
-a:nth-child(8){
-    width: 120px;
-}
-nav .start-contato,a:nth-child(8):hover~ .animation{
-    width: 120px;
-    left: 82rem;
-}
-a:nth-child(9){
-    width: 120px;
-}
-nav .start-login,a:nth-child(9):hover~ .animation{
-    width: 62px;
-    left: 95.8rem;
-}
 
 
 /* ESTILO DO FOOTER */
