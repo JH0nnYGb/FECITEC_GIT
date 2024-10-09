@@ -1,0 +1,51 @@
+
+/* Dispositivos Móveis (Smartphones) */
+@media (max-width: 576px) {
+    .elementos-caixa-icones-footer {
+        justify-content: center;
+    }
+
+    .logo-if {
+        width: 130px;
+    }
+}
+/* Dispositivos Móveis (Smartphones) */
+@media (max-width: 576px) {
+    header {
+        padding: 5px;
+    }
+
+    .fecitec-logo h1 {
+        font-size: 40px;
+    }
+
+    .fecitec-logo img {
+        width: 40px;
+        height: 65px;
+    }
+
+    .fecitec-logo {
+        height: 47%;
+        display: flex;
+    }
+
+    .paragrafo-logo {
+        font-size: 13px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+
+}
+
+/* Tablets Grandes e Laptops */
+@media (min-width: 769px) and (max-width: 992px) {
+
+}
+
+
+/* Desktops e Monitores Grandes */
+@media (min-width: 1201px) {
+    
+}

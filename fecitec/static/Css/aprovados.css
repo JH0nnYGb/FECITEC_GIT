@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: blue;
+    border: red;
+}
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+.container-buscar{
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+.content_father{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-block: 10rem;
+}
+.content_child{
+    width: 100%;
+}
+
+
+

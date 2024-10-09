@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{%block style%}
+<link rel="stylesheet" href="static/Css/aprovados.css">
+{% endblock style%}
+
+{% block title %}Aprovados{% endblock %}
+
+{% block content %}
+
+    <div class="container-buscar">
+        <div class="content_father">
+            <form action="">
+                <input type="text" class="seachr-bar " name ="buscar" placeholder="Buscar" >
+            </form>
+
+            <div class="content_child">
+                <table>
+                    <thead class="cabecalho_table">
+                        <th w-10%>Titulo</th>
+                        <th>Orientador</th>
+                        <th>Turmo de Apresentação</th>
+                        <th>Integrantes</th>
+                    </thead>
+                    <tbody>
+                        <tr class="li_table">
+                            <td style="width: 20%;">linha1</td>
+                            <td style="width: 20%;">linha2</td>
+                            <td style="width: 20%;">linha3</td>
+                            <td style="width: 40%;">linha4</td>
+                        </tr>
+                        <tr class="li_table">
+                            <td class="conteudo_li">linha 1</td>
+                            <td class="conteudo_li">linha 2</td>
+                            <td class="conteudo_li">linha 3</td>
+                            <td class="conteudo_li">linha 4</td>
+                        </tr>
+                        
+                    </tbody>
+                    
+
+                </table>
+
+            </div>
+        </div>
+    </div>    
+{% endblock %}

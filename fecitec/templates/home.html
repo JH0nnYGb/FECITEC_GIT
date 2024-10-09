@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="caixa-cards">
+    <section class="cards-home">
+        <article class="card">
+            <img src="{% static 'images/icone-foguete.svg' %}" alt="">
+            <p class="titulo-card">Submissão</p>
+            <p>
+                Para ter acesso a programação completa da Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru, <a href="">clique aqui</a>. 
+            </p>
+            <p>Atualizado em 15/07/2023</p>
+        </article>
+
+        <article class="card">
+            <img src="{% static 'images/icone-calendario.svg' %}" alt="">
+            <p class="titulo-card">Programação</p>
+            <p>
+                Para ter acesso a programação completa da Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru, <a href="">clique aqui</a>.
+            </p>
+            <p>Atualizado em 15/07/2023</p>
+        </article>
+
+        <article class="card">
+            <img src="{% static 'images/icone-premiacao.svg' %}" alt="">
+            <p class="titulo-card">Premiação</p>
+            <p>
+                Para ter acesso a programação completa da Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru, <a href="">clique aqui</a>.
+            </p>
+            <p>Atualizado em 15/07/2023</p>
+        </article>
+    </section>
+
+    <div class="caixa-card-maior">
+        <article>
+            <p>
+                A X FECITEC &#40;Feira de Ciências, Inovações e Tecnologias&#41; tem como principal objetivo incentivar estudantes de escolas públicas e privadas do ensino fundamental, médio e técnico a desenvolver uma compreensão prática da ciência e tecnologia. A feira demonstra como esses conhecimentos podem ser aplicados no cotidiano, promovendo a criação de projetos interdisciplinares que fomentam o espírito investigativo. Além disso, a FECITEC busca identificar jovens talentosos e incentivá-los a seguir carreiras na pesquisa científica.
+            </p>
+        </article>
+
+        <img src="{% static 'images/icone-fecitec.svg' %}" alt="">
+    </div>
+
+    <div class="midias-sociais">
+        <p>Mídias Sociais</p>
+        <div class="caixa-icones-midias-socias">
+            <article>
+
+            </article>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
