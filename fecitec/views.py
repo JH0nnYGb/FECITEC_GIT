@@ -5,4 +5,4 @@ def home_view(request):
 
 
 def aprovados_view(request):
-    return render(request, 'aprovados.html')
+    return render(request, 'aprovado.html')
