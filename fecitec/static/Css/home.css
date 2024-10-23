@@ -1,5 +1,5 @@
-section {
-    display: flex;
+figcaption {
+    font-weight: 600;
 }
 
 .caixa-cards {
@@ -7,6 +7,7 @@ section {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    background: #F5F5FD;
 }
 
 .cards-home {
@@ -14,6 +15,7 @@ section {
     justify-content: space-around;
     margin-top: 100px;
     width: 70%;
+    flex-wrap: wrap;
 }
 
 .caixa-cards .cards-home img {
@@ -74,7 +76,264 @@ section {
 }
 
 .caixa-icones-midias-socias {
+    background: #FFF;
+    margin-bottom: 50PX;
     width: 30%;
     border: 2.5px solid #BFC8E5;
     border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+.caixa-icones-midias-socias article {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    justify-items: center;
+    width: 100%;
+}
+
+.caixa-icones-midias-socias article a {
+    text-decoration: none;
+    color: #000;
+}
+
+.caixa-icones-midias-socias article a:hover {
+    color: #000;
+}
+
+.img-youtube {
+    width: 90px;
+}
+
+.img-instagram {
+    margin-top: 12px;
+    margin-bottom: 9px;
+    width: 70px;
+}
+
+.img-tiktok {
+    margin-top: 10px;
+    margin-bottom: 13px;
+    width: 71px;
+}
+
+.img-facebook {
+    margin-top: 50px;
+    margin-bottom: 7px;
+    width: 80px;
+}
+
+.img-threads {
+    margin-top: 55px;
+    margin-bottom: 8px;
+    width: 75px;
+}
+
+.img-whatsapp {
+    margin-top: 60px;
+    margin-bottom: 13px;
+    width: 65px;
+}
+
+.localizacao-do-evento {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    font-weight: 300;
+    color:#868E96;
+    display: block;
+    text-align: center;
+}
+
+.localizacao-do-evento div {
+    border-radius: 10px;
+    display: block;
+    background: #8A84E2;
+    width: 300px;
+    height: 5px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+
+section article .texto-localizacao {
+    color: #8A84E2;
+    margin-bottom: 0;
+    font-size: 35px;
+}
+
+section article .texto-instituto-federal {
+    font-weight: 400;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.caixa-do-mapa {
+    border: 5px solid #8A84E2;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.caixa-do-mapa iframe {
+    width: 900px;
+    border-radius: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .cards-home {
+        width: 90%;
+    }
+
+    .card {
+        margin-top: 10px;
+        width: 45%;
+    }
+
+    .caixa-card-maior {
+        width: 80%;
+        padding: 20px 50px 10px 50px;
+    }
+}
+
+/* RESPONSIVIDADE */
+
+/* Smartphone */
+@media (max-width: 575.98px) {
+    .card {
+        width: 100%;
+    }
+
+    .caixa-card-maior {
+        width: 90%;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .cards-home img {
+        width: 50px;
+    }
+
+    .caixa-card-maior img {
+        width: 80px;
+    }
+
+    .titulo-card {
+        font-size: 16px;
+    }
+
+    .caixa-card-maior {
+        font-size: 22px;
+    }
+
+    .caixa-icones-midias-socias {
+        width: 90%;
+    }
+
+    .img-youtube {
+        width: 60px;
+    }
+    
+    .img-instagram {
+        margin-top: 8px;
+        margin-bottom: 3px;
+        width: 50px;
+    }
+    
+    .img-tiktok {
+        margin-top: 7px;
+        margin-bottom: 3px;
+        width: 51px;
+    }
+    
+    .img-facebook {
+        margin-top: 50px;
+        margin-bottom: 7px;
+        width: 60px;
+    }
+    
+    .img-threads {
+        margin-top: 55px;
+        margin-bottom: 8px;
+        width: 55px;
+    }
+    
+    .img-whatsapp {
+        margin-top: 60px;
+        margin-bottom: 13px;
+        width: 45px;
+    }
+
+    .caixa-do-mapa iframe {
+        width: 300px;
+    }
+
+    .localizacao-do-evento div {
+        border-radius: 10px;
+        width: 200px;
+        height: 5px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+    
+    
+    section article .texto-localizacao {
+        font-size: 25px;
+    }
+    
+    section article .texto-instituto-federal {
+        font-size: 27px;
+    }
+}
+
+/* Tablet */
+@media(min-width: 750px) and (max-width: 1100px) {
+    .cards-home {
+        width: 80%;
+    }
+
+    .card {
+        margin-top: 10px;
+        width: 45%;
+    }
+
+    .caixa-icones-midias-socias {
+        width: 50%;
+    }
+
+    .img-youtube {
+        width: 60px;
+    }
+    
+    .img-instagram {
+        margin-top: 8px;
+        margin-bottom: 3px;
+        width: 50px;
+    }
+    
+    .img-tiktok {
+        margin-top: 7px;
+        margin-bottom: 3px;
+        width: 51px;
+    }
+    
+    .img-facebook {
+        margin-top: 50px;
+        margin-bottom: 7px;
+        width: 60px;
+    }
+    
+    .img-threads {
+        margin-top: 55px;
+        margin-bottom: 8px;
+        width: 55px;
+    }
+    
+    .img-whatsapp {
+        margin-top: 60px;
+        margin-bottom: 13px;
+        width: 45px;
+    }
 }
