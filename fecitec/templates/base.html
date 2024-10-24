@@ -22,7 +22,7 @@
 </head>
 <body>
     <header>  
-        <div class="fecitec-logo">
+        <div id="topo" class="fecitec-logo">
             <h1>FECITEC</h1>
             <img src="{% static 'images/Icone-fecitec.svg' %}" alt="">
         </div>
@@ -50,17 +50,25 @@
     </main>
 
     <footer>
+        <div class="icone-seta">
+            <a href="#topo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#BFC8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19V6M5 12l7-7 7 7"></path>
+                </svg>
+            </a>
+        </div>
+        
         <div class="container-footer">
             <div class="item">
                 <p>IF Baiano</p>
                 <div class="caixa-icones-footer">
                     <div class="elementos-caixa-icones-footer">
-                        <img src="{% static 'images/icone-whatsapp-footer.svg' %}" alt="">
-                        <img src="{% static 'images/icone-instagram-footer.svg' %}" alt="">
-                        <img src="{% static 'images/icone-youtube-footer.svg' %}" alt="">
-                        <img src="{% static 'images/icone-threads-footer.svg' %}" alt="">
-                        <img src="{% static 'images/icone-tiktok-footer.svg' %}" alt="">
-                        <img src="{% static 'images/icone-facebook-footer.svg' %}" alt="">
+                        <a href=""><img src="{% static 'images/icone-whatsapp-footer.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/icone-instagram-footer.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/icone-youtube-footer.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/icone-threads-footer.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/icone-tiktok-footer.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/icone-facebook-footer.svg' %}" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -68,6 +76,11 @@
             <div class="item">
                 <p>Realização</p>
                 <img class="logo-if" src="{% static 'images/logo-if.svg' %}" alt="">
+            </div>
+
+            <div class="item">
+                 <p>Apoio</p>
+                 <img src="" alt="">
             </div>
         </div>
 
