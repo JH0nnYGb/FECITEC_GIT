@@ -33,14 +33,14 @@
     </header>
     <nav class="nav-bar">
         <a href="{% url 'home' %}"> Home </a>
-        <a href="cronograma"> Cronograma </a>
-        <a href="submissao"> Submissão </a>
+        <a href="{% url 'cronograma' %}"> Cronograma </a>
+        <a href="{% url 'submissao' %}"> Submissão </a>
         <a href="{% url 'aprovados' %}"> Aprovados </a>
-        <a href="certificados"> Cerificados </a>
-        <a href="regulamento"> Regulamento </a>
-        <a href="comissao"> Comissão </a>
-        <a href="contate"> Contate-nos </a>
-        <a href="login"> Login </a>
+        <a href="{% url 'certificados' %}"> Cerificados </a>
+        <a href="{% url 'regulamento' %}"> Regulamento </a>
+        <a href="{% url 'comissao' %}"> Comissão </a>
+        <a href="{% url 'contate' %}"> Contate-nos </a>
+        <a href="{% url 'login'%}"> Login </a>
         <div class="animation"></div>
     </nav>
     <main>
