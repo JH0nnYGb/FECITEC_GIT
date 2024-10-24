@@ -175,6 +175,7 @@ section article .texto-instituto-federal {
     border: 5px solid #8A84E2;
     border-radius: 20px;
     margin-bottom: 50px;
+    height: 460px;
 }
 
 .caixa-do-mapa iframe {
@@ -202,7 +203,11 @@ section article .texto-instituto-federal {
 /* RESPONSIVIDADE */
 
 /* Smartphone */
-@media (max-width: 575.98px) {
+@media (max-width: 950px) {
+    .localizacao-do-evento div {
+        margin-bottom: 30px;
+    }
+
     .card {
         width: 100%;
     }
@@ -286,6 +291,10 @@ section article .texto-instituto-federal {
     section article .texto-instituto-federal {
         font-size: 27px;
     }
+}
+
+@media (max-width: 950.98px) {
+
 }
 
 /* Tablet */

@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -144,7 +148,7 @@ footer {
     text-align: center;
 }
 
-.elementos-caixa-icones-footer{
+.elementos-caixa-icones-footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
@@ -152,3 +156,30 @@ footer {
     width: 30%;
 }
 
+.icone-seta {
+    display: flex;
+    justify-content: center;
+}
+
+.icone-seta svg {
+    margin-bottom: 15px;
+    border-right: 3px solid #BFC8E5;
+    border-bottom: 3px solid #BFC8E5;
+    border-left: 3px solid #BFC8E5;
+    border-radius: 10px;
+    width: 80px;
+}
+
+
+
+
+@media (max-width: 980.98px) {
+    .item {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .container-footer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
