@@ -116,8 +116,9 @@ span {
 /* ESTILO DO FOOTER */
 footer {
     border-top: 4px solid #BFC8E5;
-    border-radius: 25px;
+    border-radius: 25px 25px 0 0;
     overflow: hidden;
+    background: #FFF;
 
 }
 

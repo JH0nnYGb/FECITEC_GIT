@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block style%}
+<link rel="stylesheet" href="{% static 'Css/cronograma.css'%}">
+{% endblock style%}
+
+{% block title %}Cronograma{% endblock %}
+
+{% block content %}
+<div class="caixa-section-cronograma">
+    <section class="caixa-cards-cronograma">
+        <article class="primeiro-card">
+            <h1>Período de Submissão e Avaliação</h1>
+
+            <div class="barra-primeiro-card"></div>
+
+            <div class="caixa-paragrafos-primeiro-card">
+                <div class="paragrafos-primeiro-card">
+                    <p>- O Prazo para submissão de trabalhos inicia em 22/07/2024 e finaliza em 08/09/2024 &#40;22h 59min 59s&#41;.</p>
+                    <p>- Período para avaliação dos trabalhos: 09/09/2024 a 03/10/2024.</p>
+                    <p>- Divulgação da lista de trabalhos aprovados para apresentação: 04/10/2024</p>
+                    <p>- Data e horário de apresentação dos trabalhos: 18/10/2014.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="segundo-card">
+            <h1>Cronograma - Matutino</h1>
+
+            <div class="barra-segundo-card"></div>
+
+            <div class="caixa-paragrafos-segundo-card">
+                <div class="paragrafos-segundo-card">
+                    <p>07:30 - 08:00 | Credenciamento e boas-vindas</p>
+                    <p>08:00 - 08:30 | Arrumação dos trabalhos</p>
+                    <p>08:30 - 09:00 | Cerimônia de abertura</p>
+                    <p>9:00 - 12:00 | Sessão de Apresentação de Trabalhos - Parte 1</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="terceiro-card">
+            <h1>Cronograma - Vespertino</h1>
+
+            <div class="barra-terceiro-card"></div>
+
+            <div class="caixa-paragrafos-terceiro-card">
+                <div class="paragrafos-terceiro-card">
+                    <p>12:30 - 13:30 | Arrumação dos trabalhos</p>
+                    <p>13:30 - 16:00 | Sessão de Apresentação de Trabalhos - Parte 2</p>
+                    <p>16:00 - 16:30 | Apresentação cultural</p>
+                    <p>16:30 - 17:00 | Cerimônia de Premiação e Encerramento</p>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+{% endblock %}

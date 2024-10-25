@@ -1,0 +1,203 @@
+body {
+    background: #F5F5FD;
+}
+
+.caixa-cards-cronograma  {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.primeiro-card {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    padding-bottom: 10px;
+    width: 50%;
+    border: 2.5px solid #BFC8E5;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.primeiro-card h1 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 45px;
+}
+
+.caixa-paragrafos-primeiro-card {
+    display: flex;
+    justify-content: center;
+}
+
+.paragrafos-primeiro-card {
+    text-align: left;
+    width: 90%;
+}
+
+.paragrafos-primeiro-card p {
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.barra-primeiro-card {
+    border-radius: 10px;
+    display: block;
+    background: #8A84E2;
+    width: 90%;
+    height: 3px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.segundo-card {
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    width: 40%;
+    border: 2.5px solid #BFC8E5;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.segundo-card h1 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 45px;
+}
+
+.caixa-paragrafos-segundo-card {
+    display: flex;
+    justify-content: center;
+}
+
+.paragrafos-segundo-card {
+    text-align: left;
+    width: 90%;
+}
+
+.paragrafos-segundo-card p {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.barra-segundo-card {
+    border-radius: 10px;
+    display: block;
+    background: #8A84E2;
+    width: 90%;
+    height: 3px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.terceiro-card {
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    width: 40%;
+    border: 2.5px solid #BFC8E5;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.terceiro-card h1 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 45px;
+}
+
+.caixa-paragrafos-terceiro-card {
+    display: flex;
+    justify-content: center;
+}
+
+.paragrafos-terceiro-card {
+    text-align: left;
+    width: 90%;
+}
+
+.paragrafos-terceiro-card p {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.barra-terceiro-card {
+    border-radius: 10px;
+    display: block;
+    background: #8A84E2;
+    width: 90%;
+    height: 3px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+@media (min-width: 320px) and  (max-width: 890px) {
+    .primeiro-card, .segundo-card, .terceiro-card {
+        width: 90%;
+    }
+
+    .primeiro-card h1 {
+        font-size: 35px;
+    }
+
+    .segundo-card h1, .terceiro-card h1 {
+        font-size: 25px;
+    }
+
+    .paragrafos-primeiro-card p, .paragrafos-segundo-card p, .paragrafos-terceiro-card p {
+        font-size: 25px;
+    }
+
+    .barra-primeiro-card, .barra-segundo-card, .barra-terceiro-card {
+        width: 100%;
+    }
+}
