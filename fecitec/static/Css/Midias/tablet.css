@@ -1,0 +1,18 @@
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    .navigation{
+        margin-top: 5px;
+        display: block;
+        width: 5rem;
+    }
+    .nav-bar{
+        display: none;
+    }
+
+    #menu
+  {
+    width: 30rem;
+  }
+
+}

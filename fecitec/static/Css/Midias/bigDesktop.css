@@ -1,0 +1,7 @@
+
+/* Desktops e Monitores Grandes */
+@media (min-width: 1201px) {
+    .navigation{
+        display: none;
+    }
+}
