@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- importacao de icones -->
     <link rel="stylesheet" href="{% static 'Css/style.css' %}">
     <link rel="stylesheet" href="{% static 'Css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'Css/Midias/midias.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/Midias/bigDesktop.css'%}">
     <link rel="stylesheet" href="{% static 'Css/Midias/notebook.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/Midias/phone.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/Midias/tablet.css'%}">
     {% block style %}
         <!--colocar o link do css do html pertencente -->
     {% endblock style%}
@@ -43,6 +45,31 @@
         <a href="{% url 'login'%}"> Login </a>
         <div class="animation"></div>
     </nav>
+
+    <nav id="navigation" class="navigation" role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+        <ul id="menu">
+    
+            <li><a class="select-as" href="{% url 'home' %}"> Home </a></li>
+            <li><a class="select-as" href="{% url 'cronograma' %}"> Cronograma </a></li>
+            <li><a class="select-as" href="{% url 'submissao' %}"> Submissão </a></li>
+            <li><a class="select-as" href="{% url 'aprovados' %}"> Aprovados </a></li>
+            <li><a class="select-as" href="{% url 'certificados' %}"> Cerificados </a></li>
+            <li><a class="select-as" href="{% url 'regulamento' %}"> Regulamento </a></li>
+            <li><a class="select-as" href="{% url 'comissao' %}"> Comissão </a></li>
+            <li><a class="select-as" href="{% url 'contate' %}"> Contate-nos </a></li>
+            <li><a class="select-as" href="{% url 'login'%}"> Login </a></li>
+            
+            
+        </ul>
+       </div>
+      </nav>
+
+      
     <main>
         {% block content %}
         <!-- Content will go here -->
