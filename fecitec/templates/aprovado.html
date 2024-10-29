@@ -2,6 +2,7 @@
 
 {%block style%}
 <link rel="stylesheet" href="static/Css/aprovados.css">
+
 {% endblock style%}
 
 {% block title %}Aprovados{% endblock %}
@@ -11,12 +12,15 @@
     <div class="container-table">
         <div class="content_father">
             <form action="">
-                <input type="text" class="seachr-bar " name ="buscar" placeholder="Buscar" >
-                <i class="fas fa-search"></i>
+                
+                <div class="test">
+                    <input type="text" class="seachr-bar" name ="buscar" placeholder="Buscar" >
+                    <i class="fas fa-search" id="lupa"></i>
+                </div>
             </form>
 
             <div class="content_child">
-                <table>
+                <table class="table_approved">
                     <thead class="cabecalho_table">
                         <th w-10%>Titulo</th>
                         <th>Orientador</th>

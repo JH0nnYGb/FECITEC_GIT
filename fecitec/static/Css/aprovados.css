@@ -1,6 +1,5 @@
 .seachr-bar{
     margin-inline: 30px;
-    position: relative;
     color: #374957;
     background-color: #E9ECEF;
     font-weight:600;
@@ -14,16 +13,21 @@
     
 }
 
-i {
-    position: absolute;
-    left: 30rem;
-    top: 70%;
+
+#lupa {
+    display: flex;
+    position:  relative;
+    left: 29rem; 
+    top: -35px;
     font-size: 22px;
     color:#374957;
     
 }
 
 .container-table{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background-color: #F5F5FD;
     justify-content: center;
     width: 100%;
@@ -41,7 +45,7 @@ i {
     width: 100%;
 }
 
-table {
+.table_approved {
     border-collapse: separate;
     border-spacing: 10px;
     border: solid 2px #BFC8E5;
