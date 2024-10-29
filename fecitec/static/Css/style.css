@@ -5,9 +5,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 html, body {
     margin: 0;
@@ -36,6 +33,12 @@ header {
 span {
     font-family: "Krona One", sans-serif;
     font-style: normal;
+}
+
+.container-table{
+  width: 100%; /* Defina a largura conforme necessário */
+  overflow-x: auto; /* Habilita o scroll horizontal */
+  white-space: nowrap; /* Garante que o conteúdo não quebre em várias linhas */
 }
 
 .fecitec-logo h1 {

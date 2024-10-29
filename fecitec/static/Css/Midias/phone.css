@@ -1,5 +1,16 @@
 /* Dispositivos Móveis (Smartphones) */
 @media (max-width: 576px) {
+    .content_child {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+
+    .table_approved {
+        min-width: 600px; 
+    }
+}
+}
+
+@media (max-width: 576px) {
     .elementos-caixa-icones-footer {
         justify-content: center;
     }
@@ -7,9 +18,19 @@
     .logo-if {
         width: 130px;
     }
-}
-/* Dispositivos Móveis (Smartphones) */
-@media (max-width: 576px) {
+
+    .table_approved{
+        /* border-collapse: separate;
+        border-spacing: 10px;
+        border: solid 2px #BFC8E5;
+        background-color: #FBFCFF;
+        border-radius: 40px;
+        width: 90%;
+        margin-inline: 20px;
+        padding-block: 30px;
+        padding-inline: 30px; */
+    }
+
     header {
         padding: 5px;
     }
@@ -44,4 +65,5 @@
   {
     width: 20rem;
   }
+
 }
