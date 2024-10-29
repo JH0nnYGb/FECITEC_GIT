@@ -1,0 +1,18 @@
+.localizacao-do-mapa {
+    border: 5px solid #8A84E2;
+    height: 460px;
+    width: 70%;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.localizacao-do-mapa iframe {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.caixa-do-mapa {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

@@ -3,6 +3,7 @@
 
 {%block style%}
 <link rel="stylesheet" href="{% static 'Css/cronograma.css'%}">
+<link rel="stylesheet" href="{% static 'Css/mapa.css'%}">
 {% endblock style%}
 
 {% block title %}Cronograma{% endblock %}
@@ -56,4 +57,9 @@
         </article>
     </section>
 </div>
+
+{% block mapa %}
+    {% include "partials/mapa.html" %}
+{% endblock %}
+
 {% endblock %}
