@@ -175,17 +175,7 @@ section article .texto-instituto-federal {
     margin-bottom: 0;
 }
 
-.caixa-do-mapa {
-    border: 5px solid #8A84E2;
-    border-radius: 20px;
-    margin-bottom: 50px;
-    height: 460px;
-}
 
-.caixa-do-mapa iframe {
-    width: 900px;
-    border-radius: 20px;
-}
 
 
 @media (max-width: 768px) {
