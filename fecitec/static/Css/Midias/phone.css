@@ -1,14 +1,4 @@
-/* Dispositivos Móveis (Smartphones) */
-@media (max-width: 576px) {
-    .content_child {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; 
 
-    .table_approved {
-        min-width: 600px; 
-    }
-}
-}
 
 @media (max-width: 576px) {
     .elementos-caixa-icones-footer {
@@ -66,4 +56,72 @@
     width: 20rem;
   }
 
+
+  .content_father {
+    /* overflow: hidden; */
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    /* margin-block: 10rem; */
+    }
+    .content_child{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+
+    .container-table{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-color: #F5F5FD;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 30px;
+        padding-top: 20px;
+    }
+
+    .table-responsive {
+        overflow-x: auto; /* Adiciona a rolagem lateral */
+        width: 100%;
+        text-align: center;
+    }
+
+    .seachr-bar{
+        margin-inline:20px;
+        color:#8a84e2;
+        background-color: #FBFCFF;
+        font-weight:600;
+        font-size: larger;
+        padding-inline: 20px;
+        padding-block: 10px;
+        width: 15rem;
+        border-radius: 20px;
+        border:2px solid #868E96;   
+        /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
+    }
+    
+    .seachr-bar::placeholder {
+        color: #8a84e2; /* Altere para a cor desejada */
+        opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+    }
+    
+    .seachr-bar:focus {
+        outline: none; /* Remove o contorno padrão do navegador */
+        border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+        box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+    }
+    
+    #lupa {
+        display: flex;
+        position:  relative;
+        left: 14rem; 
+        top: -35px;
+        font-size: 22px;
+        color:#8a84e2;
+        
+    }
+    
 }

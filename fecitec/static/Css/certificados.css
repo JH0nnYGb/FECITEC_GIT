@@ -1,0 +1,126 @@
+.title_table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.presented{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    color:#8A84E2 ;
+    font-weight: 800;
+    gap: 20px;
+    margin-top: 4rem;
+    margin-bottom: 5px;
+    margin-inline: 30%;
+
+}
+
+.barracks{
+    background-color: #868E96;
+    width: 20rem;
+    height: 4px;
+    border-radius: 40px;
+}
+
+.seachr-bar{
+    margin-inline:6rem;
+    color:#8a84e2;
+    background-color: #FBFCFF;
+    font-weight:600;
+    font-size: larger;
+    padding-inline: 20px;
+    padding-block: 10px;
+    width: 30rem;
+    border-radius: 20px;
+    border:2px solid #868E96;   
+    /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
+}
+
+.seachr-bar::placeholder {
+    color: #8a84e2; /* Altere para a cor desejada */
+    opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+}
+
+.seachr-bar:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+    box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+}
+
+#lupa {
+    display: flex;
+    position:  relative;
+    left: 33rem; 
+    top: -35px;
+    font-size: 22px;
+    color:#8a84e2;
+    
+}
+
+.container-table{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #F5F5FD;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.content_father{
+    /* overflow: hidden; */
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    /* margin-block: 10rem; */
+}
+
+.content_child{
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Adiciona a rolagem lateral */
+    width: 100%;
+    text-align: center;
+}
+
+.table_approved {
+    border-collapse: separate;
+    border-spacing: 10px;
+    border: solid 2px #BFC8E5;
+    background-color: #FBFCFF;
+    border-radius: 40px;
+    width: 100%;
+    /* margin-inline: 20px; */
+    padding-block: 30px;
+    padding-inline: 30px;
+}
+
+.cabecalho_table{
+    font-weight: 600;
+    color: #0F1141;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+    background-color: #FBFCFF;
+    
+}
+
+td{
+    font-weight: 400;
+    color: #0F1141;
+}
