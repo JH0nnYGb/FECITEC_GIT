@@ -4,6 +4,8 @@
 {%block style%}
 <link rel="stylesheet" href="{% static 'Css/certificados.css'%}">
 <link rel="stylesheet" href="{% static 'Css/Midias/phone.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/notebook.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/tablet.css'%}">
 {% endblock style%}
 
 {% block title %}Home{% endblock %}
@@ -13,8 +15,7 @@
 <div class="container-table">
     <div class="content_father">
         <form action="">
-            
-            <div class="test">
+            <div class="container-search">
                 <input type="text" class="seachr-bar" class="test2" name ="buscar" placeholder="Buscar" >
                 <i class="fas fa-search" id="lupa"></i>
             </div>
@@ -65,7 +66,7 @@
             <section class="title_table">
                 <article class="presented">
                     <h2> Trabalhos Premiados </h2>
-                    <img src="{% static 'images/icone-trofeu.svg'%}" alt="">
+                    <img style="height: 45px;" src="{% static 'images/icone-certificate.svg'%}" alt="">
                 </article>
                 <div class="barracks"></div>
             </section>

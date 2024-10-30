@@ -15,4 +15,49 @@
     width: 30rem;
   }
 
+  .seachr-bar-hidden{
+    position: absolute;
+    display: block;
+    width: 18rem;
+    margin-inline:26rem;
+    top:14rem;
+    color:#8a84e2;
+    border:2px solid #868E96;   
+    background-color: #FBFCFF;
+    font-weight:600;
+    font-size: larger;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 20px;
+    /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
+  }
+  .seachr-bar-hidden::placeholder {
+      color: #8a84e2; /* Altere para a cor desejada */
+      opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+  }
+
+  .seachr-bar-hidden:focus {
+      outline: none; /* Remove o contorno padrão do navegador */
+      border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+      box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+  }
+
+  /* ^^^^^essa a a barra de busca que aparece em telas de celular  */
+
+  #lupa-phone{
+    display: flex;
+    position:relative;
+    left: 41rem; 
+    top: 0px;
+    font-size: 22px;
+    color:#8a84e2;
+    
+  }
+  /* esta e a lupada barra de busca menor, que aparece apenas para celular   */
+  
+ 
+  .container-search{
+    display: none;
+  }
+
 }

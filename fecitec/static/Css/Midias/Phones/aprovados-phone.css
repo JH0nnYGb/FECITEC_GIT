@@ -1,4 +1,5 @@
 
+
 @media (max-width: 576px) {
     .elementos-caixa-icones-footer {
         justify-content: center;
@@ -85,7 +86,7 @@
 
     .table-responsive {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
         overflow-x: auto; /* Adiciona a rolagem lateral */
         -webkit-overflow-scrolling: touch;
