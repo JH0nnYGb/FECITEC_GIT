@@ -163,19 +163,17 @@ body {
 }
 
 
-section article .texto-localizacao {
+.texto-localizacao {
     color: #8A84E2;
     margin-bottom: 0;
-    font-size: 35px;
+    font-size: 55px;
 }
 
-section article .texto-instituto-federal {
+.texto-instituto-federal {
     font-weight: 400;
     font-size: 40px;
     margin-bottom: 0;
 }
-
-
 
 
 @media (max-width: 768px) {
@@ -278,12 +276,12 @@ section article .texto-instituto-federal {
     }
     
     
-    section article .texto-localizacao {
-        font-size: 25px;
+    .texto-localizacao {
+        font-size: 45px;
     }
     
-    section article .texto-instituto-federal {
-        font-size: 27px;
+    .texto-instituto-federal {
+        font-size: 35px;
     }
 }
 

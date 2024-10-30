@@ -3,11 +3,54 @@
 
 {%block style%}
 <link rel="stylesheet" href="{% static 'Css/submissao.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/phone.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/tablet.css'%}">
 {% endblock style%}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+<section class="sessao-de-instrucoes">
+    <article class="caixa-texto-submissao">
+        <h1 class="texto-instrucoes">Instruções</h1>
+        <img class="icone-certificado" src="{% static 'images/icone-certificado.svg' %}" alt="">
+    </article>
+
+    <div class="barra-inferior-instrucoes"></div>
+
+    <article class="card-de-instrucoes">
+        <p>
+            <span>1</span> Os projetos devem ser submetidos na forma de resumo, constando no máximo uma lauda.
+        </p>
+
+        <p>
+            <span>2</span> Os critérios de seleção dos trabalhos levarão em conta o consenso entre os membros da Comissão Científica, a respeito da estrutura e formatação &lpar;organização lógica do trabalho e adequação ao modelo sugerido para o evento&rpar;, redação &lpar;clareza, qualidade ortográfica e gramatical&rpar;, relevância e principalmente, a contribuição do trabalho para a comunidade acadêmica e a sociedade em geral. Além de propostas voltadas ao empreendedorismo ou ao desenvolvimento sustentável da região.
+        </p>
+
+        <p>
+            <span>3</span> Os trabalhos poderão ser aprovados sem correção, com correção ou reprovados.
+        </p>
+
+        <p>
+            <span>4</span> Os trabalhos aprovados com correção serão encaminhados ao professor orientador, a fim de que as correções sejam realizadas. A equipe que não apresentar as correções em até oito dias após o encaminhamento do e-mail de notificação será desclassificada do evento.
+        </p>
+    </article>
+
+    <article class="caixa-botao-download">
+        <button type="" class="botao-modelo-resumo">
+            <img class="icon" src="{% static 'images/icone-baixar-modelo.svg' %}" alt="">
+            Baixe o modelo <br> do resumo
+        </button>
+    </article>
+
+    <article class="caixa-botao-download">
+        <button type="" class="botao-modelo-panner">
+            <img class="icon" src="{% static 'images/icone-baixar-panner.svg' %}" alt="">
+            Baixe o modelo <br> do panner
+        </button>
+    </article>
+</section>
 
 
 {% endblock %}
