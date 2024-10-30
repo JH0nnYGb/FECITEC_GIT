@@ -40,6 +40,7 @@ body {
 
 .paragrafos-primeiro-card p {
     font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     margin-bottom: 50px;
 }
@@ -53,27 +54,6 @@ body {
     margin: 0 auto;
     margin-bottom: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .segundo-card {
     margin-bottom: 100px;
@@ -103,6 +83,7 @@ body {
 
 .paragrafos-segundo-card p {
     font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
 }
 
@@ -115,27 +96,6 @@ body {
     margin: 0 auto;
     margin-bottom: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .terceiro-card {
     margin-bottom: 100px;
@@ -165,6 +125,7 @@ body {
 
 .paragrafos-terceiro-card p {
     font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
 }
 

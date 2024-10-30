@@ -123,5 +123,20 @@
         color:#8a84e2;
         
     }
-    
+
+    .icone-certificado {
+        width: 40px;
+    }
+
+    .texto-instrucoes {
+        font-size: 40px;
+    }
+
+    .barra-inferior-instrucoes {
+        width: 90%;
+    }
+
+    .card-de-instrucoes {
+        width: 90%;
+    }
 }
