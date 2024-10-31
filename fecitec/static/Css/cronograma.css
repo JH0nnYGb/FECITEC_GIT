@@ -138,26 +138,3 @@ body {
     margin: 0 auto;
     margin-bottom: 30px;
 }
-
-
-@media (min-width: 320px) and  (max-width: 890px) {
-    .primeiro-card, .segundo-card, .terceiro-card {
-        width: 90%;
-    }
-
-    .primeiro-card h1 {
-        font-size: 35px;
-    }
-
-    .segundo-card h1, .terceiro-card h1 {
-        font-size: 25px;
-    }
-
-    .paragrafos-primeiro-card p, .paragrafos-segundo-card p, .paragrafos-terceiro-card p {
-        font-size: 25px;
-    }
-
-    .barra-primeiro-card, .barra-segundo-card, .barra-terceiro-card {
-        width: 100%;
-    }
-}

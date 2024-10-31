@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {%block style%}
-<link rel="stylesheet" href="static/Css/aprovados.css">
+<link rel="stylesheet" href="{% static 'Css/aprovados.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/aprovados-phone.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/aprovados-tablet.css' %}">
 
 {% endblock style%}
 

@@ -1,0 +1,91 @@
+
+/* Smartphone */
+@media (max-width: 950px) {
+    .localizacao-do-evento div {
+        margin-bottom: 30px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .caixa-card-maior {
+        width: 90%;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .cards-home img {
+        width: 50px;
+    }
+
+    .caixa-card-maior img {
+        width: 80px;
+    }
+
+    .titulo-card {
+        font-size: 16px;
+    }
+
+    .caixa-card-maior {
+        font-size: 22px;
+    }
+
+    .caixa-icones-midias-socias {
+        width: 90%;
+    }
+
+    .img-youtube {
+        width: 60px;
+    }
+    
+    .img-instagram {
+        margin-top: 8px;
+        margin-bottom: 3px;
+        width: 50px;
+    }
+    
+    .img-tiktok {
+        margin-top: 7px;
+        margin-bottom: 3px;
+        width: 51px;
+    }
+    
+    .img-facebook {
+        margin-top: 50px;
+        margin-bottom: 7px;
+        width: 60px;
+    }
+    
+    .img-threads {
+        margin-top: 55px;
+        margin-bottom: 8px;
+        width: 55px;
+    }
+    
+    .img-whatsapp {
+        margin-top: 60px;
+        margin-bottom: 13px;
+        width: 45px;
+    }
+
+    .caixa-do-mapa iframe {
+        width: 300px;
+    }
+
+    .localizacao-do-evento div {
+        border-radius: 10px;
+        width: 200px;
+        height: 5px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+    
+    
+    .texto-localizacao {
+        font-size: 45px;
+    }
+    
+    .texto-instituto-federal {
+        font-size: 35px;
+    }
+}
