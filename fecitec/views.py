@@ -13,7 +13,7 @@ def aprovados_view(request):
     return render(request, 'aprovado.html')
 
 def certificados_view(request):
-    return render(request, 'certificados02.html')
+    return render(request, 'certificados.html')
 
 def regulamento_view(request):
     return render(request, 'regulamento.html')
