@@ -55,6 +55,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        gap: 2rem;
     }
 
     .container-table{
@@ -141,7 +142,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 4rem;
     }
     .presented{
         display: flex;

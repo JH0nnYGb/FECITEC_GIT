@@ -34,6 +34,7 @@
     
 }
 
+
 .container-table{
     display: flex;
     flex-direction: column;
@@ -54,6 +55,7 @@
 .content_child{
     width: 100%;
     display: flex;
+    gap: 2rem;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
@@ -69,6 +71,22 @@
     margin-inline: 20px;
     padding-block: 30px;
     padding-inline: 30px;
+}
+
+.presented{
+    gap: 2rem;
+    display: flex;
+}
+
+.title_table{
+    
+    color:#8a84e2;
+}
+
+.barracks{
+    height: 4px;
+    border-radius: 40px;
+    background-color: #8a84e2;
 }
 
 .cabecalho_table{
@@ -88,3 +106,4 @@ td{
     font-weight: 500;
     color: #0F1141;
 }
+
