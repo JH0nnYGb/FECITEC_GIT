@@ -44,20 +44,17 @@
     width: 20rem;
   }
 
-
   .content_father {
-    /* overflow: hidden; */
     display: flex;
-    gap: 0px;
+    gap: 6rem;
     flex-direction: column;
-    /* margin-block: 10rem; */
+    margin-block: 4rem;
     }
+
     .content_child{
         width: 100%;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
-        /* align-items: center; */
     }
 
     .container-table{
