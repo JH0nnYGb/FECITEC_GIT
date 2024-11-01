@@ -47,28 +47,40 @@
         <div class="animation"></div>
     </nav>
 
-    <nav id="navigation" class="navigation" role="navigation">
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-        <ul id="menu">
+    <div class="container-hamburge-seachr">
+        <nav id="navigation" class="navigation" role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+            <ul id="menu">
+        
+                <li><a class="select-as" href="{% url 'home' %}"> Home </a></li>
+                <li><a class="select-as" href="{% url 'cronograma' %}"> Cronograma </a></li>
+                <li><a class="select-as" href="{% url 'submissao' %}"> Submissão </a></li>
+                <li><a class="select-as" href="{% url 'aprovados' %}"> Aprovados </a></li>
+                <li><a class="select-as" href="{% url 'certificados' %}"> Cerificados </a></li>
+                <li><a class="select-as" href="{% url 'regulamento' %}"> Regulamento </a></li>
+                <li><a class="select-as" href="{% url 'comissao' %}"> Comissão </a></li>
+                <li><a class="select-as" href="{% url 'contate' %}"> Contate-nos </a></li>
+                <li><a class="select-as" href="{% url 'login'%}"> Login </a></li>
+                
+                
+            </ul>
+           </div>
+
+           <div class="con">
+                <form action="">
+                    <div class="test">
+                        <input type="text" class="seachr-bar" class="test2" name ="buscar" placeholder="Buscar" >
+                        <i class="fas fa-search" id="lupa"></i>
+                    </div>
+                </form>
+           </div>
+        </nav>
+    </div>
     
-            <li><a class="select-as" href="{% url 'home' %}"> Home </a></li>
-            <li><a class="select-as" href="{% url 'cronograma' %}"> Cronograma </a></li>
-            <li><a class="select-as" href="{% url 'submissao' %}"> Submissão </a></li>
-            <li><a class="select-as" href="{% url 'aprovados' %}"> Aprovados </a></li>
-            <li><a class="select-as" href="{% url 'certificados' %}"> Cerificados </a></li>
-            <li><a class="select-as" href="{% url 'regulamento' %}"> Regulamento </a></li>
-            <li><a class="select-as" href="{% url 'comissao' %}"> Comissão </a></li>
-            <li><a class="select-as" href="{% url 'contate' %}"> Contate-nos </a></li>
-            <li><a class="select-as" href="{% url 'login'%}"> Login </a></li>
-            
-            
-        </ul>
-       </div>
-      </nav>
 
       
     <main>

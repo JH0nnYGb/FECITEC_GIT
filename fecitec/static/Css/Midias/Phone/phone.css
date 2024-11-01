@@ -83,13 +83,8 @@
         padding-top: 20px;
     }
 
-    .table-responsive {
-        overflow-x: auto; /* Adiciona a rolagem lateral */
-        width: 100%;
-        text-align: center;
-    }
-
     .seachr-bar{
+        display: none;
         margin-inline:20px;
         color:#8a84e2;
         background-color: #FBFCFF;
