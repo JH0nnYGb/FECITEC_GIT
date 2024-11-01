@@ -3,11 +3,40 @@
 
 {%block style%}
 <link rel="stylesheet" href="{% static 'Css/comissao.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/submissao-phone.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submissao-tablet.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 {% endblock style%}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    <div class="container-pai">
+        <div class="caixa-de-colaborador">
+            {% for member in comission %}
+                <article class="card-colaborador">
+                    <div class="caixa-foto-membro">
+                        <img class="foto-membro" src="{{ member.image.url }}" alt="{{ member.name }}">
+                    </div>
 
 
+                    <div class="dados-membro">
+                        <div class="caixa-nome-cargo">
+                            <h2 class="nome-membro">{{ member.name }}</h2>
+                            <p class="cargo">{{ member.position }}</p>
+                        </div>
+
+                        <div class="formacao-container">
+                            <img src="{% static 'images/icone-instagram-card-comissao.svg' %}" alt="">
+                            <p class="formacao">{{ member.formation }}</p>
+                        </div>
+                    </div>
+                </article>
+            {% empty %}
+                <li>Nenhum membro encontrado.</li>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
