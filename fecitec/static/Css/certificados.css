@@ -1,31 +1,3 @@
-.title_table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 4rem;
-}
-
-.presented{
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    color:#8A84E2 ;
-    font-weight: 800;
-    gap: 20px;
-    margin-top: 4rem;
-    margin-bottom: 5px;
-    margin-inline: 30%;
-
-}
-
-.barracks{
-    background-color: #868E96;
-    width: 20rem;
-    height: 4px;
-    border-radius: 40px;
-}
-
 .seachr-bar{
     margin-inline:6rem;
     color:#8a84e2;
@@ -51,15 +23,17 @@
     box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
 }
 
+
 #lupa {
     display: flex;
     position:  relative;
-    left: 33rem; 
+    left: 32rem; 
     top: -35px;
     font-size: 22px;
     color:#8a84e2;
     
 }
+
 
 .container-table{
     display: flex;
@@ -68,31 +42,23 @@
     background-color: #F5F5FD;
     justify-content: center;
     width: 100%;
-    padding-bottom: 30px;
-    padding-top: 20px;
+    padding: 20px;
 }
 
 .content_father{
-    /* overflow: hidden; */
     display: flex;
     gap: 30px;
     flex-direction: column;
-    /* margin-block: 10rem; */
+    margin-block: 10rem;
 }
 
 .content_child{
     width: 100%;
     display: flex;
-    overflow-x: auto;
+    gap: 2rem;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-}
-
-.table-responsive {
-    overflow-x: auto; /* Adiciona a rolagem lateral */
-    width: 100%;
-    text-align: center;
 }
 
 .table_approved {
@@ -101,14 +67,30 @@
     border: solid 2px #BFC8E5;
     background-color: #FBFCFF;
     border-radius: 40px;
-    width: 100%;
-    /* margin-inline: 20px; */
+    width: 90%;
+    margin-inline: 20px;
     padding-block: 30px;
     padding-inline: 30px;
 }
 
+.presented{
+    gap: 2rem;
+    display: flex;
+}
+
+.title_table{
+    
+    color:#8a84e2;
+}
+
+.barracks{
+    height: 4px;
+    border-radius: 40px;
+    background-color: #8a84e2;
+}
+
 .cabecalho_table{
-    font-weight: 600;
+    font-weight: 800;
     color: #0F1141;
 }
 
@@ -121,6 +103,7 @@ th, td {
 }
 
 td{
-    font-weight: 400;
+    font-weight: 500;
     color: #0F1141;
 }
+

@@ -2,30 +2,22 @@
 {% load static %}
 
 {%block style%}
-<link rel="stylesheet" href="{% static 'Css/certificados.css'%}">
-<link rel="stylesheet" href="{% static 'Css/Midias/Phone/certificados-phone.css'%}">
-<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/certificados-tablet.css'%}">
+<link rel="stylesheet" href="{% static 'Css/certificados.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/certificados-phone.css' %}">
+
+
 {% endblock style%}
 
-{% block title %}Certicados{% endblock %}
+{% block title %}Certificados{% endblock %}
 
 {% block content %}
-
 <div class="container-table">
     <div class="content_father">
-        <form action="">
-            
-            <div class="test">
-                <input type="text" class="seachr-bar" class="test2" name ="buscar" placeholder="Buscar" >
-                <i class="fas fa-search" id="lupa"></i>
-            </div>
-        </form>
-
         <div class="content_child">
             <section class="title_table">
                 <article class="presented">
-                    <h2> Trabalhos apresentados </h2>
-                    <img src="{% static 'images/icone-banner.svg'%}" alt="">
+                    <h2> Trabalhos Apresentados </h2>
+                    <img  style="height: 30px;" src="{% static 'images/icone-banner.svg'%}" alt="">
                 </article>
                 <div class="barracks"></div>
             </section>
@@ -59,19 +51,18 @@
                     </tbody>
                 </table>
             </section>
-            
         </div>
-
+        
+        <!-- segunda tabela  -->
         <div class="content_child">
             <section class="title_table">
                 <article class="presented">
                     <h2> Trabalhos Premiados </h2>
-                    <img src="{% static 'images/icone-trofeu.svg'%}" alt="">
+                    <img  style="height: 30px;" src="{% static 'images/icone-approved.svg'%}" alt="">
                 </article>
                 <div class="barracks"></div>
             </section>
-            
-            <section class="table-responsive">
+            <section class="table-responsive"> <!-- dessa div deixa a tabela responsiva para midias menores  -->
                 <table class="table_approved">
                     <thead class="cabecalho_table">
                         <th w-10%>Titulo</th>
@@ -81,10 +72,10 @@
                     </thead>
                     <tbody>
                         <tr class="li_table">
-                            <td>linha1</td>
-                            <td>linha2</td>
-                            <td>linha3</td>
-                            <td>linha4</td>
+                            <td style="width: 25%;">linha1</td>
+                            <td style="width: 25%;">linha2</td>
+                            <td style="width: 15%;">linha3</td>
+                            <td style="width: 35%;">linha4</td>
                         </tr>
                         <tr class="li_table">
                             <td class="conteudo_li">columa 1</td>
@@ -101,10 +92,9 @@
                     </tbody>
                 </table>
             </section>
-            
         </div>
+
     </div>
-</div> 
-
-
+</div>    
+     
 {% endblock %}
