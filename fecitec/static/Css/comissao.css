@@ -8,17 +8,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 95%;
-    border: 1px solid red;
-
+    width: 90%;
+    margin-bottom: 30px;
 }
 
 .card-colaborador {
     display: flex;
     height: 250px;
-    width: 450px;
+    width: 500px;
     margin-top: 30px;
-    flex-direction: row;
+    flex-direction: column;
     border: 2.5px solid #BFC8E5;
     border-radius: 12px;
     padding: 20px 10px 20px 10px;
@@ -32,13 +31,11 @@
     height: 150px;
 }
 
-
-
-.dados-membro {
+.formacao-membro {
     margin-top: 10px;
 }
 
-.dados-membro img {
+.formacao-membro img {
     display: flex;
     width: 40px;
 }
@@ -46,18 +43,32 @@
 .formacao-container {
     display: flex;
     align-items: center;
-    height: 20%;
-    gap: 8px;
-    border: 1px solid red;
+    height: auto;
+    width: 65%;
+    gap: 10px;
 }
 
-.caixa-foto-membro {
-    border: 1px solid red;
+.formacao-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+    border: 3px solid #BFC8E5;
+    border-radius: 20px;
 }
 
-.caixa-nome-cargo {
-    border: 1px solid red;
+.formacao-container p {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #516FD4;
+}
 
+.caixa-info-membro {
+    display: flex;
+    flex-direction: row;
+    height: 160px;
 }
 
 .nome-membro {
