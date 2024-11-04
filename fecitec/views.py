@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from  .models import Commission
 
 def home_view(request):
     return render(request, 'home.html')
@@ -19,7 +20,11 @@ def regulamento_view(request):
     return render(request, 'regulamento.html')
 
 def comissao_view(request):
-    return render(request, 'comissao.html')
+    context = {
+        'comission': Commission.objects.all()
+    }
+
+    return render(request, 'comissao.html', context)
 
 def contate_view(request):
     return render(request, 'contate.html')
