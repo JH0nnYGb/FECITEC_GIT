@@ -52,6 +52,7 @@
 }
 
 .content_child{
+    gap: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -60,16 +61,32 @@
 }
 
 .table_approved {
+    width: 90%;
     border-collapse: separate;
     border-spacing: 10px;
     border: solid 2px #BFC8E5;
     background-color: #FBFCFF;
-    border-radius: 40px;
-    width: 90%;
+    border-radius: 16px;
     margin-inline: 20px;
     padding-block: 30px;
     padding-inline: 30px;
 }
+
+.presented{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.barracks {
+    height: 4px;
+    border-radius: 40px;
+    background-color: #8a84e2;
+}
+
+.title_table{
+  color: #8a84e2; }
+
 
 .cabecalho_table{
     font-weight: 800;
