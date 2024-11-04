@@ -66,7 +66,7 @@
     border-spacing: 10px;
     border: solid 2px #BFC8E5;
     background-color: #FBFCFF;
-    border-radius: 40px;
+    border-radius: 16px;
     width: 90%;
     margin-inline: 20px;
     padding-block: 30px;
@@ -74,8 +74,9 @@
 }
 
 .presented{
-    gap: 2rem;
     display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .title_table{
