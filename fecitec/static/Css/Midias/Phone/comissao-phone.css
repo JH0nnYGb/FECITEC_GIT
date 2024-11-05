@@ -1,0 +1,48 @@
+@media (max-width: 576px) {
+    .card-colaborador {
+        height: 180px;
+    }
+    
+    .caixa-info-membro {
+        height: 100px;
+    }
+
+    .formacao-membro {
+        display: flex;
+        justify-content: end;
+        margin-top: 5px;
+    }
+
+    .formacao-container {
+        width: 70%;
+        gap: 10px;
+    }
+
+    
+    .formacao-container div {
+        height: 35px;
+        width: 80px;
+    }
+
+    .formacao-container p {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .formacao-membro img {
+        width: 30px;
+    }
+    
+    .foto-membro {
+        width: 100px;
+        height: 100px;
+    }
+
+    .nome-membro {
+        font-size: 20px;
+    }
+    
+    .cargo {
+        font-size: 13px;
+    }
+}

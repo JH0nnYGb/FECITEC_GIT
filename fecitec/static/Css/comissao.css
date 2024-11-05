@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between; 
     width: 90%;
     margin-bottom: 30px;
 }
@@ -24,6 +24,12 @@
     background: #FFF;
 }
 
+.caixa-info-membro {
+    display: flex;
+    flex-direction: row;
+    height: 160px;
+}
+
 .foto-membro {
     border-radius: 50%;
     margin-right: 10px;
@@ -36,7 +42,6 @@
 }
 
 .formacao-membro img {
-    display: flex;
     width: 40px;
 }
 
@@ -65,11 +70,7 @@
     color: #516FD4;
 }
 
-.caixa-info-membro {
-    display: flex;
-    flex-direction: row;
-    height: 160px;
-}
+
 
 .nome-membro {
     font-family: "Merriweather", serif;
@@ -85,4 +86,9 @@
 
 .formacao {
     margin-top: 15px;
+}
+
+.empty {
+    margin-top: 30px;
+    font-size: 30px;
 }
