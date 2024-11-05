@@ -3,8 +3,8 @@
 
 {%block style%}
 <link rel="stylesheet" href="{% static 'Css/comissao.css'%}">
-<link rel="stylesheet" href="{% static 'Css/Midias/Phone/submissao-phone.css' %}">
-<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submissao-tablet.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/comissao-phone.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/comissao-tablet.css' %}">
 <link rel="stylesheet" href="{% static 'Css/Midias/BigDesktop/comissao-bigDesktop.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
                 </article>
                 
             {% empty %}
-                <div>Nenhum membro encontrado.</div>
+                <div class="empty">Nenhum membro encontrado.</div>
             {% endfor %}
         </div>
     </div>
