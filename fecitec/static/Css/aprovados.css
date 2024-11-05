@@ -61,7 +61,7 @@
 }
 
 .table_approved {
-    width: 90%;
+    width: 100%;
     border-collapse: separate;
     border-spacing: 10px;
     border: solid 2px #BFC8E5;
@@ -71,6 +71,15 @@
     padding-block: 30px;
     padding-inline: 30px;
 }
+
+.table-responsive {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* justify-content: center; */
+}
+
 
 .presented{
     display: flex;

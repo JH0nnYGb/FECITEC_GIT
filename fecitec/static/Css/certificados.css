@@ -45,6 +45,10 @@
     padding: 20px;
 }
 
+.table-responsiv{
+    width: 100%;
+}
+
 .content_father{
     display: flex;
     gap: 30px;
@@ -67,8 +71,7 @@
     border: solid 2px #BFC8E5;
     background-color: #FBFCFF;
     border-radius: 16px;
-    width: 90%;
-    margin-inline: 20px;
+    width: 100%;
     padding-block: 30px;
     padding-inline: 30px;
 }
