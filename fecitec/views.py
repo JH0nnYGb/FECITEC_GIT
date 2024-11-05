@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from  .models import Commission
+from django.core.paginator import Paginator
+from .models import Commission
 
 def home_view(request):
     return render(request, 'home.html')
@@ -20,8 +21,14 @@ def regulamento_view(request):
     return render(request, 'regulamento.html')
 
 def comissao_view(request):
+    members = Commission.objects.all()
+    comission_paginator = Paginator(members, 1)
+    members_num = request.GET.get('page')
+    members_page = comission_paginator.get_page(members_num)
+
     context = {
-        'comission': Commission.objects.all()
+        'comission': members_page,
+        'current_page': members_page.number
     }
 
     return render(request, 'comissao.html', context)

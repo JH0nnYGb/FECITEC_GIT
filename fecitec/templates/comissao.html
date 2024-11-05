@@ -36,10 +36,29 @@
                         </div>
                     </section>
                 </article>
-                
             {% empty %}
                 <div class="empty">Nenhum membro encontrado.</div>
             {% endfor %}
         </div>
+
+
     </div>
+
+    <article class='container-paginacao'>
+        <div class="container-botoes">
+            {% if comission.has_previous %}
+                <a href="{% url 'comissao' %}?page={{ comission.previous_page_number }}">
+                    <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="">
+                </a>
+            {% endif %}
+
+            <div class="indice-paginacao">{{ current_page }}</div>
+
+            {% if comission.has_next %}
+                <a href="{% url 'comissao' %}?page={{ comission.next_page_number }}">
+                    <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="">
+                </a>
+            {% endif %}
+        </div>
+    </article>
 {% endblock %}
