@@ -1,0 +1,16 @@
+/* MIdias menores  */
+@media (max-width: 576px) {
+    .container-father{
+        gap: 20px;
+        width: 90%;
+        height: 720px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FFFF;
+        margin-block: 30px;
+        border-radius: 16px;
+    }
+
+}

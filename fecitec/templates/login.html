@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Tangsa:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <!-- ^^^^^^ importando fontes ^^^^^^^^ -->
 
-<link rel="stylesheet" href="{% static 'Css/login.css'%}">
+<link rel="stylesheet" href="{% static 'Css/login.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/login-phone.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/login-tablet.css'%}">
 
 {% endblock style%}
 
@@ -25,22 +27,28 @@
             <form action="" class="forms-fields" >
                 <input type="text" class="fields" placeholder="Nome Completo">
                 <input type="text" class="fields" placeholder="Senha">
+
+                
                 <div class="dropdown">
-                    <button type="button" onclick="showMenu()" class="dropdown-button">
-                      Dropdown
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="chevron" class="chevron-icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                      </svg>
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="#" class="dropdown-link">Administrador</a>
-                      <a href="#" class="dropdown-link">Jurado</a>
-                      <a href="#" class="dropdown-link">Participante</a>
-                    </div>
-                  </div>    
-                <button class="btn-login"> Login </button>
+                  <div class="dropdown-toggle" onclick="toggleDropdown()">Função</div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-option" onclick="selectOption('Administrador')"> Administrador </div>
+                    <div class="dropdown-option" onclick="selectOption('Jurado')"> Jurado </div>
+                    <div class="dropdown-option" onclick="selectOption('Participante')"> Participante </div>
+                  </div>
+                </div>
+
+
+                <div class="container-botao-login">
+                  <button class="btn-login"> Login </button>
+                </div>    
+            </form>    
         </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'Js/select-dropdonw.js' %}"></script>
 {% endblock %}
