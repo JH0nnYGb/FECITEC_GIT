@@ -1,0 +1,89 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    font-weight: 700;
+    font-family: "Merriweather", serif;
+ }
+
+ textarea {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    outline: none;
+    padding: 10px;
+    border: 2px solid #BFC8E5;
+    resize: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 30px;
+ }
+
+.container-father{
+    gap: 20px;
+    width: 640px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFF;
+    margin-block: 30px;
+    border-radius: 16px;
+ }
+
+ .container-father{
+    gap: 20px;
+    width: 35%;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFF;
+    margin-block: 30px;
+    border-radius: 16px;
+ }
+
+ .forms-fields{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+ }
+
+.box-forms {
+    width: 80%;
+}
+
+ .fields{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    outline: none;
+    width: 100%;
+    height: 36px;
+    border-bottom:2px solid  #BFC8E5;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+ }
+
+ .btn-login{
+    font-family: "Merriweather", serif;
+    width: 380px;
+    height: 58px;
+    display: flex;
+    border-radius: 40px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    background-color:#6D8194 ;
+ }
+
+ .container-botao-entrar {
+    display: flex;
+    justify-content: center;
+ }
