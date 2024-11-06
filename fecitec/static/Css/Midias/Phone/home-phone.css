@@ -1,6 +1,6 @@
 
 /* Smartphone */
-@media (max-width: 950px) {
+@media (max-width: 576px)  {
     .localizacao-do-evento div {
         margin-bottom: 30px;
     }
@@ -66,10 +66,6 @@
         margin-top: 60px;
         margin-bottom: 13px;
         width: 45px;
-    }
-
-    .caixa-do-mapa iframe {
-        width: 300px;
     }
 
     .localizacao-do-evento div {
