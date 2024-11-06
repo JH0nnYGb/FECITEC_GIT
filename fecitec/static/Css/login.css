@@ -1,0 +1,51 @@
+ main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ h2{
+    font-weight: 700;
+    font-family: "Merriweather", serif;
+ }
+
+ .container-father{
+    gap: 20px;
+    width: 640px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFF;
+    margin-block: 30px;
+    border-radius: 16px;
+ }
+ .forms-fields{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+ }
+
+ .fields{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    width: 480px;
+    height: 36px;
+    border-bottom:2px solid  #BFC8E5;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+ }
+
+ .btn-login{
+    font-family: "Merriweather", serif;
+    width: 380px;
+    height: 58px;
+    display: flex;
+    border-radius: 40px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    background-color:#6D8194 ;
+ }
