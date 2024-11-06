@@ -120,6 +120,12 @@ span {
 
 
 
+.nav-bar a.active {
+  color: #007BFF;
+}   
+
+
+
 /* ESTILO DO FOOTER */
 footer {
     border-top: 4px solid #BFC8E5;
