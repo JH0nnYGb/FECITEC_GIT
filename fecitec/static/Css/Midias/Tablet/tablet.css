@@ -1,5 +1,12 @@
 /* Tablets */
 @media (min-width: 577px) and (max-width: 885px) {
+  
+  
+  .navigation {
+      margin-top: 5px;
+      display: block;
+      width: 5rem;
+  }
 
     .navigation{
         margin-top: 5px;
