@@ -45,4 +45,21 @@
     .cargo {
         font-size: 13px;
     }
+
+    /* ESTILO DA PAGINAÇÃO */
+    .indice-paginacao {
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Exibir no máximo 3 números de página em dispositivos móveis */
+    .container-botoes {
+        flex-wrap: wrap;
+    }
+
+
+    .paginacao-link {
+        font-size: 14px;
+    }
 }

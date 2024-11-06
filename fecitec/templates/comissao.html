@@ -37,28 +37,60 @@
                     </section>
                 </article>
             {% empty %}
-                <div class="empty">Nenhum membro encontrado.</div>
+                <div class="empty">
+                    <p>Nenhum membro encontrado.</p>
+                </div>
             {% endfor %}
         </div>
 
-
     </div>
 
-    <article class='container-paginacao'>
+    <article class="container-paginacao">
         <div class="container-botoes">
+            <!-- Link para a página anterior -->
             {% if comission.has_previous %}
-                <a href="{% url 'comissao' %}?page={{ comission.previous_page_number }}">
-                    <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="">
+                <a href="{% url 'comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
+                    <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda">
                 </a>
             {% endif %}
 
-            <div class="indice-paginacao">{{ current_page }}</div>
-
+            <!-- Lógica para mostrar apenas 3 números de páginas -->
+            {% if comission.paginator.num_pages > 3 %}
+                {% if comission.number > 2 %}
+            
+                    <!-- Exibir as páginas anteriores e posteriores -->
+                    {% for num in comission.paginator.page_range %}
+                        {% if num >= comission.number|add:"-1" and num <= comission.number|add:"1" %}
+                            {% if num == comission.number %}
+                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                            {% else %}
+                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <!-- Exibir as páginas 1, 2 e 3 -->
+                    {% for num in comission.paginator.page_range %}
+                        {% if num <= 3 %}       
+                            {% if num == comission.number %}
+                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                            {% else %}
+                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+    
+            <!-- Link para a próxima página -->
             {% if comission.has_next %}
-                <a href="{% url 'comissao' %}?page={{ comission.next_page_number }}">
-                    <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="">
+                <a href="{% url 'comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
+                    <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita">
                 </a>
             {% endif %}
         </div>
     </article>
+    
+    
+    
 {% endblock %}
