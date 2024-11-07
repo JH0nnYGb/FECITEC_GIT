@@ -14,7 +14,7 @@
         border-radius: 16px;
      }
 
-     .seachr-bar{
-        display: none;
-     }
+     .container-search-bar{
+      display: none;
+    }
 }

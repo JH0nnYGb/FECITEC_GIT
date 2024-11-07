@@ -2,4 +2,8 @@
     .container-father {
         width: 60%;
     }
+
+    .container-search-bar{
+        display: none;
+      }
 }

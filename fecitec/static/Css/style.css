@@ -156,10 +156,11 @@ footer {
     margin-top: 10px;
 }
 
-.apoio img {
+.apoio .formigueiro-tecnologico {
   width: 130px;
   border: 1px solid #868E96;
   border-radius: 50%;
+  background: #000;
 }
 
 .caixa-icones-footer {
