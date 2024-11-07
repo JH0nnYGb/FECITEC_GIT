@@ -30,4 +30,8 @@
   .card-de-instrucoes {
       width: 70%;
   }
+
+  .container-search-bar{
+    display: none;
+  }
 }
