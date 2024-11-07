@@ -1,0 +1,7 @@
+@media (min-width: 577px) and (max-width: 885px) {
+    .accordion-button:not(.collapsed) {
+        position: static;
+    }
+
+}
+

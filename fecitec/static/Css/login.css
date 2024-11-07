@@ -83,6 +83,7 @@
 
 /* Estilo do botão principal do dropdown */
 .dropdown-toggle {
+  font-weight: 600;
   width: 100%;
   padding: 10px;
   font-size: 16px;

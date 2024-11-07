@@ -2,53 +2,81 @@
 {% load static %}
 
 {%block style%}
-<link rel="stylesheet" href="{% static 'Css/regulamento.css'%}">
+<link rel="stylesheet" href="{% static 'Css/regulamento.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/regulamento-tablet.css' %}">
 {% endblock style%}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 <!-- o nome da classe sanfona item foi colocado assim para evidar conflidos com classes do bootstrap  -->
-<div class="accordion-container">
-  <div class="sanfona-item">
-      <button class="accordion-button">Para os Participantes</button>
-      <div class="accordion-content">
-          <p>Conteúdo relacionado a Para os Participantes.</p>
-      </div>
-  </div>
-  <div class="sanfona-item">
-      <button class="accordion-button">Processo de Submissão</button>
-      <div class="accordion-content">
-          <p>Conteúdo relacionado a Processo de Submissão.</p>
-      </div>
-  </div>
-  <div class="sanfona-item">
+<section class="accordion-container">
+
+    <div class="sanfona-item">
+        <button class="accordion-button">Para os Participantes</button>
+        <div class="accordion-content">
+            <p>
+              1.1 - Podem participar na IX FECITEC-BONFIM, alunos que estão devidamente matriculados no ensino fundamental, médio ou técnico das redes municipal, estadual, federal ou particular do município de Senhor do Bonfim e de outras regiões do Brasil. <br>
+              1.2 - Cada equipe deverá ser composta por pelo menos um professor responsável (orientador) e um aluno. O trabalho submetido para exposição na IX FECITEC-BONFIM deverá apresentar no máximo quatro alunos.<br>
+              1.3 – Cada grupo poderá ter alunos de diferentes séries e escolas e deve ser acompanhado por um ou mais professores.<br>
+              1.4 - Um professor de uma mesma escola poderá orientar e concorrer com número ilimitado de trabalhos. No entanto, o aluno de uma mesma instituição não poderá concorrer como apresentador em mais de um trabalho, ou seja, pode ter mais trabalhos, mas só deve apresentar um.<br>
+              1.5 – Caberá ao professor orientador escolher um aluno para ser o responsável pela apresentação do trabalho.<br>
+              1.6 – Discentes de nível superior podem atuar como orientadores de alunos matriculados no ensino fundamental, médio ou técnico das redes municipal, estadual, federal ou particular do município de Senhor do Bonfim e de outras regiões do Brasil.<br>
+            </p>
+        </div>
+    </div>
+
+    <div class="sanfona-item">
+        <button class="accordion-button">Processo de Submissão</button>
+        <div class="accordion-content">
+            <p>Conteúdo relacionado a Processo de Submissão.</p>
+        </div>
+    </div>
+
+    <div class="sanfona-item">
+        <button class="accordion-button">Área de conhecimento</button>
+        <div class="accordion-content">
+            <p>Conteúdo relacionado a Área de conhecimento.</p>
+        </div>
+    </div>
+
+    <div class="sanfona-item">
       <button class="accordion-button">Área de conhecimento</button>
       <div class="accordion-content">
           <p>Conteúdo relacionado a Área de conhecimento.</p>
       </div>
-  </div>
-  <div class="sanfona-item">
-    <button class="accordion-button">Submissão e Avaliação dos Resumos </button>
-    <div class="accordion-content">
-        <p>Conteúdo relacionado a Área de conhecimento.</p>
-  </div>
-  <div class="sanfona-item">
-    <button class="accordion-button">Caracterização do Trabalho </button>
-    <div class="accordion-content">
-        <p>Conteúdo relacionado a Área de conhecimento.</p>
-  </div>
-  <div class="sanfona-item">
-    <button class="accordion-button">Julgamento do Trabalho </button>
-    <div class="accordion-content">
-        <p>Conteúdo relacionado a Área de conhecimento.</p>
-  </div>
-  <div class="sanfona-item">
-    <button class="accordion-button">Certificados</button>
-    <div class="accordion-content">
-        <p>Conteúdo relacionado a Área de conhecimento.</p>
-  </div>
-</div>
+    </div>
+
+    <div class="sanfona-item">
+      <button class="accordion-button">Submisso e Avaliação dos Resumos </button>
+      <div class="accordion-content">
+          <p>Conteúdo relacionado a Área de conhecimento.</p>
+      </div>
+    </div>
+
+    <div class="sanfona-item">
+      <button class="accordion-button">Caracterização do Trabalho</button>
+      <div class="accordion-content">
+          <p>Conteúdo relacionado a Área de conhecimento.</p>
+      </div>
+    </div>
+
+    <div class="sanfona-item">
+      <button class="accordion-button">Julgamento do Trabalho</button>
+      <div class="accordion-content">
+          <p>Conteúdo relacionado a Área de conhecimento.</p>
+      </div>
+    </div>
+
+    <div class="sanfona-item">
+      <button class="accordion-button">Certificados</button>
+      <div class="accordion-content">
+          <p>Conteúdo relacionado a Área de conhecimento.</p>
+      </div>
+    </div>
+
+
+</section>
   <!-- Adicione mais itens de acordeão aqui -->
 </div>
 
