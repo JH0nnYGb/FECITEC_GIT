@@ -23,16 +23,108 @@ h1 {
     font-style: normal;
     font-size: 70px;
 }
+/* ################ Estilo banner ###################### */
 
+/* Container principal */
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    color: #FFF;
-    background: #343885;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
+  /* overflow: hidden; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Área de banner */
+.banner {
+  background: linear-gradient(135deg, #474dc5, #343885); /* Cores de fundo */
+  height: 150px;
+  position: relative;
+  display: flex; 
+  justify-content:center;
+  padding: 0 20px;
+  color: white;
+  overflow: hidden;
+}
+
+/* Curvas internas */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.banner::before {
+  transform: translate(-25%, -60%) rotate(-15deg);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35), transparent 60%);
+}
+
+.banner::after {
+  transform: translate(-50%, -20%) rotate(200deg);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35), transparent 60%);
+}
+
+/* Curvas extras */
+.curve-1, .curve-2, .curve-3 {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  z-index: 0;
+}
+
+.curve-1 {
+  transform: translate(-30%, -40%) rotate(-25deg);
+  background: radial-gradient(circle at 50% 50%, rgba(52, 56, 133, 0.3), transparent 65%); /* #343885 */
+}
+
+.curve-2 {
+  transform: translate(-45%, -30%) rotate(5deg);
+  background: radial-gradient(circle at 50% 50%, rgba(52, 56, 133, 0.4), transparent 70%); /* #343885 */
+}
+
+.curve-3 {
+  transform: translate(-20%, -70%) rotate(15deg);
+  background: radial-gradient(circle at 50% 50%, rgba(52, 56, 133, 0.75), transparent 80%); /* #343885 */
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 5px;
+  z-index: 2;
+}
+
+/* Título e subtítulo */
+.text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.title {
+  font-family: "Krona One", sans-serif;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 500;
+  color: #B7D3F2;
+}
+/* ############# fim do estilo do banner ################# */
 
 span {
     font-family: "Krona One", sans-serif;

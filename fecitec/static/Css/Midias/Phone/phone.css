@@ -21,27 +21,35 @@
         padding-inline: 30px; */
     }
 
-    header {
+    /* header {
         padding: 5px;
-    }
+    } */
 
-    .fecitec-logo h1 {
-        font-size: 40px;
-    }
+    /* ###################### Estilo banner ###################### */
 
-    .fecitec-logo img {
-        width: 40px;
-        height: 65px;
-    }
-
-    .fecitec-logo {
-        height: 47%;
+    .banner{
+        background: linear-gradient(135deg, #474dc5, #343885);
+        height: 195px;
+        position: relative;
         display: flex;
+        justify-content: center;
+        padding: 0 20px;
+        color: white;
+        overflow: hidden;
     }
 
-    .paragrafo-logo {
-        font-size: 13px;
-    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+      }
+      
+      .title {
+        font-family: "Krona One", sans-serif;
+      }
+      
+
+    /* ###################### fim do estilo banner############# */
     .navigation{
         margin-top: 5px;
         display: block;

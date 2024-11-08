@@ -24,16 +24,22 @@
     {% endblock style%}
 </head>
 <body>
+
     <header>  
-        <div id="topo" class="fecitec-logo">
-            <h1>FECITEC</h1>
-            <img src="{% static 'images/Icone-fecitec.svg' %}" alt="">
-        </div>
-        <div class="paragrafo-logo">
-            <span>Inovação Sustentável e tecnologia Sociais no Século XXI</span> <br>
-            <span>Transforme a realidade </span>
+        <div class="header-container">
+            <div class="banner">
+                <div class="curve-1"></div>
+                <div class="curve-2"></div>
+                <div class="curve-3"></div>
+                <img  class="logo" src="{% static 'images/Icone-fecitec.svg' %}" alt="">
+                <div class="text">
+                    <h1 class="title">Fecitec</h1>
+                    <span class="subtitle"> Inovação Sustentável e Tecnologia Sociais  <br> no Século XXI Transforme a Realidade  </span>
+                </div>
+            </div>
         </div>
     </header>
+
     <nav class="nav-bar">
         <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
         <a href="{% url 'cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}">Cronograma</a>
