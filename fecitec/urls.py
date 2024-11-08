@@ -9,6 +9,8 @@ from fecitec.views import comissao_view
 from fecitec.views import contate_view
 from fecitec.views import login
 
+app_name = 'fecitec'
+
 urlpatterns = [
     path('', home_view, name='home'),
     path('/cronograma',cronograma_view, name='cronograma'),

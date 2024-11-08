@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fecitec',
-    'stdimage'
+    'admin_fecitec',
+    'stdimage',
 ]
 
 MIDDLEWARE = [
