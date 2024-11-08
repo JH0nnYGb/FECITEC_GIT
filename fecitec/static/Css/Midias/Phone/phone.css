@@ -26,6 +26,18 @@
     } */
 
     /* ###################### Estilo banner ###################### */
+    /* Logo */
+    .logo {
+        width: 80px;
+        height: 108px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        margin-top: 5px;
+        z-index: 2;
+    }
+
 
     .banner{
         background: linear-gradient(135deg, #474dc5, #343885);
@@ -45,7 +57,15 @@
       }
       
       .title {
+        font-size:xx-large;
         font-family: "Krona One", sans-serif;
+      }
+
+      .subtitle {
+        font-size:smaller;
+        text-align: center;
+        font-weight: 500;
+        color: #B7D3F2;
       }
       
 
