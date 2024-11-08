@@ -47,6 +47,8 @@
 
 .table-responsiv{
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .content_father{
@@ -71,7 +73,7 @@
     border: solid 2px #BFC8E5;
     background-color: #FBFCFF;
     border-radius: 16px;
-    width: 100%;
+    width: 68%;
     padding-block: 30px;
     padding-inline: 30px;
 }
