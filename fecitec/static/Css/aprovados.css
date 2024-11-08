@@ -61,7 +61,7 @@
 }
 
 .table_approved {
-    width: 100%;
+    width: 68%;
     border-collapse: separate;
     border-spacing: 10px;
     border: solid 2px #BFC8E5;
@@ -74,10 +74,10 @@
 
 .table-responsive {
     display: flex;
+    justify-content: center ;
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    /* justify-content: center; */
 }
 
 

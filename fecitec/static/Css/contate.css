@@ -70,6 +70,14 @@ h2{
     border-top: none;
  }
 
+ .fields:focus{
+   outline: none;
+   border-bottom:  4px solid #8A84E2;
+   border-left:none ;
+   border-right:none ;
+   border-top: none;
+}
+
  .btn-login{
     font-family: "Merriweather", serif;
     width: 380px;
