@@ -109,7 +109,9 @@ header {
 
 /* Título e subtítulo */
 .text {
+  
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 2;
