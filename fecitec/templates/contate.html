@@ -26,13 +26,13 @@
         <div class="fields-content">
             <form action="" class="forms-fields" >
                 <input type="text" class="fields" placeholder="Nome Completo">
-                <input type="text" class="fields" placeholder="E-mail">
-                <input type="text" class="fields" placeholder="Número">
+                <input type="email" class="fields" placeholder="E-mail">
+                <input type="number" class="fields" placeholder="Número" onkeydown="return !['ArrowUp', 'ArrowDown'].includes(event.key)">
                 <div class="dropdown">
                 <textarea name="" id="" placeholder="Escreva sua mensagem"></textarea>
 
                 <div class="container-botao-entrar">
-                    <button class="btn-login"> Enviar </button>
+                    <button type="submit" class="btn-login"> Enviar </button>
                 </div>
             </form>
         </div>

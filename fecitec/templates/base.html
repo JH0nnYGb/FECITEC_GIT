@@ -40,18 +40,42 @@
         </div>
     </header>
 
-    <nav class="nav-bar">
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-        <a href="{% url 'cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}">Cronograma</a>
-        <a href="{% url 'submissao' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}">Submissão</a>
-        <a href="{% url 'aprovados' %}" class="{% if request.resolver_match.url_name == 'aprovados' %}active{% endif %}">Aprovados</a>
-        <a href="{% url 'certificados' %}" class="{% if request.resolver_match.url_name == 'certificados' %}active{% endif %}">Certificados</a>
-        <a href="{% url 'regulamento' %}" class="{% if request.resolver_match.url_name == 'regulamento' %}active{% endif %}">Regulamento</a>
-        <a href="{% url 'comissao' %}" class="{% if request.resolver_match.url_name == 'comissao' %}active{% endif %}">Comissão</a>
-        <a href="{% url 'contate' %}" class="{% if request.resolver_match.url_name == 'contate' %}active{% endif %}">Contate-nos</a>
-        <a href="{% url 'login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a>
-        <div class="animation"></div>
-    </nav>
+    <article class="navigation-bar">
+        <nav class="navbar">
+            <ul>    
+                <li>
+                    <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}">Cronograma</a>
+                </li>
+                <li>
+                    <a href="{% url 'submissao' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}">Submissão</a>
+                </li>
+                <li>
+                    <a href="{% url 'aprovados' %}" class="{% if request.resolver_match.url_name == 'aprovados' %}active{% endif %}">Aprovados</a>
+                </li>
+                <li>
+                    <a href="{% url 'certificados' %}" class="{% if request.resolver_match.url_name == 'certificados' %}active{% endif %}">Certificados</a>
+                </li>
+                <li>
+                    <a href="{% url 'regulamento' %}" class="{% if request.resolver_match.url_name == 'regulamento' %}active{% endif %}">Regulamento</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'comissao' %}" class="{% if request.resolver_match.url_name == 'comissao' %}active{% endif %}">Comissão</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'contate' %}" class="{% if request.resolver_match.url_name == 'contate' %}active{% endif %}">Contate-nos</a>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </article>
+
 
     <div class="container-hamburge-seachr">
         <nav id="navigation" class="navigation" role="navigation">
