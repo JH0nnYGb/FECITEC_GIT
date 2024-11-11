@@ -38,3 +38,6 @@ def contate_view(request):
 
 def login(request):
     return render(request, 'login.html')
+
+def formigueiro_view(request):
+    return render(request, 'formigueiro.html')
