@@ -24,17 +24,17 @@
     <h2>Envie sua Mensagem</h2>
     <div class="box-forms">
         <div class="fields-content">
-            <form action="" class="forms-fields" >
-                <input type="text" class="fields" placeholder="Nome Completo">
-                <input type="email" class="fields" placeholder="E-mail">
-                <input type="number" class="fields" placeholder="Número" onkeydown="return !['ArrowUp', 'ArrowDown'].includes(event.key)">
-                <div class="dropdown">
-                <textarea name="" id="" placeholder="Escreva sua mensagem"></textarea>
+            <form method="post" action="{% url 'fecitec:contate' %}" class="forms-fields" >
+                {% csrf_token %}
+                {{ form.as_p }}
 
                 <div class="container-botao-entrar">
                     <button type="submit" class="btn-login"> Enviar </button>
                 </div>
             </form>
+
+            {% if form.errors %}
+            {% endif %}
         </div>
     </div>
 </div>
