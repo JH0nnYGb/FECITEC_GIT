@@ -58,19 +58,19 @@ h2{
     width: 80%;
 }
 
- .fields{
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    outline: none;
-    width: 100%;
-    height: 36px;
-    border-bottom:2px solid  #BFC8E5;
-    border-left:none ;
-    border-right:none ;
-    border-top: none;
- }
+.fields-content p input {
+   font-family: "Poppins", sans-serif;
+   font-weight: 500;
+   outline: none;
+   width: 100%;
+   height: 36px;
+   border-bottom:2px solid  #BFC8E5;
+   border-left:none ;
+   border-right:none ;
+   border-top: none;
+}
 
- .fields:focus{
+.fields-content p input:focus {
    outline: none;
    border-bottom:  4px solid #8A84E2;
    border-left:none ;
