@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Commission
+
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib import messages
-
-
+##################################
+from .forms import ContactForm
+###################################
 def home_view(request):
     return render(request, 'home.html')
 
@@ -39,7 +41,22 @@ def comissao_view(request):
     return render(request, 'comissao.html', context)
 
 def contate_view(request):
-    return render(request, 'contate.html')
+    form = ContactForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.send_mail()
+            messages.success(request, 'E-mail enviado com sucesso!')
+            form = ContactForm()
+
+        else:
+            messages.error(request, 'Erro ao enviar e-mail')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'contate.html', context)
 
 def user_login(request):
     if request.method == 'POST':

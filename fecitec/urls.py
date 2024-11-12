@@ -21,7 +21,9 @@ urlpatterns = [
     path('certificados', certificados_view, name='certificados'),
     path('regulamento', regulamento_view, name='regulamento'),
     path('comissao', comissao_view, name='comissao'),
+  
     path('contate-nos', contate_view, name='contate'),
     path('login/', user_login, name='user_login'),
+
     path('formigueiro', formigueiro_view, name='formigueiro')
 ]

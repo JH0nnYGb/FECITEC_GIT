@@ -48,3 +48,10 @@
     align-items: center;
     flex-direction: column;
 }
+
+/* MOBILE */
+@media (max-width: 576px) {
+    .localizacao-do-mapa {
+        width: 90%;
+    }
+}

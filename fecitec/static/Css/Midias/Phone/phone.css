@@ -1,6 +1,14 @@
 
 
 @media (max-width: 576px) {
+    .navbar {
+        display: none;
+    }
+
+    .navigation-bar {
+        display: none;
+    }
+
     .elementos-caixa-icones-footer {
         justify-content: center;
     }
@@ -9,8 +17,8 @@
         width: 130px;
     }
 
-    .table_approved{
-        /* border-collapse: separate;
+    /*.table_approved{
+         border-collapse: separate;
         border-spacing: 10px;
         border: solid 2px #BFC8E5;
         background-color: #FBFCFF;
@@ -18,8 +26,8 @@
         width: 90%;
         margin-inline: 20px;
         padding-block: 30px;
-        padding-inline: 30px; */
-    }
+        padding-inline: 30px;
+    } */
 
     /* header {
         padding: 5px;
