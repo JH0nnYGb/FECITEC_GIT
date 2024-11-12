@@ -1,10 +1,9 @@
 from django.urls import path, include
-from . import views
+from admin_fecitec.views import index
 
 app_name = 'admin_fecitec'
 
 urlpatterns = [
-    path('', include('fecitec.urls')),
-    path('index/',views.index, name='index'),
+    path('index/',index, name='index'),
 
 ]

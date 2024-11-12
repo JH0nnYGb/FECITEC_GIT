@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fecitec',
     'admin_fecitec',
+    'app_jurado',
+    'app_avaliador',
     'stdimage',
 ]
 

@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fecitec.urls')),
     path('admin_fecitec/', include('admin_fecitec.urls')),
+    path('jurado/', include('app_jurado.urls')),
+    path('avaliador/', include('app_avaliador.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
