@@ -1,9 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Commission
-from .forms import ContactForm
-from django.contrib import messages
 
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render
+from django.contrib import messages
+##################################
+from .forms import ContactForm
+###################################
 def home_view(request):
     return render(request, 'home.html')
 
@@ -53,8 +58,44 @@ def contate_view(request):
 
     return render(request, 'contate.html', context)
 
-def login(request):
-    return render(request, 'login.html')
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+
+         
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            
+            # Verifica se o usuário está em mais de um grupo
+            user_groups = user.groups.all()
+            # Caso o usuário não pertença a nenhum grupo, verifica o 'role' escolhido
+            role = request.POST.get('role')
+
+            if user_groups.count() > 1:
+                messages.error(request, 'Você pertencer a mais de um grupo. Escolha uma função.')
+                return render(request, 'seu_template.html', {'form': form})
+
+            # Verificar o grupo do usuário e redirecionar
+            elif user.groups.filter(name='Administrador').exists() and role == 'Administrador':
+                return redirect('admin_fecitec:index')  # redireciona para a área do admin
+            
+            elif user.groups.filter(name='Jurado').exists()  and role == 'Jurado':
+                return redirect('app_jurado:dashboard_jurado') # redireciona para a área do jurados
+            
+            elif user.groups.filter(name='Avaliador').exists()  and role == 'Avaliador':
+                return redirect('app_avaliador:dashboard_avaliador')
+            else:
+                # Caso o role não seja válido
+                messages.error(request, 'Por favor, selecione uma função válida.')
+                return render(request, 'login.html', {'form': form})
+
+
+            
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+   
 
 def formigueiro_view(request):
     return render(request, 'formigueiro.html')

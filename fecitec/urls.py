@@ -1,4 +1,5 @@
 from django.urls import path
+from . import views
 from fecitec.views import home_view
 from fecitec.views import cronograma_view
 from fecitec.views import submissao_view
@@ -7,7 +8,7 @@ from fecitec.views import certificados_view
 from fecitec.views import regulamento_view
 from fecitec.views import comissao_view
 from fecitec.views import contate_view
-from fecitec.views import login
+from fecitec.views import user_login
 from fecitec.views import formigueiro_view
 
 app_name = 'fecitec'
@@ -20,7 +21,9 @@ urlpatterns = [
     path('certificados', certificados_view, name='certificados'),
     path('regulamento', regulamento_view, name='regulamento'),
     path('comissao', comissao_view, name='comissao'),
-    path('contate-nos/', contate_view, name='contate'),
-    path('login', login, name='login'),
+  
+    path('contate-nos', contate_view, name='contate'),
+    path('login/', user_login, name='user_login'),
+
     path('formigueiro', formigueiro_view, name='formigueiro')
 ]
