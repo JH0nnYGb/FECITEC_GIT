@@ -8,14 +8,19 @@
       width: 5rem;
   }
 
-    .navigation{
+    /* .navigation{
         margin-top: 5px;
         display: block;
         width: 5rem;
-    }
-    .nav-bar{
-        display: none;
-    }
+    } */
+    
+    .navbar {
+      display: none;
+  }
+
+  .navigation-bar {
+      display: none;
+  }
 
     #menu
   {
