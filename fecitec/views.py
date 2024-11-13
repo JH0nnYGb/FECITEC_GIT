@@ -78,7 +78,7 @@ def user_login(request):
 
             # Verificar o grupo do usuário e redirecionar
             elif user.groups.filter(name='Administrador').exists() and role == 'Administrador':
-                return redirect('admin_fecitec:index')  # redireciona para a área do admin
+                 return redirect('admin_fecitec:index')  # redireciona para a área do admin
             
             elif user.groups.filter(name='Jurado').exists()  and role == 'Jurado':
                 return redirect('app_jurado:dashboard_jurado') # redireciona para a área do jurados
@@ -90,9 +90,12 @@ def user_login(request):
                 messages.error(request, 'Por favor, selecione uma função válida.')
                 return render(request, 'login.html', {'form': form})
 
-
+        else:
+            if form.non_field_errors():
+                messages.error(request, 'Usuário ou senha incorretos. Por favor, tente novamente.')
             
     else:
+
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
    
