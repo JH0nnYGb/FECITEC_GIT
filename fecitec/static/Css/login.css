@@ -20,7 +20,7 @@
     width: 35% ;
     height: 640px;
     display: flex;
-    padding-bottom: 10rem;
+    /* padding-bottom: 10rem; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -75,6 +75,11 @@
  }
  /* ################################################################## */
  
+ .error{
+  color: red;
+  font-family: "Poppins", sans-serif;
+ }
+
  /* Estilo geral do container */
  .dropdown {
   width: 100%;

@@ -36,20 +36,23 @@
                   <option value="Jurado">Jurado</option>
                   <option value="Avaliador">Avaliador</option>
               </select>
-          
+              
+                <!-- Exibição de mensagens de erro -->
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="error">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+'            
               <div class="container-botao-login">
                   <button type="submit" class="btn-login">Login</button>
               </div>
           </form>
           
-          <!-- Exibição de mensagens de erro -->
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li class="error">{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+          
 
         </div>
     </div>
