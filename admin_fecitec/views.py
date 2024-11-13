@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def index(request):
-    return render(request, 'index.html')
+def admin_dashboard(request):
+    return render(request, 'dashboard_admin.html')

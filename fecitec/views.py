@@ -78,7 +78,7 @@ def user_login(request):
 
             # Verificar o grupo do usuário e redirecionar
             elif user.groups.filter(name='Administrador').exists() and role == 'Administrador':
-                 return redirect('admin_fecitec:index')  # redireciona para a área do admin
+                 return redirect('admin_fecitec:dashboard_admin')  # redireciona para a área do admin
             
             elif user.groups.filter(name='Jurado').exists()  and role == 'Jurado':
                 return redirect('app_jurado:dashboard_jurado') # redireciona para a área do jurados
