@@ -58,7 +58,7 @@ h2{
     width: 80%;
 }
 
-.fields-content p input {
+.form-field input {
    font-family: "Poppins", sans-serif;
    font-weight: 500;
    outline: none;
@@ -70,7 +70,7 @@ h2{
    border-top: none;
 }
 
-.fields-content p input:focus {
+.form-field input:focus {
    outline: none;
    border-bottom:  4px solid #8A84E2;
    border-left:none ;
@@ -100,4 +100,14 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
    -webkit-appearance: none;
    margin: 0;
+}
+
+.messages {
+   font-size: 30px;
+   font-weight: 600;
+   color: green;
+}
+
+.error-list .error {
+   color: red;
 }
