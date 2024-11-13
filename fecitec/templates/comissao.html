@@ -53,7 +53,7 @@
         <div class="container-botoes">
             <!-- Link para a página anterior -->
             {% if comission.has_previous %}
-                <a href="{% url 'comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
+                <a href="{% url 'fecitec:comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
                     <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda">
                 </a>
             {% endif %}
@@ -66,9 +66,9 @@
                     {% for num in comission.paginator.page_range %}
                         {% if num >= comission.number|add:"-1" and num <= comission.number|add:"1" %}
                             {% if num == comission.number %}
-                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                                <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
                             {% else %}
-                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                                <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -77,9 +77,9 @@
                     {% for num in comission.paginator.page_range %}
                         {% if num <= 3 %}       
                             {% if num == comission.number %}
-                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                                <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
                             {% else %}
-                                <a href="{% url 'comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                                <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -88,7 +88,7 @@
     
             <!-- Link para a próxima página -->
             {% if comission.has_next %}
-                <a href="{% url 'comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
+                <a href="{% url 'fecitec:comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
                     <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita">
                 </a>
             {% endif %}

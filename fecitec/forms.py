@@ -29,7 +29,7 @@ class ContactForm(forms.Form):
         content = f'Nome: {name}\nE-mail: {email}\nNúmero: {phone_number}\nMensagem: {message}'
 
         mail = EmailMessage (
-            subject = 'Solicitação de contato',
+            subject = 'Solicitacao de contato',
             body = content,
             from_email = 'contato@seudominio.com.br',
             to = ['contato@seudominio.com.br',],
