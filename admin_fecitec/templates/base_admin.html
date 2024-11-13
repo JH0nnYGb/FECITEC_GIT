@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/tablet.css' %}" />
     <link rel="stylesheet" href="{% static 'Css/Midias/Phone/phone.css' %}" />
     <!-- fim do links do base -->
-    {% block style %}
+    {% block style_admin %}
       <!-- colocar o link do css do html pertencente -->
     {% endblock %}
   </head>
@@ -75,9 +75,7 @@
           <li>
             <a href="{% url 'fecitec:contate' %}" class="{% if request.resolver_match.url_name == 'contate' %}active{% endif %}">Contate-nos</a>
           </li>
-          <li>
-            <a href="{% url 'fecitec:user_login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a>
-          </li>
+          
         </ul>
       </nav>
     </article>
