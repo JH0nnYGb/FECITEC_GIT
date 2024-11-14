@@ -121,4 +121,9 @@
     .card-de-instrucoes {
         width: 90%;
     }
+
+    .caixa-botao-download {
+        display: flex;
+        flex-direction: column;
+    }
 }
