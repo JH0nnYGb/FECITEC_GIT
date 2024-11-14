@@ -31,8 +31,8 @@ class ContactForm(forms.Form):
         mail = EmailMessage (
             subject = 'Solicitacao de contato',
             body = content,
-            from_email = 'contato@seudominio.com.br',
-            to = ['contato@seudominio.com.br',],
+            from_email = 'contadeusarnoif@gmail.com',
+            to = ['contadeusarnoif@gmail.com',],
             headers = {'Reply-to': email}
         )
 
