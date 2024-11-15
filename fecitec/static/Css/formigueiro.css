@@ -12,7 +12,119 @@ html, body {
     height: 100%;
 }
 
-body{
-    background: #bebebe;
+header{
+    font-family: 'Poppis',sans-serif;
+    text-align:center;
 }
-/* <-------- CONFIGURAÇÕES GERAIS --------> */
+a{
+    font-family: 'Poppis',sans-serif;
+}
+footer.social-links{
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+}
+
+/* <-------- FIM CONFIGURAÇÕES GERAIS --------> */
+
+/* <-------------- ESTILIZACAO DE CLASSES ---------------------> */
+/* Container principal */
+.team-container{
+    background: linear-gradient(to bottom,#ECECEC, rgba(191, 209, 222, 0.9));
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    height: auto; /* Para ocupar a altura total da tela */
+  }
+  
+
+  .container h2 {
+    font:'Poppis', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .grid1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Configuração da grade */
+  .grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 2fr); /* Duas colunas */
+    grid-template-rows: repeat(2, auto); /* Duas linhas*/
+    gap: 40px; /* Espaçamento entre os cartões */
+    padding: 5rem;
+    justify-items: center;
+  }
+  
+  /* Estilos dos cartões */
+  .card {
+    display: flex;
+    gap: 50px;
+    flex-direction: row;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    padding: 80px;
+    height: 300px;
+    text-align: center;
+  }
+  
+  /* Imagem de perfil (círculo) */
+  .profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #DADADA; /* Cor de fundo da div */
+    gap: 30px;
+    
+  }
+
+
+  
+  /* Nome e cargo */
+  .card h3 {
+    font:'Poppis', sans-serif;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .card p {
+    font:'Poppis', sans-serif;
+    font-size: 14px;
+   
+  }
+  
+  /* Links sociais */
+  .social-links a {
+    display: flex;
+    gap:5px;
+    align-items: center;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    margin: 5px 0;
+  }
+  
+  .social-links a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .profile-person{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  
+/* <-------------- FIM ESTILIZACAO DE CLASSES ---------------------> */
