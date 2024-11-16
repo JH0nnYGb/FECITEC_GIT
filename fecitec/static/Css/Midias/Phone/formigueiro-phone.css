@@ -1,0 +1,50 @@
+@media (max-width: 576px)  {
+    .team-container{
+        background: linear-gradient(to bottom, #ECECEC, rgba(191, 209, 222, 0.9));
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: auto;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* Duas colunas */
+        grid-template-rows: repeat(2, auto); /* Duas linhas*/
+        gap: 40px; /* Espaçamento entre os cartões */
+        padding: 5rem;
+        justify-items: center;
+    }
+      
+
+    .card {
+        display: flex;
+        overflow: hidden;
+        gap: 50px;
+        flex-direction: column;
+        background-color: #f8f8f8;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 22rem;
+        height: 35rem;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .social-links a img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+    }
+
+      .info-rigth{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+}

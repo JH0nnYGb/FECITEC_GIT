@@ -5,12 +5,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'Css/formigueiro.css'%}">
-        <!-- ^^^^^^ importando fontes ^^^^^^^^ -->
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <!-- ^^^^^^ importando fontes ^^^^^^^^ -->
+
+
+        <link rel="stylesheet" href="{% static 'Css/formigueiro.css'%}">
+        <link rel="stylesheet" href="{% static 'Css/Midias/Phone/formigueiro-phone.css' %}">
+        <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/formigueiro-tablet.css' %}">
+        <!-- ^^^^^^^^^^^^^^^^^^^ IMPORTACAO DO ESTILO DA TELA ^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+
 
         <title>Formigueiro Tecnologico</title>
     </head>
@@ -18,33 +24,39 @@
     <body>
         {% block content %}
         <section class="team-container">
-            <header>
-              <h2>Time Formigueiro Tecnologia</h2>
+            <header class="first-header">
+              <h1 style="font-size:45px;">Time Formigueiro Tecnologia</h1>
+
+              <h4 class="sub-title"  >
+                Pricipais Responsaveis por essa edição da Fecitec
+              </h4>
             </header>
 
-            <!-- <div class="grid1">
-                <article class="card"> 
-                    <header class="info-rigth">
+            <div class="grid-advisor">
+                <article class="card-advisor"> 
+                    <header class="info-advisor">
     
                         <header class="profile-picture"> 
-                            <img class="profile-person" src="https://lh3.google.com/u/0/d/1qByllUTwwX89XXGBqFEzsRgJYWD85yDO=w1920-h945-iv1" alt="Foto de perfil">
+                            <img class="profile-person" src="" alt="Foto de perfil">
                         </header>
     
                         <div class="nome">
-                            <h3 class="name-member">Sarwani</h3>
-                            <p>Web Developer</p>
+                            <h3 class="name-member">Cleison Fabricio</h3>
+                            <p>Professor Orientador</p>
                         </div>
+                        <footer class="content-trainig">
+                            <div class="training">
+                                Mestre 
+                            </div>
+                            <div class="training">
+                                Doutor
+                            </div>
+
+                        </footer>
                         
                     </header>
                     
-                    <footer class="social-links">
-                        <a href="https://www.linkedin.com/in/joneffe-silva-dev/"><img src="{% static 'images/icone-linkendIn.svg' %}" alt="LinkedIn"> Joneffe Silva </a>
-                        <a href="https://github.com/JH0nnYGb"><img src="{% static 'images/icone-gitHub.svg'  %}" alt="GitHub">JH0nnYGb</a>
-                        <a href="https://www.instagram.com/jhonn_ydev/?igsh=bndwNjY4bmJwOHp6"><img src="{% static 'images/icone-instagram-footer.svg' %}" alt="Instagram">jhonn_ydev</a>
-                        <a href="mailto:silvajoneffe@gmail.com"><img src="{% static 'images/icone-gmail.svg' %}" alt="Email"> silvajoneffe@gmai.com</a>
-                    </footer>
-                  </article>
-            </div> -->
+            </div>
 
           
             <div class="grid"> <!-- Conteiner com o grid com os perfis -->
@@ -57,7 +69,7 @@
                     </header>
 
                     <div class="nome">
-                        <h3 class="name-member">Sarwani</h3>
+                        <h3 class="name-member">Joneffe Silva</h3>
                         <p>Web Developer</p>
                     </div>
                     
@@ -101,7 +113,7 @@
                     </header>
 
                     <div class="nome">
-                        <h3 class="name-member">Sarwani</h3>
+                        <h3 class="name-member">Jefferson Oliveira</h3>
                         <p>Web Developer</p>
                     </div>
                     
@@ -122,7 +134,7 @@
                     </header>
 
                     <div class="nome">
-                        <h3 class="name-member">Sarwani</h3>
+                        <h3 class="name-member">Jhonnata Martins</h3>
                         <p>Web Developer</p>
                     </div>
                     
