@@ -12,10 +12,22 @@ html, body {
     height: 100%;
 }
 
+h1{
+  font-family: 'Poppis',sans-serif;
+}
 header{
     font-family: 'Poppis',sans-serif;
     text-align:center;
 }
+.first-header{
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 a{
     font-family: 'Poppis',sans-serif;
 }
@@ -43,17 +55,70 @@ footer.social-links{
     font-size: 24px;
     margin-bottom: 20px;
   }
+
+  .sub-title{
+    color: slategrey;
+    font-size:20px;}
   
-  .grid1{
+ /* ESTILIZACAO DO CARD DOS SUPERVISORES   */
+  .grid-advisor{
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
+  .card-advisor p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+  .card-advisor{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    height: 360px;
+    padding: 80px;
+    margin: 30px;
+    text-align: center;}
+
+    .content-trainig{
+      display: flex;
+      gap: 20px;
+      margin: 30px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      font-family: 'Poppis', sans-serif;
+    }
+    .training{
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      width: 80px;
+      height: 30px;
+      background-color:#333;
+      color: #f8f8f8;
+      border-radius: 20px;
+    }
+
+    .info-advisor{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+/* FIM ESTILIZACAO DO CARD DOS SUPERVISORES   */
+
   /* Configuração da grade */
   .grid {
     display: grid;
-
     grid-template-columns: repeat(2, 2fr); /* Duas colunas */
     grid-template-rows: repeat(2, auto); /* Duas linhas*/
     gap: 40px; /* Espaçamento entre os cartões */
@@ -92,15 +157,15 @@ footer.social-links{
   
   /* Nome e cargo */
   .card h3 {
-    font:'Poppis', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     margin: 0;
   }
   
   .card p {
-    font:'Poppis', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
-   
+    
   }
   
   /* Links sociais */
@@ -127,4 +192,5 @@ footer.social-links{
   }
 
   
+
 /* <-------------- FIM ESTILIZACAO DE CLASSES ---------------------> */
