@@ -39,8 +39,8 @@ header {
   background: linear-gradient(135deg, #474dc5, #343885); /* Cores de fundo */
   height: 150px;
   position: relative;
-  display: flex; 
-  justify-content:center;
+  /* display: flex;  */
+  justify-content:space-between;
   padding: 0 20px;
   color: white;
   overflow: hidden;
@@ -104,21 +104,24 @@ header {
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  margin-top: -20px;
+  margin-top: 0px;
   z-index: 2;
 }
 
 /* Título e subtítulo */
 .text_banner {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  position: relative;
   z-index: 2;
+  margin-top: 40px;
+  gap:40rem;
 }
 
 .content_title{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .title {
