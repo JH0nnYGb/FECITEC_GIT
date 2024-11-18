@@ -133,6 +133,80 @@ header {
   font-weight: 500;
   color: #B7D3F2;
 }
+
+/* ESTILIZACAO DO MODAL INVISIVEL DE OPCOES DO PERFIL  */
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.profile-checkbox {
+  display: none;
+}
+
+.pencil-profile{
+  display: none; 
+}
+
+.container-profile {
+  display: flex;
+  justify-content: space-around;
+  transition: opacity 0.5s ease, visibility 0s 1s; /* Transição de opacidade e visibilidade */
+  opacity: 0; /* Inicialmente invisível */
+  visibility: hidden; /* Inicialmente invisível para não interferir no layout */
+  height: 300px;
+  width: 260px;
+  position: fixed;
+  right:11rem;
+  top: 8rem;
+  border: 1px solid black;
+  border-radius: 16px;
+  background-color: #FFF;
+  z-index: 3;
+  pointer-events: none; /* Impede a interação com a div enquanto invisível */
+}
+
+.container-profile.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.5s ease, visibility 0s 0s; /* A visibilidade muda imediatamente, mas a opacidade anima */
+}
+
+/* ITEMS DENTRO DO MODAL */
+.modal-grup{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal_items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.modal_items_links{
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppis',sans-serif;
+} 
+.modal_items_links:hover{
+    color: #007BFF;
+
+}
+
+/* FIM  ITEMS DENTRO DO MODAL */
+
+
+/* FIM ESTILIZACAO DO MODAL INVISIVEL DE OPCOES DO PERFIL  */
+
 /* ############# fim do estilo do banner ################# */
 
 span {
