@@ -202,6 +202,11 @@ header {
 
 }
 
+.modal_items button[type="submit"]{ /* <------ botao de logout */
+  background-color: #FFF;
+  border: none; 
+}
+
 /* FIM  ITEMS DENTRO DO MODAL */
 
 
@@ -307,7 +312,19 @@ span {
   color: #007BFF;
 }   
 
+.content_nav_replacement{
+  position: relative;
+  width: 100px;
+  height: 30px;
+  color: #FFF;
+  background-color: purple;
+}
 
+#nav_bar_replacement{
+  /* display: none; */
+}
+
+/* FIM DO ESTILO NAVABAR ADMIN */
 
 /* ESTILO DO FOOTER */
 footer {

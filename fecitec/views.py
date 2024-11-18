@@ -74,7 +74,6 @@ def user_login(request):
 
             if user_groups.count() > 1:
                 messages.error(request, 'Você pertencer a mais de um grupo. Escolha uma função.')
-                return render(request, 'seu_template.html', {'form': form})
 
             # Verificar o grupo do usuário e redirecionar
             elif user.groups.filter(name='Administrador').exists() and role == 'Administrador':
