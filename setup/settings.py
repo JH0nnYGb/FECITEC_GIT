@@ -140,3 +140,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST = config('EMAIL_HOST')
+
+# Redireciomna apos o Logout
+LOGIN_URL = 'fecitec:user_login'
+LOGOUT_REDIRECT_URL = 'fecitec:user_login'
