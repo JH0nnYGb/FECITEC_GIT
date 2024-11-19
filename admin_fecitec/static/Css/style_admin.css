@@ -418,6 +418,9 @@ span {
   display: none;
 }
 
+#navBarAdmin{
+  display: block;
+}
 /*######################## FIM DO ESTILO NAVABAR ADMIN ##########################*/
 
 /* ESTILO DO FOOTER */
