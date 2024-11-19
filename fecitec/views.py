@@ -115,3 +115,9 @@ def user_login(request):
 
 def formigueiro_view(request):
     return render(request, 'formigueiro.html')
+
+
+# crf token
+def csrf_failure(request, reason=""):
+    messages.error(request, "Ops !! algo deu errado, tente novemente")
+    return redirect(request.META.get('HTTP_REFERER', 'login/'))
