@@ -313,7 +313,7 @@ span {
 }   
 
 .content_nav_replacement{
-  position: relative;
+  position: fixed;
   width: 100px;
   height: 30px;
   color: #FFF;
@@ -322,6 +322,14 @@ span {
 
 #nav_bar_replacement{
   /* display: none; */
+}
+
+.navigation-bar{
+  display: none;
+}
+
+.navigation-admin{
+  display: block  ;
 }
 
 /* FIM DO ESTILO NAVABAR ADMIN */

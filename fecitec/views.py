@@ -9,6 +9,8 @@ from django.contrib import messages
 ##################################
 from .forms import ContactForm
 ###################################
+
+
 def home_view(request):
     return render(request, 'home.html')
 
@@ -62,39 +64,51 @@ def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
 
-         
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            
-            # Verifica se o usuário está em mais de um grupo
+
+            # Obtem todos os grupos do usuário
             user_groups = user.groups.all()
-            # Caso o usuário não pertença a nenhum grupo, verifica o 'role' escolhido
             role = request.POST.get('role')
 
-            if user_groups.count() > 1:
-                messages.error(request, 'Você pertencer a mais de um grupo. Escolha uma função.')
-
-            # Verificar o grupo do usuário e redirecionar
-            elif user.groups.filter(name='Administrador').exists() and role == 'Administrador':
-                 return redirect('admin_fecitec:dashboard_admin')  # redireciona para a área do admin
-            
-            elif user.groups.filter(name='Jurado').exists()  and role == 'Jurado':
-                return redirect('app_jurado:dashboard_jurado') # redireciona para a área do jurados
-            
-            elif user.groups.filter(name='Avaliador').exists()  and role == 'Avaliador':
-                return redirect('app_avaliador:dashboard_avaliador')
+            if len(user_groups) > 1:
+                # O usuário pertence a mais de um grupo
+                if role and user_groups.filter(name=role).exists():
+                    if role == 'Administrador':
+                        return redirect('admin_fecitec:dashboard_admin')
+                    elif role == 'Jurado':
+                        return redirect('app_jurado:dashboard_jurado')
+                    elif role == 'Avaliador':
+                        return redirect('app_avaliador:dashboard_avaliador')
+                    else:
+                        messages.error(request, 'Função inválida.')
+                        return render(request, 'login.html', {'form': form})
+                else:
+                    messages.error(request, 'Por favor, escolha uma função válida.')
+                    return render(request, 'login.html', {'form': form})
+            elif len(user_groups) == 1:
+                # O usuário pertence a apenas um grupo
+                group_name = user_groups[0].name
+                if group_name == 'Administrador':
+                    return redirect('admin_fecitec:dashboard_admin')
+                elif group_name == 'Jurado':
+                    return redirect('app_jurado:dashboard_jurado')
+                elif group_name == 'Avaliador':
+                    return redirect('app_avaliador:dashboard_avaliador')
+                else:
+                    messages.error(request, 'Grupo de usuário inválido.')
+                    return render(request, 'login.html', {'form': form})
             else:
-                # Caso o role não seja válido
-                messages.error(request, 'Por favor, selecione uma função válida.')
+                # O usuário não pertence a nenhum grupo
+                messages.error(request, 'Usuário não pertence a nenhum grupo.')
                 return render(request, 'login.html', {'form': form})
 
         else:
-            if form.non_field_errors():
-                messages.error(request, 'Usuário ou senha incorretos. Por favor, tente novamente.')
-            
-    else:
+            messages.error(request, 'Usuário ou senha incorretos. Por favor, tente novamente.')
+            return render(request, 'login.html', {'form': form})
 
+    else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
    
