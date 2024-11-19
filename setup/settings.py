@@ -144,3 +144,6 @@ EMAIL_HOST = config('EMAIL_HOST')
 # Redireciomna apos o Logout
 LOGIN_URL = 'fecitec:user_login'
 LOGOUT_REDIRECT_URL = 'fecitec:user_login'
+
+#crf token
+CSRF_FAILURE_VIEW = 'fecitec.views.csrf_failure'
