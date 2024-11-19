@@ -111,31 +111,34 @@
     </div>
     
     <!-- ###################### NAV BAR DO ADMINISTRADOR  ########################## -->
-    <article class="navigation-bar-admin" id="navbarAdmin">
-      <nav class="navbar-admin">
-        <ul>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"> Submissões </a>
-          </li>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}"> Jurados </a>
-          </li>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliadores </a>
-          </li>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliações </a>
-          </li>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Participantes </a>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Comissão </a>
-          </li>
-          </li>
-          <li>
-            <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Contatos </a>
-          </li>
-    </article>
+    <div id="navBarAdmin">
+     <article class="navigation-bar-admin" >
+       <nav class="navbar-admin">
+         <ul>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"> Submissões </a>
+           </li>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}"> Jurados </a>
+           </li>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliadores </a>
+           </li>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliações </a>
+           </li>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Participantes </a>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Comissão </a>
+           </li>
+           </li>
+           <li>
+             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Contatos </a>
+           </li>
+     </article>
+    </div>
+    
     
 
     <div class="container-hamburge-seachr">
