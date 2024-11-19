@@ -162,7 +162,7 @@ header {
   height: 300px;
   width: 260px;
   position: fixed;
-  right:11rem;
+  right:8%;
   top: 8rem;
   border: 1px solid black;
   border-radius: 16px;
@@ -251,6 +251,7 @@ span {
 
 .navigation-bar {
     display: flex;
+    gap:20px;
     background-color: #FFF;
     padding: 20px 0;
     position: relative;
@@ -312,27 +313,112 @@ span {
   color: #007BFF;
 }   
 
-.content_nav_replacement{
+.content-checkbox{ 
   position: fixed;
-  width: 100px;
+  right: 4%;
+  width: 200px;
   height: 30px;
-  color: #FFF;
-  background-color: purple;
+  text-align: center;
+  border-radius: 0 0 16px 16px ;
+  background-color: #343885;
+  color: #ffffff;
+}
+/* #####################Estilo da nav bar do administrador ############################### */
+.navbar-admin {
+  width: 100%;
 }
 
-#nav_bar_replacement{
-  /* display: none; */
+.navigation-bar-admin {
+    display: flex;
+    gap:20px;
+    background-color: #FFF;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 3px solid #BFC8E5;
 }
 
-.navigation-bar{
+/* CONFIGURATION LINKS NAVBAR */
+.navigation-bar-admin ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 40px;
+  list-style: none;
+}
+
+.navigation-bar-admin li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.navigation-bar-admin li a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+}
+
+.navigation-bar-admin li a:hover {
+  color: #007BFF;
+
+}
+
+.navigation-bar-admin li:hover {
+  transform: translateY(-5px);
+}
+
+.navigation-bar-admin li {
+  position: relative;
+}
+
+.navigation-bar-admin li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #007BFF;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.navigation-bar-admin li a:hover::after {
+  transform: scaleX(1);
+}
+
+
+.navigation-bar-admin a.active {
+  color: #007BFF;
+}   
+
+
+.content-checkbox{ 
+  position: fixed;
+  right: 4%;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  border-radius: 0 0 16px 16px ;
+  background-color: #79BEEE;
+  color: #ffffff;
+}
+
+.invisible-checkbox {
+  opacity: 0; /* Torna a caixa invisível */
+  position: absolute; /* Remove a caixa do fluxo do layout */
+  pointer-events: none; /* Impede interações diretas com a caixa */
+}
+/* Estilizar o label para que o texto se comporte como se fosse o botão de clique */
+.invisible-checkbox + label {
+  cursor: pointer;
+}
+
+#navBarStandard{
   display: none;
 }
 
-.navigation-admin{
-  display: block  ;
-}
-
-/* FIM DO ESTILO NAVABAR ADMIN */
+/*######################## FIM DO ESTILO NAVABAR ADMIN ##########################*/
 
 /* ESTILO DO FOOTER */
 footer {
