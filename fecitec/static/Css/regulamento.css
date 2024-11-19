@@ -1,0 +1,123 @@
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000;
+    text-align: left;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-button.active:after {
+    transform: rotate(180deg); /* gira a seta para cima */
+    transition: transform 0.6s;
+}
+
+
+
+
+
+.accordion-button:not(.collapsed) {
+    border-radius: 20px;
+    position: static;
+    color: #000000;
+    background-color: #ffff;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-container {
+    max-width: 700px;
+    margin: 20px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.accordion-checkbox {
+    display: none; /* Esconde o checkbox */
+}
+
+.accordion-label {
+    display: block;
+    padding: 15px;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #BFC8E5;
+    border-radius: 20px 20px 0 0;
+    transition: background-color 0.6s ease;
+}
+
+.accordion-label:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    max-height: 0;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    padding: 0 30px;
+    background-color: #f1f1f1;
+    transition: max-height 0.6s ease;
+}
+
+.accordion-content p {
+    margin: 10px 0;
+    padding: 15px 0;
+}
+
+.accordion-checkbox:checked ~ .accordion-content {
+    max-height: 1000px; /* Altura suficiente para exibir o conteúdo */
+}
+
+
+
+
+.accordion-label {
+    display: block;
+    padding: 15px;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #BFC8E5;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    transition: background-color 0.6s ease;
+}
+
+.accordion-label:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-icon {
+    position: absolute;
+    right: 20px; /* Posiciona a seta à direita */
+    top: 50%;
+    transform: translateY(-50%); /* Alinha a seta verticalmente */
+    transition: transform 0.3s ease;
+}
+
+.accordion-checkbox:checked ~ .accordion-content {
+    max-height: 1000px; /* Altura suficiente para exibir o conteúdo */
+}
+
+.accordion-checkbox:checked ~ .accordion-label .accordion-icon {
+    transform: translateY(-50%) rotate(180deg); /* Gira a seta quando o checkbox está marcado */
+}
+
+
