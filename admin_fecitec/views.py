@@ -1,13 +1,10 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse 
+from django.contrib import messages
 
-# Função para verificar o grupo do usuário
-def is_administrator(user):
-    return user.groups.filter(name='Administrador').exists()
-
-# Proteção da view com login e grupo
-@login_required(login_url='fecitec:login/')  # Redireciona para o login se o usuário não estiver autenticado
-@user_passes_test(is_administrator, login_url='fecitec:login/')  # Redireciona se o grupo não for "Administrador"
-
+@login_required
 def admin_dashboard(request):
+    if not request.user.groups.filter(name='Administradores').exists():
+          messages.error(request, "Você não tem permissão para acessar esta página.")
+          return redirect('fecitec:user_login')  # Redireciona para a página inicial ou login
     return render(request, 'dashboard_admin.html')
