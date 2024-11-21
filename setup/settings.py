@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'admin_fecitec',
     'app_jurado',
     'app_avaliador',
+    'core',
     'stdimage',
 ]
 
