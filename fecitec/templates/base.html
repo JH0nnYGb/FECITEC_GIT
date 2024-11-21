@@ -76,7 +76,7 @@
             <a href="{% url 'fecitec:contate' %}" class="{% if request.resolver_match.url_name == 'contate' %}active{% endif %}">Contate-nos</a>
           </li>
           <li>
-            <a href="{% url 'fecitec:user_login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a>
+            <a href="#" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">Login</a>
           </li>
         </ul>
       </nav>
@@ -115,7 +115,7 @@
               <a class="select-as" href="{% url 'fecitec:contate' %}">Contate-nos</a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:user_login' %}">Login</a>
+              <a class="select-as" href="">Login</a>
             </li>
           </ul>
         </div>
@@ -172,8 +172,12 @@
             <img class="formigueiro-tecnologico" src="{% static 'images/formigueiro-tec.svg' %}" alt=""/>
           </a>
         </div>
-      </div>
+      
 
+        <div>
+          <a href="{% url 'fecitec:user_login' %}"> Login Comissão</a>
+        </div>
+      </div>
       <p class="copyright">2024 - Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru.</p>
     </footer>
 
