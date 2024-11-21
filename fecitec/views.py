@@ -60,6 +60,10 @@ def contate_view(request):
 
     return render(request, 'contate.html', context)
 
+def login_participante(request):
+    return render(request,'login_participante.html')
+
+
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
