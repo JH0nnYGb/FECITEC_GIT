@@ -62,9 +62,10 @@
     margin-bottom: 30px;
 }
 
-.botao-modelo-resumo, .botao-modelo-panner {
+.botao-modelo-resumo, .botao-modelo-panner, .botao-area-submissao {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background-color: white;
     color: black;
@@ -79,7 +80,7 @@
     transition: box-shadow 0.3s ease;
 }
 
-.botao-modelo-resumo:hover, .botao-modelo-panner:hover {
+.botao-modelo-resumo:hover, .botao-modelo-panner:hover, .botao-area-submissao:hover {
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
