@@ -121,3 +121,17 @@ def formigueiro_view(request):
 def csrf_failure(request, reason=""):
     messages.error(request, "Ops !! algo deu errado, tente novemente")
     return redirect(request.META.get('HTTP_REFERER', 'login/'))
+
+
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import render
+
+# Função para verificar o grupo do usuário
+def is_administrator(user):
+    return user.groups.filter(name='Administrador').exists()
+
+# Proteção da view com login e grupo
+@login_required
+@user_passes_test(is_administrator, login_url='login/')
+def dashboard_admin(request):
+    return render(request, 'admin_fecitec/dashboard.html')
