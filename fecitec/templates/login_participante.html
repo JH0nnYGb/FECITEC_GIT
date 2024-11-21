@@ -24,24 +24,53 @@
     <h2>Login</h2>
     <div class="box-forms">
         <div class="fields-content">
-            <form action="" method="POST" class="forms-fields">
-                {% csrf_token %}
-                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
-                <input type="password" name="password" class="fields" placeholder="Senha" required>
+            <!--############ FORMULARIO PADRAO ############ -->
+            <section id="login-form">
+                <form action="" method="POST" class="forms-fields" >
+                    {% csrf_token %}
+                    <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                    <input type="password" name="password" class="fields" placeholder="Senha" required>
+                    <a href="#"  id="show-create-account-forms"> Criar conta </a>
+                    
+                    <!-- Exibição de mensagens de erro -->
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li class="error">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+    
+                    <div class="container-botao-login">
+                        <button type="submit" class="btn-login">Login</button>
+                    </div>
+                </form>    
+            </section>
+            
+            <!-- Formulário de Criação de Conta (Inicialmente escondido) -->
+             <section id="create-account-forms" style="display: none;" >
+                <form  action="" method="POST" class="forms-fields" >
+                    {% csrf_token %}
+                    <input type="text" name="new_username" class="fields" placeholder="Nome de Usuário" required>
+                    <input type="text" name="email" class="fields" placeholder="E-mail" required>
+                    <input type="password" name="new_username" class="fields" placeholder="Senha" required>
+                    <input type="password" name="confirm_password" class="fields" placeholder="Confirme a Senha " required>
+                    <a href="#" id="showLoginForms"> Já tenho um conta</a>
                 
-                <!-- Exibição de mensagens de erro -->
-                {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                            <li class="error">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-
-                <div class="container-botao-login">
-                    <button type="submit" class="btn-login">Login</button>
-                </div>
-            </form>
+                    <!-- Exibição de mensagens de erro -->
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li class="error">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <div class="container-botao-login">
+                        <button type="submit" class="btn-login">Login</button>
+                    </div>
+                </form>    
+             </section>
+            
         </div>
     </div>
 </div>
@@ -49,5 +78,5 @@
 {% endblock %}
 
 {% block script %}
-  <script src="{% static 'Js/select-dropdonw.js' %}"></script>
+  <script src="{% static 'Js/switchLoginForms.js' %}"></script>
 {% endblock %}
