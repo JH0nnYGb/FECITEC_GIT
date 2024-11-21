@@ -126,4 +126,8 @@
         display: flex;
         flex-direction: column;
     }
+
+    .botao-area-submissao {
+        height: 90px;
+    }
 }
