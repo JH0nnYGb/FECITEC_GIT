@@ -59,11 +59,11 @@ def contate_view(request):
     }
 
     return render(request, 'contate.html', context)
-
+###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
 def login_participante(request):
     return render(request,'login_participante.html')
 
-
+###### VIEWS DE LOGIN PARA OS MEMBROS DA COMISSAO #########
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -72,19 +72,19 @@ def user_login(request):
             user = form.get_user()
             login(request, user)
 
-            # Obtem todos os grupos do usuário
+            # Obtém todos os grupos do usuário
             user_groups = user.groups.all()
             role = request.POST.get('role')
 
             if len(user_groups) > 1:
                 # O usuário pertence a mais de um grupo
                 if role and user_groups.filter(name=role).exists():
-                    if role == 'Administrador':
-                        return redirect('admin_fecitec:dashboard_admin')
-                    elif role == 'Jurado':
-                        return redirect('app_jurado:dashboard_jurado')
-                    elif role == 'Avaliador':
-                        return redirect('app_avaliador:dashboard_avaliador')
+                    if role == 'Administrador' and user_groups.filter(name='Administrador').exists():
+                        return render(request, 'admin_dashboard.html', {'user': user})
+                    elif role == 'Jurado' and user_groups.filter(name='Jurado').exists():
+                        return render(request, 'jurado_dashboard.html', {'user': user})
+                    elif role == 'Avaliador' and user_groups.filter(name='Avaliador').exists():
+                        return render(request, 'avaliador_dashboard.html', {'user': user})
                     else:
                         messages.error(request, 'Função inválida.')
                         return render(request, 'login.html', {'form': form})
@@ -94,14 +94,15 @@ def user_login(request):
             elif len(user_groups) == 1:
                 # O usuário pertence a apenas um grupo
                 group_name = user_groups[0].name
-                if group_name == 'Administrador':
-                    return redirect('admin_fecitec:dashboard_admin')
-                elif group_name == 'Jurado':
-                    return redirect('app_jurado:dashboard_jurado')
-                elif group_name == 'Avaliador':
-                    return redirect('app_avaliador:dashboard_avaliador')
+                if role == group_name:
+                    if group_name == 'Administrador':
+                        return render(request, 'admin_dashboard.html', {'user': user})
+                    elif group_name == 'Jurado':
+                        return render(request, 'jurado_dashboard.html', {'user': user})
+                    elif group_name == 'Avaliador':
+                        return render(request, 'avaliador_dashboard.html', {'user': user})
                 else:
-                    messages.error(request, 'Grupo de usuário inválido.')
+                    messages.error(request, 'Grupo ou função não correspondem.')
                     return render(request, 'login.html', {'form': form})
             else:
                 # O usuário não pertence a nenhum grupo
@@ -115,6 +116,7 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
    
 
 def formigueiro_view(request):
