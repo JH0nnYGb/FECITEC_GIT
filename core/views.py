@@ -13,5 +13,7 @@ def redirecionar_usuario(request):
         return redirect('app_jurado:dashboard_jurado')
     elif user_grupos.filter(nome='Avaliador').exists():
         return redirect('app_avaliador:dashboard_avaliador')
+    elif user_grupos.filter(nome='Participante').exits():
+        return redirect('app_participante:dashboard_participante')
     else:
         return redirect('login')
