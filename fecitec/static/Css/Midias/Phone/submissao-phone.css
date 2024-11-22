@@ -130,4 +130,8 @@
     .botao-area-submissao {
         height: 90px;
     }
+
+    .form-fields {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

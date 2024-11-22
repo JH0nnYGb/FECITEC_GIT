@@ -5,15 +5,19 @@
 <link rel="stylesheet" href="{% static 'Css/submissao.css'%}">
 
 <link rel="stylesheet" href="{% static 'Css/Midias/Phone/submissao-phone.css'%}">
-<link rel="stylesheet" href="{%static 'Css/Midias/Tablet/submissao-tablet.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submissao-tablet.css'%}">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- ^^^^^^ importando fontes ^^^^^^^^ -->
 {% endblock style%}
 
 {% block title %}Submissão{% endblock %}
 
 {% block content %}
 
-<section class="sessao-de-instrucoes">
+<section id="page1" class="sessao-de-instrucoes page active">
     <article class="caixa-texto-submissao">
         <h1 class="texto-instrucoes">Instruções</h1>
         <img class="icone-certificado" src="{% static 'images/icone-certificado.svg' %}" alt="">
@@ -40,7 +44,7 @@
     </article>
 
     <article class="caixa-botao-download">
-        <button type="" class="botao-area-submissao">
+        <button type="" class="botao-area-submissao" onclick="showPage('page2')">
             Área de Submissão
         </button>
 
@@ -56,5 +60,52 @@
     </article>
 </section>
 
+<section id="page2" class="page">
+    <div class="page-form">
+        <article class="container-form-submissao">
+            <header>
+                <h2>Submissão de trabalho</h2>
+            </header>
+
+            <form action="" class="form-fields">
+                <div class="fields">
+                    <input class="form-field" type="text" placeholder="Nome da Escola">
+                    <input class="form-field" type="text" placeholder="Estado">
+                    <input class="form-field" type="text" placeholder="Resumo">
+                    <input class="form-field" type="text" placeholder="Área">
+
+                    <div>
+                        <label for="file-upload" class="custom-file-upload">
+                            Selecionar arquivo do modelo
+                        </label>
+                        <input class="form-field" id="file-upload" type="file" name="Arquivos">
+                        <span class="file-name">Nenhum arquivo escolhido</span>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <input class="form-field" type="text" placeholder="Municipio">
+                    <input class="form-field" type="text" placeholder="Titulo">
+                    <input class="form-field" type="text" placeholder="Modalidade">
+                    <input class="form-field" type="text" placeholder="Sub Área">
+
+                    <div>
+                        <label for="file-upload" class="custom-file-upload">
+                            Selecionar arquivo do panner
+                        </label>
+                        <input class="form-field" id="file-upload" type="file" name="Arquivos">
+                        <span class="file-name">Nenhum arquivo escolhido</span>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div>    
+
+</section>
+
+{% block script %}
+    <script src="{% static 'Js/switch-pages.js' %}"></script>
+    <script src="{% static 'Js/selected-file.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

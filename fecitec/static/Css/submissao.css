@@ -88,3 +88,88 @@
     width: 24px;
     height: 24px;
 }
+
+.page {
+    display: none; /* Oculta todas as páginas por padrão */
+}
+.page.active {
+    display: flex; /* Exibe apenas a página ativa */
+}
+
+/* ESTILO DA AREA DE SUBMISSÃO */
+.page-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form-submissao {
+    gap: 20px;
+    padding: 20px;
+    width: 70%;
+    height: auto;
+    background-color: #FFFF;
+    margin-block: 30px;
+    border-radius: 16px;
+}
+
+header h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.form-field {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    outline: none;
+    width: 90%;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    height: 36px;
+    border-bottom:2px solid  #BFC8E5;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+ }
+ 
+ .form-field:focus {
+    outline: none;
+    border-bottom:  4px solid #8A84E2;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+ }
+
+ .form-fields div .form-field[type=file] {
+    border: none;
+    display: none;
+ }
+
+ .custom-file-upload {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #6D8194;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.file-name {
+    font-family: "Poppins", sans-serif;
+    margin-right: 160px;
+}
+
