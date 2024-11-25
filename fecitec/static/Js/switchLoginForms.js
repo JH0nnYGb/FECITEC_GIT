@@ -1,14 +1,17 @@
-console.log('helloWorld');
+
  // Alterna entre os formulários de login e criação de conta
 
- document.getElementById('show-create-account-forms').addEventListener('click', function(event){
+ document.getElementById('show-create-account-forms').addEventListener('click', function(event) {
     event.preventDefault();
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('create-account-forms').style.display = 'block';
- });
+    document.getElementById('container-father').style.display = 'none';
+    document.getElementById('container-father2').style.display = 'block';
+    document.getElementById('container-father2').style.width = '80%';
+})
 
- document.getElementById('showLoginForms').addEventListener('click',function(event){
+document.getElementById('show-login-forms').addEventListener('click', function(event) {
     event.preventDefault();
-    document.getElementById('create-account-forms').style.display = 'none';
-    document.getElementById('login-form').style.display = 'block';
- });
+    document.getElementById('container-father2').style.display = 'none';
+    document.getElementById('container-father').style.display = 'block';
+   //  document.getElementById('container-father2').style.width = '80%';
+   });
+

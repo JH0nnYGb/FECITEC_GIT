@@ -251,11 +251,19 @@ footer {
 }
 
 .item {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 25px;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 10px;
+  
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.creat-accont-commission{
+  margin-top: 10px;
+  color: #8A84E2;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .apoio .formigueiro-tecnologico {
