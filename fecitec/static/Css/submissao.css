@@ -160,7 +160,7 @@ header h2 {
     padding: 10px 20px;
     cursor: pointer;
     background-color: #6D8194;
-    margin-bottom: 20px;
+    margin-top: 40px;
     padding: 20px;
     color: white;
     border: none;
@@ -173,3 +173,6 @@ header h2 {
     margin-right: 160px;
 }
 
+.buttons-form {
+    width: 100%;
+}
