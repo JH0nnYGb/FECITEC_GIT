@@ -37,3 +37,4 @@ class ContactForm(forms.Form):
         )
 
         mail.send()
+

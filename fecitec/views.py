@@ -10,6 +10,10 @@ from django.contrib import messages
 from .forms import ContactForm
 from core.models import GrupoPersonalizado
 
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Participante
+from django.contrib.auth.hashers import make_password
+
 
 def home_view(request):
     return render(request, 'home.html')
@@ -132,8 +136,52 @@ def csrf_failure(request, reason=""):
     return redirect(request.META.get('HTTP_REFERER', 'login/'))
 
 
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.shortcuts import render
+# FUNCAO DE CADRASTRO DE USUARIO  
+def cadastrar_participante(request):
+    if request.method == 'POST':
+        nome_completo = request.POST.get('nome_completo')
+        email = request.POST.get('email')
+        username = request.POST.get('name_user')
+        senha = request.POST.get('senha')
+        confirm_senha = request.POST.get('confirm_senha')
+        celular = request.POST.get('celular')
+        endereco = request.POST.get('endereco')
+        cidade = request.POST.get('cidade')
+        bairro = request.POST.get('bairro')
+        estado = request.POST.get('estado')
+        formacao_academica = request.POST.get('formacao_academica')  
+
+        # Validações básicas
+        if senha != confirm_senha:
+            messages.error(request, "As senhas não coincidem.")
+            return redirect('cadastrar_usuario')
+
+        if Participante.objects.filter(email=email).exists():
+            messages.error(request, "Este e-mail já está cadastrado.")
+            return redirect('cadastrar_usuario')
+
+        if Participante.objects.filter(username=username).exists():
+            messages.error(request, "Este nome de usuário já está em uso.")
+            return redirect('cadastrar_usuario')
+
+        # Criação do usuário
+        usuario = Participante.objects.create(
+            nome_completo=nome_completo,
+            email=email,
+            username=username,
+            senha=make_password(senha),  # Salva a senha como hash
+            celular=celular,
+            endereco=endereco,
+            cidade=cidade,
+            bairro=bairro,
+            estado=estado,
+            formacao_academica=formacao_academica,
+        )
+        usuario.save()
+
+        messages.success(request, "Cadastro realizado com sucesso!")
+        return redirect('app_participante:dashboard_participante.html')  
+    return render(request, 'login_participante.html')
 
 # Função para verificar o grupo do usuário
 def is_administrator(user):
@@ -143,4 +191,6 @@ def is_administrator(user):
 @login_required
 @user_passes_test(is_administrator, login_url='login/')
 def dashboard_admin(request):
-    return render(request, 'admin_fecitec/dashboard.html')
+    return render(request, 'admin_fecitec/dashboard_admin.html')
+
+# ^^^^^^^^^^^^^adicionar os outros usuarios ^^^^^^^^^^^^^^

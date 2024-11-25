@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="{% static 'Css/login.css' %}">
 <link rel="stylesheet" href="{% static 'Css/Midias/Phone/login-phone.css' %}">
 <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/login-tablet.css'%}">
+<!-- #####todas as telas de login estao com o mesmos styles de midias grande ############# -->
 
 {% endblock style%}
 
@@ -31,8 +32,8 @@
                         <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
                         <input type="password" name="password" class="fields" placeholder="Senha" required>
                         <a href="#" class="creat-accont" id="show-create-account-forms">Criar conta</a>
-                        <div class="container-botao-login">
-                            <button type="submit" class="btn-login">Login</button>
+                        <div class="container-buttom-login">
+                            <button type="submit" class="btn-login">Entrar</button>
                         </div>
                     </form>
                 </section>
@@ -41,16 +42,19 @@
     </div>    
 </div>
 
-<div class="container-father2" id="container-father2">
+<div class="container-father-creat" id="container-father-creat">
     <div class="container-chilld" id="create-account-forms" >
-        <h2>Crie sua conta</h2>
-        <p>Preencha os Campos para criar sua conta como Participante da Fecitec</p>  
+        <h2 >Crie sua conta</h2>
+        <h5 class="fill-fields">Preencha os Campos Obrigadorios para criar sua conta como Participante da Fecitec</h5>  
         <div class="box-forms">
             <div class="fields-content">
                 <section>
                     <form action="" method="POST" class="forms-fields">
                         {% csrf_token %}
+                        {{ form.as_p }}
+                        <h2 class="title-forms" >Dados do Participante</h3>
                         <div class="forms-content">
+                            
                             <div>
                                 <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
                                 <input type="email" name="email" class="fields" placeholder="E-mail" required>
@@ -59,32 +63,76 @@
                                 <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
                             </div>
                             <div>
-                                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                                <input type="text" name="name_user" class="fields" placeholder="Nome de Usuário" required>
                                 <input type="text" name="celular" class="fields" placeholder="Celular" required>
                                 <input type="password" name="confirm_senha" class="fields" placeholder="Confirme a Senha" required>
                                 <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
                                 <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
-                                <select class="fields" >
-                                    <option value="" disabled selected>Escolha a Formção</option>
-                                    <option value="1">Fundamental - Incompleto</option>
-                                    <option value="2">Fundamental - Completo</option>
-                                    <option value="3">Médio - Incompleto</option>
-                                    <option value="4">Médio - Completo</option>
-                                    <option value="5">Incompleto</option>
-                                    <option value="6"> Superior - Completo</option>
-                                    <option value="7"> Pós-graduação (Lato sensu) - Incompleto</option>
-                                    <option value="8"> Pós-graduação (Lato sensu) - Completo</option>
-                                    <option value="9"> Pós-graduação (Stricto sensu, nível mestrado) - Incompleto</option>
-                                    <option value="10"> Pós-graduação (Stricto sensu, nível mestrado) - Completo</option>
-                                    <option value="11"> Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
-                                    <option value="12"> Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
-                                  </select>
-                            </div>
-                            <div>
-                                <h3> Dados da Sua Instituição  </h3>
+                                <select class="fields" name="formacao_academica">
+                                    <option value="" disabled selected>Escolha a Formação Acadêmica</option>
+                                    <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
+                                    <option value="Fundamental - Completo">Fundamental - Completo</option>
+                                    <option value="Médio - Incompleto">Médio - Incompleto</option>
+                                    <option value="Médio - Completo">Médio - Completo</option>
+                                    <option value="Superior - Incompleto">Superior - Incompleto</option>
+                                    <option value="Superior - Completo">Superior - Completo</option>
+                                    <option value="Pós-graduação (Lato sensu) - Incompleto">Pós-graduação (Lato sensu) - Incompleto</option>
+                                    <option value="Pós-graduação (Lato sensu) - Completo">Pós-graduação (Lato sensu) - Completo</option>
+                                    <option value="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto">Pós-graduação (Stricto sensu, nível mestrado) - Incompleto</option>
+                                    <option value="Pós-graduação (Stricto sensu, nível mestrado) - Completo">Pós-graduação (Stricto sensu, nível mestrado) - Completo</option>
+                                    <option value="Pós-graduação (Stricto sensu, nível doutor) - Incompleto">Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
+                                    <option value="Pós-graduação (Stricto sensu, nível doutor) - Completo">Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="container-botao-login">
+
+                        <h2 class="title-forms" > Dados da Sua Instituição  </h3>
+                            
+                        <div>
+                            
+                            <input type="text" name="instituicao_nome" class="fields" placeholder=" Nome da Instituição">
+                            <input type="text" name="municipio_nome" class="fields" placeholder=" Nome do Município">
+                            <select class="fields" name="estados" id="estados" >
+                                <option value="" disabled selected>Selecione um estado</option>
+                                <option value="AC">Acre (AC)</option>
+                                <option value="AL">Alagoas (AL)</option>
+                                <option value="AP">Amapá (AP)</option>
+                                <option value="AM">Amazonas (AM)</option>
+                                <option value="BA">Bahia (BA)</option>
+                                <option value="CE">Ceará (CE)</option>
+                                <option value="DF">Distrito Federal (DF)</option>
+                                <option value="ES">Espírito Santo (ES)</option>
+                                <option value="GO">Goiás (GO)</option>
+                                <option value="MA">Maranhão (MA)</option>
+                                <option value="MT">Mato Grosso (MT)</option>
+                                <option value="MS">Mato Grosso do Sul (MS)</option>
+                                <option value="MG">Minas Gerais (MG)</option>
+                                <option value="PA">Pará (PA)</option>
+                                <option value="PB">Paraíba (PB)</option>
+                                <option value="PR">Paraná (PR)</option>
+                                <option value="PE">Pernambuco (PE)</option>
+                                <option value="PI">Piauí (PI)</option>
+                                <option value="RJ">Rio de Janeiro (RJ)</option>
+                                <option value="RN">Rio Grande do Norte (RN)</option>
+                                <option value="RS">Rio Grande do Sul (RS)</option>
+                                <option value="RO">Rondônia (RO)</option>
+                                <option value="RR">Roraima (RR)</option>
+                                <option value="SC">Santa Catarina (SC)</option>
+                                <option value="SP">São Paulo (SP)</option>
+                                <option value="SE">Sergipe (SE)</option>
+                                <option value="TO">Tocantins (TO)</option>
+                              </select>
+                        </div>
+
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <li class="{{ message.tags }}">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    
+                        <div class="container-buttom-login2" id="">
                             <a href="#" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
                             <button type="submit" class="btn-login">Criar Conta</button>
                         </div>
