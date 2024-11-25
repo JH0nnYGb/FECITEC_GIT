@@ -164,7 +164,11 @@
         <div class="item">
           <p>Realização</p>
           <img class="logo-if" src="{% static 'images/logo-if.svg' %}" alt="" />
+          <div class="creat-accont-commission">
+            <a class="creat-accont-commission" href="{% url 'fecitec:user_login' %}"> Login Comissão</a>
+          </div>
         </div>
+        
 
         <div class="item apoio">
           <p>Apoio</p>
@@ -173,10 +177,6 @@
           </a>
         </div>
       
-
-        <div>
-          <a href="{% url 'fecitec:user_login' %}"> Login Comissão</a>
-        </div>
       </div>
       <p class="copyright">2024 - Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru.</p>
     </footer>

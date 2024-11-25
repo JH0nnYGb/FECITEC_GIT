@@ -17,60 +17,80 @@
 
 {% endblock style%}
 
-{% block title %} Login {% endblock %}
+{% block title %} Login_Participante {% endblock %}
 
 {% block content %}
-<div class="container-father">
-    <h2>Login</h2>
-    <div class="box-forms">
-        <div class="fields-content">
-            <!--############ FORMULARIO PADRAO ############ -->
-            <section id="login-form">
-                <form action="" method="POST" class="forms-fields" >
-                    {% csrf_token %}
-                    <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
-                    <input type="password" name="password" class="fields" placeholder="Senha" required>
-                    <a href="#"  id="show-create-account-forms"> Criar conta </a>
-                    
-                    <!-- Exibição de mensagens de erro -->
-                    {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                                <li class="error">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-    
-                    <div class="container-botao-login">
-                        <button type="submit" class="btn-login">Login</button>
-                    </div>
-                </form>    
-            </section>
-            
-            <!-- Formulário de Criação de Conta (Inicialmente escondido) -->
-             <section id="create-account-forms" style="display: none;" >
-                <form  action="" method="POST" class="forms-fields" >
-                    {% csrf_token %}
-                    <input type="text" name="new_username" class="fields" placeholder="Nome de Usuário" required>
-                    <input type="text" name="email" class="fields" placeholder="E-mail" required>
-                    <input type="password" name="new_username" class="fields" placeholder="Senha" required>
-                    <input type="password" name="confirm_password" class="fields" placeholder="Confirme a Senha " required>
-                    <a href="#" id="showLoginForms"> Já tenho um conta</a>
-                
-                    <!-- Exibição de mensagens de erro -->
-                    {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                                <li class="error">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                    <div class="container-botao-login">
-                        <button type="submit" class="btn-login">Login</button>
-                    </div>
-                </form>    
-             </section>
-            
+<div class="container-father" id="container-father" >
+    <div class="container-chilld" id="login-form"> 
+        <h2>Login</h2>
+        <div class="box-forms">
+            <div class="fields-content">
+                <section>
+                    <form action="" method="POST" class="forms-fields">
+                        {% csrf_token %}
+                        <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                        <input type="password" name="password" class="fields" placeholder="Senha" required>
+                        <a href="#" class="creat-accont" id="show-create-account-forms">Criar conta</a>
+                        <div class="container-botao-login">
+                            <button type="submit" class="btn-login">Login</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="container-father2" id="container-father2">
+    <div class="container-chilld" id="create-account-forms" >
+        <h2>Crie sua conta</h2>
+        <p>Preencha os Campos para criar sua conta como Participante da Fecitec</p>  
+        <div class="box-forms">
+            <div class="fields-content">
+                <section>
+                    <form action="" method="POST" class="forms-fields">
+                        {% csrf_token %}
+                        <div class="forms-content">
+                            <div>
+                                <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
+                                <input type="email" name="email" class="fields" placeholder="E-mail" required>
+                                <input type="password" name="senha" class="fields" placeholder="Senha" required>
+                                <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
+                                <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
+                            </div>
+                            <div>
+                                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                                <input type="text" name="celular" class="fields" placeholder="Celular" required>
+                                <input type="password" name="confirm_senha" class="fields" placeholder="Confirme a Senha" required>
+                                <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
+                                <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
+                                <select class="fields" >
+                                    <option value="" disabled selected>Escolha a Formção</option>
+                                    <option value="1">Fundamental - Incompleto</option>
+                                    <option value="2">Fundamental - Completo</option>
+                                    <option value="3">Médio - Incompleto</option>
+                                    <option value="4">Médio - Completo</option>
+                                    <option value="5">Incompleto</option>
+                                    <option value="6"> Superior - Completo</option>
+                                    <option value="7"> Pós-graduação (Lato sensu) - Incompleto</option>
+                                    <option value="8"> Pós-graduação (Lato sensu) - Completo</option>
+                                    <option value="9"> Pós-graduação (Stricto sensu, nível mestrado) - Incompleto</option>
+                                    <option value="10"> Pós-graduação (Stricto sensu, nível mestrado) - Completo</option>
+                                    <option value="11"> Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
+                                    <option value="12"> Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <h3> Dados da Sua Instituição  </h3>
+                            </div>
+                        </div>
+                        <div class="container-botao-login">
+                            <a href="#" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
+                            <button type="submit" class="btn-login">Criar Conta</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
 </div>
