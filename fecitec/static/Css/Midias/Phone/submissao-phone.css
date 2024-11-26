@@ -134,4 +134,17 @@
     .form-fields {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    /* MIDIA DA AREA DE SUBMISSÃO */
+    .button-archive {
+        width: 100%;
+    }
+
+    .container-buttons-archive {
+        flex-direction: column;
+    }
+
+    .button-send-form button {
+        width: 100% ;
+    }
 }

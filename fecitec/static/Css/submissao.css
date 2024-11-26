@@ -155,24 +155,73 @@ header h2 {
  .custom-file-upload {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 14px;
-    display: inline-block;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #6D8194;
+    width: 100% ;
+    background-color: #8A84E2;
     margin-top: 40px;
-    padding: 20px;
+    height: 90px;
     color: white;
     border: none;
     border-radius: 20px;
     text-align: center;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;;
+}
+
+.custom-file-upload:hover {
+    background-color: #6d68b5;
+}
+
+.button-archive input {
+    display: none;
 }
 
 .file-name {
     font-family: "Poppins", sans-serif;
     margin-right: 160px;
+    text-wrap: nowrap;
 }
 
 .buttons-form {
     width: 100%;
+}
+
+
+.button-archive {
+    flex-direction: row;
+    width: 40%;
+}
+
+.container-buttons-archive {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+
+.button-send-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.button-send-form button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 30% ;
+    background-color: #6D8194;
+    margin-top: 30px;
+    padding: 20px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
 }

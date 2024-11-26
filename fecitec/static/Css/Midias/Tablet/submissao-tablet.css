@@ -34,4 +34,17 @@
   .container-search-bar{
     display: none;
   }
+
+    /* MIDIA DA AREA DE SUBMISSÃO */
+    .button-archive {
+      width: 47%;
+  }
+
+  .custom-file-upload {
+    font-size: 15px;
+  }
+
+  .button-send-form button {
+      width: 100% ;
+  }
 }
