@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 
 from core.forms import CustomUserCreationForm
+from core.models import Instituicao
 from core.models import GrupoPersonalizado, Participante
 # Create your views here.
 
@@ -31,14 +32,19 @@ def Cadastrar_participante(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            # Salva o usuário
+             # Verifique se o nome de usuário já existe antes de salvar
+            username = form.cleaned_data['username']
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Já existe um usuário com este nome.")
+                return render(request, 'cadastro_participante.html', {'form': form})
+
             user = form.save()
             user.first_name = form.cleaned_data['nome_completo']
             user.email = form.cleaned_data['email']
             user.save()
 
             
-            instituicao_nome = form.cleaned_data['instituicao_nome']
+            instituicao_nome = form.cleaned_data['instituicao']
             municipio = form.cleaned_data['municipio']
             estado_instituicao = form.cleaned_data['estado_instituicao']
             endereco = form.cleaned_data['endereco']
@@ -77,8 +83,11 @@ def Cadastrar_participante(request):
             messages.success(request, "Conta criada com sucesso!")
             login(request, user)  
             return redirect('fecitec:login_participante')
+        
         else:
-            messages.error(request, "Erro ao criar conta. Verifique os campos.")
+            print(form.errors.as_json()) 
+            # messages.error(request, "Erro ao criar conta. Verifique os campos.")
+                        
     else:
         form = CustomUserCreationForm()
 
