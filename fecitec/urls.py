@@ -11,6 +11,7 @@ from fecitec.views import contate_view
 from fecitec.views import user_login
 from fecitec.views import login_participante
 from fecitec.views import formigueiro_view
+from core.views import Cadastrar_participante
 
 app_name = 'fecitec'
 
@@ -24,9 +25,10 @@ urlpatterns = [
     path('comissao/', comissao_view, name='comissao'),
   
     path('contate-nos/', contate_view, name='contate'),
-    path('login/', user_login, name='user_login'),
+    path('login-comission/', user_login, name='user_login'),
     
     path('login_participante/', login_participante, name='participante'),
+    path('cadastro-participante/', Cadastrar_participante, name='cadastro_participante'),
 
     path('formigueiro/', formigueiro_view, name='formigueiro')
 ]

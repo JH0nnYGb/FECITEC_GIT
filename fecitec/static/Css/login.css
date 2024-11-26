@@ -15,7 +15,6 @@
  }
 
  .container-father2 {
-  display: none;
   width: 100%;
   margin: 0 auto;
   transition: all 0.3s ease-in-out; /* Suaviza qualquer mudança de largura */
