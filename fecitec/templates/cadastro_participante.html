@@ -29,21 +29,22 @@
                 <section>
                     <form action="" method="POST" class="forms-fields">
                         {% csrf_token %}
-                        {{ form.as_p }}
                         <div class="forms-content">
                             <div>
+                                <!-- Campos definidos no forms.py -->
                                 <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
                                 <input type="email" name="email" class="fields" placeholder="E-mail" required>
-                                <input type="password" name="senha" class="fields" placeholder="Senha" required>
+                                <input type="password" name="password1" class="fields" placeholder="Senha" required>
                                 <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
                                 <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
                             </div>
                             <div>
                                 <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
                                 <input type="text" name="celular" class="fields" placeholder="Celular" required>
-                                <input type="password" name="confirm_senha" class="fields" placeholder="Confirme a Senha" required>
+                                <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
                                 <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
                                 <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
+                        
                                 <select class="fields" name="formacao" required>
                                     <option value="" disabled selected>Escolha a Formação</option>
                                     <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
@@ -58,15 +59,18 @@
                                     <option value="Pós-graduação (Stricto sensu, nível mestrado) - Completo">Pós-graduação (Stricto sensu, nível mestrado) - Completo</option>
                                     <option value="Pós-graduação (Stricto sensu, nível doutor) - Incompleto">Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
                                     <option value="Pós-graduação (Stricto sensu, nível doutor) - Completo">Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
-                                </select>                                
+                                </select>                                 
                             </div>
                             <div>
                                 <h3> Dados da Sua Instituição </h3>
-                                <input type="text" name="instituicao_nome" class="fields" placeholder="Nome da Instituição" required>
+                                <!-- Campos para Dados da Instituição -->
+                                <input type="text" name="instituicao" class="fields" placeholder="Nome da Instituição" required>
                                 <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
                                 <input type="text" name="estado_instituicao" class="fields" placeholder="Estado" required>
                             </div>
                         </div>
+                        
+                            
                         <div class="container-botao-login">
                             {% if messages %}
                                 <ul class="messages">
