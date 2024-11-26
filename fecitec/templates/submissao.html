@@ -67,44 +67,49 @@
                 <h2>Submissão de trabalho</h2>
             </header>
 
-            <form action="" class="form-fields">
-                <div class="fields">
-                    <input class="form-field" type="text" placeholder="Nome da Escola">
-                    <input class="form-field" type="text" placeholder="Estado">
-                    <input class="form-field" type="text" placeholder="Resumo">
-                    <input class="form-field" type="text" placeholder="Área">
+            <form action="">
+                <div class="form-fields">
+                    <div class="fields">
+                        <input class="form-field" type="text" placeholder="Nome da Escola">
+                        <input class="form-field" type="text" placeholder="Estado">
+                        <input class="form-field" type="text" placeholder="Resumo">
+                        <input class="form-field" type="text" placeholder="Área">
+                    </div>
+
+                    <div class="fields">
+                        <input class="form-field" type="text" placeholder="Municipio">
+                        <input class="form-field" type="text" placeholder="Titulo">
+                        <input class="form-field" type="text" placeholder="Modalidade">
+                        <input class="form-field" type="text" placeholder="Sub Área">
+                    </div>
                 </div>
 
-                <div class="fields">
-                    <input class="form-field" type="text" placeholder="Municipio">
-                    <input class="form-field" type="text" placeholder="Titulo">
-                    <input class="form-field" type="text" placeholder="Modalidade">
-                    <input class="form-field" type="text" placeholder="Sub Área">
-                </div>
-
-
-                
-       
-                    <div>
+                <div class="container-buttons-archive">
+                    <div class="button-archive">
                         <label for="file-upload" class="custom-file-upload">
+                            <img class="icon" src="{% static 'images/icone-baixar-modelo.svg' %}" alt="">
                             Selecionar arquivo do modelo
                         </label>
                         <input class="form-field" id="file-upload" type="file" name="Arquivos">
                         <span class="file-name">Nenhum arquivo escolhido</span>
                     </div>        
                     
-                    <div>
+                    <div class="button-archive">
                         <label for="file-upload" class="custom-file-upload">
+                            <img class="icon" src="{% static 'images/icone-baixar-panner.svg' %}" alt="">
                             Selecionar arquivo do panner
                         </label>
                         <input class="form-field" id="file-upload" type="file" name="Arquivos">
                         <span class="file-name">Nenhum arquivo escolhido</span>
                     </div>
-            
+                </div>
+
+                <div class="button-send-form">
+                    <button type="submit">Enviar Submissão</button>
+                </div>
             </form>
         </article>
     </div>    
-
 </section>
 
 {% block script %}
