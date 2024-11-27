@@ -13,4 +13,48 @@
         border-radius: 16px;
     }
 
+    .forms-content{
+        display: flex;
+        flex-direction: column;
+        gap:70px;
+    }
+
+    .center_item{
+        display: none;
+        text-align: center;
+        align-items: center;
+    }
+
+    .center-mobile{
+        display: block;
+        gap: 50px;
+    }
+
+    .middle_item{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        /* grid-column: 1/3; */
+      }
+
+    .btn-criar {
+        font-family: "Merriweather", serif;
+        font-size: larger;
+        width: 10rem;
+        height: 58px;
+        display: flex;
+        margin-top: 1.5rem;
+        border-radius: 30px;
+        border: none;
+        justify-content: center;
+        align-items: center;
+        color: #FFFF;
+        background-color: #6D8194;
+    }
+
+    .fields option {
+        white-space: nowrap;  /* Impede que o texto se quebre em múltiplas linhas */
+        overflow: hidden;     /* Impede que o texto ultrapasse o limite */
+        text-overflow: ellipsis;  /* Adiciona "..." para indicar que o texto foi cortado */
+      }
 }
