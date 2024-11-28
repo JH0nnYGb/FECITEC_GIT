@@ -44,7 +44,7 @@ def Cadastrar_participante(request):
             user.save()
 
             
-            instituicao_nome = form.cleaned_data['instituicao']
+            nome_instituicao = form.cleaned_data['instituicao']
             municipio = form.cleaned_data['municipio']
             estado_instituicao = form.cleaned_data['estado_instituicao']
             endereco = form.cleaned_data['endereco']
@@ -57,7 +57,7 @@ def Cadastrar_participante(request):
             
             participante = Participante.objects.create(
                 user=user,
-                nome_instituicao=instituicao_nome,
+                nome_instituicao=nome_instituicao,
                 municipio=municipio,
                 estado_instituicao=estado_instituicao,
                 endereco=endereco,
