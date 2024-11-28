@@ -75,7 +75,7 @@ def Cadastrar_participante(request):
         
             instituicao = Instituicao.objects.create(
                 user=user,
-                instituicao_nome=instituicao_nome,
+                nome_instituicao=nome_instituicao,
                 municipio=municipio,
                 estado_instituicao=estado_instituicao
             )
@@ -85,7 +85,8 @@ def Cadastrar_participante(request):
             return redirect('fecitec:login_participante')
         
         else:
-            print(form.errors.as_json()) 
+            print(form.errors.as_json())  # Já está presente na sua função
+
             # messages.error(request, "Erro ao criar conta. Verifique os campos.")
                         
     else:
