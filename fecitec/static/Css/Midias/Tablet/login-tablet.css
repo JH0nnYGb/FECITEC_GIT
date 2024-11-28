@@ -16,4 +16,17 @@
      .container-search-bar{
       display: none;
     }
+    .container-chilld {
+        display: flex;
+        gap: 30px;
+        min-height: 40rem;
+        height: auto;
+        padding: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FFFF;
+        margin-block: 30px;
+        border-radius: 16px;
+    }
 }

@@ -33,16 +33,16 @@
                             <div class="center_item">
                                 <!-- Campos definidos no forms.py -->
                                 <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
+                                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
                                 <input type="email" name="email" class="fields" placeholder="E-mail" required>
                                 <input type="password" name="password1" class="fields" placeholder="Senha" required>
-                                <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
-                                <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
+                                <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
+                                <input type="text" name="celular" class="fields" placeholder="Celular" required>
                             </div>
                             <div class="center_item">
-                                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
-                                <input type="text" name="celular" class="fields" placeholder="Celular" required>
-                                <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
+                                <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
                                 <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
+                                <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
                                 <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
                         
                                 <select class="fields" name="formacao" required>
@@ -82,6 +82,7 @@
                                 {% endfor %}
                                 </ul>
                             {% endif %}
+                            
                             {% if errors %}
                                 <ul>
                                     {% for field, error_list in errors.items %}

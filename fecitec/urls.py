@@ -27,7 +27,7 @@ urlpatterns = [
     path('contate-nos/', contate_view, name='contate'),
     path('login-comission/', user_login, name='user_login'),
     
-    path('login_participante/', login_participante, name='participante'),
+    path('login_participante/', login_participante, name='login_participante'),
     path('cadastro-participante/', Cadastrar_participante, name='cadastro_participante'),
 
     path('formigueiro/', formigueiro_view, name='formigueiro')

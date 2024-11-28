@@ -3,7 +3,8 @@
     .container-father{
         gap: 20px;
         width: 90%;
-        height: 720px;
+        min-height: 25rem;
+        /* height: 720px; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -13,14 +14,27 @@
         border-radius: 16px;
     }
 
+    .container-chilld{ 
+        display: flex;
+        gap: 30px;
+        min-height: 50rem;
+        height: auto;
+        padding: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FFFF;
+        margin-block: 30px;
+        border-radius: 16px;
+       }
+
     .forms-content{
         display: flex;
         flex-direction: column;
-        gap:70px;
+        gap:0px;
     }
 
     .center_item{
-        display: none;
         text-align: center;
         align-items: center;
     }
