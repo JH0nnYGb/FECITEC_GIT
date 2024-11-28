@@ -75,13 +75,13 @@ def Cadastrar_participante(request):
         
             instituicao = Instituicao.objects.create(
                 user=user,
-                nome_instituicao=nome_instituicao,
+                instituicao_nome=instituicao_nome, 
                 municipio=municipio,
                 estado_instituicao=estado_instituicao
             )
 
-            messages.success(request, "Conta criada com sucesso!")
-            login(request, user)  
+                
+            messages.success(request, "Conta criada com sucesso! Faça login para continuar")
             return redirect('fecitec:login_participante')
         
         else:
@@ -91,5 +91,5 @@ def Cadastrar_participante(request):
                         
     else:
         form = CustomUserCreationForm()
-
+    
     return render(request, 'cadastro_participante.html', {'form': form})
