@@ -30,9 +30,9 @@ class Participante(models.Model):
     
 ###### models de instituicao ####
 class Instituicao(models.Model):
-    instituicao_nome = models.CharField(max_length=255)
+    nome_instituicao = models.CharField(max_length=255)
     municipio = models.CharField(max_length=100)
-    estado = models.CharField(max_length=2)
+    estado_instituicao = models.CharField(max_length=2)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
