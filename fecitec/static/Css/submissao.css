@@ -152,6 +152,18 @@ header h2 {
     display: none;
  }
 
+ .textarea-field {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    padding: 10px;
+    height: 150px;
+    outline: none;
+    border-radius: 10px;
+    resize: none;
+    border: 2px solid #8A84E2;
+    width: 90%;
+ }
+
  .custom-file-upload {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -200,7 +212,6 @@ header h2 {
 .container-buttons-archive {
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
 }
 
 .button-send-form {
@@ -218,10 +229,25 @@ header h2 {
     cursor: pointer;
     width: 30% ;
     background-color: #6D8194;
-    margin-top: 30px;
     padding: 20px;
     color: white;
     border: none;
     border-radius: 20px;
     text-align: center;
+}
+
+.sucess {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: green;
+    margin: 40px 0 0 0;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    margin-top: 30px;
 }

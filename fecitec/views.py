@@ -18,6 +18,21 @@ def cronograma_view(request):
     return render(request, 'cronograma.html')
 
 def submissao_view(request):
+    if request.method == 'POST':
+        school_name = request.POST.get('school_name')
+        area = request.POST.get('area')
+        municipality = request.POST.get('municipality')
+        title = request.POST.get('school_name')
+        sub_area = request.POST.get('title')
+        summary = request.POST.get('summary')
+
+        state = request.POST.get('state')
+        formation = request.POST.get('formation')
+
+        messages.success(request, 'Submissão enviada com sucesso!')
+
+        return redirect('fecitec:submissao')
+    
     return render(request, 'submissao.html')
 
 def aprovados_view(request):
