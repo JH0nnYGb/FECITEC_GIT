@@ -45,11 +45,17 @@
     }
 
     .middle_item{
+        width: 100%;
         display: grid;
         text-align: center;
         align-items: center;
         /* grid-column: 1/3; */
       }
+
+    .box-forms {
+        width: 100%;
+        height: auto;
+    }
 
     .btn-criar {
         font-family: "Merriweather", serif;
