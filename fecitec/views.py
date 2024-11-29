@@ -10,6 +10,8 @@ from django.contrib import messages
 from .forms import ContactForm
 from django.contrib.auth.models import Group
 from core.models import GrupoPersonalizado
+from .forms import SubmissionToWorkForm
+
 from core.models import Participante
 
 
@@ -21,22 +23,23 @@ def cronograma_view(request):
     return render(request, 'cronograma.html')
 
 def submissao_view(request):
-    if request.method == 'POST':
-        school_name = request.POST.get('school_name')
-        area = request.POST.get('area')
-        municipality = request.POST.get('municipality')
-        title = request.POST.get('school_name')
-        sub_area = request.POST.get('title')
-        summary = request.POST.get('summary')
+        form = SubmissionToWorkForm()
 
-        state = request.POST.get('state')
-        formation = request.POST.get('formation')
+        if request.method == 'POST' and request.FILES:
+            form = SubmissionToWorkForm(request.POST, request.FILES)
 
-        messages.success(request, 'Submissão enviada com sucesso!')
+            if form.is_valid():
+                form.save()
 
-        return redirect('fecitec:submissao')
+            messages.success(request, 'Submissão enviada com sucesso!')
+            return redirect('fecitec:submissao')
     
-    return render(request, 'submissao.html')
+        else:
+            context = {
+                'form': form
+            }
+
+        return render(request, 'submissao.html', context)
 
 def aprovados_view(request):
     return render(request, 'aprovado.html')

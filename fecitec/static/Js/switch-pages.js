@@ -4,6 +4,5 @@ function showPage(pageId) {
         page.classList.remove('active');
     });
 
-    // Mostra a página desejada
     document.getElementById(pageId).classList.add('active');
 }
