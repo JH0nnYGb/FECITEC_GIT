@@ -17,7 +17,10 @@ class ContactForm(forms.Form):
         max_length=15,
         required=True,
         validators=[validate_phone_number],
-        widget=forms.TextInput(attrs={'placeholder': 'Número'}),
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Número',
+            'id': 'telephone'
+        }),
     )
     message = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'Escreva sua mensagem'}))
 
