@@ -439,3 +439,11 @@ footer {
   {
     transform: none;
   }
+
+  .campo-visitas article {
+    color: #8A84E2;
+  }
+
+  .campo-visitas p {
+    color: #8A84E2;
+  }
