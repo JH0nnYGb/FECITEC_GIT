@@ -67,9 +67,11 @@
                             <div class="middle_item">
                                 <h3> Dados da Sua Instituição </h3>
                                 <!-- Campos para Dados da Instituição -->
-                                <input type="text" name="instituicao" class="fields" placeholder="Nome da Instituição" required>
-                                <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
-                                <input type="text" name="estado_instituicao" class="fields" placeholder="Estado" required>
+                                <div class="center_item">
+                                    <input type="text" name="instituicao" class="fields" placeholder="Nome da Instituição" required>
+                                    <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
+                                    <input type="text" name="estado_instituicao" class="fields" placeholder="Estado" required>
+                                </div>
                             </div>
                         </div>
                         
@@ -82,16 +84,8 @@
                                 {% endfor %}
                                 </ul>
                             {% endif %}
-                            
-                            {% if errors %}
-                                <ul>
-                                    {% for field, error_list in errors.items %}
-                                        <li>{{ field }}: {{ error_list|join:", " }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
 
-                            <a href="{% url 'fecitec:login_participante' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
+                            <a href="{% url 'fecitec:login_tela' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
                             <button type="submit" class="btn-criar">Criar Conta</button>
                         </div>
                     </form>

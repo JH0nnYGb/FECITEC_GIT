@@ -29,4 +29,9 @@
         margin-block: 30px;
         border-radius: 16px;
     }
+
+    .box-forms {
+        width: 100%;
+        height: auto;
+    }
 }
