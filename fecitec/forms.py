@@ -2,6 +2,7 @@ from django import forms
 from django.core.mail.message import EmailMessage
 import re
 from django.core.exceptions import ValidationError
+from .models import SubmissionToWork
 
 def validate_phone_number(value):
     phone_pattern = re.compile(r'^\+?1?\d{9,15}$')
@@ -37,3 +38,8 @@ class ContactForm(forms.Form):
         )
 
         mail.send()
+
+class SubmissionToWorkForm(forms.ModelForm):
+    class Meta:
+        model = SubmissionToWork
+        fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'arquivo_panner']
