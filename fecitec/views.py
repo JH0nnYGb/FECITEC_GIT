@@ -8,7 +8,10 @@ from django.shortcuts import render
 from django.contrib import messages
 
 from .forms import ContactForm
+from django.contrib.auth.models import Group
 from core.models import GrupoPersonalizado
+from core.models import Participante
+
 
 
 def home_view(request):
@@ -74,9 +77,9 @@ def contate_view(request):
     }
 
     return render(request, 'contate.html', context)
-###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
-def login_participante(request):
-    return render(request,'login_participante.html')
+
+
+
 
 ###### VIEWS DE LOGIN PARA OS MEMBROS DA COMISSAO  #########
 def user_login(request):
@@ -135,6 +138,7 @@ def user_login(request):
     return render(request, 'login.html', {'form': form})
 
 
+
    
 
 def formigueiro_view(request):
@@ -159,3 +163,33 @@ def is_administrator(user):
 @user_passes_test(is_administrator, login_url='login/')
 def dashboard_admin(request):
     return render(request, 'admin_fecitec/dashboard.html')
+
+
+
+
+
+
+
+
+
+
+
+###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
+def login_tela(request):
+    print('ual')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            # Verifique se o usuário pertence ao grupo 'Participante'
+            if user.grupos_personalizados.filter(nome='Participante').exists():
+                
+                login(request, user)
+                return redirect('app_participante:dashboard_participante')# Certifique-se de que a URL esteja correta
+            else:
+                messages.error(request, 'Você não tem permissão para acessar essa página.')
+        else:
+            messages.error(request, 'Nome de usuário ou senha inválidos. Tente novamente.')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login_participante.html', {'form': form})
