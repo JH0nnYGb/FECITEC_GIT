@@ -110,31 +110,31 @@
       </article>
     </div>
     
-    <!-- ###################### NAV BAR DO ADMINISTRADOR  ########################## -->
+    <!-- ###################### NAV BAR DO ADMINISTRADOR TELAS GRANDES ########################## -->
     <div id="navBarAdmin">
      <article class="navigation-bar-admin" >
        <nav class="navbar-admin">
          <ul>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"> Submissões </a>
+             <a href="{% url 'admin_fecitec:admin_submission' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"> Submissões </a>
            </li>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}"> Jurados </a>
+             <a href="{% url 'admin_fecitec:admin_jurors' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}"> Jurados </a>
            </li>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliadores </a>
+             <a href="{% url 'admin_fecitec:admin_evaluators' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliadores </a>
            </li>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliações </a>
+             <a href="{% url 'admin_fecitec:admin_reviews' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliações </a>
            </li>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Participantes </a>
+             <a href="{% url 'admin_fecitec:admin_participants' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Participantes </a>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Comissão </a>
+             <a href="{% url 'admin_fecitec:admin_commission' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Comissão </a>
            </li>
            </li>
            <li>
-             <a href="#" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Contatos </a>
+             <a href="{% url 'admin_fecitec:admin_contacts' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Contatos </a>
            </li>
      </article>
     </div>
@@ -198,7 +198,7 @@
     </div>
     
     <main>
-      {% block content %}
+      {% block content_admin %}
         <!-- Content will go here -->
       {% endblock %}
     </main>
