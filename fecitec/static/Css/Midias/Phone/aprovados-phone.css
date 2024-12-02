@@ -72,6 +72,7 @@
     }
 
     .table-responsive {
+        display: block;
         overflow-x: auto; /* Adiciona a rolagem lateral */
         width: 100%;
         text-align: center;

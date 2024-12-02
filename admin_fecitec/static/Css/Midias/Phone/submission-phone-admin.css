@@ -30,6 +30,19 @@
     .container-hamburge-seachr {
         position: relative;
     }
+
+    .tabela-scroll{
+        display: block;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch; /* Para dispositivos iOS */
+        width: 100%;
+    }
+
+    .tabela-scroll table {
+        width: 100%;
+        table-layout: fixed;
+    }
+    
     .father_table {
         align-items: center;
         width: 100%;
@@ -37,4 +50,19 @@
         justify-content: center;
         padding: 30px;
     }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table-responsive table {
+        min-width: 600px;
+    }
+    
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+
 }

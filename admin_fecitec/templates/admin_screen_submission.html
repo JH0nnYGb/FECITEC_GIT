@@ -12,71 +12,31 @@
 
 <!-- bloco de conteudo da tela onde o administrador fecitec pode ver as submissoes  -->
 {% block content_admin %} 
-<h3>tela : TRABALHOS SUBMETIDOS</h3>
-
-<section class="father_table">
-    <tbody>
-        <table>
-            <tr>
-                <th class="table_header">coluna1</th>
-                <th class="table_header">coluna2</th>
-                <th class="table_header">coluna3</th>
-                <th class="table_header">coluna4</th>
-                <th class="table_header">coluna5</th>
-                <th class="table_header">coluna6</th>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
-            <tr>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-                <td class="children_table"></td>
-            </tr>
+<div class="container">
+    <h2 class="my-4">Lista de Funcionários</h2>
+    
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Cargo</th>
+                    <th>Departamento</th>
+                    <th>Salário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                
+            </tbody>
         </table>
-    </tbody>
-</section>
-
 
 
 {% endblock content_admin %} 
