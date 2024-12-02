@@ -21,9 +21,7 @@
         padding-inline: 30px;
     } */
 
-    header {
-        padding: 5px;
-    }
+
 
     .container-search-bar {
         display: none;
@@ -125,6 +123,7 @@
     .caixa-botao-download {
         display: flex;
         flex-direction: column;
+ 
     }
 
     .botao-area-submissao {
@@ -146,5 +145,15 @@
 
     .button-send-form button {
         width: 100% ;
+    }
+
+    .container-form-submissao {
+        width: 90%;
+    }
+    
+    body {
+        width: fit-content;
+        height: max-content;
+        border: 3px solid red;
     }
 }
