@@ -86,7 +86,10 @@ def Cadastrar_participante(request):
         
         else:
             print(form.errors.as_json())  # Já está presente na sua função
-
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
+                
             # messages.error(request, "Erro ao criar conta. Verifique os campos.")
                         
     else:
