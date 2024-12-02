@@ -47,7 +47,7 @@
               <div>
                 <h1 class="title">Fecitec</h1>
                 <span class="subtitle">
-                  Participante
+                  Administrador
                 </span>
               </div>
             </div>
@@ -76,6 +76,126 @@
         </div>
       </div>
     </header>
+
+    <div  id ='navBarStandard'>
+      <article class="navigation-bar">
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="{% url 'fecitec:home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}">Cronograma</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:submissao' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}">Submissão</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:aprovados' %}" class="{% if request.resolver_match.url_name == 'aprovados' %}active{% endif %}">Aprovados</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:certificados' %}" class="{% if request.resolver_match.url_name == 'certificados' %}active{% endif %}">Certificados</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:regulamento' %}" class="{% if request.resolver_match.url_name == 'regulamento' %}active{% endif %}">Regulamento</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:comissao' %}" class="{% if request.resolver_match.url_name == 'comissao' %}active{% endif %}">Comissão</a>
+            </li>
+            <li>
+              <a href="{% url 'fecitec:contate' %}" class="{% if request.resolver_match.url_name == 'contate' %}active{% endif %}">Contate-nos</a>
+            </li>
+          </ul>
+        </nav>
+      </article>
+    </div>
+    
+    <!-- ###################### NAV BAR DO ADMINISTRADOR TELAS GRANDES ########################## -->
+    <div id="navBarAdmin">
+     <article class="navigation-bar-admin" >
+       <nav class="navbar-admin">
+         <ul>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_submission' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"> Submissões </a>
+           </li>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_jurors' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}active{% endif %}"> Jurados </a>
+           </li>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_evaluators' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliadores </a>
+           </li>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_reviews' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Avaliações </a>
+           </li>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_participants' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Participantes </a>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_commission' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Comissão </a>
+           </li>
+           </li>
+           <li>
+             <a href="{% url 'admin_fecitec:admin_contacts' %}" class="{% if request.resolver_match.url_name == 'submissao' %}active{% endif %}"> Contatos </a>
+           </li>
+     </article>
+    </div>
+    
+    
+
+    <div class="container-hamburge-seachr">
+      <nav id="navigation" class="navigation" role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li>
+              <a class="select-as" href="{% url 'fecitec:home' %}">Home</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:cronograma' %}">Cronograma</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:submissao' %}">Submissão</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:aprovados' %}">Aprovados</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:certificados' %}">Cerificados</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:regulamento' %}">Regulamento</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:comissao' %}">Comissão</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:contate' %}">Contate-nos</a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'fecitec:user_login' %}">Login</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <form action="">
+            <div class="container-search-bar">
+              <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
+              <i class="fas fa-search" id="lupa"></i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <div class="content-checkbox">
+      <label for="checkbox"> Alternar Navegação 
+        <input type="checkbox" id="checkbox" class="invisible-checkbox">
+        <img   src="{% static 'images/icone-trocar.svg' %}" alt="icone trocar">  
+      </label>
+    </div>
     
     <main>
       {% block content_admin %}
@@ -124,6 +244,7 @@
     </footer>
 
     {% block script %}
+    <script src="{% static 'Js/navBarReplacement.js' %}"></script>
     <script src="{% static 'Js/profileUser.js' %}"></script>
       <!-- Script content will go here -->
     {% endblock %}
