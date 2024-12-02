@@ -53,7 +53,16 @@ class SubmissionToWork(models.Model):
         ('EnsinoFundamental', 'Ensino Fundamental'),
         ('EnsinoMedio', 'Ensino Médio'),
     ]
-    formation = models.CharField(max_length=20, choices=FORMATION_CHOICES)
+
+    FORM_OF_PRESENTATION = [
+        ('Exposicao', 'Exposição'),
+        ('Painel', 'Painel'),
+        ('Maquete', 'Maquete'),
+        ('Outro', 'Outro'),
+    ]
+
+    formation = models.CharField(max_length=100, choices=FORMATION_CHOICES)
+    formOfPresentation = models.CharField(max_length=100, choices=FORM_OF_PRESENTATION)
     # Campos de arquivo
     arquivo_modelo = models.FileField(upload_to='uploads/modelos/')
     arquivo_panner = models.FileField(upload_to='uploads/panners/')

@@ -9,6 +9,6 @@ class ComissionAdmin(admin.ModelAdmin):
 @admin.register(SubmissionToWork)
 class SubmissionToWorkAdmin(admin.ModelAdmin):
     # Campos a serem exibidos na listagem
-    list_display = ['school_name', 'area', 'municipality', 'title', 'state', 'formation']
+    list_display = ['school_name', 'area', 'municipality', 'title', 'state', 'formation', 'formOfPresentation']
     list_filter = ['state', 'formation']
     search_fields = ['school_name', 'title']
