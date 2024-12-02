@@ -77,4 +77,18 @@
         overflow: hidden;     /* Impede que o texto ultrapasse o limite */
         text-overflow: ellipsis;  /* Adiciona "..." para indicar que o texto foi cortado */
       }
+
+      .container-father-comission{
+        width: 85%;
+        gap: 30px;
+        height: 50rem;
+        display: flex;
+        /* padding-bottom: 10rem; */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FFFF;
+        margin-block: 30px;
+        border-radius: 16px;
+      }
 }
