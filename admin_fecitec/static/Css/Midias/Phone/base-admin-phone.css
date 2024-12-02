@@ -1,0 +1,34 @@
+/* CONFIGURACAO DE MIDIAS DE CELULAR APARA A TELA DO ADMINISTRADOR FECITEC */
+@media (max-width: 576px) {
+    .navigation-bar-admin {
+        display: none;
+
+    }
+
+    .navigation {
+        margin-top: 5px;
+        display: block;
+        width: 5rem;
+    }
+    .navbar {
+        display: none;
+    }
+
+    .content-checkbox{
+        display: none;
+    }
+
+    .seachr-bar {
+        display: none;
+    }
+    .container-hamburge-seachr {
+        position: relative;
+    }
+    
+    #lupa{
+        display: none;
+    }
+
+    
+    
+}

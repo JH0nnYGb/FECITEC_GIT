@@ -22,11 +22,11 @@
     <link rel="stylesheet" href="{% static 'Css/Midias/bigDesktop.css' %}" />
     <link rel="stylesheet" href="{% static 'Css/Midias/notebook.css' %}" />
     <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/tablet.css' %}" />
-    <link rel="stylesheet" href="{% static 'Css/Midias/Phone/phone.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/Midias/Phone/base-admin-phone.css' %}" />
     <!-- fim do links do base -->
     {% block style_admin %}
       <!-- colocar o link do css do html pertencente -->
-    {% endblock %}
+    {% endblock  %}
   </head>
   <body>
     <header id="topo">
@@ -77,7 +77,7 @@
       </div>
     </header>
 
-    <div  id ='navBarStandard'>
+    <div  id ='navBarStandard'> <!-- INICIO DA NAVBAR PADRAO DA FEICTEC-->
       <article class="navigation-bar">
         <nav class="navbar">
           <ul>
@@ -108,7 +108,7 @@
           </ul>
         </nav>
       </article>
-    </div>
+    </div>  <!--FIM DA NAVBAR PADRAO DA FEICTEC-->
     
     <!-- ###################### NAV BAR DO ADMINISTRADOR TELAS GRANDES ########################## -->
     <div id="navBarAdmin">
@@ -141,7 +141,7 @@
     
     
 
-    <div class="container-hamburge-seachr">
+    <div class="container-hamburge-seachr"> <!--INICIO DO MENU HAMBURGUER DO ADMINISTRADOR FECITEC -->
       <nav id="navigation" class="navigation" role="navigation">
         <div id="menuToggle">
           <input type="checkbox" />
@@ -150,44 +150,38 @@
           <span></span>
           <ul id="menu">
             <li>
-              <a class="select-as" href="{% url 'fecitec:home' %}">Home</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_submission' %}"> Submissões </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:cronograma' %}">Cronograma</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_jurors' %}"> Jurados </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:submissao' %}">Submissão</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_evaluators' %}"> Avaliadores </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:aprovados' %}">Aprovados</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_reviews' %}"> Avaliações </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:certificados' %}">Cerificados</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_participants' %}"> Participantes </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:regulamento' %}">Regulamento</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_commission' %}"> Comissão </a>
             </li>
             <li>
-              <a class="select-as" href="{% url 'fecitec:comissao' %}">Comissão</a>
-            </li>
-            <li>
-              <a class="select-as" href="{% url 'fecitec:contate' %}">Contate-nos</a>
-            </li>
-            <li>
-              <a class="select-as" href="{% url 'fecitec:user_login' %}">Login</a>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_contacts' %}"> Contados </a>
             </li>
           </ul>
-        </div>
-
-        <div>
-          <form action="">
-            <div class="container-search-bar">
+        </div> <!--FIM DO MENU HAMBURGUER DO ADMINISTRADOR FECITEC -->
+        <div style="width: 100%;" >
+          <form action="" >
+            <div class="container-search-bar" >
               <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
               <i class="fas fa-search" id="lupa"></i>
             </div>
           </form>
-        </div>
+        </div>  
       </nav>
+      
     </div>
 
     <div class="content-checkbox">
