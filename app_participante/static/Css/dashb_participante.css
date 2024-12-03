@@ -1,0 +1,47 @@
+.container-pai {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.container-geral {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+
+    border: 1px solid red;
+    margin: 50px 0 16% 0;
+}
+
+.primeira-secao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.container-geral .primeira-secao  span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    width: 100%;
+}
+
+.container-geral .primeira-secao  button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #FFF;
+    width: 300px;
+    height: 50px;
+    border: 2px solid #8A84E2;
+    border-radius: 10px;
+    background: #8A84E2;
+    transition: all 300ms ease-in;
+}
+
+.container-geral .primeira-secao  button:hover {
+    background: none;
+    color: #8A84E2;
+}
