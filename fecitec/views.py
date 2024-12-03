@@ -170,7 +170,7 @@ def is_administrator(user):
 
 
 ###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
-def login_tela(request):
+def login_participante_view(request):
     print('ual')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)

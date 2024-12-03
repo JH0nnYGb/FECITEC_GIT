@@ -24,27 +24,57 @@
     <div class="container-chilld" id="create-account-forms" >
         <h2>Crie sua conta</h2>
         <p class="text_description">Preencha os Campos para criar sua conta como Participante da Fecitec</p>  
+        <div>
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li class="error">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
         <div class="box-forms">
             <div class="fields-content">
                 <section>
-                    <form action="" method="POST" class="forms-fields">
+                    <form action="{% url 'fecitec:cadastro_participante'  %}" method="POST" class="forms-fields">
                         {% csrf_token %}
+                        
                         <div class="forms-content">
                             <div class="center_item">
                                 <!-- Campos definidos no forms.py -->
+                                <label for=""> Nome Completo </label>
                                 <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
+                                 
+                                <label for="">Nome de Usuário</label>
                                 <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+
+                                <label for="">E-mail</label>
                                 <input type="email" name="email" class="fields" placeholder="E-mail" required>
+                                
+                                <label for="">Senha</label>
                                 <input type="password" name="password1" class="fields" placeholder="Senha" required>
+                                
+                                <label for="">Confirme a Senha</label>
                                 <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
+                                
+                                <label for="">Celular</label>
                                 <input type="text" name="celular" class="fields" placeholder="Celular" required>
                             </div>
                             <div class="center_item">
+
+                                <label for="">Cidade</label>
                                 <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
+                                
+                                <label for="">Bairro</label>
                                 <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
+                                
+                                <label for="">Endereço</label>
                                 <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
+                                
+                                <label for="">Estado</label>
                                 <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
                         
+                                <label for="">Formação Academica</label>
                                 <select class="fields" name="formacao" required>
                                     <option value="" disabled selected>Escolha a Formação</option>
                                     <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
@@ -68,8 +98,13 @@
                                 <h3> Dados da Sua Instituição </h3>
                                 <!-- Campos para Dados da Instituição -->
                                 <div class="center_item">
+                                    <label for="">Nome da Instituição</label>
                                     <input type="text" name="instituicao" class="fields" placeholder="Nome da Instituição" required>
+                                    
+                                    <label for="">Municipio</label>
                                     <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
+                                    
+                                    <label for="">Estado</label>
                                     <input type="text" name="estado_instituicao" class="fields" placeholder="Estado" required>
                                 </div>
                             </div>
@@ -77,15 +112,7 @@
                         
                             
                         <div class="container-botao-criar">
-                            {% if messages %}
-                                <ul class="messages">
-                                {% for message in messages %}
-                                    <li class="error">{{ message }}</li>
-                                {% endfor %}
-                                </ul>
-                            {% endif %}
-
-                            <a href="{% url 'fecitec:login_tela' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
+                            <a href="{% url 'fecitec:login_participante' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
                             <button type="submit" class="btn-criar">Criar Conta</button>
                         </div>
                     </form>

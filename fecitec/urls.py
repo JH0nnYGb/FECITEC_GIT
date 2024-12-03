@@ -9,9 +9,9 @@ from fecitec.views import regulamento_view
 from fecitec.views import comissao_view
 from fecitec.views import contate_view
 from fecitec.views import user_login
-from fecitec.views import login_tela
+from fecitec.views import login_participante_view
 from fecitec.views import formigueiro_view
-from core.views import Cadastrar_participante
+from core.views import Cadastrar_participante_views
 
 
 
@@ -29,8 +29,8 @@ urlpatterns = [
     path('contate-nos/', contate_view, name='contate'),
     path('login-comission/', user_login, name='user_login'),
 
-    path('login_tela/',login_tela, name='login_tela'),
-    path('cadastro-participante/', Cadastrar_participante, name='cadastro_participante'),
+    path('login_participante/',login_participante_view, name='login_participante'),
+    path('cadastro-participante/', Cadastrar_participante_views, name='cadastro_participante'),
 
     path('formigueiro/', formigueiro_view, name='formigueiro')
 ]
