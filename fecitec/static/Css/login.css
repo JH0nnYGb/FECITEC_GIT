@@ -4,6 +4,7 @@
     align-items: center;
  }
  h2{
+    margin-block: 20px;
     font-weight: 700;
     font-family: "Merriweather", serif;
  }
@@ -33,7 +34,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 colunas de largura igual */
-   grid-template-rows: repeat(6, auto); /* 6 linhas, uma para cada item */
+  grid-template-rows: repeat(6, auto); /* 6 linhas, uma para cada item */
   gap: 10px; /* Espaço entre os itens */
   
 }
@@ -127,14 +128,21 @@
   padding: 0 10px; 
 }
 
+.fields::placeholder{
+  color: #BFC8E5;
+ }
+
  .fields:focus{
     outline: none;
     border-bottom:  4px solid #8A84E2;
     border-left:none ;
     border-right:none ;
     border-top: none;
-
  }
+ .fields::placeholder{
+  color: #BFC8E5;
+ }
+
  .container-botao-login{
   width: 100%;
  }
@@ -278,4 +286,13 @@
   border: 1px solid #f5c6cb;
   padding: 10px;
   border-radius: 5px;
+}
+
+.title-fildes{
+  color: #8A84E2;
+  text-align: left;
+  font-weight: 600;
+  font-size:medium;
+  font-family: "Poppins", sans-serif;
+
 }
