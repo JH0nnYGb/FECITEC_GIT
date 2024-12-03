@@ -1,0 +1,60 @@
+@media(min-width: 750px) and (max-width: 1100px) {
+
+    .navigation {
+        margin-top: 5px;
+        display: block;
+        width: 5rem;
+    }
+
+    .navigation-bar-admin{
+        display:none;
+    }
+
+    .content-checkbox{
+        display: none;
+    }
+
+    .seachr-bar {
+        display: block;
+        width: 13rem;
+        position: absolute;
+        top: 18%;
+        left: 24%;
+        /* margin-inline: 10rem; */
+        color: #8a84e2;
+        background-color: #FBFCFF;
+        font-weight: 600;
+        font-size: larger;
+        padding-inline: 20px;
+        padding-block: 10px;
+        border-radius: 20px;
+        border: 2px solid #868E96;
+        /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
+    }
+
+    .seachr-bar::placeholder {
+        color: #8a84e2; /* Altere para a cor desejada */
+        opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+    }
+    
+    .seachr-bar:focus {
+        outline: none; /* Remove o contorno padrão do navegador */
+        border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+        box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+    }
+    
+
+    #lupa {
+        display: flex;
+        position: relative;
+        left: 22rem;
+        top: 4.5px;
+        font-size: 22px;
+        color: #8a84e2;
+    }
+
+    .user_photo{
+        position: sticky;
+        right: 3%;
+    }
+}

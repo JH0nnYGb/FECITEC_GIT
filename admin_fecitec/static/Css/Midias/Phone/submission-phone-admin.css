@@ -18,6 +18,12 @@
         /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
     }
 
+    .navigation {
+        margin-top: 5px;
+        display: block;
+        width: 5rem;
+    }
+    
     #lupa {
         display: flex;
         position: relative;
@@ -25,10 +31,6 @@
         top: -5px;
         font-size: 22px;
         color: #8a84e2;
-    }
-
-    .container-hamburge-seachr {
-        position: relative;
     }
 
     .tabela-scroll{
