@@ -28,7 +28,9 @@
                 <section>
                     <form action="" method="POST" class="forms-fields">
                         {% csrf_token %}
+                        <label class="title-fildes"  for="">Nome de Usuário</label> 
                         <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                        <label class="title-fildes"  for="">Senha</label> 
                         <input type="password" name="password" class="fields" placeholder="Senha" required>
                         <!-- Exibição de mensagens de erro -->
                         {% if messages %}
