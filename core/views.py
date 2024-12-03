@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 from core.forms import CustomUserCreationForm
 from core.models import Instituicao
-from core.models import GrupoPersonalizado, Participante
+from core.models import User,GrupoPersonalizado, Participante
 # Create your views here.
 
 def redirecionar_usuario(request):
@@ -28,22 +28,24 @@ def redirecionar_usuario(request):
         return redirect('login')
 
 
-def Cadastrar_participante(request):
-    if request.method == 'POST':
+def Cadastrar_participante_views(request):
+    form = CustomUserCreationForm()
+
+    if str(request.method) == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-             # Verifique se o nome de usuário já existe antes de salvar
+            # Verifique se o nome de usuário já existe antes de salvar
             username = form.cleaned_data['username']
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Já existe um usuário com este nome.")
-                return render(request, 'cadastro_participante.html', {'form': form})
+                
 
             user = form.save()
             user.first_name = form.cleaned_data['nome_completo']
             user.email = form.cleaned_data['email']
             user.save()
 
-            
+            # indica os campos que recebe serao preenchidos 
             instituicao_nome = form.cleaned_data['instituicao']
             municipio = form.cleaned_data['municipio']
             estado_instituicao = form.cleaned_data['estado_instituicao']
@@ -54,7 +56,7 @@ def Cadastrar_participante(request):
             estado = form.cleaned_data['estado']
             formacao = form.cleaned_data['formacao']
 
-            
+            # cria o participante 
             participante = Participante.objects.create(
                 user=user,
                 nome_instituicao=instituicao_nome,
@@ -68,12 +70,12 @@ def Cadastrar_participante(request):
                 formacao=formacao
             )
 
-       
+            #adiciona o usuario criado ou grupo participante
             grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')
             grupo_participante.usuarios.add(user)
 
-        
-            instituicao = Instituicao.objects.create(
+            #criar instituicao 
+            instituicao = Instituicao.objects.create( 
                 user=user,
                 instituicao_nome=instituicao_nome, 
                 municipio=municipio,
@@ -88,11 +90,9 @@ def Cadastrar_participante(request):
             print(form.errors.as_json())  # Já está presente na sua função
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, f"{field.capitalize()}: {error}")
-                
-            # messages.error(request, "Erro ao criar conta. Verifique os campos.")
-                        
-    else:
-        form = CustomUserCreationForm()
-    
-    return render(request, 'cadastro_participante.html', {'form': form})
+            # Verifica se o campo está no formulário para usar o label apropriado
+                    campo = form.fields[field].label if field in form.fields else field.capitalize()
+                    messages.error(request, f"{campo}: {error}")
+                     
+   
+    return render(request, 'cadastro_participante.html') #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 
