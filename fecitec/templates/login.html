@@ -26,10 +26,13 @@
         <div class="fields-content">
             <form action="" method="POST" class="forms-fields">
                 {% csrf_token %}
+                <label class="title-fildes"  for="">Nome de Usuário</label> 
                 <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
+                <label class="title-fildes"  for="">Senha</label> 
                 <input type="password" name="password" class="fields" placeholder="Senha" required>
             
                 <!-- Campo de seleção de função -->
+                <label class="title-fildes"  for="">Função Fecitec</label> 
                 <select name="role" class="fields" required>
                     <option value="" disabled selected>Escolha a Função</option>
                     <option value="Administrador">Administrador</option>
