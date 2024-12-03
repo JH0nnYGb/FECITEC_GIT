@@ -29,6 +29,9 @@
         display: none;
     }
 
-    
+    .user_photo{
+        position: sticky;
+        right: 3%;
+    }
     
 }

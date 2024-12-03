@@ -161,14 +161,6 @@ from django.shortcuts import render
 def is_administrator(user):
     return user.groups.filter(name='Administrador').exists()
 
-# Proteção da view com login e grupo
-# @login_required
-# @user_passes_test(is_administrator, login_url='login/')
-# def dashboard_admin(request):
-#     return render(request, 'admin_fecitec/dashboard.html')
-
-
-
 ###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
 def login_participante_view(request):
     print('ual')
