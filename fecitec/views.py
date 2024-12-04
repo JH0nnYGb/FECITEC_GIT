@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Commission
 
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
@@ -9,12 +10,16 @@ from django.contrib import messages
 
 from .forms import ContactForm
 from django.contrib.auth.models import Group
-from core.models import GrupoPersonalizado
 from .forms import SubmissionToWorkForm
 
+################ Importacaoes do Cores #######
+
+from core.models import GrupoPersonalizado
 from core.models import Participante
+from core.forms import ParticipantCreationForm
+from core.models import User,GrupoPersonalizado, Participante,Instituicao
 
-
+###############################################
 
 def home_view(request):
     return render(request, 'home.html')
@@ -180,3 +185,65 @@ def login_participante_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login_participante.html', {'form': form})
+
+
+
+
+################## views de cadastro de participante ###################
+def Cadastrar_participante_views(request):
+    form = ParticipantCreationForm()
+
+    if request.method == 'POST':
+        form = ParticipantCreationForm(request.POST)
+        if form.is_valid():
+            # Verifique se o nome de usuário já existe antes de salvar
+            username = form.cleaned_data['username']
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Já existe um usuário com este nome.")
+                
+            else:  
+                user = form.save(commit=False)
+                user.first_name = form.cleaned_data['nome_completo']
+                user.email = form.cleaned_data['email']
+                user.save()
+
+                # Criar instituição
+                participante_instituicao = Instituicao.objects.create(
+                    user=user,
+                    instituicao_nome=form.cleaned_data['instituicao'],
+                    municipio=form.cleaned_data['municipio'],
+                    estado_instituicao=form.cleaned_data['selecao_estado_instituicao']
+                )
+
+                # Criar participante
+                participante = Participante.objects.create(
+                    user=user,
+                    municipio=form.cleaned_data['municipio'],
+                    endereco=form.cleaned_data['endereco'],
+                    cidade=form.cleaned_data['cidade'],
+                    celular=form.cleaned_data['celular'],
+                    bairro=form.cleaned_data['bairro'],
+                    estado_participante=form.cleaned_data['selecao_estado_participante'],
+                    formacao=form.cleaned_data['formacao'],
+                    nome_instituicao=participante_instituicao.instituicao_nome,
+                    estado_instituicao=participante_instituicao.estado_instituicao,
+                    instituicao=participante_instituicao
+                )
+
+                # Associar usuário ao grupo "Participante"
+                grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')
+                grupo_participante.usuarios.add(user)
+
+                messages.success(request, "Conta criada com sucesso! Faça login para continuar.")
+                return redirect('fecitec:login_participante')
+        
+        else:
+            print(form.errors.as_json())  # Já está presente na sua função
+            for field, errors in form.errors.items():
+                for error in errors:
+            # Verifica se o campo está no formulário para usar o label apropriado
+                    campo = form.fields[field].label if field in form.fields else field.capitalize()
+                    messages.error(request, f"{campo}: {error}")
+                     
+   
+    return render(request, 'cadastro_participante.html') #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 

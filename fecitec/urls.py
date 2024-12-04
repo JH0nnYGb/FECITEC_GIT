@@ -11,7 +11,7 @@ from fecitec.views import contate_view
 from fecitec.views import user_login
 from fecitec.views import login_participante_view
 from fecitec.views import formigueiro_view
-from core.views import Cadastrar_participante_views
+from fecitec.views import Cadastrar_participante_views
 
 
 
