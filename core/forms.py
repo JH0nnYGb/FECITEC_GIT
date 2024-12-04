@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
 
-class CustomUserCreationForm(UserCreationForm):
+class ParticipantCreationForm(UserCreationForm):
     nome_completo = forms.CharField(max_length=255)
     email = forms.EmailField(max_length=255)
     celular = forms.CharField(
@@ -14,10 +14,20 @@ class CustomUserCreationForm(UserCreationForm):
     cidade = forms.CharField(max_length=100)
     bairro = forms.CharField(max_length=100)
     estado = forms.CharField(max_length=2)
-    formacao = forms.CharField(max_length=255)
-    instituicao = forms.CharField(max_length=255, required=True) 
-    municipio = forms.CharField(max_length=100, required=True)  
-    estado_instituicao = forms.CharField(max_length=2, required=True)  
+    instituicao = forms.CharField(max_length=255, required=True)
+    municipio = forms.CharField(max_length=100, required=True)
+    
+    estado_instituicao = forms.ChoiceField(
+        choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
+                 ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
+                 ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'), ('MS', 'Mato Grosso do Sul'),
+                 ('MG', 'Minas Gerais'), ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'),
+                 ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
+                 ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
+                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
+        required=True
+    )
+
     formacao = forms.ChoiceField(
         choices=[
             ('Fundamental - Incompleto', 'Fundamental - Incompleto'),
@@ -52,5 +62,8 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'nome_completo', 'celular', 'endereco', 'cidade', 'bairro', 'estado', 
-                  'formacao', 'instituicao', 'municipio', 'estado_instituicao']
+        fields = [
+            'username', 'email', 'password1', 'password2', 'nome_completo', 
+            'celular', 'endereco', 'cidade', 'bairro', 'estado', 
+            'formacao', 'instituicao', 'municipio', 'estado_instituicao'
+        ]
