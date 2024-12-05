@@ -4,15 +4,62 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 class ParticipantCreationForm(UserCreationForm):
-    nome_completo = forms.CharField(max_length=255)
-    email = forms.EmailField(max_length=255)
-    celular = forms.CharField(
-        max_length=15,
-        error_messages={'max_length': 'O número deve ter no máximo 15 caracteres.'}
+    nome_completo = forms.CharField(
+        label='Nome completo',
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome Completo'}),
+        required=True,
     )
-    endereco = forms.CharField(max_length=255)
-    cidade = forms.CharField(max_length=100)
-    bairro = forms.CharField(max_length=100)
+
+    username = forms.CharField(
+        label='Nome de usuario',
+        max_length=255, 
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome de Usuário'}),
+        required=True,
+    )
+
+    email = forms.EmailField(
+        label='E-mail',
+        widget=forms.EmailInput(attrs={'class': 'fields', 'placeholder': 'E-mail'}),
+        required=True,
+    )
+    
+    password1 = forms.CharField(
+        label='Senha',
+        widget=forms.PasswordInput(attrs={'class': 'fields', 'placeholder': 'Senha'}),
+        required=True,
+    )
+    password2 = forms.CharField(
+        label='Confirme a senha',
+        widget=forms.PasswordInput(attrs={'class': 'fields', 'placeholder': 'Confirmar Senha'}),
+        required=True,
+    )
+
+    celular = forms.CharField(
+        label='Número de celular',
+        max_length=15, 
+        widget=forms.NumberInput(attrs={'class': 'fields', 'placeholder': 'Celular'}),
+        required=True,
+    )
+
+    endereco = forms.CharField(
+        label='Endereço',
+        max_length=255,
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'Endereço'})
+    )
+
+    cidade = forms.CharField(
+        label='Cidade',
+        max_length=100,
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'cidade'})
+    )
+
+    bairro = forms.CharField(
+        label='Bairro',
+        max_length=100, 
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Bairro'})
+    )
+
     estado_participante = forms.ChoiceField(
         choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
                  ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
@@ -21,20 +68,9 @@ class ParticipantCreationForm(UserCreationForm):
                  ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
                  ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
                  ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
-        required=True
-    )
-
-
-    nome_instituicao = forms.CharField(max_length=255, required=True, initial="Nome da Instituição")
-    municipio = forms.CharField(max_length=100, required=True)
-    estado_instituicao = forms.ChoiceField(
-        choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
-                 ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
-                 ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'), ('MS', 'Mato Grosso do Sul'),
-                 ('MG', 'Minas Gerais'), ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'),
-                 ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
-                 ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
-                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
+        
+        widget=forms.Select(attrs={'class':'fields'}),
+        label='Estado do participante',
         required=True
     )
 
@@ -53,9 +89,42 @@ class ParticipantCreationForm(UserCreationForm):
             ('Pós-graduação (Stricto sensu, nível doutor) - Incompleto', 'Pós-graduação (Stricto sensu, nível doutor) - Incompleto'),
             ('Pós-graduação (Stricto sensu, nível doutor) - Completo', 'Pós-graduação (Stricto sensu, nível doutor) - Completo'),
         ],
+        widget=forms.Select(attrs={'class':'fields'}),
+        label='Formação do participante',
         required=True,
         
     )
+
+############################# DADOS DA INSTITUICAO ############################################################
+    nome_instituicao = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome da Instituição'}),
+        label='Nome da Instituição',
+        required=True,
+    )
+
+
+    municipio = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'Municipio da Instituição'}),
+        label='Municipio da Instituição',
+        required=True,
+    )
+
+    estado_instituicao = forms.ChoiceField(
+        choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
+                 ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
+                 ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'), ('MS', 'Mato Grosso do Sul'),
+                 ('MG', 'Minas Gerais'), ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'),
+                 ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
+                 ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
+                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
+        widget=forms.Select(attrs={'class':'fields'}),
+        label='Estado da Instituição',
+        required=True,
+    )
+
+    
 
     def clean_password2(self):
         password2 = self.cleaned_data.get('password2')

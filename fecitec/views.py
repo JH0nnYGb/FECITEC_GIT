@@ -196,9 +196,6 @@ def Cadastrar_participante_views(request):
     if request.method == 'POST':
         form = ParticipantCreationForm(request.POST)
         if form.is_valid():
-
-
-
             # Verifique se o nome de usuário já existe antes de salvar
             username = form.cleaned_data['username']
             if User.objects.filter(username=username).exists():
@@ -247,4 +244,4 @@ def Cadastrar_participante_views(request):
                     messages.error(request, f"{campo}: {error}")
                      
    
-    return render(request, 'cadastro_participante.html') #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 
+    return render(request, 'cadastro_participante.html',{'form':form}) #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 
