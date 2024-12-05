@@ -30,13 +30,57 @@ Dashboard do Administrador {% endblock title %} {% block style_admin %}
       </button>
     </section>
 
-    <section style="border: 1px solid red">
-      <table>
-        <tr>
-          <td></td>
-        </tr>
-      </table>
-    </section>
-  </article>
-</div>
+{% block title%}
+  Dashboard do Administrador 
+{% endblock title %}
+
+{% block style_admin %}
+<link rel="stylesheet" href="{% static 'Css/dashb_participante.css'%}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+{%endblock%}
+
+{% block content_participante %}
+  <div class="container-menssagem">
+      <section class="area-messagem">
+        Bem vindo, {{participante.nome_participante}}
+      </section>
+  </div>
+
+  <div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Data de Submissão</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in submissions %}
+            <tr>
+                <td>{{ submission.title }}</td>
+                <td>{{ submission.submission_date|date:"d/m/Y" }}</td>
+                <td>
+                    <span class="status {{ submission.status|lower }}">
+                        {{ submission.get_status_display }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+
+  <div class="container-button">
+    <article class="area-botao">
+      <button>
+        <i class="fa-solid fa-plus"></i>
+        Nova Submissão
+      </button>
+    </article>
+  </div>
+
 {% endblock %}
+
