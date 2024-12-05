@@ -1,5 +1,6 @@
 from django.db import models
 from stdimage.models import StdImageField
+from core.models import Participante
 
 class Commission(models.Model):
     name = models.CharField(max_length=100)
@@ -18,6 +19,11 @@ class SubmissionToWork(models.Model):
     title = models.CharField(max_length=255)
     sub_area = models.CharField(max_length=255)
     summary = models.TextField()
+    participante = models.ForeignKey(
+        Participante,
+        on_delete=models.CASCADE,
+        related_name='submissions'
+    )
 
     # Campos de seleção
     STATE_CHOICES = [
