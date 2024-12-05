@@ -10,7 +10,7 @@ class VerificarGrupoMiddleware:
             grupo_requerido = self._obter_grupo_requerido(request.path)
             if grupo_requerido:
                 if not request.user.grupos_personalizados.filter(nome=grupo_requerido).exists():
-                    return redirect('login')  # Ou outra página de acesso negado
+                    return redirect('fecitec:login_participante')  # Ou outra página de acesso negado
         return self.get_response(request)
 
     def _obter_grupo_requerido(self, path):

@@ -203,7 +203,7 @@ def Cadastrar_participante_views(request):
                 
             else:  
                 user = form.save(commit=False)
-                user.first_name = form.cleaned_data['nome_completo']
+                user.first_name = form.cleaned_data['nome_participante']
                 user.email = form.cleaned_data['email']
                 user.save()
 
@@ -218,6 +218,7 @@ def Cadastrar_participante_views(request):
                 # Criar participante
                 participante = Participante.objects.create(
                     user=user,
+                    nome_participante=form.cleaned_data['nome_participante'],
                     municipio=form.cleaned_data['municipio'],
                     endereco=form.cleaned_data['endereco'],
                     cidade=form.cleaned_data['cidade'],

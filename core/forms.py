@@ -4,7 +4,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 class ParticipantCreationForm(UserCreationForm):
-    nome_completo = forms.CharField(
+    nome_participante = forms.CharField(
         label='Nome completo',
         max_length=255,
         widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome Completo'}),
@@ -142,7 +142,7 @@ class ParticipantCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'username', 'email', 'password1', 'password2', 'nome_completo', 
+            'nome_participante', 'username', 'email', 'password1', 'password2',  
             'celular', 'endereco', 'cidade', 'bairro', 'estado_participante', 
             'formacao_participante', 'nome_instituicao', 'municipio', 'estado_instituicao',
         ]

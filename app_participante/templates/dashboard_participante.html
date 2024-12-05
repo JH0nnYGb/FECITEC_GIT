@@ -1,35 +1,42 @@
-{% extends 'base_participante.html' %}
-{% load static %}
+{% extends 'base_participante.html' %} {% load static %} {% block title%}
+Dashboard do Administrador {% endblock title %} {% block style_admin %}
+<link
+  rel="stylesheet"
+  href="{% static 'Css/dashb_participante.css'%}"
+/>
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+/>
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+{%endblock%} {% block content_participante %}
+<div class="container-pai">
+  <article class="container-geral">
+    <section class="primeira-secao">
+      {% for participante in participantes %}
+          <span>Bem vindo, {{participantes.id}}</span>
+      {% endfor %}
+      <button>
+        <i class="fa-solid fa-plus"></i>
+        Nova Submissão
+      </button>
+    </section>
 
-{% block title%}
-  Dashboard do Administrador 
-{% endblock title %}
-
-{% block style_admin %}
-<link rel="stylesheet" href="{% static 'Css/dashb_participante.css'%}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-{%endblock%}
-
-{% block content_participante %}
-  <div class="container-pai">
-    <article class="container-geral">
-      <section class="primeira-secao">
-        <span>Bem vindo, {nome do usuario}</span>
-        <button>
-          <i class="fa-solid fa-plus"></i>
-          Nova Submissão
-        </button>
-      </section>
-
-      <section style="border: 1px solid red;">
-        <table>
-          <tr>
-            <td></td>
-          </tr>
-        </table>
-      </section>
-    </article>
-  </div>
+    <section style="border: 1px solid red">
+      <table>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </section>
+  </article>
+</div>
 {% endblock %}
