@@ -196,6 +196,9 @@ def Cadastrar_participante_views(request):
     if request.method == 'POST':
         form = ParticipantCreationForm(request.POST)
         if form.is_valid():
+
+
+
             # Verifique se o nome de usuário já existe antes de salvar
             username = form.cleaned_data['username']
             if User.objects.filter(username=username).exists():
@@ -210,9 +213,9 @@ def Cadastrar_participante_views(request):
                 # Criar instituição
                 participante_instituicao = Instituicao.objects.create(
                     user=user,
-                    instituicao_nome=form.cleaned_data['instituicao'],
+                    instituicao_nome=form.cleaned_data['nome_instituicao'],
                     municipio=form.cleaned_data['municipio'],
-                    estado_instituicao=form.cleaned_data['selecao_estado_instituicao']
+                    estado_instituicao=form.cleaned_data['estado_instituicao']
                 )
 
                 # Criar participante
@@ -223,10 +226,8 @@ def Cadastrar_participante_views(request):
                     cidade=form.cleaned_data['cidade'],
                     celular=form.cleaned_data['celular'],
                     bairro=form.cleaned_data['bairro'],
-                    estado_participante=form.cleaned_data['selecao_estado_participante'],
-                    formacao=form.cleaned_data['formacao'],
-                    nome_instituicao=participante_instituicao.instituicao_nome,
-                    estado_instituicao=participante_instituicao.estado_instituicao,
+                    estado_participante=form.cleaned_data['estado_participante'],
+                    formacao_participante=form.cleaned_data['formacao_participante'],
                     instituicao=participante_instituicao
                 )
 
