@@ -11,4 +11,4 @@ class GrupoPersonalizadoAdmin(admin.ModelAdmin):
     
 @admin.register(Participante)
 class ParticipanteAdmin(admin.ModelAdmin):
-    list_display = ('nome_participante','municipio')
+    list_display = ('nome_participante','email_participante','celular',)

@@ -219,6 +219,7 @@ def Cadastrar_participante_views(request):
                 participante = Participante.objects.create(
                     user=user,
                     nome_participante=form.cleaned_data['nome_participante'],
+                    email_participante=form.cleaned_data['email'],
                     municipio=form.cleaned_data['municipio'],
                     endereco=form.cleaned_data['endereco'],
                     cidade=form.cleaned_data['cidade'],
@@ -228,6 +229,7 @@ def Cadastrar_participante_views(request):
                     formacao_participante=form.cleaned_data['formacao_participante'],
                     instituicao=participante_instituicao
                 )
+                print(form.cleaned_data['email'])  # Verifique o valor do email
 
                 # Associar usuário ao grupo "Participante"
                 grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')

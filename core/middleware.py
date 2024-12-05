@@ -1,12 +1,18 @@
 from django.shortcuts import redirect
 from core.models import GrupoPersonalizado
+from django.shortcuts import redirect
 
 class VerificarGrupoMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
+        # Se o usuário estiver autenticado
         if request.user.is_authenticated:
+            # Se o usuário for superusuário (admin do Django), ele tem acesso a tudo
+            if request.user.is_superuser:
+                return self.get_response(request)
+            
             grupo_requerido = self._obter_grupo_requerido(request.path)
             if grupo_requerido:
                 if not request.user.grupos_personalizados.filter(nome=grupo_requerido).exists():

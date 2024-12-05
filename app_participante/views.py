@@ -15,7 +15,7 @@ def dash_participante(request):
       print(participantes.values())
 
       context={
-           'participantes':participantes,
+           'participantes':participantes
       }
       if not request.user.grupos_personalizados.filter(nome='Participante').exists():
           print('views : dash_participante')
