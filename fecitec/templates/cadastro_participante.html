@@ -36,139 +36,49 @@
         <div class="box-forms">
             <div class="fields-content">
                 <section>
-                    <form action="{% url 'fecitec:cadastro_participante'  %}" method="POST" class="creat-forms-fields">
+                    <form id="forms_cadastro" action="{% url 'fecitec:cadastro_participante'  %}" method="POST" class="creat-forms-fields">
                         {% csrf_token %}
                         
                         <div class="forms-content">
                             <div class="center_item">
-                                <!-- Campos definidos no forms.py -->
-                                <label class="title-fildes"  for=""> Nome Completo </label> 
-                                <input type="text" name="nome_completo" class="fields" placeholder="Nome Completo" required>
-                                 
-                                <label class="title-fildes"  for="">Nome de Usuário</label>  
-                                <input type="text" name="username" class="fields" placeholder="Nome de Usuário" required>
-
-                                <label class="title-fildes"  for="">E-mail</label>  
-                                <input type="email" name="email" class="fields" placeholder="E-mail" required>
-                                
-                                <label class="title-fildes"  for="password1">Senha</label> 
-                                <input type="password" name="password1" class="fields" placeholder="Senha" required>
-                                
-                                <label class="title-fildes"  for="password2">Confirme a Senha</label> 
-                                <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
-                                
-                                <label class="title-fildes"  for="">Celular</label> 
-                                <input type="text" name="celular" class="fields" placeholder="Celular" required>
+                                {{ form.nome_completo.label_tag }}
+                                {{ form.nome_completo }}
+                                {{ form.username.label_tag }}
+                                {{ form.username }}
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                                {{ form.password1.label_tag }}
+                                {{ form.password1 }}
+                                {{ form.password2.label_tag }}
+                                {{ form.password2 }}
+                                {{ form.celular.label_tag }}
+                                {{ form.celular }}
                             </div>
                             <div class="center_item">
-
-                                <label class="title-fildes"  for="">Cidade</label>  
-                                <input type="text" name="cidade" class="fields" placeholder="Cidade" required>
+                                {{ form.cidade.label_tag }}
+                                {{ form.cidade }}
+                                {{ form.bairro.label_tag }}
+                                {{ form.bairro }}
+                                {{ form.endereco.label_tag }}
+                                {{ form.endereco }}
+                                {{ form.estado_participante.label_tag }}
+                                {{ form.estado_participante }}
+                                {{form.formacao_participante.label_tag}}
+                                {{form.formacao_participante}}
                                 
-                                <label class="title-fildes"  for="">Bairro</label>  
-                                <input type="text" name="bairro" class="fields" placeholder="Bairro" required>
-                                
-                                <label class="title-fildes"  for="">Endereço</label>
-                                <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
-                                
-                                <label class="title-fildes"  for="estado_participante">Estado</label>  
-                                <select class="fields" name="estado_participante" required>
-                                    <option value="" >Estado</option>
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
-                                </select>
-                        
-                                <label class="title-fildes"  for="formacao_participante">Formação Academica</label> 
-                                <select class="fields" name="formacao_participante" required>
-                                    <option value="" disabled selected>Escolha a Formação</option>
-                                    <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
-                                    <option value="Fundamental - Completo">Fundamental - Completo</option>
-                                    <option value="Médio - Incompleto">Médio - Incompleto</option>
-                                    <option value="Médio - Completo">Médio - Completo</option>
-                                    <option value="Superior - Incompleto">Superior - Incompleto</option>
-                                    <option value="Superior - Completo">Superior - Completo</option>
-                                    <option value="Pós-graduação (Lato sensu) - Incompleto">Pós-graduação (Lato sensu) - Incompleto</option>
-                                    <option value="Pós-graduação (Lato sensu) - Completo">Pós-graduação (Lato sensu) - Completo</option>
-                                    <option value="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto">Pós-graduação (Stricto sensu, nível mestrado) - Incompleto</option>
-                                    <option value="Pós-graduação (Stricto sensu, nível mestrado) - Completo">Pós-graduação (Stricto sensu, nível mestrado) - Completo</option>
-                                    <option value="Pós-graduação (Stricto sensu, nível doutor) - Incompleto">Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
-                                    <option value="Pós-graduação (Stricto sensu, nível doutor) - Completo">Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
-                                </select>  
                             </div>
 
-                           
-                            </div>
                             <div class="middle_item">
                                 <h2> Dados da Sua Instituição </h2>
                                 <!-- Campos para Dados da Instituição -->
-                                <div class="center_item">
-                                    <label class="title-fildes"  for="nome_instituicao">Nome da Instituição</label>  
-                                    <input type="text" name="nome_instituicao" class="fields" placeholder="Nome da Instituição" required>
-                                    
-                                    <label class="title-fildes"  for="">Municipio</label> 
-                                    <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
-                                    
-                                    <label class="title-fildes"  for="estado_instituicao">Estado</label> 
-                                    <select class="fields" name="estado_instituicao" required>
-                                        <option value="">Estado</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espírito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                            
+                                 {{form.nome_instituicao.label_tag}}
+                                 {{form.nome_instituicao}}
+                                 {{form.municipio.label_tag}}
+                                 {{form.municipio}}
+                                 {{form.estado_instituicao.label_tag}}
+                                 {{form.estado_instituicao}}
+
+                                
                         <div class="container-botao-criar">
                             <a href="{% url 'fecitec:login_participante' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
                             <button type="submit" class="btn-criar">Criar Conta</button>
