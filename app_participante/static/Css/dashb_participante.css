@@ -1,34 +1,26 @@
-.container-pai {
-    border: 1px solid red;
+.container-menssagem {
     display: flex;
     justify-content: center;
 }
 
-.container-geral {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 60%;
-
-    border: 1px solid red;
-    margin: 50px 0 16% 0;
+.area-messagem {
+    width: 70%;
 }
 
-.primeira-secao {
+.container-button {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.area-botao {
+    display: flex;
+    justify-content: start;
     align-items: center;
-    width: 100%;
+    border: 1px solid red;
+    width: 70%;
 }
 
-.container-geral .primeira-secao  span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    width: 100%;
-}
-
-.container-geral .primeira-secao  button {
+.container-button .area-botao button {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 17px;
@@ -41,7 +33,41 @@
     transition: all 300ms ease-in;
 }
 
-.container-geral .primeira-secao  button:hover {
+.container-button .area-botao button:hover {
     background: none;
     color: #8A84E2;
+}
+
+/* Geral para a tabela */
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.responsive-table {
+    width: 70%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.responsive-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.responsive-table td {
+    font-size: 14px;
 }
