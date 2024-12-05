@@ -54,6 +54,7 @@ class SubmissionToWork(models.Model):
     FORMATION_CHOICES = [
         ('EnsinoFundamental', 'Ensino Fundamental'),
         ('EnsinoMedio', 'Ensino Médio'),
+        ('subsequente', 'Subsequente'),
     ]
 
     FORM_OF_PRESENTATION = [
@@ -72,6 +73,14 @@ class SubmissionToWork(models.Model):
 
     # Campo para capturar a data da submissão de forma automática
     submission_date = models.DateField(auto_now_add=True)  # Campo que captura a data automaticamente
+
+    STATUS_CHOICES = [
+        ('enviado', 'Enviado'),
+        ('processando', 'Processando'),
+        ('aprovado', 'Aprovado'),
+        ('recusado', 'Recusado'),
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='enviado')
 
     def __str__(self):
         return self.title

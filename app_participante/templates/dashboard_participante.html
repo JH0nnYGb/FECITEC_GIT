@@ -13,23 +13,44 @@
 {%endblock%}
 
 {% block content_participante %}
-  <div class="container-pai">
-    <article class="container-geral">
-      <section class="primeira-secao">
-        <span>Bem vindo, {nome do usuario}</span>
-        <button>
-          <i class="fa-solid fa-plus"></i>
-          Nova Submissão
-        </button>
+  <div class="container-menssagem">
+      <section class="area-messagem">
+        Bem vindo, {{participante.nome_participante}}
       </section>
+  </div>
 
-      <section style="border: 1px solid red;">
-        <table>
-          <tr>
-            <td></td>
-          </tr>
-        </table>
-      </section>
+  <div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Data de Submissão</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in submissions %}
+            <tr>
+                <td>{{ submission.title }}</td>
+                <td>{{ submission.submission_date|date:"d/m/Y" }}</td>
+                <td>
+                    <span class="status {{ submission.status|lower }}">
+                        {{ submission.get_status_display }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+
+  <div class="container-button">
+    <article class="area-botao">
+      <button>
+        <i class="fa-solid fa-plus"></i>
+        Nova Submissão
+      </button>
     </article>
   </div>
+
 {% endblock %}
