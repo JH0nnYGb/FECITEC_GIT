@@ -18,6 +18,7 @@ class SubmissionToWork(models.Model):
     title = models.CharField(max_length=255)
     sub_area = models.CharField(max_length=255)
     summary = models.TextField()
+
     # Campos de seleção
     STATE_CHOICES = [
         ('AC', 'Acre'),
@@ -49,6 +50,7 @@ class SubmissionToWork(models.Model):
         ('TO', 'Tocantins'),
     ]
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
+    
     FORMATION_CHOICES = [
         ('EnsinoFundamental', 'Ensino Fundamental'),
         ('EnsinoMedio', 'Ensino Médio'),
@@ -63,8 +65,13 @@ class SubmissionToWork(models.Model):
 
     formation = models.CharField(max_length=100, choices=FORMATION_CHOICES)
     formOfPresentation = models.CharField(max_length=100, choices=FORM_OF_PRESENTATION)
+    
     # Campos de arquivo
     arquivo_modelo = models.FileField(upload_to='uploads/modelos/')
     arquivo_panner = models.FileField(upload_to='uploads/panners/')
+
+    # Campo para capturar a data da submissão de forma automática
+    submission_date = models.DateField(auto_now_add=True)  # Campo que captura a data automaticamente
+
     def __str__(self):
         return self.title
