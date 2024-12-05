@@ -18,7 +18,7 @@ class ParticipantCreationForm(UserCreationForm):
         required=True,
     )
 
-    email = forms.EmailField(
+    email_participante = forms.EmailField(
         label='E-mail',
         widget=forms.EmailInput(attrs={'class': 'fields', 'placeholder': 'E-mail'}),
         required=True,

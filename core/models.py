@@ -62,6 +62,7 @@ class Participante(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='participante')
     nome_participante = models.CharField(max_length=50)
+    email_participante = models.EmailField(max_length=200)
     municipio = models.CharField(max_length=100)
     endereco = models.CharField(max_length=255)
     cidade = models.CharField(max_length=100)
