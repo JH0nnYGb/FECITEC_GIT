@@ -51,10 +51,10 @@
                                 <label class="title-fildes"  for="">E-mail</label>  
                                 <input type="email" name="email" class="fields" placeholder="E-mail" required>
                                 
-                                <label class="title-fildes"  for="">Senha</label> 
+                                <label class="title-fildes"  for="password1">Senha</label> 
                                 <input type="password" name="password1" class="fields" placeholder="Senha" required>
                                 
-                                <label class="title-fildes"  for="">Confirme a Senha</label> 
+                                <label class="title-fildes"  for="password2">Confirme a Senha</label> 
                                 <input type="password" name="password2" class="fields" placeholder="Confirme a Senha" required>
                                 
                                 <label class="title-fildes"  for="">Celular</label> 
@@ -71,10 +71,9 @@
                                 <label class="title-fildes"  for="">Endereço</label>
                                 <input type="text" name="endereco" class="fields" placeholder="Endereço" required>
                                 
-                                <label class="title-fildes"  for="">Estado</label>  
-                                <input type="text" name="estado" class="fields" placeholder="Estado (UF)" maxlength="2" required>
-                                <select class="form-field" name="selecao_estado_participante" required>
-                                    <option value="" disabled="" selected="">Estado</option>
+                                <label class="title-fildes"  for="estado_participante">Estado</label>  
+                                <select class="fields" name="estado_participante" required>
+                                    <option value="" >Estado</option>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
                                     <option value="AP">Amapá</option>
@@ -104,8 +103,8 @@
                                     <option value="TO">Tocantins</option>
                                 </select>
                         
-                                <label class="title-fildes"  for="">Formação Academica</label> 
-                                <select class="fields" name="formacao" required>
+                                <label class="title-fildes"  for="formacao_participante">Formação Academica</label> 
+                                <select class="fields" name="formacao_participante" required>
                                     <option value="" disabled selected>Escolha a Formação</option>
                                     <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
                                     <option value="Fundamental - Completo">Fundamental - Completo</option>
@@ -128,15 +127,15 @@
                                 <h2> Dados da Sua Instituição </h2>
                                 <!-- Campos para Dados da Instituição -->
                                 <div class="center_item">
-                                    <label class="title-fildes"  for="">Nome da Instituição</label>  
-                                    <input type="text" name="instituicao" class="fields" placeholder="Nome da Instituição" required>
+                                    <label class="title-fildes"  for="nome_instituicao">Nome da Instituição</label>  
+                                    <input type="text" name="nome_instituicao" class="fields" placeholder="Nome da Instituição" required>
                                     
                                     <label class="title-fildes"  for="">Municipio</label> 
                                     <input type="text" name="municipio" class="fields" placeholder="Nome do Município" required>
                                     
-                                    <label class="title-fildes"  for="">Estado</label> 
-                                    <select class="form-field" name="selecao_estado_instituicao" required>
-                                        <option value="" disabled="" selected="">Estado</option>
+                                    <label class="title-fildes"  for="estado_instituicao">Estado</label> 
+                                    <select class="fields" name="estado_instituicao" required>
+                                        <option value="">Estado</option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>
                                         <option value="AP">Amapá</option>

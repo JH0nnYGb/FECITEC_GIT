@@ -13,10 +13,20 @@ class ParticipantCreationForm(UserCreationForm):
     endereco = forms.CharField(max_length=255)
     cidade = forms.CharField(max_length=100)
     bairro = forms.CharField(max_length=100)
-    estado = forms.CharField(max_length=2)
-    instituicao = forms.CharField(max_length=255, required=True)
+    estado_participante = forms.ChoiceField(
+        choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
+                 ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
+                 ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'), ('MS', 'Mato Grosso do Sul'),
+                 ('MG', 'Minas Gerais'), ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'),
+                 ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
+                 ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
+                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
+        required=True
+    )
+
+
+    nome_instituicao = forms.CharField(max_length=255, required=True, initial="Nome da Instituição")
     municipio = forms.CharField(max_length=100, required=True)
-    
     estado_instituicao = forms.ChoiceField(
         choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
                  ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
@@ -28,7 +38,7 @@ class ParticipantCreationForm(UserCreationForm):
         required=True
     )
 
-    formacao = forms.ChoiceField(
+    formacao_participante = forms.ChoiceField(
         choices=[
             ('Fundamental - Incompleto', 'Fundamental - Incompleto'),
             ('Fundamental - Completo', 'Fundamental - Completo'),
@@ -64,6 +74,6 @@ class ParticipantCreationForm(UserCreationForm):
         model = User
         fields = [
             'username', 'email', 'password1', 'password2', 'nome_completo', 
-            'celular', 'endereco', 'cidade', 'bairro', 'estado', 
-            'formacao', 'instituicao', 'municipio', 'estado_instituicao'
+            'celular', 'endereco', 'cidade', 'bairro', 'estado_participante', 
+            'formacao_participante', 'nome_instituicao', 'municipio', 'estado_instituicao',
         ]

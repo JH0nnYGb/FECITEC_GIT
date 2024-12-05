@@ -73,7 +73,7 @@ class Participante(models.Model):
     instituicao = models.ForeignKey('Instituicao', on_delete=models.CASCADE, related_name='participantes')
 
     def __str__(self):
-        return f"{self.user.first_name} - {self.instituicao.nome_instituicao}"
+        return f"{self.user.first_name} - {self.instituicao.instituicao_nome}"
     
 ###### models de instituicao ####
 class Instituicao(models.Model):
