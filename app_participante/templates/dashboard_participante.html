@@ -25,6 +25,7 @@
                 <th>Título</th>
                 <th>Data de Submissão</th>
                 <th>Situação</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -32,10 +33,32 @@
             <tr>
                 <td>{{ submission.title }}</td>
                 <td>{{ submission.submission_date|date:"d/m/Y" }}</td>
-                <td>
-                    <span class="status {{ submission.status|lower }}">
+                <td class="container-status">
+                    <div class="status
+                        {% if submission.status == 'enviado' %}status-enviado{% endif %}
+                        {% if submission.status == 'processando' %}status-processando{% endif %}
+                        {% if submission.status == 'aprovado' %}status-aprovado{% endif %}
+                        {% if submission.status == 'recusado' %}status-recusado{% endif %}
+        
+                    ">
                         {{ submission.get_status_display }}
-                    </span>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="dropdown">
+                        <span class="dropdown-button">...</span>
+                        <div class="dropdown-content">
+                            <a style="color: blue;" href="#" class="editar">
+                                Editar
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a style="color: red;" href="#" class="cancelar">
+                                Cancelar
+                                <i class="fa-solid fa-ban"></i>
+                            </a>
+                        </div>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
@@ -46,8 +69,8 @@
   <div class="container-button">
     <article class="area-botao">
       <button>
-        <i class="fa-solid fa-plus"></i>
         Nova Submissão
+        <i class="fa-solid fa-plus"></i>
       </button>
     </article>
   </div>

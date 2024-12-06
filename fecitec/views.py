@@ -27,24 +27,46 @@ def home_view(request):
 def cronograma_view(request):
     return render(request, 'cronograma.html')
 
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from fecitec.models import SubmissionToWork
+from core.models import Participante
+from .forms import SubmissionToWorkForm
+
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from fecitec.models import SubmissionToWork
+from core.models import Participante
+from .forms import SubmissionToWorkForm
+
 def submissao_view(request):
-        form = SubmissionToWorkForm()
+    form = SubmissionToWorkForm()  # Cria o formulário inicialmente
 
-        if request.method == 'POST' and request.FILES:
-            form = SubmissionToWorkForm(request.POST, request.FILES)
+    # Define o contexto, com o formulário, fora da verificação de POST
+    context = {
+        'form': form
+    }
 
-            if form.is_valid():
-                form.save()
+    if request.method == 'POST' and request.FILES:
+        form = SubmissionToWorkForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            # Obtendo o participante logado
+            try:
+                participante = Participante.objects.get(user=request.user)
+            except Participante.DoesNotExist:
+                messages.error(request, "Participante não encontrado.")
+                return redirect('alguma_url_de_erro')
+
+            # Atribuindo o participante ao formulário antes de salvar
+            submissao = form.save(commit=False)  # Não salva imediatamente
+            submissao.participante = participante  # Atribui o participante
+            submissao.save()  # Agora salva
 
             messages.success(request, 'Submissão enviada com sucesso!')
-            return redirect('fecitec:submissao')
-    
-        else:
-            context = {
-                'form': form
-            }
+            return redirect('fecitec:submissao')  # Redireciona para a página de submissão
 
-        return render(request, 'submissao.html', context)
+    return render(request, 'submissao.html', context)  # Sempre retorna o contexto
 
 def aprovados_view(request):
     return render(request, 'aprovado.html')
@@ -85,9 +107,6 @@ def contate_view(request):
     }
 
     return render(request, 'contate.html', context)
-
-
-
 
 ###### VIEWS DE LOGIN PARA OS MEMBROS DA COMISSAO  #########
 def user_login(request):
@@ -145,19 +164,13 @@ def user_login(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-
-
-   
-
 def formigueiro_view(request):
     return render(request, 'formigueiro.html')
-
 
 # crf token
 def csrf_failure(request, reason=""):
     messages.error(request, "Ops !! algo deu errado, tente novemente")
     return redirect(request.META.get('HTTP_REFERER', 'login/'))
-
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render
@@ -185,9 +198,6 @@ def login_participante_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login_participante.html', {'form': form})
-
-
-
 
 ################## views de cadastro de participante ###################
 def Cadastrar_participante_views(request):
@@ -244,5 +254,4 @@ def Cadastrar_participante_views(request):
                     campo = form.fields[field].label if field in form.fields else field.capitalize()
                     messages.error(request, f"{campo}: {error}")
                      
-   
     return render(request, 'cadastro_participante.html',{'form':form}) #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 
