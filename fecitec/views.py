@@ -214,9 +214,9 @@ def Cadastrar_participante_views(request):
                     user=user,
                     nome_participante=form.cleaned_data['nome_participante'],
                     email_participante=form.cleaned_data['email'],
-                    municipio=form.cleaned_data['municipio'],
+                    municipio_participante=form.cleaned_data['municipio_participante'],
                     endereco=form.cleaned_data['endereco'],
-                    cidade=form.cleaned_data['cidade'],
+                    
                     cep_pacticipante=form.data['cep_pacticipante'],
                     celular=form.cleaned_data['celular'],
                     bairro=form.cleaned_data['bairro'],

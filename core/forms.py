@@ -48,10 +48,10 @@ class ParticipantCreationForm(UserCreationForm):
         widget=forms.TextInput(attrs={'class':'fields','placeholder':'Endereço'})
     )
 
-    cidade = forms.CharField(
-        label='Cidade',
+    municipio_participante = forms.CharField(
+        label='municipio_participante',
         max_length=100,
-        widget=forms.TextInput(attrs={'class':'fields','placeholder':'cidade'})
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'municipio_participante'})
     )
 
     cep_pacticipante = forms.CharField(
@@ -118,6 +118,6 @@ class ParticipantCreationForm(UserCreationForm):
         model = User
         fields = [
             'nome_participante', 'username', 'email', 'password1', 'password2',  
-            'celular', 'endereco', 'cidade', 'bairro', 'estado_participante', 
-            'formacao_participante',
+            'celular', 'endereco', 'municipio_participante', 'bairro', 'estado_participante', 
+            'formacao_participante','cep_pacticipante',
         ]
