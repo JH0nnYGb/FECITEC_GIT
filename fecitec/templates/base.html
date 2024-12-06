@@ -115,19 +115,19 @@
               <a class="select-as" href="{% url 'fecitec:contate' %}">Contate-nos</a>
             </li>
             <li>
-              <a class="select-as" href="">Login</a>
+              <a class="select-as" href="{% url 'fecitec:login_participante' %}"> Login </a>
             </li>
           </ul>
         </div>
 
-        <div>
+        <div class="father-search">
           <form action="">
-            <div class="container-search-bar">
+              <div class="container-search-bar">
               <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
-              <i class="fas fa-search" id="lupa"></i>
-            </div>
+              <img class="search-icon" src="{% static 'images/icone-lupa.svg' %}" alt="lupa">
+              </div>
           </form>
-        </div>
+      </div>
       </nav>
     </div>
 
