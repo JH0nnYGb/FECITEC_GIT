@@ -1,0 +1,107 @@
+{% extends 'base_participante.html' %}
+{% load static %}
+
+{% block style_participante%}
+    <link rel="stylesheet" href="{% static 'Css/submissao.css'%}">
+{% endblock %}
+
+
+{% block content_participante %}
+    <div class="page-form">
+        <article class="container-form-submissao">
+            <header>
+                <h2>Submissão de trabalho</h2>
+            </header>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-fields">
+                    <div class="fields">
+                        <input class="form-field" type="text" name="school_name" placeholder="Nome da Escola" required>
+                        <input class="form-field" type="text" name="area" placeholder="Área" required>
+                        <select class="form-field" name="state" required>
+                            <option value="" disabled="" selected="">Estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        
+                        <select class="form-field" name="formation" required>
+                            <option value="" disabled="" selected="">Escolha a Formação</option>
+                            <option value="EnsinoFundamental">Ensino Fundamental</option>
+                            <option value="EnsinoMedio">Ensino Médio</option>
+                            <option value="EnsinoMedio">Subsequente</option>
+                        </select>
+
+                        <select class="form-field" name="formOfPresentation" required>
+                            <option value="" disabled="" selected="">Forma de apresentação</option>
+                            <option value="Exposicao">Exposição</option>
+                            <option value="Painel">Painel</option>
+                            <option value="Maquete">Maquete</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="fields">
+                        <input class="form-field" type="text" name="municipality" placeholder="Municipio" required>
+                        <input class="form-field" type="text" name="title" placeholder="Titulo" required>
+                        <input class="form-field" type="text" name="sub_area" placeholder="Sub Área" required>
+                        <textarea name="summary" id="" class="textarea-field" type="text" placeholder="Resumo" required></textarea>
+                    </div>
+                </div>
+
+                <div class="container-buttons-archive">
+                    <div class="button-archive">
+                        <label for="file-upload-modelo" class="custom-file-upload">
+                            <img class="icon" src="{% static 'images/icone-baixar-modelo.svg' %}" alt="Ícone de modelo">
+                            Selecionar arquivo do modelo
+                        </label>
+                        <input class="form-field" id="file-upload-modelo" type="file" name="arquivo_modelo" required>
+                        <span class="file-name">Nenhum arquivo escolhido</span>
+                    </div>
+
+                    <div class="button-archive">
+                        <label for="file-upload-panner" class="custom-file-upload">
+                            <img class="icon" src="{% static 'images/icone-baixar-panner.svg' %}" alt="Ícone de panner">
+                            Selecionar arquivo do panner
+                        </label>
+                        <input class="form-field" id="file-upload-panner" type="file" name="arquivo_panner" required>
+                        <span class="file-name">Nenhum arquivo escolhido</span>
+                    </div>
+                </div>
+
+                <div id="error-archives" class="error-message"  le="display: none;">Por favor, selecione ambos os arquivos.</div>
+
+                <div class="button-send-form">
+                    <button onclick="checkFile()" id="button-send-archives" type="submit">Enviar Submissão</button>
+                </div>
+            </form>
+        </article>
+    </div>    
+</section>
+{% endblock %}
