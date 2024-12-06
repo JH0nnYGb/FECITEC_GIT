@@ -63,18 +63,19 @@ class Participante(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='participante')
     nome_participante = models.CharField(max_length=50)
     email_participante = models.EmailField(max_length=200)
-    municipio = models.CharField(max_length=100)
+    municipio_participante = models.CharField(max_length=100)
     endereco = models.CharField(max_length=255)
     cidade = models.CharField(max_length=100)
+    cep_pacticipante = models.CharField(max_length=200)
     celular = models.CharField(max_length=15)
     bairro = models.CharField(max_length=100)
     estado_participante = models.CharField(max_length=2, choices=ESTADOS_CHOICES, default='BA')
     formacao_participante =  models.CharField(max_length=60, choices=FORMACAO_CHOICES, default='Médio - Completo')
-#   DADOS INTITUICAO   #
-    instituicao = models.ForeignKey('Instituicao', on_delete=models.CASCADE, related_name='participantes')
+
 
     def __str__(self):
-        return f"{self.user.first_name} - {self.instituicao.instituicao_nome}"
+        
+        return f"{self.user.first_name} - {self.email_participante}"
     
 ###### models de instituicao ####
 class Instituicao(models.Model):

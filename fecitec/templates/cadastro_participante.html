@@ -55,8 +55,10 @@
                                 {{ form.celular }}
                             </div>
                             <div class="center_item">
-                                {{ form.cidade.label_tag }}
-                                {{ form.cidade }}
+                                {{ form.municipio_participante.label_tag }}
+                                {{ form.municipio_participante }}
+                                {{ form.cep_pacticipante.label_tag }}
+                                {{ form.cep_pacticipante}}
                                 {{ form.bairro.label_tag }}
                                 {{ form.bairro }}
                                 {{ form.endereco.label_tag }}
@@ -64,21 +66,9 @@
                                 {{ form.estado_participante.label_tag }}
                                 {{ form.estado_participante }}
                                 {{form.formacao_participante.label_tag}}
-                                {{form.formacao_participante}}
-                                
+                                {{form.formacao_participante}}  
                             </div>
 
-                            <div class="middle_item">
-                                <h2> Dados da Sua Instituição </h2>
-                                <!-- Campos para Dados da Instituição -->
-                                 {{form.nome_instituicao.label_tag}}
-                                 {{form.nome_instituicao}}
-                                 {{form.municipio.label_tag}}
-                                 {{form.municipio}}
-                                 {{form.estado_instituicao.label_tag}}
-                                 {{form.estado_instituicao}}
-
-                                
                         <div class="container-botao-criar">
                             <a href="{% url 'fecitec:login_participante' %}" class="creat-accont" id="show-login-forms">Já tenho uma conta</a>
                             <button type="submit" class="btn-criar">Criar Conta</button>
