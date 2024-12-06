@@ -62,7 +62,7 @@
     margin-bottom: 30px;
 }
 
-.botao-modelo-resumo, .botao-modelo-panner, .botao-area-submissao {
+.botao-modelo-resumo, .botao-modelo-panner,.botao-area-submissao{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,8 +80,18 @@
     transition: box-shadow 0.3s ease;
 }
 
-.botao-modelo-resumo:hover, .botao-modelo-panner:hover, .botao-area-submissao:hover {
+.botao-modelo-resumo:hover, .botao-modelo-panner:hover, .botao-area-submissao:hover{
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-area-submissao {
+    text-decoration: none;
+    color: #000;
+    transition: 100000ms;
+}
+
+.botao-area-submissao:hover {
+    color: #000;
 }
 
 .icone {

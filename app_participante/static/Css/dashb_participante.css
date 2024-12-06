@@ -1,22 +1,31 @@
+tr td span {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
 .container-menssagem {
     display: flex;
     justify-content: center;
 }
 
 .area-messagem {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 30px;
     width: 70%;
 }
 
 .container-button {
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .area-botao {
     display: flex;
     justify-content: start;
     align-items: center;
-    border: 1px solid red;
     width: 70%;
 }
 
@@ -52,22 +61,131 @@
     border-collapse: collapse;
     text-align: left;
     font-family: Arial, sans-serif;
+    margin: 0 0 100px 0;
 }
 
 .responsive-table th,
 .responsive-table td {
     padding: 12px;
     border: 1px solid #ddd;
-    text-align: center;
 }
 
 .responsive-table th {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     background-color: #f4f4f4;
     color: #333;
+    background: #d6d6d6;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .responsive-table td {
-    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid #d6d6d6;
+    font-size: 15px;
+}
+
+.status-enviado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 10px;
+    background: #ccd5fc;
+    color: #181c2c;
+    width: 150px;
+    height: 30px;
+}
+
+.status-processando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #cbcbcb;
+    color: #080808;
+}
+
+.status-aprovado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #ccfce4;
+    color: #182c24;
+
+}
+
+.status-recusado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #fccccc;
+    color: #2c1818;
+}
+
+/* Estilos para o container do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do botão (o '...') */
+.dropdown-button {
+    cursor: pointer;
+    font-size: 30px;
+    color: #333;
+}
+
+/* Estilos do conteúdo do dropdown */
+.dropdown-content {
+    border-radius: 10px;
+
+    display: none;
+    position: absolute;
+    right: 100%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Mudança de cor dos links ao passar o mouse */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Mostrar o dropdown quando o botão for clicado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.editar {
+    font-size: 15px;
+    color: green;
+}
+
+.cancelar {
+    font-size: 15px;
+    color: red;
 }
