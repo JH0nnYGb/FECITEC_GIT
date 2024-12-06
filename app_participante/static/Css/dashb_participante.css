@@ -27,10 +27,14 @@ tr td span {
     justify-content: start;
     align-items: center;
     width: 70%;
-    margin: 100px 0 0 0;
 }
 
-.container-button .area-botao button {
+.container-button .area-botao a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 20px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 17px;
@@ -43,27 +47,28 @@ tr td span {
     transition: all 300ms ease-in;
 }
 
-.container-button .area-botao button:hover {
+.container-button .area-botao a:hover {
     background: none;
     color: #8A84E2;
 }
 
 /* Geral para a tabela */
 .table-container {
-    display: flex;
-    justify-content: center;
-    border: 1px solid red;
+    /* display: flex;
+    justify-content: center; */
     width: 100%;
     overflow-x: auto;
     margin: 20px 0;
 }
 
 .responsive-table {
-    width: 70%;
+    width: 100%;
     border-collapse: collapse;
     text-align: left;
     font-family: Arial, sans-serif;
-    }
+    margin: 0 0 100px 0;
+
+}
 
 .responsive-table th,
 .responsive-table td {

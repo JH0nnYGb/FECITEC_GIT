@@ -1,10 +1,11 @@
-{% extends 'base_participante.html' %} {% load static %}
+{% extends 'base_participante.html' %}
+{% load static %}
 
 {% block title%}
   Dashboard do Administrador 
 {% endblock title %}
 
-{% block style_admin %}
+{% block style_participante %}
 <link rel="stylesheet" href="{% static 'Css/dashb_participante.css'%}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +23,10 @@
     <table class="responsive-table">
         <thead>
             <tr>
-                <th>Título</th>
-                <th>Data de Submissão</th>
-                <th>Situação</th>
-                <th></th>
+                <th scope="col">Título</th>
+                <th scope="col">Data de Submissão</th>
+                <th scope="col">Situação</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -68,10 +69,13 @@
 
   <div class="container-button">
     <article class="area-botao">
-      <button>
-        Nova Submissão
+        <a href="{% url 'app_participante:submissao_de_trabalho' %}">Nova Submissão
         <i class="fa-solid fa-plus"></i>
-      </button>
+        </a>
     </article>
   </div>
+
+  {% block script %}
+    <script src="{% static 'Js/dropdown.js' %}"></script>
+  {% endblock %}
 {% endblock %}
