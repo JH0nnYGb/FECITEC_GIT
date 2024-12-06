@@ -20,7 +20,6 @@ class CustomLogoutView(LogoutView):
 urlpatterns = [
     path('administrador_dashboard/',views_admin_dashboard, name='dashboard_admin'),
     path('logout/', CustomLogoutView.as_view(next_page='fecitec:user_login'), name='logout'),
-
     path('administração-submissoes/', views_admin_submission, name='admin_submission'),
     path('administração-jurados/', views_admin_jurors, name="admin_jurors"),
     path('administração-avaliadores/', views_admin_evaluators, name='admin_evaluators'),

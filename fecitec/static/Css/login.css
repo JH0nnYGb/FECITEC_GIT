@@ -64,7 +64,7 @@
 }
 
 .middle_item{
-  width: 45rem;
+  width: auto;
   display: grid;
   text-align: center;
   align-items: center;
@@ -300,6 +300,15 @@
 }
 
 form#forms_cadastro label{
+  color:#6D8194;
+  text-align: left;
+  font-weight: 600;
+  font-size:medium;
+  font-family: "Poppins", sans-serif;
+
+}
+/* ^^^^^^^ Label do formulario de cadastro de participante ^^^^ */
+.title-fildes{
   color:#6D8194;
   text-align: left;
   font-weight: 600;

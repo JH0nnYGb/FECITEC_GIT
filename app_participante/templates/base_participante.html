@@ -63,7 +63,7 @@
                   <li class="modal_items"> <a class="modal_items_links" href="#"> Perfil</a></li>
                   <li class="modal_items"> <a class="modal_items_links" href="#"> Mais opções</a></li>
                   <li class="modal_items"> 
-                    <form method="POST" action="{% url 'admin_fecitec:logout' %}">
+                    <form method="POST" action="{% url 'app_participante:logout_participante' %}">
                       {% csrf_token %}
                       <button  type="submit" class="modal_items_links">Sair</button>
                     </form>
