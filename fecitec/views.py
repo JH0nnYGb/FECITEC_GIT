@@ -207,13 +207,7 @@ def Cadastrar_participante_views(request):
                 user.email = form.cleaned_data['email']
                 user.save()
 
-                # Criar instituição
-                participante_instituicao = Instituicao.objects.create(
-                    user=user,
-                    instituicao_nome=form.cleaned_data['nome_instituicao'],
-                    municipio=form.cleaned_data['municipio'],
-                    estado_instituicao=form.cleaned_data['estado_instituicao']
-                )
+                
 
                 # Criar participante
                 participante = Participante.objects.create(
@@ -223,11 +217,12 @@ def Cadastrar_participante_views(request):
                     municipio=form.cleaned_data['municipio'],
                     endereco=form.cleaned_data['endereco'],
                     cidade=form.cleaned_data['cidade'],
+                    cep_pacticipante=form.data['cep_pacticipante'],
                     celular=form.cleaned_data['celular'],
                     bairro=form.cleaned_data['bairro'],
                     estado_participante=form.cleaned_data['estado_participante'],
                     formacao_participante=form.cleaned_data['formacao_participante'],
-                    instituicao=participante_instituicao
+                    
                 )
                 print(form.cleaned_data['email'])  # Verifique o valor do email
 

@@ -54,6 +54,12 @@ class ParticipantCreationForm(UserCreationForm):
         widget=forms.TextInput(attrs={'class':'fields','placeholder':'cidade'})
     )
 
+    cep_pacticipante = forms.CharField(
+        label='Cep da sua cidade',
+        max_length=200,
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'Cep da sua cidade'})
+    )
+
     bairro = forms.CharField(
         label='Bairro',
         max_length=100, 
@@ -95,37 +101,6 @@ class ParticipantCreationForm(UserCreationForm):
         
     )
 
-############################# DADOS DA INSTITUICAO ############################################################
-    nome_instituicao = forms.CharField(
-        max_length=255,
-        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome da Instituição'}),
-        label='Nome da Instituição',
-        required=True,
-    )
-
-
-    municipio = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'class':'fields','placeholder':'Municipio da Instituição'}),
-        label='Municipio da Instituição',
-        required=True,
-    )
-
-    estado_instituicao = forms.ChoiceField(
-        choices=[('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), ('AM', 'Amazonas'), 
-                 ('BA', 'Bahia'), ('CE', 'Ceará'), ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
-                 ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'), ('MS', 'Mato Grosso do Sul'),
-                 ('MG', 'Minas Gerais'), ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'),
-                 ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'), ('RN', 'Rio Grande do Norte'),
-                 ('RS', 'Rio Grande do Sul'), ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
-                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins')],
-        widget=forms.Select(attrs={'class':'fields'}),
-        label='Estado da Instituição',
-        required=True,
-    )
-
-    
-
     def clean_password2(self):
         password2 = self.cleaned_data.get('password2')
         
@@ -144,5 +119,5 @@ class ParticipantCreationForm(UserCreationForm):
         fields = [
             'nome_participante', 'username', 'email', 'password1', 'password2',  
             'celular', 'endereco', 'cidade', 'bairro', 'estado_participante', 
-            'formacao_participante', 'nome_instituicao', 'municipio', 'estado_instituicao',
+            'formacao_participante',
         ]
