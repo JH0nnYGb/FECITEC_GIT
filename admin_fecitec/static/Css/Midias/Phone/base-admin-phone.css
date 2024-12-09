@@ -1,5 +1,14 @@
 /* CONFIGURACAO DE MIDIAS DE CELULAR APARA A TELA DO ADMINISTRADOR FECITEC */
 @media (max-width: 576px) {
+    .profile-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid transparent;
+        transition: transform 0.3s, border-color 0.3s;
+    }
+
     .navigation-bar-admin {
         display: none;
 
@@ -33,5 +42,56 @@
         position: sticky;
         right: 3%;
     }
+
+    /*  ESTILOS DA BARRA DE BUSCA  */ 
+.father-search-desktop{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.container-search-bar {
+    position: relative;
+    display: inline-block;
+}
+.seachr-bar {
+    display: block;
+    width: 13rem;
+    position: relative;
+    top: 18%;
+    left: 24%;
+    margin-inline: 3rem;
+    color: #8a84e2;
+    background-color: #FBFCFF;
+    font-weight: 600;
+    font-size: larger;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 20px;
+    border: 2px solid #868E96;
+    /* box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.2); */
+}
+
+.seachr-bar::placeholder {
+    color: #8a84e2; /* Altere para a cor desejada */
+    opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+}
+
+.seachr-bar:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+    box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+}
+
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
     
 }
