@@ -45,4 +45,4 @@ class ContactForm(forms.Form):
 class SubmissionToWorkForm(forms.ModelForm):
     class Meta:
         model = SubmissionToWork
-        fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'formOfPresentation', 'participante']
+        fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'form_of_presentation', 'participante']

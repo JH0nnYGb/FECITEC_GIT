@@ -28,32 +28,46 @@ def dash_participante(request):
         'submissions': submissions,
     }
     return render(request, 'dashboard_participante.html', context)
-    
+
 def submissao_trabalho(request):
-    form = SubmissionToWorkForm()  # Cria o formulário inicialmente
+    if request.method == 'POST':
+        # Capturando os valores do formulário diretamente
+        school_name = request.POST.get('school_name')
+        area = request.POST.get('area')
+        state = request.POST.get('state')
+        municipality = request.POST.get('municipality')
+        formation = request.POST.get('formation')
+        form_of_presentation = request.POST.get('formOfPresentation')
+        title = request.POST.get('title')
+        sub_area = request.POST.get('sub_area')
+        summary = request.POST.get('summary')
+        arquivo_modelo = request.FILES.get('arquivo_modelo')  # Para arquivos
 
-    # Define o contexto, com o formulário, fora da verificação de POST
-    context = {
-        'form': form
-    }
+        # Obtendo o participante logado
+        try:
+            participante = Participante.objects.get(user=request.user)
+        except Participante.DoesNotExist:
+            messages.error(request, "Participante não encontrado.")
+            return redirect('app_participante:dashboard_participante')
 
-    if request.method == 'POST' and request.FILES:
-        form = SubmissionToWorkForm(request.POST, request.FILES)
+        # Salvando os dados no banco de dados
+        SubmissionToWork.objects.create(
+            title=title,
+            school_name=school_name,
+            area=area,
+            state=state,
+            municipality=municipality,
+            formation=formation,
+            form_of_presentation=form_of_presentation,
+            sub_area=sub_area,
+            summary=summary,
+            arquivo_modelo=arquivo_modelo,
+            participante=participante
+        )
 
-        if form.is_valid():
-            # Obtendo o participante logado
-            try:
-                participante = Participante.objects.get(user=request.user)
-            except Participante.DoesNotExist:
-                messages.error(request, "Participante não encontrado.")
-                return redirect('alguma_url_de_erro')
+        # Mensagem de sucesso e redirecionamento
+        messages.success(request, 'Submissão enviada com sucesso!')
+        return redirect('app_participante:dashboard_participante')
 
-            # Atribuindo o participante ao formulário antes de salvar
-            submissao = form.save(commit=False)  # Não salva imediatamente
-            submissao.participante = participante  # Atribui o participante
-            submissao.save()  # Agora salva
-
-            messages.success(request, 'Submissão enviada com sucesso!')
-            return redirect('fecitec:submissao')  # Redireciona para a página de submissão
-
-    return render(request, 'submissao-de-trabalho.html', context)  # Sempre retorna o contexto
+    # Renderizar o template em caso de GET
+    return render(request, 'submissao-de-trabalho.html')

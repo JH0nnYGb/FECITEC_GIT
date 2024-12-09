@@ -71,7 +71,7 @@ class SubmissionToWork(models.Model):
     ]
 
     formation = models.CharField(max_length=100, choices=FORMATION_CHOICES)
-    formOfPresentation = models.CharField(max_length=100, choices=FORM_OF_PRESENTATION)
+    form_of_presentation = models.CharField(max_length=100, choices=FORM_OF_PRESENTATION)
     
     # Campos de arquivo
     arquivo_modelo = models.FileField(upload_to='uploads/modelos/')
