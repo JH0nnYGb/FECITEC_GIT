@@ -4,8 +4,7 @@ tr td span {
 }
 
 .container-menssagem {
-    display: flex;
-    justify-content: center;
+    margin-inline: 30px;
 }
 
 .area-messagem {
@@ -17,9 +16,8 @@ tr td span {
 }
 
 .container-button {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+    margin-inline: 30px;
+    margin-bottom: 150px;
 }
 
 .area-botao {
@@ -41,6 +39,7 @@ tr td span {
     color: #FFF;
     width: 300px;
     height: 50px;
+    padding: 10px;
     border: 2px solid #8A84E2;
     border-radius: 10px;
     background: #8A84E2;
@@ -54,11 +53,8 @@ tr td span {
 
 /* Geral para a tabela */
 .table-container {
-    /* display: flex;
-    justify-content: center; */
-    width: 100%;
     overflow-x: auto;
-    margin: 20px 0;
+    margin: 20px 30px 20px 30px;
 }
 
 .responsive-table {
