@@ -17,9 +17,6 @@ th {
 
 /* vvvvvvvvvvvvvvvv ESTILOS DE CLASSES CSS vvvvvvvvvvvvvvvv */
 
-.father_table{
-    padding: 30px;
-}
 
 
 .text_banner {
@@ -30,4 +27,276 @@ th {
     z-index: 2;
     margin-top: 40px;
 }
+
+/* ESTILOS DA BARRA DE BUSCA  */
+.father-search-desktop{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.container-search-bar {
+    position: relative;
+    display: inline-block;
+}
+.seachr-bar {
+    /* margin-inline: 6rem; */
+    color: #8a84e2;
+    background-color: #FBFCFF;
+    font-weight: 600;
+    font-size: larger;
+    padding-inline: 20px;
+    padding-block: 10px;
+    width: 30rem;
+    border-radius: 20px;
+    border: 2px solid #868E96;
+    box-sizing: border-box;
+}
+
+.seachr-bar::placeholder {
+    color: #8a84e2; /* Altere para a cor desejada */
+    opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
+}
+
+.seachr-bar:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
+    box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
+}
+
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+/* FIM DO ESTILO DA BARRA DE BUSCAS  */
+
+
+
+
+/* ESTILO DA TABELA  */
+tr td span {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+
+.container-father{
+    margin-inline: 30px;
+}
+.father_table{
+    padding: 30px;
+}
+.container-menssagem {
+    display: flex;
+    justify-content: center;
+}
+
+.area-messagem {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 30px;
+    width: 70%;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.area-botao {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 70%;
+}
+
+.container-button .area-botao a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #FFF;
+    width: 300px;
+    height: 50px;
+    border: 2px solid #8A84E2;
+    border-radius: 10px;
+    background: #8A84E2;
+    transition: all 300ms ease-in;
+}
+
+.container-button .area-botao a:hover {
+    background: none;
+    color: #8A84E2;
+}
+
+/* Geral para a tabela */
+.table-container {
+    /* display: flex;
+    justify-content: center; */
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    margin: 0 0 100px 0;
+
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.responsive-table th {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #f4f4f4;
+    color: #333;
+    background: #d6d6d6;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+.responsive-table td {
+    border: none;
+    border-bottom: 2px solid #d6d6d6;
+    font-size: 15px;
+}
+
+.status-enviado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 10px;
+    background: #ccd5fc;
+    color: #181c2c;
+    width: 150px;
+    height: 30px;
+}
+
+.status-processando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #cbcbcb;
+    color: #080808;
+}
+
+.status-aprovado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #ccfce4;
+    color: #182c24;
+
+}
+
+.status-recusado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background: #fccccc;
+    color: #2c1818;
+}
+
+/* Estilos para o container do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do botão (o '...') */
+.dropdown-button {
+    cursor: pointer;
+    font-size: 30px;
+    color: #333;
+}
+
+/* Estilos do conteúdo do dropdown */
+.dropdown-content {
+    border-radius: 10px;
+
+    display: none;
+    position: absolute;
+    right: 100%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Mudança de cor dos links ao passar o mouse */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Mostrar o dropdown quando o botão for clicado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.editar {
+    font-size: 15px;
+    color: green;
+}
+
+.cancelar {
+    font-size: 15px;
+    color: red;
+}
+
+.responsive-table td:first-child {
+ width: 5%;
+ align-items: center;
+}
+
+/* FIM DA ESTILIZACAO DA TABELA  */
+
+.participant_phonto{
+    width: 50px;
+    background-color: red;
+    border-radius: 50%;
+}
+
 

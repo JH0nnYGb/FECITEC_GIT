@@ -1,4 +1,8 @@
 @media(min-width: 750px) and (max-width: 1100px) {
+    .father-search-desktop{
+        display: none;
+    }
+    
     .navigation-bar-admin {
         display: none;
     }
@@ -33,15 +37,16 @@
     }
     
     
-    #lupa {
-        display: flex;
-        position:  relative;
-        left: 32rem; 
-        top: -35px;
-        font-size: 22px;
-        color:#8a84e2;
-        
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 490px;
+        transform: translateY(75%);
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
     }
+
     .user_photo{
         position: sticky;
         right: 3%;
