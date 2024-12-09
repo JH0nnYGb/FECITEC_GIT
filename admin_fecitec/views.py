@@ -20,7 +20,7 @@ def views_admin_reviews(request):
     return render (request, 'admin_screen_reviews.html')
 
 def views_admin_participants(request):
-    return render(request, 'views_admin_participants.html')
+    return render(request, 'admin_screen_participants.html')
 
 def views_admin_commission(request):
     return render (request, 'admin_screen_commission.html')

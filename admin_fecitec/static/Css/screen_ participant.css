@@ -1,89 +1,18 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
-th, td {
+/* ESTILOS GERAIS  */
+th,td{
     border: 1px solid black;
     padding: 8px;
     text-align: center;
 }
-th {
-    background-color: #f2f2f2;
-}
 
-
-/* ^^^^^^^ ESTILOS GLOBAIS DA TELA ^^^^^^^^^^  */
-
-/* vvvvvvvvvvvvvvvv ESTILOS DE CLASSES CSS vvvvvvvvvvvvvvvv */
-
-
-
-.text_banner {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    margin-top: 40px;
-}
-
-/* ESTILOS DA BARRA DE BUSCA  */
-.father-search-desktop{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.container-search-bar {
-    position: relative;
-    display: inline-block;
-}
-.seachr-bar {
-    /* margin-inline: 6rem; */
-    color: #8a84e2;
-    background-color: #FBFCFF;
-    font-weight: 600;
-    font-size: larger;
-    padding-inline: 20px;
-    padding-block: 10px;
-    width: 30rem;
-    border-radius: 20px;
-    border: 2px solid #868E96;
-    box-sizing: border-box;
-}
-
-.seachr-bar::placeholder {
-    color: #8a84e2; /* Altere para a cor desejada */
-    opacity: 1; /* Ajuste a opacidade conforme necessário (1 é totalmente opaco) */
-}
-
-.seachr-bar:focus {
-    outline: none; /* Remove o contorno padrão do navegador */
-    border: 0.2px solid #a0b7c9; /* Define uma borda personalizada */
-    box-shadow: 0 0 5px #343885; /* Opcional: adiciona um efeito de sombra para realçar o campo */
-}
-
-
-.search-icon {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-}
-
-/* FIM DO ESTILO DA BARRA DE BUSCAS  */
-
-
-
+/* FIM DOS ESTILOS GERAIS  */
 
 /* ESTILO DA TABELA  */
+
 tr td span {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
+    
 }
 
 
@@ -293,10 +222,11 @@ tr td span {
 
 /* FIM DA ESTILIZACAO DA TABELA  */
 
-.participant_phonto{
+/* ESTILO DA FOTO DO PARTICIPANTE  */
+
+.participant_phonto {
     width: 50px;
     background-color: red;
     border-radius: 50%;
 }
-
-
+/* FIM DO ESTILO DA FOTO DO PARTICIPANTE  */
