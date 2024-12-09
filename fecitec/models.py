@@ -75,7 +75,6 @@ class SubmissionToWork(models.Model):
     
     # Campos de arquivo
     arquivo_modelo = models.FileField(upload_to='uploads/modelos/')
-    arquivo_panner = models.FileField(upload_to='uploads/panners/')
 
     # Campo para capturar a data da submissão de forma automática
     submission_date = models.DateField(auto_now_add=True)  # Campo que captura a data automaticamente
