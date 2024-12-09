@@ -13,6 +13,6 @@ class CustomLogoutView(LogoutView):
 
 urlpatterns = [
     path('dashboard_participante/',dash_participante, name='dashboard_participante'),
-    path('submissao_de_trabalho/', submissao_trabalho, name='submissao_de_trabalho')
+    path('submissao_de_trabalho/', submissao_trabalho, name='submissao_de_trabalho'),
     path('logout-participante/', CustomLogoutView.as_view(next_page='fecitec:home'), name='logout_participante')
 ]

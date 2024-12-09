@@ -177,7 +177,7 @@
           <form action="" >
             <div class="container-search-bar" >
               <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
-              <img src="" class="fas fa-search" id="lupa"/>
+              <img class="search-icon" src="{% static 'images/icone-lupa.svg' %}" alt="lupa">
             </div>
           </form>
         </div>  
@@ -185,13 +185,6 @@
       
     </div>
 
-    <div class="content-checkbox">
-      <label for="checkbox"> Alternar Navegação 
-        <input type="checkbox" id="checkbox" class="invisible-checkbox">
-        <img   src="{% static 'images/icone-trocar.svg' %}" alt="icone trocar">  
-      </label>
-    </div>
-    
     <main>
       {% block content_admin %}
         <!-- Content will go here -->
@@ -238,9 +231,10 @@
       <p class="copyright">2024 - Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru.</p>
     </footer>
 
-    {% block script %}
     <script src="{% static 'Js/navBarReplacement.js' %}"></script>
     <script src="{% static 'Js/profileUser.js' %}"></script>
+    <!-- ^^^^^^^^^^scripts html base ^^^^^^^^^^^^ -->
+    {% block script %}
       <!-- Script content will go here -->
     {% endblock %}
     

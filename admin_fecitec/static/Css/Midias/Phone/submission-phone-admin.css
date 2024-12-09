@@ -1,12 +1,16 @@
 
 @media (max-width: 576px) {
+    .father-search-desktop{
+        display: none;
+    }
+
     .seachr-bar {
         display: block;
         width: 13rem;
         position: absolute;
-        top: 3px;
-        left: 36%;
-        /* margin-inline: 10rem; */
+        top: -25px;
+        left: 0;
+        margin-inline: 9rem;
         color: #8a84e2;
         background-color: #FBFCFF;
         font-weight: 600;
@@ -24,13 +28,14 @@
         width: 5rem;
     }
     
-    #lupa {
-        display: flex;
-        position: relative;
-        left: 20rem;
-        top: -5px;
-        font-size: 22px;
-        color: #8a84e2;
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 300px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
     }
 
     .tabela-scroll{
