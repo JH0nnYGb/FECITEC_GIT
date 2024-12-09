@@ -1,0 +1,102 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block title%}
+  Screen Participants
+{% endblock title %}
+
+{% block style_admin %}
+<link rel="stylesheet" href="{% static 'Css/screen_ participant.css' %}">
+{%endblock%}
+
+{% block content_admin %}
+  <h3> Tela : administrador para Participantes </h3>
+  
+<div class="container-father">
+  <div class="father-search-desktop">
+    <form action="">
+        <div class="container-search-bar">
+        <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
+        <img class="search-icon" src="{% static 'images/icone-lupa.svg' %}" alt="lupa">
+        </div>
+    </form>
+  </div>
+  <div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">Participante</th>
+                <th scope="col">Título</th>
+                <th scope="col">Data de Submissão</th>
+                <th scope="col">Situação</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <td>
+                    <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div>
+                </td>
+                <td>1</td>
+                <td>2</td>
+                <td class="container-status">
+                    3
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <span class="dropdown-button">...</span>
+                        <div class="dropdown-content">
+                            <a style="color:#79B6DE;" href="#" class="editar">
+                                Editar
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a style="color: red;" href="#" class="cancelar">
+                                Cancelar
+                                <i class="fa-solid fa-ban"></i>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div>
+                </td>
+                <td>1</td>
+                <td>2</td>
+                <td class="container-status">
+                    3
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <span class="dropdown-button">...</span>
+                        <div class="dropdown-content">
+                            <a style="color:#79B6DE;" href="#" class="editar">
+                                Editar
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a style="color: red;" href="#" class="cancelar">
+                                Cancelar
+                                <i class="fa-solid fa-ban"></i>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+    
+        </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}
