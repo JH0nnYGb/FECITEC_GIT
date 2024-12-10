@@ -49,9 +49,9 @@ class ParticipantCreationForm(UserCreationForm):
     )
 
     municipio_participante = forms.CharField(
-        label='municipio_participante',
+        label='Municipio do participante',
         max_length=100,
-        widget=forms.TextInput(attrs={'class':'fields','placeholder':'municipio_participante'})
+        widget=forms.TextInput(attrs={'class':'fields','placeholder':'Seu Municipio'})
     )
 
     cep_pacticipante = forms.CharField(

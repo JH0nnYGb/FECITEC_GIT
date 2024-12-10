@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
-from .models import Commission
+
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -11,6 +11,8 @@ from django.contrib import messages
 from .forms import ContactForm
 from django.contrib.auth.models import Group
 from .forms import SubmissionToWorkForm
+from fecitec.models import SubmissionToWork
+from core.models import Commission
 
 ################ Importacaoes do Cores #######
 
@@ -27,17 +29,7 @@ def home_view(request):
 def cronograma_view(request):
     return render(request, 'cronograma.html')
 
-from django.contrib import messages
-from django.shortcuts import render, redirect
-from fecitec.models import SubmissionToWork
-from core.models import Participante
-from .forms import SubmissionToWorkForm
 
-from django.contrib import messages
-from django.shortcuts import render, redirect
-from fecitec.models import SubmissionToWork
-from core.models import Participante
-from .forms import SubmissionToWorkForm
 
 def submissao_view(request):
     form = SubmissionToWorkForm()  # Cria o formulário inicialmente
@@ -214,7 +206,7 @@ def Cadastrar_participante_views(request):
             else:  
                 user = form.save(commit=False)
                 user.first_name = form.cleaned_data['nome_participante']
-                user.email = form.cleaned_data['email']
+                user.email_participante = form.cleaned_data['email_participante']
                 user.save()
 
                 
@@ -223,7 +215,7 @@ def Cadastrar_participante_views(request):
                 participante = Participante.objects.create(
                     user=user,
                     nome_participante=form.cleaned_data['nome_participante'],
-                    email_participante=form.cleaned_data['email'],
+                    email_participante=form.cleaned_data['email_participante'],
                     municipio_participante=form.cleaned_data['municipio_participante'],
                     endereco=form.cleaned_data['endereco'],
                     
@@ -234,7 +226,7 @@ def Cadastrar_participante_views(request):
                     formacao_participante=form.cleaned_data['formacao_participante'],
                     
                 )
-                print(form.cleaned_data['email'])  # Verifique o valor do email
+                print(form.cleaned_data['email_participante'])  # Verifique o valor do email
 
                 # Associar usuário ao grupo "Participante"
                 grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')

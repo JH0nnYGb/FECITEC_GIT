@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import GrupoPersonalizado
 from .models import Participante
+from .models import Commission
 # Register your models here.
 
 
@@ -12,3 +13,7 @@ class GrupoPersonalizadoAdmin(admin.ModelAdmin):
 @admin.register(Participante)
 class ParticipanteAdmin(admin.ModelAdmin):
     list_display = ('nome_participante','email_participante','celular',)
+
+@admin.register(Commission)
+class ComissionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'formation', 'position')

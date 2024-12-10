@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 
 
+
 # Create your views here.
 
 def redirecionar_usuario(request):
@@ -24,5 +25,6 @@ def redirecionar_usuario(request):
         return redirect('app_participante:dashboard_participante')
     else:
         return redirect('login')
+
 
 

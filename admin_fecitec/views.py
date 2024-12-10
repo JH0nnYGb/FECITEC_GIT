@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect, reverse 
 from django.contrib import messages
 
+from core.models import Participante
+
 @login_required
 def views_admin_dashboard(request):
     return render(request, 'dashboard_admin.html')
@@ -19,11 +21,16 @@ def views_admin_evaluators(request):
 def views_admin_reviews(request):
     return render (request, 'admin_screen_reviews.html')
 
+@login_required
 def views_admin_participants(request):
-    return render(request, 'admin_screen_participants.html')
+    participantes = Participante.objects.all()
+    return render(request, 'admin_screen_participants.html', {'participantes': participantes})
+
 
 def views_admin_commission(request):
     return render (request, 'admin_screen_commission.html')
 
 def viewa_admin_contacts(request):
     return render(request, 'admin_screen_contacts.html')
+
+
