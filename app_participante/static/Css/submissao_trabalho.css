@@ -290,3 +290,12 @@ header h2 {
 .sucess {
     text-align: center;
 }
+
+.title-fildes{
+    color:#6D8194;
+    text-align: left;
+    font-weight: 600;
+    font-size:medium;
+    font-family: "Poppins", sans-serif;
+  
+  }

@@ -38,13 +38,14 @@ h2{
  .container-father{
     gap: 20px;
     width: 35%;
-    height: 720px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #FFFF;
     margin-block: 30px;
+    padding: 10px 0 40px 0;
     border-radius: 16px;
  }
 
@@ -111,3 +112,12 @@ input[type=number]::-webkit-inner-spin-button {
 .error-list .error {
    color: red;
 }
+
+.title-fildes{
+   color:#6D8194;
+   text-align: left;
+   font-weight: 600;
+   font-size:medium;
+   font-family: "Poppins", sans-serif;
+ 
+ }

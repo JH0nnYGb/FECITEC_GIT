@@ -1,0 +1,54 @@
+@media (max-width: 576px) {
+    .icone-certificado {
+        width: 40px;
+    }
+
+    .texto-instrucoes {
+        font-size: 40px;
+    }
+
+    .barra-inferior-instrucoes {
+        width: 90%;
+    }
+
+    .card-de-instrucoes {
+        width: 90%;
+    }
+
+    .caixa-botao-download {
+        display: flex;
+        flex-direction: column;
+ 
+    }
+
+    .botao-area-submissao {
+        height: 90px;
+    }
+
+    .form-fields {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* MIDIA DA AREA DE SUBMISSÃO */
+    .button-archive {
+        width: 100%;
+    }
+
+    .container-buttons-archive {
+        flex-direction: column;
+    }
+
+    .button-send-form button {
+        width: 100% ;
+    }
+
+    .container-form-submissao {
+        width: 90%;
+    }
+    
+    body {
+        width: fit-content;
+        height: max-content;
+        border: 3px solid red;
+    }
+}
