@@ -251,7 +251,8 @@ header h2 {
     font-weight: 500;
     font-size: 25px;
     color: green;
-    margin: 40px 0 0 0;
+    margin: 40px 0 40px 0;
+    text-align: center;
 }
 
 .error-message {
@@ -284,4 +285,8 @@ header h2 {
 .link-voltar:hover {
     background: #6d68b5;
     color: #FFF;
+}
+
+.sucess {
+    text-align: center;
 }
