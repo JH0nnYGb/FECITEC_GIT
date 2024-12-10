@@ -24,9 +24,7 @@ urlpatterns = [
     path('administracao-jurados/', views_admin_jurors, name="admin_jurors"),
     path('administracao-avaliadores/', views_admin_evaluators, name='admin_evaluators'),
     path('administracao-avaliaçoes/', views_admin_reviews, name="admin_reviews" ),
-
     path('administracao-participantes/', views_admin_participants, name="admin_participants"),
-
     path('administracao-comissao/', views_admin_commission, name="admin_commission"),
     path('administracao-contados/', viewa_admin_contacts, name="admin_contacts"),
 ]

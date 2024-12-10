@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from core.models import Participante
-from fecitec.models import SubmissionToWork
-from fecitec.forms import SubmissionToWorkForm
+from core.models import SubmissionToWork
+from core.forms import SubmissionToWorkForm
 
 @login_required
 def dash_participante(request):
@@ -45,7 +45,7 @@ def submissao_trabalho(request):
 
         # Obtendo o participante logado
         try:
-            participante = Participante.objects.get(user=request.user)
+            nome_participante = Participante.objects.get(user=request.user)
         except Participante.DoesNotExist:
             messages.error(request, "Participante não encontrado.")
             return redirect('app_participante:dashboard_participante')
@@ -62,7 +62,7 @@ def submissao_trabalho(request):
             sub_area=sub_area,
             summary=summary,
             arquivo_modelo=arquivo_modelo,
-            participante=participante
+            nome_participante=nome_participante
         )
 
         # Mensagem de sucesso e redirecionamento
