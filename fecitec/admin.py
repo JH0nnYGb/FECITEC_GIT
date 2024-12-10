@@ -1,10 +1,7 @@
 from django.contrib import admin
-from .models import Commission
 from .models import SubmissionToWork
 
-@admin.register(Commission)
-class ComissionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'formation', 'position')
+
 
 @admin.register(SubmissionToWork)
 class SubmissionToWorkAdmin(admin.ModelAdmin):

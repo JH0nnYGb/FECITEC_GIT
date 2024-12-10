@@ -20,11 +20,13 @@ class CustomLogoutView(LogoutView):
 urlpatterns = [
     path('administrador_dashboard/',views_admin_dashboard, name='dashboard_admin'),
     path('logout/', CustomLogoutView.as_view(next_page='fecitec:user_login'), name='logout'),
-    path('administração-submissoes/', views_admin_submission, name='admin_submission'),
-    path('administração-jurados/', views_admin_jurors, name="admin_jurors"),
-    path('administração-avaliadores/', views_admin_evaluators, name='admin_evaluators'),
-    path('administração-avaliações/', views_admin_reviews, name="admin_reviews" ),
-    path('administração-participantes/', views_admin_participants, name="admin_participants"),
-    path('administração-comissão/', views_admin_commission, name="admin_commission"),
-    path('administração-contados/', viewa_admin_contacts, name="admin_contacts"),
+    path('administracao-submissoes/', views_admin_submission, name='admin_submission'),
+    path('administracao-jurados/', views_admin_jurors, name="admin_jurors"),
+    path('administracao-avaliadores/', views_admin_evaluators, name='admin_evaluators'),
+    path('administracao-avaliaçoes/', views_admin_reviews, name="admin_reviews" ),
+
+    path('administracao-participantes/', views_admin_participants, name="admin_participants"),
+
+    path('administracao-comissao/', views_admin_commission, name="admin_commission"),
+    path('administracao-contados/', viewa_admin_contacts, name="admin_contacts"),
 ]
