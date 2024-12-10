@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from core.models import Participante
@@ -31,7 +31,6 @@ def dash_participante(request):
 
 def submissao_trabalho(request):
     if request.method == 'POST':
-        # Capturando os valores do formulário diretamente
         school_name = request.POST.get('school_name')
         area = request.POST.get('area')
         state = request.POST.get('state')
@@ -41,16 +40,14 @@ def submissao_trabalho(request):
         title = request.POST.get('title')
         sub_area = request.POST.get('sub_area')
         summary = request.POST.get('summary')
-        arquivo_modelo = request.FILES.get('arquivo_modelo')  # Para arquivos
+        arquivo_modelo = request.FILES.get('arquivo_modelo')
 
-        # Obtendo o participante logado
         try:
             nome_participante = Participante.objects.get(user=request.user)
         except Participante.DoesNotExist:
             messages.error(request, "Participante não encontrado.")
             return redirect('app_participante:dashboard_participante')
-
-        # Salvando os dados no banco de dados
+        
         SubmissionToWork.objects.create(
             title=title,
             school_name=school_name,
@@ -65,9 +62,33 @@ def submissao_trabalho(request):
             participante=nome_participante
         )
 
-        # Mensagem de sucesso e redirecionamento
         messages.success(request, 'Submissão enviada com sucesso!')
         return redirect('app_participante:submissao_de_trabalho')
 
-    # Renderizar o template em caso de GET
     return render(request, 'submissao-de-trabalho.html')
+
+def editar_submissao(request, submission_id):
+    submission = get_object_or_404(SubmissionToWork, id=submission_id)
+
+    if request.method == 'POST':
+        submission.school_name = request.POST.get('school_name')
+        submission.area = request.POST.get('area')
+        submission.state = request.POST.get('state')
+        submission.formation = request.POST.get('formation')
+        submission.form_of_presentation = request.POST.get('formOfPresentation')
+        submission.municipality = request.POST.get('municipality')
+        submission.title = request.POST.get('title')
+        submission.sub_area = request.POST.get('sub_area')
+        submission.summary = request.POST.get('summary')
+
+        if 'arquivo_modelo' in request.FILES:
+            submission.arquivo_modelo = request.FILES['arquivo_modelo']
+        submission.save()
+
+        # Redireciona para o dashboard
+        return redirect('app_participante:dashboard_participante')
+
+    # Renderiza a página com os dados da submissão
+    return render(request, 'editar_submissao.html', {
+        'submission': submission,
+    })
