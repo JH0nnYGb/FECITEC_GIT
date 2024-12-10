@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
+from .models import SubmissionToWork
 
 class ParticipantCreationForm(UserCreationForm):
     nome_participante = forms.CharField(
@@ -121,3 +122,11 @@ class ParticipantCreationForm(UserCreationForm):
             'celular', 'endereco', 'municipio_participante', 'bairro', 'estado_participante', 
             'formacao_participante','cep_pacticipante',
         ]
+
+#######FROMULARIO DE SUBMISSAO DE TRABALHOS ###########
+class SubmissionToWorkForm(forms.ModelForm):
+    class Meta:
+        model = SubmissionToWork
+        fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'form_of_presentation', 'participante']
+
+############ FIM OD FORMULARI DE SUBMISSOA ############

@@ -3,14 +3,17 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
 from core.models import Participante
+from core.models import SubmissionToWork
+
 
 @login_required
 def views_admin_dashboard(request):
     return render(request, 'dashboard_admin.html')
 
-
+@login_required
 def views_admin_submission(request):
-    return render(request, 'admin_screen_submission.html')
+    submissions = SubmissionToWork.objects.all()
+    return render(request, 'admin_screen_submission.html',{'submissions':submissions})
 
 def views_admin_jurors(request):
     return render(request, 'admin_screen_jurors.html' )

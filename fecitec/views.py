@@ -10,12 +10,12 @@ from django.contrib import messages
 
 from .forms import ContactForm
 from django.contrib.auth.models import Group
-from .forms import SubmissionToWorkForm
-from fecitec.models import SubmissionToWork
-from core.models import Commission
+from core.forms import SubmissionToWorkForm
+
 
 ################ Importacaoes do Cores #######
 
+from core.models import Commission
 from core.models import GrupoPersonalizado
 from core.models import Participante
 from core.forms import ParticipantCreationForm
