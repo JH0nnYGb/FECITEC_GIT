@@ -45,10 +45,4 @@
     .container-form-submissao {
         width: 90%;
     }
-    
-    body {
-        width: fit-content;
-        height: max-content;
-        border: 3px solid red;
-    }
 }
