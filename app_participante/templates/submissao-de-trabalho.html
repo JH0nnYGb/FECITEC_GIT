@@ -2,13 +2,20 @@
 {% load static %}
 
 {% block style_participante%}
-    <link rel="stylesheet" href="{% static 'Css/submissao.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/submissao_trabalho.css'%}">
 {% endblock %}
 
 
 {% block content_participante %}
     <div class="page-form">
         <article class="container-form-submissao">
+            <a class="link-voltar" href="{% url 'app_participante:dashboard_participante' %}">
+                <span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Voltar
+                </span>
+            </a>
+
             <header>
                 <h2>Submissão de trabalho</h2>
             </header>
