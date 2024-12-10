@@ -12,7 +12,7 @@ def dash_participante(request):
         participante = Participante.objects.get(user=request.user)
     except Participante.DoesNotExist:
         messages.error(request, "Participante não encontrado.")
-        return redirect('alguma_url_de_erro')  # Redirecione para uma página apropriada
+        return redirect('fecitec:login_participante')  # Redirecione para uma página apropriada
 
     # Recupera as submissões (caso sejam gerais ou específicas do participante)
     submissions = SubmissionToWork.objects.filter(participante=participante)
@@ -20,7 +20,7 @@ def dash_participante(request):
     # Verifica permissões
     if not request.user.grupos_personalizados.filter(nome='Participante').exists():
         messages.error(request, "Você não tem permissão para acessar esta página.")
-        return redirect('alguma_url_de_erro')
+        return redirect('fecitec:login_participante')
 
     # Contexto enviado para o template
     context = {
@@ -62,12 +62,12 @@ def submissao_trabalho(request):
             sub_area=sub_area,
             summary=summary,
             arquivo_modelo=arquivo_modelo,
-            nome_participante=nome_participante
+            participante=nome_participante
         )
 
         # Mensagem de sucesso e redirecionamento
         messages.success(request, 'Submissão enviada com sucesso!')
-        return redirect('app_participante:dashboard_participante')
+        return redirect('app_participante:submissao_de_trabalho')
 
     # Renderizar o template em caso de GET
     return render(request, 'submissao-de-trabalho.html')

@@ -16,6 +16,18 @@
                 </span>
             </a>
 
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        {% if message.tags == "success" %}
+                            <div class="sucess">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
             <header>
                 <h2>Submissão de trabalho</h2>
             </header>
