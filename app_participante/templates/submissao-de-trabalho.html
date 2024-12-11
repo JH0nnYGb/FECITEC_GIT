@@ -3,8 +3,8 @@
 
 {% block style_participante%}
     <link rel="stylesheet" href="{% static 'Css/submissao_trabalho.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/Midias/submissao_trabalho_phone.css'%}">
 {% endblock %}
-
 
 {% block content_participante %}
     <div class="page-form">
@@ -37,8 +37,13 @@
 
                 <div class="form-fields">
                     <div class="fields">
+                        <label class="title-fildes"  for="">Nome da Escola</label> 
                         <input class="form-field" type="text" name="school_name" placeholder="Nome da Escola" required>
+
+                        <label class="title-fildes"  for="">Área</label>
                         <input class="form-field" type="text" name="area" placeholder="Área" required>
+
+                        <label class="title-fildes"  for="">Estado</label>
                         <select class="form-field" name="state" required>
                             <option value="BA">Bahia</option>
                             <option value="AC">Acre</option>
@@ -69,6 +74,7 @@
                             <option value="TO">Tocantins</option>
                         </select>
                         
+                        <label class="title-fildes"  for="">Formação</label>
                         <select class="form-field" name="formation" required>
                             <option value="" disabled="" selected="">Escolha a Formação</option>
                             <option value="EnsinoFundamental">Ensino Fundamental</option>
@@ -76,6 +82,7 @@
                             <option value="EnsinoMedio">Ensino Subsequente</option>
                         </select>
 
+                        <label class="title-fildes"  for="">Forma de apresentação</label>
                         <select class="form-field" name="formOfPresentation" required>
                             <option value="" disabled="" selected="">Forma de apresentação</option>
                             <option value="Exposicao">Exposição</option>
@@ -86,9 +93,16 @@
                     </div>
 
                     <div class="fields">
+                        <label class="title-fildes"  for="">Municipio</label>
                         <input class="form-field" type="text" name="municipality" placeholder="Municipio" required>
+
+                        <label class="title-fildes"  for="">Titulo</label>
                         <input class="form-field" type="text" name="title" placeholder="Titulo" required>
+
+                        <label class="title-fildes"  for="">Sub Área</label>
                         <input class="form-field" type="text" name="sub_area" placeholder="Sub Área" required>
+
+                        <label class="title-fildes"  for="">Resumo</label>
                         <textarea name="summary" id="" class="textarea-field" type="text" placeholder="Resumo" required></textarea>
                     </div>
                 </div>
