@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from core.models import Participante
 from core.models import SubmissionToWork
+from django.db.models import Count
 
 
 @login_required
@@ -26,8 +27,15 @@ def views_admin_reviews(request):
 
 @login_required
 def views_admin_participants(request):
-    participantes = Participante.objects.all()
-    return render(request, 'admin_screen_participants.html', {'participantes': participantes})
+    participantes = Participante.objects.annotate(
+        total_submissoes=Count('submissions')
+    )
+
+    context = {
+        'participantes': participantes,
+    }
+
+    return render(request, 'admin_screen_participants.html', context)
 
 
 def views_admin_commission(request):
