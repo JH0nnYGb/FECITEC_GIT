@@ -120,9 +120,11 @@ header {
   gap:40rem;
 }
 
-.content_title{
+.content_title {
   display: flex;
+  justify-content: center;
   flex-direction: row;
+  align-items: center;
 }
 
 .title {
@@ -138,8 +140,8 @@ header {
 /* ESTILIZACAO DO MODAL INVISIVEL DE OPCOES DO PERFIL  */
 
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid transparent;

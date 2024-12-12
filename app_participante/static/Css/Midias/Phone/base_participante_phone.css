@@ -1,0 +1,11 @@
+@media (max-width: 576px) {
+    .text_banner {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        margin-top: 40px;
+        gap: 1rem;
+    }
+}

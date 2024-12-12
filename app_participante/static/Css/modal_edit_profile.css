@@ -1,0 +1,118 @@
+/* ^^^^^^^^^^^^^^^^^^^^^ ESTILO DO MODAL DE OPCOES	 AO CLICAR NA FOTO DE PERFIL ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+.container-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: opacity 0.5s ease, visibility 0s 1s;
+    opacity: 0;
+    visibility: hidden;
+    height: 300px;
+    width: 260px;
+    position: fixed;
+    right: 8%;
+    top: 8rem;
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: #FFF;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.container-profile.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease, visibility 0s 0s;
+}
+
+.profile-image-modal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.modal_items_links {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Poppis', sans-serif;
+}
+
+/* ^^^^^^^^^^^^^^^^^^^^^ FIM ESTILO DO MODAL DE OPCOES	 AO CLICAR NA FOTO DE PERFIL ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+.field_edit_profile {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    background-color: red;
+    align-items: center;
+}
+
+#pen_edit_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left: 60%;
+    top: 72%;
+    background-color: aquamarine;
+    border-radius: 60%;
+}
+
+#abrir-modal {
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-grup {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
