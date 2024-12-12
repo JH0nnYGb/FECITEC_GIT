@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for submission in submissions %}
+                {% for submission in page_obj %}
                 <tr>
                     <td>{{ submission.title }}</td>
                     <td>{{ submission.submission_date|date:"d/m/Y" }}</td>
@@ -43,7 +43,7 @@
                             {{ submission.get_status_display }}
                         </div>
                     </td>
-
+    
                     <td>
                         <div class="dropdown">
                             <span class="dropdown-button">...</span>
@@ -60,10 +60,38 @@
                         </div>
                     </td>
                 </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Nenhuma submissão encontrada.</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    
+    <!-- Controles de Paginação -->
+    <div class="pagination-controls">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        {% else %}
+            <span class="pagination-button disabled">
+                <i class="fa-solid fa-arrow-left"></i>
+            </span>
+        {% endif %}
+    
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="pagination-button">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        {% else %}
+            <span class="pagination-button disabled">
+                <i class="fa-solid fa-arrow-right"></i>
+            </span>
+        {% endif %}
+    </div>
+    
 
     <div class="container-button">
         <article class="area-botao">
@@ -74,6 +102,7 @@
     </div>
 
   {% block script %}
+    <script src="https://kit.fontawesome.com/6b71f3b4df.js" crossorigin="anonymous"></script>
     <script src="{% static 'Js/dropdown.js' %}"></script>
   {% endblock %}
 {% endblock %}

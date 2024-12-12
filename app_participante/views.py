@@ -4,18 +4,22 @@ from django.contrib import messages
 from core.models import Participante
 from core.models import SubmissionToWork
 from core.forms import SubmissionToWorkForm
+from django.core.paginator import Paginator
 
 @login_required
 def dash_participante(request):
     try:
-        # Recupera o participante associado ao usuário logado
         participante = Participante.objects.get(user=request.user)
     except Participante.DoesNotExist:
         messages.error(request, "Participante não encontrado.")
-        return redirect('fecitec:login_participante')  # Redirecione para uma página apropriada
+        return redirect('fecitec:login_participante')
 
-    # Recupera as submissões (caso sejam gerais ou específicas do participante)
     submissions = SubmissionToWork.objects.filter(participante=participante)
+
+    # Paginação: 7 itens por página
+    paginator = Paginator(submissions, 7)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     # Verifica permissões
     if not request.user.grupos_personalizados.filter(nome='Participante').exists():
@@ -25,7 +29,7 @@ def dash_participante(request):
     # Contexto enviado para o template
     context = {
         'participante': participante,
-        'submissions': submissions,
+        'page_obj': page_obj,
     }
     return render(request, 'dashboard_participante.html', context)
 

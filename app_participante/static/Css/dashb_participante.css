@@ -21,6 +21,7 @@ tr td span {
 }
 
 .area-botao {
+    margin-top: 50px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -62,7 +63,7 @@ tr td span {
     border-collapse: collapse;
     text-align: left;
     font-family: Arial, sans-serif;
-    margin: 0 0 100px 0;
+    margin: 0 0 30px 0;
 
 }
 
@@ -190,4 +191,32 @@ tr td span {
 .cancelar {
     font-size: 15px;
     color: red;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    padding: 13px 25px;
+    border: none;
+    background-color: #6D8194;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 30px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.pagination-button:hover {
+    color: #FFF;
+}
+
+
+.pagination-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

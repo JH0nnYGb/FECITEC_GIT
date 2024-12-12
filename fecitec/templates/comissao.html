@@ -54,7 +54,9 @@
             <!-- Link para a página anterior -->
             {% if comission.has_previous %}
                 <a href="{% url 'fecitec:comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
-                    <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda">
+                    <i class="fa-solid fa-arrow-left icone-seta-direita"></i>
+
+                    {% comment %} <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda"> {% endcomment %}
                 </a>
             {% endif %}
 
@@ -73,6 +75,7 @@
                         {% endif %}
                     {% endfor %}
                 {% else %}
+                
                     <!-- Exibir as páginas 1, 2 e 3 -->
                     {% for num in comission.paginator.page_range %}
                         {% if num <= 3 %}       
@@ -89,7 +92,9 @@
             <!-- Link para a próxima página -->
             {% if comission.has_next %}
                 <a href="{% url 'fecitec:comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
-                    <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita">
+                    <i class="fa-solid fa-arrow-right icone-seta-direita"></i>
+                    
+                    {% comment %} <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita"> {% endcomment %}
                 </a>
             {% endif %}
         </div>

@@ -149,3 +149,8 @@
     font-weight: 300;
     color: #868E96
 }
+
+.icone-seta-direita, .icone-seta-esquerda {
+    font-size: 30px;
+    color: #6D8194;
+}
