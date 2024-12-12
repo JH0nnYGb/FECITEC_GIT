@@ -1,0 +1,113 @@
+{% extends 'base_participante.html' %}
+{% load static %}
+
+{% block style_participante%}
+    <link rel="stylesheet" href="{% static 'Css/submissao_trabalho.css'%}">
+    <link rel="stylesheet" href="{% static 'Css/Midias/submissao_trabalho_phone.css'%}">
+{% endblock %}
+
+{% block content_participante %}
+    <div class="page-form">
+        <article class="container-form-submissao">
+            <a class="link-voltar" href="{% url 'app_participante:dashboard_participante' %}">
+                <span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Voltar
+                </span>
+            </a>
+
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        {% if message.tags == "success" %}
+                            <div class="sucess">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <header>
+                <h2>Submissão de trabalho</h2>
+            </header>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+            
+                <div class="form-fields">
+                    <div class="fields">
+                        <label class="title-fildes" for="">Nome da Escola</label>
+                        <input class="form-field" type="text" name="school_name" value="{{ submission.school_name }}" placeholder="Nome da Escola" required>
+            
+                        <label class="title-fildes" for="">Área</label>
+                        <input class="form-field" type="text" name="area" value="{{ submission.area }}" placeholder="Área" required>
+            
+                        <label class="title-fildes" for="">Estado</label>
+                        <select class="form-field" name="state" required>
+                            {% for key, value in submission.STATE_CHOICES %}
+                            <option value="{{ key }}" {% if submission.state == key %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+            
+                        <label class="title-fildes" for="">Formação</label>
+                        <select class="form-field" name="formation" required>
+                            {% for key, value in submission.FORMATION_CHOICES %}
+                            <option value="{{ key }}" {% if submission.formation == key %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+            
+                        <label class="title-fildes" for="">Forma de apresentação</label>
+                        <select class="form-field" name="formOfPresentation" required>
+                            {% for key, value in submission.FORM_OF_PRESENTATION %}
+                            <option value="{{ key }}" {% if submission.form_of_presentation == key %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+            
+                    <div class="fields">
+                        <label class="title-fildes" for="">Municipio</label>
+                        <input class="form-field" type="text" name="municipality" value="{{ submission.municipality }}" placeholder="Municipio" required>
+            
+                        <label class="title-fildes" for="">Titulo</label>
+                        <input class="form-field" type="text" name="title" value="{{ submission.title }}" placeholder="Titulo" required>
+            
+                        <label class="title-fildes" for="">Sub Área</label>
+                        <input class="form-field" type="text" name="sub_area" value="{{ submission.sub_area }}" placeholder="Sub Área" required>
+            
+                        <label class="title-fildes" for="">Resumo</label>
+                        <textarea name="summary" class="textarea-field" placeholder="Resumo" required>{{ submission.summary }}</textarea>
+                    </div>
+                </div>
+            
+                <div class="container-buttons-archive">
+                    <div class="button-archive">
+                        <label for="file-upload-modelo" class="custom-file-upload">
+                            <img class="icon" src="{% static 'images/icone-baixar-modelo.svg' %}" alt="Ícone de modelo">
+                            Selecionar arquivo do modelo
+                        </label>
+                        <input class="form-field" id="file-upload-modelo" type="file" name="arquivo_modelo">
+                        <span class="file-name">
+                            {% if submission.arquivo_modelo %}
+                            {{ submission.arquivo_modelo.name }}
+                            {% else %}
+                            Nenhum arquivo escolhido
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            
+                <div class="button-send-form">
+                    <button type="submit">Salvar Alterações</button>
+                </div>
+            </form>
+            
+        </article>
+    </div>    
+</section>
+
+{% block script %}
+    <script src="{% static 'Js/selected-file.js' %}"></script>
+    <script src="{% static 'Js/error-message.js' %}"></script>
+{% endblock %}
+{% endblock %}

@@ -39,9 +39,7 @@
                             {% if submission.status == 'enviado' %}status-enviado{% endif %}
                             {% if submission.status == 'processando' %}status-processando{% endif %}
                             {% if submission.status == 'aprovado' %}status-aprovado{% endif %}
-                            {% if submission.status == 'recusado' %}status-recusado{% endif %}
-            
-                        ">
+                            {% if submission.status == 'recusado' %}status-recusado{% endif %}">
                             {{ submission.get_status_display }}
                         </div>
                     </td>
@@ -50,7 +48,7 @@
                         <div class="dropdown">
                             <span class="dropdown-button">...</span>
                             <div class="dropdown-content">
-                                <a style="color: blue;" href="#" class="editar">
+                                <a style="color: blue;" href="{% url 'app_participante:editar_submissao' submission.id %}" class="editar">
                                     Editar
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
