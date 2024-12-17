@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/tablet.css' %}" />
 
     <link rel="stylesheet" href="{% static 'Css/Midias/Phone/phone.css' %}" />
-    
+
     <link rel="stylesheet" href="{% static 'Css/modal_edit_profile.css' %}">
     <!-- estilos base PARTICIPANTE PARA MIDIAS -->
     <link rel="stylesheet" href="{% static 'Css/Midias/Phone/base_participante_phone.css'%}">
@@ -71,7 +71,7 @@
               <div class="field_edit_profile">
                 <li class="modal_items"> 
                   <a class="modal_items_links" id="abrir-modal" href="#"> 
-                    <img src="https://avatars.githubusercontent.com/u/165156032?v=4" alt="Foto de perfil do usuário" class="profile-image-modal">
+                    <img src="https://avatars.githubusercontent.com/u/165156032?v=4"  alt="Foto de perfil do usuário" class="profile-image-modal">
                     <i id="pen_edit_icon" class="fa-solid fa-pen"></i>
                   </a>
                 </li>
@@ -97,9 +97,14 @@
     <div id="modal-overlay">
       <div class="modal-conteudo">
           <span class="fechar-modal">&times;</span>
-          <h2>Bem-vindo ao Modal!</h2>
-          <p>Este é um modal que sobrepõe todo o conteúdo da página.</p>
-          <button id="fechar-modal-interno">Fechar Modal</button>
+          <h2>Foto do perfil</h2>
+          <p>Uma foto ajuda as pessoas a reconhecerem você e permite que você saiba quando a conta está conectada</p>
+          <img src="https://avatars.githubusercontent.com/u/165156032?v=4" id="profile-pic" alt="Foto de perfil do usuário" class="profile-image-edit">
+          <section class="btns_modal_profile">
+            <label for="update-image" id="icon-new-file"> Mudar imagem </label>
+            <input type="file" accept="image/jpg, image/png, image/pg " id="update-image">
+            <button id="fechar-modal-interno">Remover</button>
+          </section>
       </div>
   </div>
 
@@ -154,6 +159,7 @@
 
     {% endblock %}
 
+    <script scr="{% static 'Js/photo_files.js' %}"></script>
     <script src="{% static 'Js/profileUser.js' %}"></script>
     <script src="{% static 'Js/modal_profile.js' %}"></script>
     <script src="https://kit.fontawesome.com/6b71f3b4df.js" crossorigin="anonymous"></script>

@@ -34,6 +34,14 @@
     border: 3px solid transparent;
     transition: transform 0.3s, border-color 0.3s;
 }
+.profile-image-edit{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
 
 .modal_items_links {
     color: black;
@@ -43,6 +51,18 @@
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^ FIM ESTILO DO MODAL DE OPCOES	 AO CLICAR NA FOTO DE PERFIL ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+#update-image{
+    
+    display: none;
+}
+
+#icon-new-file{
+    background-color: #4CAF50;
+    padding: 10px;
+    width: 100px;
+    border-radius: 10%;
+}
 
 .field_edit_profile {
     flex-direction: column;
