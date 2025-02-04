@@ -125,6 +125,10 @@ class Commission(models.Model):
     formation = models.CharField(max_length=100)
     position = models.CharField(max_length=50)
     image = StdImageField(upload_to='photos/', default='photos/default.jpg', blank=True, null=True)
+    email = models.EmailField(max_length=100)
+    phone = models.CharField(max_length=15,
+                             null = False,
+                             blank= False)
     def __str__(self):
         return self.name
     

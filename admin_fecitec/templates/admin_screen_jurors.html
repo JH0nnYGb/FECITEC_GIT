@@ -7,8 +7,76 @@
 
 {% block style_admin %}
 <link rel="stylesheet" href="{% static 'Css/'%}">
+<!-- IMPOTANDO O ESTILO DA TABELA  -->
+<link rel="stylesheet" href="{% static 'Css/screen_submission.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/submission-phone-admin.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submission-tablet-admin.css' %}">
+<!-- FIM IMPOTANDO O ESTILO DA TABELA  -->
 {%endblock%}
 
 {% block content_admin %}
   <h3> Tela : administrador para jurados </h3>
+<div class="container-father">
+  <section class="table-container">
+        <table class="responsive-table">
+            <thead>
+                
+                <tr>
+                    <th></th>
+                    <th scope="col">Participante</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Data de Submissão</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Responsaveis Atuais </th>
+                    <th scope="col"></th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {% for  submission in submissions %}
+                    <tr>
+                        <td>
+                            {{submission.id}}
+                            {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
+                        </td>
+                        <td>
+                            {{submission.participante.nome_participante}}
+                        </td>
+                        <td>
+                            titulo nao pego
+                        </td>
+                        <td>
+                            {{submission.submission_date}}
+                        </td>
+                        <td class="container-status">
+                            {{submission.status}}
+                        </td>
+                        <td>
+                            Respnosavais atuais(comissao)
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <span class="dropdown-button">...</span>
+                                <div class="dropdown-content">
+                                    <a style="color:#79B6DE;" href="#" class="editar">
+                                        Emcaminhar 
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a style="color: red;" href="#" class="cancelar">
+                                        Cancelar
+                                        <i class="fa-solid fa-ban"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </section> <!--- fim do content father dentro do main base -->
+    <a href="{% url 'admin_fecitec:admin_add_jurors' %}" class="creat-sworn" id="show-create-sworn-forms"> Cadastrar Jurado </a>  
+</div>
 {% endblock %}
