@@ -19,8 +19,8 @@ def views_admin_submission(request):
 def views_admin_jurors(request):
     return render(request, 'admin_screen_jurors.html' )
 
-def views_add_jurors(request):
-    return render(request, 'admin_registered_jurors.html')
+def views_add_members(request):
+    return render(request, 'admin_registered_member_comission.html')
 
 def views_admin_evaluators(request):
     return render (request, 'admin_screen_evaluators.html')

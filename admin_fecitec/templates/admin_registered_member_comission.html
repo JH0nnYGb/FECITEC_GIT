@@ -1,0 +1,35 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block title%}
+  register jurors
+{% endblock title %}
+
+{% block style_admin %}
+<!-- estilo aqui -->
+ <link rel="stylesheet" href="{% static 'Css/add_member.css' %}">
+{% endblock %}
+
+{% block content_admin %} 
+ <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
+
+<div class="container-father2" id="container-father2">
+  <div class="container-chilld" id="create-account-forms" >
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li class="error">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+  
+    <div class="box-forms">
+      <div class="fields-content">
+        <section>
+          
+        </section>
+      </div>
+    </div> 
+  </div> 
+</div>
+{%endblock%}
