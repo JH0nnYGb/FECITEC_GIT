@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import SubmissionToWork
+from .models import Commission
 
 class ParticipantCreationForm(UserCreationForm):
     nome_participante = forms.CharField(
@@ -130,3 +131,55 @@ class SubmissionToWorkForm(forms.ModelForm):
         fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'form_of_presentation', 'participante']
 
 ############ FIM OD FORMULARI DE SUBMISSOA ############
+
+
+
+# Formulario do cadastro dos membros da comissao 
+
+class ComissionMembrerCreationForm(forms.ModelForm):
+    class Meta:
+        model = Commission
+        fields = ['name','email','phone','formation','image']
+
+    name = forms.CharField(
+        label='Nome completo',
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome Completo'}),
+        required=True,
+    )
+
+    email= forms.CharField(
+        label='Email',
+        max_length=150,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Email'}),
+        required=True,
+    )
+    
+    phone= forms.CharField(
+        label='Telefone',
+        max_length=13,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Numero de telefone'}),
+        required=True,
+    )
+
+    formation= forms.ChoiceField(
+        choices=[
+            ('Mestre', 'Mestre'),
+            ('Doutor', 'Doutor'),
+            ('Especialista', 'Especialista'),
+        ],
+        widget=forms.Select(attrs={'class':'fields'}),
+        label='Formação do Membro',
+        required=True,
+    )
+
+    image= forms.ImageField(
+        label='Foto',
+        required=False,
+        widget=forms.ClearableFileInput(attrs={'class': 'fields'}),
+        
+    )
+
+
+     
+#fim  Formulario do cadastro dos membros da comissao 

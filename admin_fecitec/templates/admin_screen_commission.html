@@ -6,10 +6,115 @@
 {% endblock title %}
 
 {% block style_admin %}
-<link rel="stylesheet" href="{% static 'Css/'%}">
+<link rel="stylesheet" href="{% static 'Css/screen_admin_comissao.css'%}">
+
+<!-- <link rel="stylesheet" href="{% static 'Css/comissao.css'%}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/comissao-phone.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/comissao-tablet.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/BigDesktop/comissao-bigDesktop.css' %}"> -->
 {%endblock%}
 
 {% block content_admin %}
   <h3> Tela : administrador para Comissão  </h3>
-  <a href="{% url 'admin_fecitec:admin_add_member' %}" class="creat-sworn" id="show-create-sworn-forms"> Cadastrar Jurado </a>  
+  
+
+
+  <article class="titulos-paginas">
+      <p class="texto-atividades">Comissão</p>
+  </article>
+
+  <button class="add_member_button">
+    <a href="{% url 'admin_fecitec:admin_add_member' %}" class="creat-sworn" id="show-create-sworn-forms"> Cadastrar Membro 
+      <i class="fa-solid fa-user-plus"></i>
+    </a>
+  </button>
+  <div class="container-pai">
+    
+      <div class="caixa-de-colaborador">
+          {% for member in comission %}
+              <article class="card-colaborador">
+                  <section class="caixa-info-membro">
+                      <img class="foto-membro" src="{{ member.image.url }}" alt="{{ member.name }} - Foto">
+
+                      <div class="caixa-nome-cargo">
+                          <h2 class="nome-membro">{{ member.name }}</h2>
+                          <p class="cargo">{{ member.position }}</p>
+                      </div>
+                  </section>
+
+                  <section class="formacao-membro">
+                      <div class="formacao-container">
+                          <img src="{% static 'images/icone-instagram-card-comissao.svg' %}" alt="Ícone Instagram">
+                          <div>
+                              <p class="formacao">{{ member.formation }}</p>
+                          </div>
+                      </div>
+                  </section>
+
+                  <a href="#"> editar membro </a>
+              </article>
+          {% empty %}
+              <div class="empty">
+                  <p>Nenhum membro encontrado.</p>
+              </div>
+          {% endfor %}
+      </div>
+
+  </div>
+
+  <article class="container-paginacao">
+      <div class="container-botoes">
+          <!-- Link para a página anterior -->
+          {% if comission.has_previous %}
+              <a href="{% url 'fecitec:comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
+                  <i class="fa-solid fa-arrow-left icone-seta-direita"></i>
+
+                  {% comment %} <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda"> {% endcomment %}
+              </a>
+          {% endif %}
+
+          <!-- Lógica para mostrar apenas 3 números de páginas -->
+          {% if comission.paginator.num_pages > 3 %}
+              {% if comission.number > 2 %}
+          
+                  <!-- Exibir as páginas anteriores e posteriores -->
+                  {% for num in comission.paginator.page_range %}
+                      {% if num >= comission.number|add:"-1" and num <= comission.number|add:"1" %}
+                          {% if num == comission.number %}
+                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                          {% else %}
+                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                          {% endif %}
+                      {% endif %}
+                  {% endfor %}
+              {% else %}
+              
+                  <!-- Exibir as páginas 1, 2 e 3 -->
+                  {% for num in comission.paginator.page_range %}
+                      {% if num <= 3 %}       
+                          {% if num == comission.number %}
+                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                          {% else %}
+                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                          {% endif %}
+                      {% endif %}
+                  {% endfor %}
+              {% endif %}
+          {% endif %}
+  
+          <!-- Link para a próxima página -->
+          {% if comission.has_next %}
+              <a href="{% url 'fecitec:comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
+                  <i class="fa-solid fa-arrow-right icone-seta-direita"></i>
+                  
+                  {% comment %} <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita"> {% endcomment %}
+              </a>
+          {% endif %}
+      </div>
+  </article>
+  
+  
+  
+
+
 {% endblock %}
