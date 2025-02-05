@@ -7,13 +7,18 @@
 
 {% block style_admin %}
 <!-- estilo aqui -->
- <link rel="stylesheet" href="{% static 'Css/add_member.css' %}">
+ <link rel="stylesheet" href="{% static 'Css/registered_member.css' %}">
 {% endblock %}
 
 {% block content_admin %} 
  <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
 
-<div class="container-father2" id="container-father2">
+<button>
+  <a href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a>
+</button>
+
+
+<div class="container-father" id="container-father">
   <div class="container-chilld" id="create-account-forms" >
     {% if messages %}
         <ul class="messages">
@@ -26,8 +31,29 @@
     <div class="box-forms">
       <div class="fields-content">
         <section>
-          
-        </section>
+          <form action="{% url 'admin_add_member' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              <div>
+                  <label>{{ form.name.label }}</label>
+                  {{ form.name }}
+  
+                  <label>{{ form.email.label }}</label>
+                  {{ form.email }}
+  
+                  <label>{{ form.phone.label }}</label>
+                  {{ form.phone }}
+  
+                  <label>{{ form.formation.label }}</label>
+                  {{ form.formation }}
+  
+                  <label>{{ form.image.label }}</label>
+                  {{ form.image }}
+              </div>
+  
+              <button type="submit">Cadastrar</button>
+          </form>
+      </section>
       </div>
     </div> 
   </div> 
