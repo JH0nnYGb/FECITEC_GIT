@@ -136,7 +136,7 @@ class Commission(models.Model):
     member_profile = StdImageField(upload_to='photos/', default='photos/default.jpg', blank=True, null=True)
     
     def __str__(self):
-        return self.name
+        return self.name_member
     
 # MODELS DOS TRABALHOS 
 

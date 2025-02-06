@@ -13,11 +13,11 @@ class GrupoPersonalizadoAdmin(admin.ModelAdmin):
     
 @admin.register(Participante)
 class ParticipanteAdmin(admin.ModelAdmin):
-    list_display = ('nome_participante','email_participante','celular',)
+    list_display = ('id','nome_participante','email_participante','celular',)
 
 @admin.register(Commission)
 class ComissionAdmin(admin.ModelAdmin):
-    list_display = ('name_member', 'email_member', 'phone_member','position_member')
+    list_display = ('id','name_member', 'email_member', 'phone_member','position_member')
 
 @admin.register(SubmissionToWork)
 class SubmissionToWorkAdmin(admin.ModelAdmin):
