@@ -139,30 +139,30 @@ class SubmissionToWorkForm(forms.ModelForm):
 class ComissionMembrerCreationForm(forms.ModelForm):
     class Meta:
         model = Commission
-        fields = ['name','email','phone','formation','image']
+        fields = ['name_member','email_member','phone_member','formation_member','position_member','member_profile',]
 
-    name = forms.CharField(
-        label='Nome completo',
+    name_member = forms.CharField(
+        label='Nome completo do membro',
         max_length=255,
         widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Nome Completo'}),
         required=True,
     )
 
-    email= forms.CharField(
+    email_member= forms.CharField(
         label='Email',
         max_length=150,
         widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Email'}),
         required=True,
     )
     
-    phone= forms.CharField(
+    phone_member= forms.CharField(
         label='Telefone',
         max_length=13,
         widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Numero de telefone'}),
         required=True,
     )
 
-    formation= forms.ChoiceField(
+    formation_member= forms.ChoiceField(
         choices=[
             ('Mestre', 'Mestre'),
             ('Doutor', 'Doutor'),
@@ -173,11 +173,34 @@ class ComissionMembrerCreationForm(forms.ModelForm):
         required=True,
     )
 
-    image= forms.ImageField(
+    member_profile= forms.ImageField(
         label='Foto',
         required=False,
         widget=forms.ClearableFileInput(attrs={'class': 'fields'}),
         
+    )
+
+    position_member = forms.MultipleChoiceField(
+        choices=[
+            ('Jurado','Jurado'),
+            ('Avaliador','Avaliador'),
+            ('Adminstrador','Adminstrador'),    
+        ],
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'fields'}),
+        label='Função do membro',
+        required=True,
+    )
+
+    password1 = forms.CharField(
+        label='Defina uma senha',
+        widget=forms.PasswordInput(attrs={'class': 'fields', 'placeholder': 'Senha'}),
+        required=True,
+    )
+
+    password2 = forms.CharField(
+        label='Confirme a senha',
+        widget=forms.PasswordInput(attrs={'class': 'fields', 'placeholder': 'Confirmar Senha'}),
+        required=True,
     )
 
 

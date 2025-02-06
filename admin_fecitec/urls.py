@@ -24,7 +24,7 @@ urlpatterns = [
     path('logout/', CustomLogoutView.as_view(next_page='fecitec:user_login'), name='logout'),
     path('administracao-submissoes/', views_admin_submission, name='admin_submission'),
     path('administracao-jurados/', views_admin_jurors, name="admin_jurors"),
-    path('administracao-add-jurados', views_add_members, name='admin_add_member'),
+    path('administracao-add-membro/', views_add_members, name='admin_add_member'),
     path('administracao-avaliadores/', views_admin_evaluators, name='admin_evaluators'),
     path('administracao-avaliaçoes/', views_admin_reviews, name="admin_reviews" ),
     path('administracao-participantes/', views_admin_participants, name="admin_participants"),

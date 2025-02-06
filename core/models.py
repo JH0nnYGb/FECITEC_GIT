@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from stdimage.models import StdImageField
+
+from django.contrib.postgres.fields import ArrayField  # Se estiver usando PostgreSQL
 # Create your models here.
 
 class GrupoPersonalizado(models.Model):
@@ -121,14 +123,18 @@ class Instituicao(models.Model):
     
 
 class Commission(models.Model):
-    name = models.CharField(max_length=100)
-    formation = models.CharField(max_length=100)
-    position = models.CharField(max_length=50)
-    image = StdImageField(upload_to='photos/', default='photos/default.jpg', blank=True, null=True)
-    email = models.EmailField(max_length=100)
-    phone = models.CharField(max_length=15,
-                             null = False,
-                             blank= False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='member_commission')
+    name_member = models.CharField(max_length=100)
+    email_member = models.EmailField(max_length=100)
+    phone_member = models.CharField(
+        max_length=15,
+        null = False,
+        blank= False
+    )
+    formation_member = models.CharField(max_length=100)
+    position_member = models.JSONField(default=list)
+    member_profile = StdImageField(upload_to='photos/', default='photos/default.jpg', blank=True, null=True)
+    
     def __str__(self):
         return self.name
     
