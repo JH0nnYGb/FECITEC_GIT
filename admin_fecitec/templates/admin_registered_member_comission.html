@@ -31,25 +31,35 @@
     <div class="box-forms">
       <div class="fields-content">
         <section>
-          <form action="{% url 'admin_add_member' %}" method="POST" enctype="multipart/form-data">
+          <form action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               
               <div>
-                  <label>{{ form.name.label }}</label>
-                  {{ form.name }}
+                  <label>{{ form.name_member.label }}</label>
+                  {{ form.name_member }}
   
-                  <label>{{ form.email.label }}</label>
-                  {{ form.email }}
+                  <label>{{ form.email_member.label }}</label>
+                  {{ form.email_member }}
   
-                  <label>{{ form.phone.label }}</label>
-                  {{ form.phone }}
+                  <label>{{ form.phone_member.label }}</label>
+                  {{ form.phone_member }}
   
-                  <label>{{ form.formation.label }}</label>
-                  {{ form.formation }}
+                  <label>{{ form.formation_member.label }}</label>
+                  {{ form.formation_member }}
   
-                  <label>{{ form.image.label }}</label>
-                  {{ form.image }}
-              </div>
+                  <label>{{ form.member_profile.label }}</label>
+                  {{ form.member_profile }}
+
+                  <label>{{ form.position_member.label }}</label>
+                  {{ form.position_member }}
+
+                  <label>{{ form.password1.label }}</label>
+                  {{ form.password1 }}
+
+                  <label>{{ form.password2.label }}</label>
+                  {{ form.password2 }}
+
+                </div>
   
               <button type="submit">Cadastrar</button>
           </form>

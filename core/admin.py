@@ -17,7 +17,7 @@ class ParticipanteAdmin(admin.ModelAdmin):
 
 @admin.register(Commission)
 class ComissionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'formation', 'position')
+    list_display = ('name_member', 'email_member', 'phone_member','position_member')
 
 @admin.register(SubmissionToWork)
 class SubmissionToWorkAdmin(admin.ModelAdmin):
