@@ -34,7 +34,7 @@
           <form action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               
-              <div>
+              <div class="conteiner-fields">
                   <label>{{ form.name_member.label }}</label>
                   {{ form.name_member }}
   

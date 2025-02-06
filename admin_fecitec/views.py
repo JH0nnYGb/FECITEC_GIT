@@ -64,11 +64,11 @@ def views_add_members(request):
 
             if Commission.objects.filter(email_member=email_member).exists():
                 messages.error(request,"Este e-mail já está cadastrado.")
-                return render(request, 'admin_fecitec:admin_registered_member_comission.html', {'form': form})
+                
 
             if Commission.objects.filter(phone_member=phone_member).exists():
                 messages.error(request, "Este telefone já está cadastrado.")
-                return render(request, 'admin_fecitec:admin_registered_member_comission.html', {'form': form})
+                
 
             user = User.objects.create(username=name_member,email=email_member)
             user.first_name=name_member

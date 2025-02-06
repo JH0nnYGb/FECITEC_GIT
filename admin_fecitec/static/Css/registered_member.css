@@ -12,13 +12,19 @@
 
 
 .container-chilld{
-    height: 50%;
-    width: 50%;
+    /* height: 50%; */
+    width:80%;
     border:2px green solid;
+}
+
+.box-forms{
+    width: 100%;
+    border: 2px solid red;
 }
 
 
 .fields {
+    /* display: flex; */
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -32,8 +38,43 @@
     border-right: none;
     border-top: none;
     overflow-x: auto;
+    /* overflow-y: hidden; */
   }
 
 .fields::placeholder{
     color: #BFC8E5;
-   }
+}
+
+.conteiner-fields{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.fields input[type="checkbox"] {
+    margin-right: 18px; /* Espaço entre a checkbox e o texto */
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff; /* Cor personalizada para o Bootstrap */
+}
+
+.fields input[type="checkbox"]:hover {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efeito de hover */
+}
+
+.fields input[type="checkbox"]:checked {
+    background-color: #007bff; /* Cor ao marcar */
+    border-color: #007bff;
+}
+
+#checkbox_function{
+    height: 100px;
+    flex-direction: row;
+    display: flex;
+}
+
+
+
+#id_position_member{
+    display:flex;
+}
