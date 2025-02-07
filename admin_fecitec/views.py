@@ -88,6 +88,7 @@ def views_add_members(request):
 
                 user = User.objects.create(username=name_member,email=email_member)
                 user.first_name=name_member
+                user.set_password(password1)
                 user.save()
             
             
@@ -114,7 +115,7 @@ def views_add_members(request):
                         grupo.usuarios.add(user)
 
                 messages.success(request,"Membro adicionado com sucesso!")
-                return redirect('admin_fecitec:admin_commission')
+                return redirect('admin_fecitec:admin_add_member')
 
 
             except IntegrityError:
@@ -128,8 +129,9 @@ def views_add_members(request):
 @login_required
 def views_admin_commission(request):
     members = Commission.objects.all()
-    comission_paginator = Paginator(members, 1)
-    members_num = request.GET.get('page')
+    comission_paginator = Paginator(members, 3)
+
+    members_num = request.GET.get('page_membros')
     members_page = comission_paginator.get_page(members_num)
 
     context = {

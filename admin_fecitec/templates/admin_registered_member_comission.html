@@ -11,15 +11,20 @@
 {% endblock %}
 
 {% block content_admin %} 
- <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
-
-<button>
-  <a href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a>
-</button>
+ 
 
 
-<div class="container-father" id="container-father">
-  <div class="container-chilld" id="create-account-forms" >
+
+<a id="back_button" href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a>
+
+
+<div class= "container-chilld" >
+
+  <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
+
+  <p class="description">Preencha os Campos para criar sua conta como Participante da Fecitec</p>
+
+  <div  id="create-account-forms" >
     {% if messages %}
         <ul class="messages">
         {% for message in messages %}
@@ -29,39 +34,48 @@
     {% endif %}
   
     <div class="box-forms">
-      <div class="fields-content">
+      
+      <div class="box-forms">
         <section>
           <form action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
-              
-              <div class="conteiner-fields">
-                  <label>{{ form.name_member.label }}</label>
-                  {{ form.name_member }}
-  
-                  <label>{{ form.email_member.label }}</label>
-                  {{ form.email_member }}
-  
-                  <label>{{ form.phone_member.label }}</label>
-                  {{ form.phone_member }}
-  
-                  <label>{{ form.formation_member.label }}</label>
-                  {{ form.formation_member }}
-  
-                  <label>{{ form.member_profile.label }}</label>
-                  {{ form.member_profile }}
+            <div class="creat-forms-fields">  
+              <div class="fields-content">
+                <section class="forms-content">
+                  <div>
+                    <label>{{ form.name_member.label }}</label>
+                    {{ form.name_member }}
+    
+                    <label>{{ form.email_member.label }}</label>
+                    {{ form.email_member }}
 
-                  <label>{{ form.position_member.label }}</label>
-                  {{ form.position_member }}
+                    <label>{{ form.password1.label }}</label>
+                    {{ form.password1 }}
 
-                  <label>{{ form.password1.label }}</label>
-                  {{ form.password1 }}
+                    <label>{{ form.password2.label }}</label>
+                    {{ form.password2 }}
+    
+                  </div> <!-- fim da div dos campos da direita -->
+                  <div>
+                    <label>{{ form.member_profile.label }}</label>
+                    {{ form.member_profile }}
 
-                  <label>{{ form.password2.label }}</label>
-                  {{ form.password2 }}
+                    <label>{{ form.position_member.label }}</label>
+                    {{ form.position_member }}
 
-                </div>
-  
-              <button type="submit">Cadastrar</button>
+                    <label>{{ form.phone_member.label }}</label>
+                    {{ form.phone_member }}
+    
+                    <label>{{ form.formation_member.label }}</label>
+                    {{ form.formation_member }}
+                  </div>
+                </section>
+              </div>
+ 
+              <div class="container-botao-criar">
+                <button type="submit">Cadastrar</button>
+              </div>
+            </div> 
           </form>
       </section>
       </div>
