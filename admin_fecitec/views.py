@@ -8,6 +8,7 @@ from core.models import SubmissionToWork
 from django.db.models import Count
 
 from core.forms import ComissionMembrerCreationForm
+from django.db import IntegrityError
 
 # IMPORTACAO DO MODELOS CORE
 from core.models import Commission
@@ -61,47 +62,65 @@ def views_add_members(request):
             formation_member = form.cleaned_data['formation_member']
             member_profile = form.cleaned_data['member_profile']
             position_member = form.cleaned_data['position_member']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2'] 
+            
+
+
+            if User.objects.filter(username= name_member).exists():
+                messages.error(request,"Este nome de usuário ja existe. Escolha outro. ")
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
 
             if Commission.objects.filter(email_member=email_member).exists():
                 messages.error(request,"Este e-mail já está cadastrado.")
-                
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
+
 
             if Commission.objects.filter(phone_member=phone_member).exists():
                 messages.error(request, "Este telefone já está cadastrado.")
-                
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
+            
+            if password1 != password2 :
+                messages.error(request,"As senhas não coincidem. Tente novamente.")
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
+             
+            try:
 
-            user = User.objects.create(username=name_member,email=email_member)
-            user.first_name=name_member
-            user.save()
+                user = User.objects.create(username=name_member,email=email_member)
+                user.first_name=name_member
+                user.save()
             
             
-            #criar o Membro da comissao no banco de dados 
-            commission = Commission.objects.create(
-                user=user,
-                name_member= form.cleaned_data['name_member'],
-                email_member= form.cleaned_data['email_member'],
-                phone_member= form.cleaned_data['phone_member'],
-                formation_member= form.cleaned_data['formation_member'],
-                member_profile= form.cleaned_data['member_profile'],
-                position_member= position_member
-            )
+                #criar o Membro da comissao no banco de dados 
+                commission = Commission.objects.create(
+                    user=user,
+                    name_member= form.cleaned_data['name_member'],
+                    email_member= form.cleaned_data['email_member'],
+                    phone_member= form.cleaned_data['phone_member'],
+                    formation_member= form.cleaned_data['formation_member'],
+                    member_profile= form.cleaned_data['member_profile'],
+                    position_member= position_member
+                )
 
-            grupo_nomes = {
-                'Jurado': 'Jurado',
-                'Avaliador': 'Avaliador',
-                'Administrador': 'Administrador',
-            }
+                grupo_nomes = {
+                    'Jurado': 'Jurado',
+                    'Avaliador': 'Avaliador',
+                    'Administrador': 'Administrador',
+                }
 
-            for funcao in position_member:
-                if funcao in grupo_nomes:
-                    grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
-                    grupo.usuarios.add(user)
+                for funcao in position_member:
+                    if funcao in grupo_nomes:
+                        grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
+                        grupo.usuarios.add(user)
+
+                messages.success(request,"Membro adicionado com sucesso!")
+                return redirect('admin_fecitec:admin_commission')
 
 
-                
+            except IntegrityError:
+                messages.error(request, "Erro ao cadastrar usuário. Tente novamente.")
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
 
-            messages.success(request,"Membro adicionado com sucesso!")
-            return redirect('admin_fecitec:admin_commission')
         
     return render(request, 'admin_registered_member_comission.html', {'form':form})
 
