@@ -165,7 +165,7 @@
     justify-content: center;
     gap: 8px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #6D8194;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -179,9 +179,9 @@
 }
 
 .creat-sworn:hover {
-    color:blue;
-    background-color: #FFFFFF;
-    border: 2px solid #BFC8E5;
+    color:#FFFF;
+    background-color: #516FD4;
+    border: 2px solid #516FD4;
     transform: scale(1.05);
 }
 

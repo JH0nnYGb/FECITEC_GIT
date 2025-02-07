@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title%}
-  register jurors
+  Register jurors
 {% endblock title %}
 
 {% block style_admin %}
@@ -11,20 +11,16 @@
 {% endblock %}
 
 {% block content_admin %} 
- 
 
-
-
-<a id="back_button" href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a>
 
 
 <div class= "container-chilld" >
-
-  <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
-
-  <p class="description">Preencha os Campos para criar sua conta como Participante da Fecitec</p>
-
+  <a id="back_button" href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a> 
+  
   <div  id="create-account-forms" >
+
+    <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
+
     {% if messages %}
         <ul class="messages">
         {% for message in messages %}
@@ -32,12 +28,14 @@
         {% endfor %}
         </ul>
     {% endif %}
-  
+
+    <p class="description">Preencha os Campos para criar sua conta como Participante da Fecitec</p>
+
     <div class="box-forms">
       
       <div class="box-forms">
         <section>
-          <form action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
+          <form id= "forms_cadastro" action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
             <div class="creat-forms-fields">  
               <div class="fields-content">
@@ -72,8 +70,8 @@
                 </section>
               </div>
  
-              <div class="container-botao-criar">
-                <button type="submit">Cadastrar</button>
+              <div class="container_btn_register">
+                <button class="btn_register" type="submit">Cadastrar</button>
               </div>
             </div> 
           </form>

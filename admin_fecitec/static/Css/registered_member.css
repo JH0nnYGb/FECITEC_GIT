@@ -3,6 +3,7 @@
 }
 
 h2 {
+    text-align: center;
     margin-block: 20px;
     font-weight: 700;
     font-family: "Merriweather", serif;
@@ -24,14 +25,19 @@ h2 {
     width: 100px;
     height: 30px;
     display: flex;
-    margin-top: 1.5rem;
-    margin-inline: 10%;
+    margin-inline: 4%;
     border-radius: 40px;
     border: none;
     justify-content: center;
     align-items: center;
     color: #FFFF;
     background-color: #6D8194;
+}
+
+#back_button:hover{
+    transition: 0.5s;
+    color: #FFFF;
+    background-color:#8A84E2  ;
 }
 
 .container-father{
@@ -55,11 +61,11 @@ h2 {
 .container-chilld {
     display: flex;
     gap: 30px;
-    min-height: 50rem;
+    min-height: 20rem;
     height: auto;
     padding: 30px;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     background-color: #FFFF;
     margin-block: 30px;
@@ -75,7 +81,6 @@ h2 {
 
 .box-forms{
     width: 100%;
-    border: 2px solid red;
 }
 
 .container-botao-criar {
@@ -87,9 +92,16 @@ h2 {
     align-content: center;
 }
 
+form#forms_cadastro label {
+    color: #6D8194;
+    text-align: left;
+    font-weight: 600;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+}
+
 
 .fields {
-    /* display: flex; */
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -97,14 +109,29 @@ h2 {
     width: 100%;
     max-width: 100%;
     height: 50px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     border-bottom: 2px solid #BFC8E5;
     border-left: none;
     border-right: none;
     border-top: none;
     overflow-x: auto;
-    /* overflow-y: hidden; */
-  }
+}
+
+.fields::placeholder{
+    color: #BFC8E5;
+    font-family: "Poppins" sans-serif;
+    font-size: large;
+    font-weight:500;
+}
+
+.fields:focus{
+    outline: none;
+    border-bottom:  4px solid #8A84E2;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+}
+
 
 .fields::placeholder{
     color: #BFC8E5;
@@ -118,8 +145,8 @@ h2 {
 
 .fields input[type="checkbox"] {
     margin-right: 18px; /* Espaço entre a checkbox e o texto */
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     accent-color: #007bff; /* Cor personalizada para o Bootstrap */
 }
 
@@ -128,8 +155,8 @@ h2 {
 }
 
 .fields input[type="checkbox"]:checked {
-    background-color: #007bff; /* Cor ao marcar */
-    border-color: #007bff;
+    background-color: #79BEEE; /* Cor ao marcar */
+    border-color: #79BEEE;
 }
 
 #checkbox_function{
@@ -138,8 +165,40 @@ h2 {
     display: flex;
 }
 
-
-
 #id_position_member{
     display:flex;
+    margin-block:15px;
+    gap: 50px;
+}
+
+
+
+.container_btn_register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.btn_register {
+    font-family: "Merriweather", serif;
+    font-size: larger;
+    width: 30%;
+    height: 58px;
+    display: flex;
+    margin-top: 1.5rem;
+    border-radius: 40px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    background-color: #6D8194;
+}
+
+.btn_register:hover{
+    transition: 0.5s;
+    color:#FFFF;
+    background-color:#8A84E2 ;
 }
