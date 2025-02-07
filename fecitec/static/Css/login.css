@@ -140,16 +140,14 @@
   color: #BFC8E5;
  }
 
- .fields:focus{
-    outline: none;
-    border-bottom:  4px solid #8A84E2;
-    border-left:none ;
-    border-right:none ;
-    border-top: none;
- }
- .fields::placeholder{
-  color: #BFC8E5;
- }
+.fields:focus{
+  outline: none;
+  border-bottom:  4px solid #8A84E2;
+  border-left:none ;
+  border-right:none ;
+  border-top: none;
+}
+
 
  .container-botao-login{
   width: 100%;
