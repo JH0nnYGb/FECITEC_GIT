@@ -2,24 +2,89 @@
     display: none;
 }
 
-.container-father{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    border: blue 2px solid ;
+h2 {
+    margin-block: 20px;
+    font-weight: 700;
+    font-family: "Merriweather", serif;
+}
+
+.description {
+    text-align: center;
+    font-size: x-large;
+    color: #6D8194;
+    margin: 0;
 }
 
 
-.container-chilld{
-    /* height: 50%; */
-    width:80%;
-    border:2px green solid;
+
+#back_button{
+    text-decoration: none;
+    font-family: "Merriweather", serif;
+    font-size: larger;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    margin-top: 1.5rem;
+    margin-inline: 10%;
+    border-radius: 40px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    background-color: #6D8194;
+}
+
+.container-father{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
+    margin: 5%;
+}
+
+.creat-forms-fields {
+    display: flex;
+    gap: 20px;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-chilld {
+    display: flex;
+    gap: 30px;
+    min-height: 50rem;
+    height: auto;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFF;
+    margin-block: 30px;
+    border-radius: 16px;
+}
+
+.forms-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 70px;
 }
 
 .box-forms{
     width: 100%;
     border: 2px solid red;
+}
+
+.container-botao-criar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 

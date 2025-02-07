@@ -34,11 +34,13 @@
           {% for member in comission %}
               <article class="card-colaborador">
                   <section class="caixa-info-membro">
-                      <img class="foto-membro" src="{{ member.image.url }}" alt="{{ member.name }} - Foto">
+                      <img class="foto-membro"
+                        src="{% if member.member_profile %}{{ member.member_profile.url }}{% else %}/static/img/default_profile.png{% endif %}"
+                        alt=" Foto " >
 
                       <div class="caixa-nome-cargo">
-                          <h2 class="nome-membro">{{ member.name }}</h2>
-                          <p class="cargo">{{ member.position }}</p>
+                          <h2 class="nome-membro">{{ member.name_member }}</h2>
+                          <p class="cargo">{{ member.position_member }}</p>
                       </div>
                   </section>
 
@@ -46,7 +48,7 @@
                       <div class="formacao-container">
                           <img src="{% static 'images/icone-instagram-card-comissao.svg' %}" alt="Ícone Instagram">
                           <div>
-                              <p class="formacao">{{ member.formation }}</p>
+                              <p class="formacao">{{ member.formation_member }}</p>
                           </div>
                       </div>
                   </section>
@@ -66,7 +68,7 @@
       <div class="container-botoes">
           <!-- Link para a página anterior -->
           {% if comission.has_previous %}
-              <a href="{% url 'fecitec:comissao' %}?page={{ comission.previous_page_number }}" class="paginacao-link">
+              <a href="{% url 'fecitec:comissao' %}?page_membros={{ comission.previous_page_number }}" class="paginacao-link">
                   <i class="fa-solid fa-arrow-left icone-seta-direita"></i>
 
                   {% comment %} <img class="icon" src="{% static 'images/icone-seta-esquerda.svg' %}" alt="Ícone esquerda"> {% endcomment %}
@@ -81,9 +83,9 @@
                   {% for num in comission.paginator.page_range %}
                       {% if num >= comission.number|add:"-1" and num <= comission.number|add:"1" %}
                           {% if num == comission.number %}
-                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                              <a href="{% url 'fecitec:comissao' %}?page_membros={{ num }}" class="indice-paginacao active">{{ num }}</a>
                           {% else %}
-                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                              <a href="{% url 'fecitec:comissao' %}?page_membros={{ num }}" class="indice-paginacao">{{ num }}</a>
                           {% endif %}
                       {% endif %}
                   {% endfor %}
@@ -93,9 +95,9 @@
                   {% for num in comission.paginator.page_range %}
                       {% if num <= 3 %}       
                           {% if num == comission.number %}
-                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao active">{{ num }}</a>
+                              <a href="{% url 'fecitec:comissao' %}?page_membros={{ num }}" class="indice-paginacao active">{{ num }}</a>
                           {% else %}
-                              <a href="{% url 'fecitec:comissao' %}?page={{ num }}" class="indice-paginacao">{{ num }}</a>
+                              <a href="{% url 'fecitec:comissao' %}?page_membros={{ num }}" class="indice-paginacao">{{ num }}</a>
                           {% endif %}
                       {% endif %}
                   {% endfor %}
@@ -104,7 +106,7 @@
   
           <!-- Link para a próxima página -->
           {% if comission.has_next %}
-              <a href="{% url 'fecitec:comissao' %}?page={{ comission.next_page_number }}" class="paginacao-link">
+              <a href="{% url 'fecitec:comissao' %}?page_membros={{ comission.next_page_number }}" class="paginacao-link">
                   <i class="fa-solid fa-arrow-right icone-seta-direita"></i>
                   
                   {% comment %} <img class="icon" src="{% static 'images/icone-seta-direita.svg' %}" alt="Ícone direita"> {% endcomment %}

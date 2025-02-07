@@ -23,7 +23,9 @@
             {% for member in comission %}
                 <article class="card-colaborador">
                     <section class="caixa-info-membro">
-                        <img class="foto-membro" src="{{ member.image.url }}" alt="{{ member.name }} - Foto">
+                        <img class="foto-membro" 
+                            src="{% if member.member_profile %}{{ member.member_profile.url }}{% else %}/static/img/default_profile.png{% endif %}" 
+                            alt="{{ member.name }} - Foto">
 
                         <div class="caixa-nome-cargo">
                             <h2 class="nome-membro">{{ member.name }}</h2>

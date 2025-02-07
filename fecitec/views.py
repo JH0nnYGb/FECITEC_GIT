@@ -149,6 +149,7 @@ def user_login(request):
                 return render(request, 'login.html', {'form': form})
 
         else:
+
             messages.error(request, 'Usuário ou senha incorretos. Por favor, tente novamente.')
             return render(request, 'login.html', {'form': form})
 
@@ -173,7 +174,6 @@ def is_administrator(user):
 
 ###### VIEWS DE LOGIN PARA O PARTICIPANTE FECITEC #########
 def login_participante_view(request):
-    print('ual')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -200,13 +200,23 @@ def Cadastrar_participante_views(request):
         if form.is_valid():
             # Verifique se o nome de usuário já existe antes de salvar
             username = form.cleaned_data['username']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Já existe um usuário com este nome.")
-                
+                return render(request, 'cadastro_participante.html',{'form':form})
+
+            if password1 != password2 :
+                messages.error(request, "As senhas não coincidem. Tente novamente." )
+                return render(request, 'cadastro_participante.html',{'form':form})   
+            
             else:  
                 user = form.save(commit=False)
                 user.first_name = form.cleaned_data['nome_participante']
                 user.email_participante = form.cleaned_data['email_participante']
+                user.set_password(password1) 
+            
                 user.save()
 
                 
