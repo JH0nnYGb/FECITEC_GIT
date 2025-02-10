@@ -191,7 +191,8 @@ def login_participante_view(request):
         form = AuthenticationForm()
     return render(request, 'login_participante.html', {'form': form})
 
-################## views de cadastro de participante ###################
+
+
 def Cadastrar_participante_views(request):
     form = ParticipantCreationForm()
 
@@ -205,52 +206,51 @@ def Cadastrar_participante_views(request):
 
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Já existe um usuário com este nome.")
-                return render(request, 'cadastro_participante.html',{'form':form})
+                return render(request, 'cadastro_participante.html', {'form': form})
 
-            if password1 != password2 :
-                messages.error(request, "As senhas não coincidem. Tente novamente." )
-                return render(request, 'cadastro_participante.html',{'form':form})   
             
-            else:  
-                user = form.save(commit=False)
-                user.first_name = form.cleaned_data['nome_participante']
-                user.email_participante = form.cleaned_data['email_participante']
-                user.set_password(password1) 
-            
-                user.save()
+            if password1 != password2:
+                messages.error(request, "As senhas não coincidem. Tente novamente.")
+                return render(request, 'cadastro_participante.html', {'form': form})
 
-                
+            if len(password1) < 8:
+                messages.error(request, "A senha deve ter pelo menos 8 caracteres.")
+                return render(request, 'cadastro_participante.html', {'form': form})
 
-                # Criar participante
-                participante = Participante.objects.create(
-                    user=user,
-                    nome_participante=form.cleaned_data['nome_participante'],
-                    email_participante=form.cleaned_data['email_participante'],
-                    municipio_participante=form.cleaned_data['municipio_participante'],
-                    endereco=form.cleaned_data['endereco'],
-                    
-                    cep_pacticipante=form.data['cep_pacticipante'],
-                    celular=form.cleaned_data['celular'],
-                    bairro=form.cleaned_data['bairro'],
-                    estado_participante=form.cleaned_data['estado_participante'],
-                    formacao_participante=form.cleaned_data['formacao_participante'],
-                    
-                )
-                print(form.cleaned_data['email_participante'])  # Verifique o valor do email
+            if password1.isdigit():
+                messages.error(request, "A senha não pode ser totalmente numérica.")
+                return render(request, 'cadastro_participante.html', {'form': form})
 
-                # Associar usuário ao grupo "Participante"
-                grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')
-                grupo_participante.usuarios.add(user)
+            # Salvar usuário
+            user = form.save(commit=False)
+            user.first_name = form.cleaned_data['nome_participante']
+            user.email = form.cleaned_data['email_participante']
+            user.set_password(password1)
+            user.save()
 
-                messages.success(request, "Conta criada com sucesso! Faça login para continuar.")
-                return redirect('fecitec:login_participante')
+            # Criar participante
+            participante = Participante.objects.create(
+                user=user,
+                nome_participante=form.cleaned_data['nome_participante'],
+                email_participante=form.cleaned_data['email_participante'],
+                municipio_participante=form.cleaned_data['municipio_participante'],
+                endereco=form.cleaned_data['endereco'],
+                cep_pacticipante=form.cleaned_data['cep_pacticipante'],
+                celular=form.cleaned_data['celular'],
+                bairro=form.cleaned_data['bairro'],
+                estado_participante=form.cleaned_data['estado_participante'],
+                formacao_participante=form.cleaned_data['formacao_participante'],
+            )
+
+            # Associar usuário ao grupo "Participante"
+            grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')
+            grupo_participante.usuarios.add(user)
+
+            messages.success(request, "Conta criada com sucesso! Faça login para continuar.")
+            return redirect('fecitec:login_participante')
         
         else:
-            print(form.errors.as_json())  # Já está presente na sua função
-            for field, errors in form.errors.items():
-                for error in errors:
-            # Verifica se o campo está no formulário para usar o label apropriado
-                    campo = form.fields[field].label if field in form.fields else field.capitalize()
-                    messages.error(request, f"{campo}: {error}")
-                     
-    return render(request, 'cadastro_participante.html',{'form':form}) #FIM DA VIEWS DE CADRASTRO DE PARTICIPENTE 
+            for error in form.errors.items():
+                messages.error(request, f"{error}")
+
+    return render(request, 'cadastro_participante.html', {'form': form})
