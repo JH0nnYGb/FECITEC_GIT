@@ -55,6 +55,11 @@ def views_add_members(request):
 
     if request.method == 'POST':
         form = ComissionMembrerCreationForm(request.POST, request.FILES)
+        
+        # Inicializando variáveis para controle de erros
+        errors = []
+
+        
         if form.is_valid():
             name_member = form.cleaned_data['name_member']
             email_member = form.cleaned_data['email_member']
@@ -64,43 +69,59 @@ def views_add_members(request):
             position_member = form.cleaned_data['position_member']
             password1 = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2'] 
+
+            # Validação de senhas
+            if password1 != password2:
+                errors.append("As senhas não coincidem.")
             
+            # Validação de campos obrigatórios
+            if not name_member:
+                errors.append("O nome do membro é obrigatório.")
+            if not email_member:
+                errors.append("O e-mail do membro é obrigatório.")
+            if not phone_member:
+                errors.append("O telefone do membro é obrigatório.")
+            if not formation_member:
+                errors.append("A formação do membro é obrigatória.")
+            if not member_profile:
+                errors.append("O perfil do membro é obrigatório.")
+            if not position_member:
+                errors.append("A posição do membro é obrigatória.")
 
+            # if password1.isdigit():
+            #     messages.error(request, "A senha não pode ser totalmente numérica.")
+            #     errors.append("cadastro_participante.html")
+            
+            # Verificar se o e-mail já está cadastrado
+            if User.objects.filter(email=email_member).exists():
+                errors.append("Este e-mail já está cadastrado.")
 
-            if User.objects.filter(username= name_member).exists():
-                messages.error(request,"Este nome de usuário ja existe. Escolha outro. ")
-                return render(request, 'admin_registered_member_comission.html', {'form': form})
-
-            if Commission.objects.filter(email_member=email_member).exists():
-                messages.error(request,"Este e-mail já está cadastrado.")
-                return render(request, 'admin_registered_member_comission.html', {'form': form})
-
-
+            # Verificar se o telefone já está cadastrado
             if Commission.objects.filter(phone_member=phone_member).exists():
-                messages.error(request, "Este telefone já está cadastrado.")
-                return render(request, 'admin_registered_member_comission.html', {'form': form})
-            
-            if password1 != password2 :
-                messages.error(request,"As senhas não coincidem. Tente novamente.")
-                return render(request, 'admin_registered_member_comission.html', {'form': form})
-             
-            try:
+                errors.append("Este telefone já está cadastrado.")
 
-                user = User.objects.create(username=name_member,email=email_member)
-                user.first_name=name_member
+            # Se houver erros, mostrar as mensagens de erro
+            if errors:
+                for error in errors:
+                    messages.error(request, error)
+                return render(request, 'admin_registered_member_comission.html', {'form': form})
+
+            try:
+                # Criar o usuário
+                user = User.objects.create(username=name_member, email=email_member)
+                user.first_name = name_member
                 user.set_password(password1)
                 user.save()
-            
-            
-                #criar o Membro da comissao no banco de dados 
+
+                # Criar o membro da comissão
                 commission = Commission.objects.create(
                     user=user,
-                    name_member= form.cleaned_data['name_member'],
-                    email_member= form.cleaned_data['email_member'],
-                    phone_member= form.cleaned_data['phone_member'],
-                    formation_member= form.cleaned_data['formation_member'],
-                    member_profile= form.cleaned_data['member_profile'],
-                    position_member= position_member
+                    name_member=name_member,
+                    email_member=email_member,
+                    phone_member=phone_member,
+                    formation_member=formation_member,
+                    member_profile=member_profile,
+                    position_member=position_member
                 )
 
                 grupo_nomes = {
@@ -109,21 +130,33 @@ def views_add_members(request):
                     'Administrador': 'Administrador',
                 }
 
-                for funcao in position_member:
-                    if funcao in grupo_nomes:
-                        grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
-                        grupo.usuarios.add(user)
+                # for funcao in position_member:
+                #     if funcao in grupo_nomes:
+                #         try:
+                #             grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
+                #             grupo.usuarios.add(user)
+                #         except GrupoPersonalizado.DoesNotExist:
+                #             errors.append(f"Grupo '{funcao}' não encontrado.")
+                #             return render(request, 'admin_registered_member_comission.html', {'form': form})
 
-                messages.success(request,"Membro adicionado com sucesso!")
-                return redirect('admin_fecitec:admin_add_member')
-
+                if not errors:
+                    messages.success(request, "Membro adicionado com sucesso!")
+                    return redirect('admin_fecitec:admin_add_member')
 
             except IntegrityError:
                 messages.error(request, "Erro ao cadastrar usuário. Tente novamente.")
                 return render(request, 'admin_registered_member_comission.html', {'form': form})
 
-        
-    return render(request, 'admin_registered_member_comission.html', {'form':form})
+        else:
+            # Se o formulário não for válido, exibe os erros do próprio Django
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
+            
+            return render(request, 'admin_registered_member_comission.html', {'form': form})
+
+    return render(request, 'admin_registered_member_comission.html', {'form': form})
+
 
 
 @login_required

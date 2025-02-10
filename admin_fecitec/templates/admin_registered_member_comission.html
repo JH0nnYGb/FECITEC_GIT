@@ -17,17 +17,23 @@
 <div class= "container-chilld" >
   <a id="back_button" href="{% url 'admin_fecitec:admin_commission' %}"> Voltar </a> 
   
-  <div  id="create-account-forms" >
-
-    <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
+  <div id="create-account-forms" >
 
     {% if messages %}
-        <ul class="messages">
+      <ul class="messages">
         {% for message in messages %}
-        <li class="error">{{ message }}</li>
+          <li class="{{ message.tags }}">{{ message }}</li>
         {% endfor %}
-        </ul>
+      </ul>
     {% endif %}
+
+    {% if form.non_field_errors %}
+      <div class="error-message">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    <h2> Adcione um Novo Membro da Comissão Acadêmica  </h2>
 
     <p class="description">Preencha os Campos para criar sua conta como Participante da Fecitec</p>
 
@@ -37,6 +43,7 @@
         <section>
           <form id= "forms_cadastro" action="{% url 'admin_fecitec:admin_add_member' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
+
             <div class="creat-forms-fields">  
               <div class="fields-content">
                 <section class="forms-content">

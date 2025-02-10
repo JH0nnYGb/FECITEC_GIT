@@ -103,17 +103,6 @@ class ParticipantCreationForm(UserCreationForm):
         
     )
 
-    def clean_password2(self):
-        password2 = self.cleaned_data.get('password2')
-        
-        # Validação personalizada para senha
-        if len(password2) < 8:
-            raise ValidationError("A senha deve ter pelo menos 8 caracteres.")
-        
-        if password2.isdigit():
-            raise ValidationError("A senha não pode ser totalmente numérica.")
-        
-        return password2
     
 
     class Meta:
@@ -202,6 +191,16 @@ class ComissionMembrerCreationForm(forms.ModelForm):
         widget=forms.PasswordInput(attrs={'class': 'fields', 'placeholder': 'Confirmar Senha'}),
         required=True,
     )
+
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     password1 = cleaned_data.get("password1")
+    #     password2 = cleaned_data.get("password2")
+    #     if password1 and password2 and password1 != password2:
+    #         raise ValidationError( " As senhas não coincidem. Tente novamente. ")
+            
+        
+    #     return cleaned_data
 
 
      
