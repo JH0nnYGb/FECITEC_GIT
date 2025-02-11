@@ -173,11 +173,11 @@ class ComissionMembrerCreationForm(forms.ModelForm):
         choices=[
             ('Jurado','Jurado'),
             ('Avaliador','Avaliador'),
-            ('Adminstrador','Adminstrador'),    
+            ('Administrador','Administrador'),    
         ],
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'fields' 'id:checkbox_function'}),
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'fields', 'id':'checkbox_function'}),
         label='Função do membro',
-        required=True,
+        required=False,
     )
 
     password1 = forms.CharField(
@@ -192,16 +192,7 @@ class ComissionMembrerCreationForm(forms.ModelForm):
         required=True,
     )
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     password1 = cleaned_data.get("password1")
-    #     password2 = cleaned_data.get("password2")
-    #     if password1 and password2 and password1 != password2:
-    #         raise ValidationError( " As senhas não coincidem. Tente novamente. ")
-            
-        
-    #     return cleaned_data
-
+   
 
      
 #fim  Formulario do cadastro dos membros da comissao 

@@ -208,7 +208,7 @@ def Cadastrar_participante_views(request):
                 messages.error(request, "Já existe um usuário com este nome.")
                 return render(request, 'cadastro_participante.html', {'form': form})
 
-            
+    
             if password1 != password2:
                 messages.error(request, "As senhas não coincidem. Tente novamente.")
                 return render(request, 'cadastro_participante.html', {'form': form})

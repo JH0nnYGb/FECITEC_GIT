@@ -83,14 +83,12 @@ def views_add_members(request):
                 errors.append("O telefone do membro é obrigatório.")
             if not formation_member:
                 errors.append("A formação do membro é obrigatória.")
-            if not member_profile:
-                errors.append("O perfil do membro é obrigatório.")
             if not position_member:
                 errors.append("A posição do membro é obrigatória.")
 
-            # if password1.isdigit():
-            #     messages.error(request, "A senha não pode ser totalmente numérica.")
-            #     errors.append("cadastro_participante.html")
+            if password1.isdigit():
+                messages.error(request, "A senha não pode ser totalmente numérica.")
+                errors.append("cadastro_participante.html")
             
             # Verificar se o e-mail já está cadastrado
             if User.objects.filter(email=email_member).exists():
@@ -130,14 +128,14 @@ def views_add_members(request):
                     'Administrador': 'Administrador',
                 }
 
-                # for funcao in position_member:
-                #     if funcao in grupo_nomes:
-                #         try:
-                #             grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
-                #             grupo.usuarios.add(user)
-                #         except GrupoPersonalizado.DoesNotExist:
-                #             errors.append(f"Grupo '{funcao}' não encontrado.")
-                #             return render(request, 'admin_registered_member_comission.html', {'form': form})
+                for funcao in position_member:
+                    if funcao in grupo_nomes:
+                        try:
+                            grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
+                            grupo.usuarios.add(user)
+                        except GrupoPersonalizado.DoesNotExist:
+                            errors.append(f"Grupo '{funcao}' não encontrado.")
+                            return render(request, 'admin_registered_member_comission.html', {'form': form})
 
                 if not errors:
                     messages.success(request, "Membro adicionado com sucesso!")
@@ -150,9 +148,12 @@ def views_add_members(request):
         else:
             # Se o formulário não for válido, exibe os erros do próprio Django
             for field, errors in form.errors.items():
-                for error in errors:
-                    messages.error(request, f"{error}")
-            
+                if field == "position_member":
+                    messages.error(request, "A posição do membro é obrigatória.")
+                else:
+                    for error in errors:
+                        messages.error(request,error)
+                    print(errors)
             return render(request, 'admin_registered_member_comission.html', {'form': form})
 
     return render(request, 'admin_registered_member_comission.html', {'form': form})
