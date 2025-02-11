@@ -188,7 +188,8 @@ form#forms_cadastro label {
 }
 
 #checkbox_function{
-    height: 100px;
+    /* height: 100px; */
+    gap: 30px;
     flex-direction: row;
     display: flex;
 }
