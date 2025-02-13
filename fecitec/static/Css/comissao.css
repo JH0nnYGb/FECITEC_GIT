@@ -58,7 +58,7 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    width: 100px;
+    width: 130px;
     border: 3px solid #BFC8E5;
     border-radius: 20px;
 }
@@ -153,4 +153,9 @@
 .icone-seta-direita, .icone-seta-esquerda {
     font-size: 30px;
     color: #6D8194;
+}
+
+.funtion_title{
+    font-size: larger;
+    color: #516FD4;
 }

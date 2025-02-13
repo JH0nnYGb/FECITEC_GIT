@@ -1,4 +1,10 @@
 
+button {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
 .container-pai {
     display: flex;
     justify-content: center;
@@ -216,8 +222,9 @@
     transform: scale(1.05);
 }
 
-button {
-    border: none;
-    background: none;
-    padding: 0;
+
+
+.funtion_title{
+    font-size: larger;
+    color: #516FD4;
 }
