@@ -163,7 +163,7 @@ def views_add_members(request):
 @login_required
 def views_admin_commission(request):
     members = Commission.objects.all()
-    comission_paginator = Paginator(members, 4)
+    comission_paginator = Paginator(members, 6)
     members_num = request.GET.get('page_membros')
     members_page = comission_paginator.get_page(members_num)
 
@@ -171,7 +171,7 @@ def views_admin_commission(request):
         'comission': members_page,
         'current_page': members_page.number
     }   
-    
+
     print("Página atual:", members_page.number)
     print("Total de páginas:", comission_paginator.num_pages)
 
