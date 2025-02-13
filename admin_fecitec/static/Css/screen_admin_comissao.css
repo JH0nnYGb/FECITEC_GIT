@@ -1,3 +1,4 @@
+
 .container-pai {
     display: flex;
     justify-content: center;
@@ -37,12 +38,41 @@
     height: 150px;
 }
 
-.formacao-membro {
+.formation_member {
+    display: flex;
+    justify-content: space-around;
     margin-top: 10px;
 }
 
 .formacao-membro img {
     width: 40px;
+}
+
+.edit_member{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background-color: #6D8194;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.edit_member:hover{
+    color:#FFFF;
+    background-color: #516FD4;
+    border: 2px solid #516FD4;
+    transform: scale(1.05);
+}
+
+
+#img_edit_profile{
+    width: 25px;
 }
 
 .formacao-container {
@@ -58,7 +88,7 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    width: 100px;
+    width: 130px;
     border: 3px solid #BFC8E5;
     border-radius: 20px;
 }
@@ -158,6 +188,7 @@
 .add_member_button{
     margin-inline: 5%
 }
+
 
 .creat-sworn {
     display: flex;

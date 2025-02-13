@@ -33,20 +33,29 @@
 
                       <div class="caixa-nome-cargo">
                           <h2 class="nome-membro">{{ member.name_member }}</h2>
-                          <p class="cargo">{{ member.position_member }}</p>
+                          <!-- <p class="cargo">{{ member.position_member }}</p> -->
+                          <p class="cargo">{{ member.position_member|join:", " }}</p>
                       </div>
                   </section>
 
-                  <section class="formacao-membro">
-                      <div class="formacao-container">
-                          <img src="{% static 'images/icone-instagram-card-comissao.svg' %}" alt="Ícone Instagram">
-                          <div>
-                              <p class="formacao">{{ member.formation_member }}</p>
-                          </div>
+                  <section class="formation_member">
+                    <div class="formacao-container">
+                        <img src="{% static 'images/icone-instagram-card-comissao.svg' %}" alt="Ícone Instagram">
+                        <div>
+                            <p class="formacao">{{ member.formation_member }}</p>
+                        </div>
+                    </div>
+                    <div>
+                    <button class="button_edit_member">
+                        <a class="edit_member" href="#"> Editar membro
+                            <img id="img_edit_profile" src="{% static 'img/edit_member.svg' %}" alt="Icone de Editar">        
+                        </a>
+                    </button>
+                        
                       </div>
                   </section>
 
-                  <a href="#"> editar membro </a>
+                  
               </article>
           {% empty %}
               <div class="empty">
