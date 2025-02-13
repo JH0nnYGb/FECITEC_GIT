@@ -176,7 +176,7 @@ class ComissionMembrerCreationForm(forms.ModelForm):
             ('Administrador','Administrador'),    
         ],
         widget=forms.CheckboxSelectMultiple(attrs={'class': 'fields', 'id':'checkbox_function'}),
-        label='Função do membro',
+        label='Funções do Membro',
         required=False,
     )
 
