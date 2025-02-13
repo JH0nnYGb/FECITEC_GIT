@@ -71,7 +71,7 @@ def regulamento_view(request):
 
 def comissao_view(request):
     members = Commission.objects.all()
-    comission_paginator = Paginator(members, 1)
+    comission_paginator = Paginator(members, 6)
     members_num = request.GET.get('page')
     members_page = comission_paginator.get_page(members_num)
 
