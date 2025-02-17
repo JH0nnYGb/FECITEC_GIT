@@ -228,3 +228,10 @@ button {
     font-size: larger;
     color: #516FD4;
 }
+
+/* ---------------- estilos do modal de editar perfil  ---------------*/
+
+
+#editMemberModal{
+    display: none;
+}

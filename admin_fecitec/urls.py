@@ -10,7 +10,7 @@ from admin_fecitec.views import views_admin_reviews
 from admin_fecitec.views import views_admin_participants
 from admin_fecitec.views import views_admin_commission
 from admin_fecitec.views import viewa_admin_contacts
-
+from admin_fecitec.views import views_edit_member
 
 app_name = 'admin_fecitec'
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('administracao-avaliaçoes/', views_admin_reviews, name="admin_reviews" ),
     path('administracao-participantes/', views_admin_participants, name="admin_participants"),
     path('administracao-comissao/', views_admin_commission, name="admin_commission"),
+    path("administracao-editar-membro/", views_edit_member, name="edit_member"),
     path('administracao-contados/', viewa_admin_contacts, name="admin_contacts"),
 
 ]

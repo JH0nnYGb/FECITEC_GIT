@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.shortcuts import render, redirect, reverse 
+from django.shortcuts import render, redirect, get_object_or_404, reverse 
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -15,6 +15,9 @@ from core.models import Commission
 from core.models import User,GrupoPersonalizado, Participante,Instituicao
 
 # FIM IMPORTACAO DO MODELOS CORE
+
+
+from django.http import HttpResponseBadRequest
 
 @login_required
 def views_admin_dashboard(request):
@@ -159,6 +162,33 @@ def views_add_members(request):
     return render(request, 'admin_registered_member_comission.html', {'form': form})
 
 
+@login_required
+def views_edit_member(request):
+    if request.method == "POST":
+        print(request.POST)
+
+        member_id= request.POST.get("memberId")
+        member = get_object_or_404(Commission, id=member_id)
+        
+        member.name_member = request.POST.get("name")
+        member.email_member = request.POST.get("email")
+        member.phone_member = request.POST.get("phone")
+
+
+         # Salvando Formação
+        selected_formations = request.POST.getlist("formation")
+        member.formation_member = ", ".join(selected_formations)
+
+        # Salvando Funções
+        selected_functions = request.POST.getlist("funcao")
+        member.position_member = ", ".join(selected_functions)
+
+        member.save()
+        messages.success(request, "Alterações salvas com sucesso!")
+        print("editado com sucesso ")
+        return redirect( "admin_fecitec:admin_commission")
+    
+    return HttpResponseBadRequest("Método inválido")
 
 @login_required
 def views_admin_commission(request):
@@ -171,9 +201,6 @@ def views_admin_commission(request):
         'comission': members_page,
         'current_page': members_page.number
     }   
-
-    print("Página atual:", members_page.number)
-    print("Total de páginas:", comission_paginator.num_pages)
 
     return render (request, 'admin_screen_commission.html', context)
 
