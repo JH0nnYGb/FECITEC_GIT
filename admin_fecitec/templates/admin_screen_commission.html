@@ -22,6 +22,20 @@
     </a>
   </button>
   <div class="container-pai">
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if form.non_field_errors %}
+      <div class="error-message">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
     
       <div class="caixa-de-colaborador">
           {% for member in comission %}
@@ -46,13 +60,22 @@
                         </div>
                     </div>
                     <div>
-                    <button class="button_edit_member">
-                        <a class="edit_member" href="#"> Editar membro
-                            <img id="img_edit_profile" src="{% static 'img/edit_member.svg' %}" alt="Icone de Editar">        
-                        </a>
-                    </button>
-                        
-                      </div>
+                        <button id="button_edit" class="button_edit_member" onclick="openEditModal(
+                            '{{member.id}}',
+                            '{{member.name_member}}',
+                            '{{member.email_member}}',
+                            '{{member.phone_member}}',
+                            '{{member.formation_member}}',
+                            '{{member.position_member}}',
+                            '{{member.password1}}',
+                            '{{member.password2}}',
+                            
+                        )">
+                            <a class="edit_member" href="#"> Editar membro
+                                <img id="img_edit_profile" src="{% static 'img/edit_member.svg' %}" alt="Icone de Editar">        
+                            </a>
+                        </button>
+                    </div>
                   </section>
 
                   
@@ -100,9 +123,61 @@
     </div>
 </article>
 
-  
-  
-  
+
+<!-- Modal de editar perfil membro -->
+<div id="editMemberModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Editar Membro</h2>
+        <form id="editMemberForm" method="POST" action="{% url 'admin_fecitec:edit_member' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" id="memberId" name="memberId">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="phone">Telefone:</label>
+            <input type="text" id="phone" name="phone">
+
+            <label>Formação: </label>
+            <div>
+                <input type="checkbox" id="doutor" name="formation" value="jurado">
+                <label for="doutor"> Doutor </label>
+
+                <input type="checkbox" id="mestre" name="formation" value="avaliador">
+                <label for="mestre"> Mestre </label>
+
+                <input type="checkbox" id="especialista" name="formation" value="administrador">
+                <label for="especialista"> Especialista </label>
+            </div>
+
+            <label>Funções: </label>
+            <div>
+                <input type="checkbox" id="funcao_jurado" name="funcao" value="jurado">
+                <label for="jurado">Jurado</label>
+
+                <input type="checkbox" id="funcao_avaliador" name="funcao" value="avaliador">
+                <label for="avaliador">Avaliador</label>
+
+                <input type="checkbox" id="funcao_administrador" name="funcao" value="administrador">
+                <label for="administrador">Administrador</label>
+            </div>
+
+            <!-- Campo para Imagem de Perfil -->
+            <label for="member_profile">Imagem de Perfil:</label>
+            <input type="file" id="member_profile" name="member_profile">
 
 
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'Js/modal_edit_member.js' %}"></script>
 {% endblock %}
