@@ -1,6 +1,9 @@
 console.log("hello")
 
 function openEditModal(id,name,email,phone,formation,position){
+    console.log("abriu o")
+
+
     document.getElementById("editMemberModal").style.display = "block";
 
     document.getElementById("memberId").value = id 
