@@ -274,14 +274,19 @@
   background-color: #f0f0f0;
 }
 
-
 .messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 15px 0;
 }
 
 .messages .success {
+  text-align: center;
+  width: 100%;
   color: #155724;
   background-color: #d4edda;
   border: 1px solid #c3e6cb;
@@ -290,12 +295,15 @@
 }
 
 .messages .error {
+  text-align: center;
+  width: 100%;
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   padding: 10px;
   border-radius: 5px;
 }
+
 
 form#forms_cadastro label{
   color:#6D8194;

@@ -21,22 +21,24 @@
       <i class="fa-solid fa-user-plus"></i>
     </a>
   </button>
-  <div class="container-pai">
+
 
     {% if messages %}
-      <ul class="messages">
+        <ul class="messages">
         {% for message in messages %}
-          <li class="{{ message.tags }}">{{ message }}</li>
+            <li class="{{ message.tags }}">{{ message }}</li>
         {% endfor %}
-      </ul>
+        </ul>
     {% endif %}
 
     {% if form.non_field_errors %}
-      <div class="error-message">
-        {{ form.non_field_errors }}
-      </div>
+        <div class="error-message">
+            {{ form.non_field_errors }}
+        </div>
     {% endif %}
-    
+
+
+  <div class="container-pai">
       <div class="caixa-de-colaborador">
           {% for member in comission %}
               <article class="card-colaborador">

@@ -38,9 +38,9 @@ class ParticipantCreationForm(UserCreationForm):
     )
 
     celular = forms.CharField(
-        label='Número de celular',
-        max_length=15, 
-        widget=forms.NumberInput(attrs={'class': 'fields', 'placeholder': 'Celular'}),
+        label='Telefone',
+        max_length=13,
+        widget=forms.TextInput(attrs={'class': 'fields', 'placeholder': 'Numero de telefone'}),
         required=True,
     )
 

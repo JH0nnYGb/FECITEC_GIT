@@ -208,8 +208,7 @@ def Cadastrar_participante_views(request):
                 messages.error(request, "Já existe um usuário com este nome.")
                 return render(request, 'cadastro_participante.html', {'form': form})
 
-    
-            if password1 != password2:
+            if password1 != password2 or password2 != password1:
                 messages.error(request, "As senhas não coincidem. Tente novamente.")
                 return render(request, 'cadastro_participante.html', {'form': form})
 
@@ -250,7 +249,11 @@ def Cadastrar_participante_views(request):
             return redirect('fecitec:login_participante')
         
         else:
-            for error in form.errors.items():
+            for field, error in form.errors.items():
+                if field == 'email_participante' and error == 'Informe um endereço de email válido.':
+                        messages.error(request, "O e-mail informado não é válido. Por favor, verifique.")
+                elif field == 'password2' and error == 'Os dois campos de senha não correspondem.':
+                        messages.error(request, "As senhas digitadas não coincidem. Tente novamente.")
                 messages.error(request, f"{error}")
 
     return render(request, 'cadastro_participante.html', {'form': form})
