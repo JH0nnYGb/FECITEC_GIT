@@ -13,7 +13,7 @@ function openEditModal(id,name,email,phone,formation,position){
     
     // Resetar os checkboxes antes de marcar os selecionados
     document.querySelectorAll('input[name="funcao"]').forEach(checkbox => {
-        checkbox.checked = formation.split(", ").includes(checkbox.value);
+        checkbox.checked = position.split(", ").includes(checkbox.value);
     });
     // Resetar os checkboxes antes de marcar os selecionados
     document.querySelectorAll('input[name="formation"]').forEach(checkbox => {

@@ -168,11 +168,13 @@ def views_edit_member(request):
         print(request.POST)
 
         member_id= request.POST.get("memberId")
+        print( member_id )
         member = get_object_or_404(Commission, id=member_id)
         
         member.name_member = request.POST.get("name")
         member.email_member = request.POST.get("email")
         member.phone_member = request.POST.get("phone")
+
 
 
          # Salvando Formação
@@ -183,9 +185,23 @@ def views_edit_member(request):
         selected_functions = request.POST.getlist("funcao")
         member.position_member = ", ".join(selected_functions)
 
+
+        available_groups = GrupoPersonalizado.objects.filter(nome__in=selected_functions)
+        select_groups = GrupoPersonalizado.objects.filter(nome__in=selected_functions)
+
+        for group in available_groups: 
+            member.user.grupos_personalizados.remove(group)
+
+        member.user.grupos_personalizados.add(*select_groups)
+
         member.save()
+ 
+        print(f"Name: {member.name_member}")
+        print(f"Formation: {member.formation_member}")
+        print(f"Functions: {member.position_member}")
+
         messages.success(request, "Alterações salvas com sucesso!")
-        print("editado com sucesso ")
+       
         return redirect( "admin_fecitec:admin_commission")
     
     return HttpResponseBadRequest("Método inválido")
