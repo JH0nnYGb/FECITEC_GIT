@@ -130,47 +130,48 @@
         <h2>Editar Membro</h2>
         <form id="editMemberForm" method="POST" action="{% url 'admin_fecitec:edit_member' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="hidden" id="memberId" name="memberId">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name">
+            
+            <div class="content_filds">
+                <input class="fields" type="hidden" id="memberId" name="memberId">
+                <label class="title-fildes" for="name">Nome:</label>
+                <input class="fields" type="text" id="name" name="name">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+                <label class="title-fildes" for="email">Email:</label>
+                <input class="fields" type="email" id="email" name="email">
 
-            <label for="phone">Telefone:</label>
-            <input type="text" id="phone" name="phone">
+                <label class="title-fildes" for="phone">Telefone:</label>
+                <input class="fields" type="text" id="phone" name="phone">
 
-            <label>Formação: </label>
-            <div>
+            </div>
+            
+            <label class="title-fildes" >Formação: </label>
+            <div >
                 <input type="checkbox" id="doutor" name="formation" value="Doutor">
-                <label for="doutor"> Doutor </label>
+                <label class="title-fildes" for="doutor"> Doutor </label>
 
                 <input type="checkbox" id="mestre" name="formation" value="Mestre">
-                <label for="mestre"> Mestre </label>
+                <label class="title-fildes" for="mestre"> Mestre </label>
 
                 <input type="checkbox" id="especialista" name="formation" value="Especialista">
-                <label for="especialista"> Especialista </label>
+                <label class="title-fildes" for="especialista"> Especialista </label>
             </div>
 
-            <label>Funções: </label>
+            <label class="title-fildes" >Funções: </label>
             <div>
                 <input type="checkbox" id="funcao_jurado" name="funcao" value="Jurado">
-                <label for="jurado">Jurado</label>
+                <label class="title-fildes" for="jurado">Jurado</label>
 
                 <input type="checkbox" id="funcao_avaliador" name="funcao" value="Avaliador">
-                <label for="avaliador">Avaliador</label>
+                <label class="title-fildes"for="avaliador">Avaliador</label>
 
                 <input type="checkbox" id="funcao_administrador" name="funcao" value="Administrador">
-                <label for="administrador">Administrador</label>
+                <label class="title-fildes" for="administrador">Administrador</label>
+            </div>
+            <div class="container_button">
+                <button class="button_save_edit" type="submit">Salvar Alterações</button>
             </div>
 
-            <!-- Campo para Imagem de Perfil -->
-            <label for="member_profile">Imagem de Perfil:</label>
-            <input type="file" id="member_profile" name="member_profile">
-
-
-
-            <button type="submit">Salvar Alterações</button>
+            
         </form>
     </div>
 </div>
