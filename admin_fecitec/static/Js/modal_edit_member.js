@@ -30,6 +30,18 @@ function openEditModal(id,name,email,phone,formation,position){
             }
         });
     }
+// Resetar os checkboxes de formação antes de marcar os selecionados
+    let formationCheckboxes = document.querySelectorAll('input[name="formation"]');
+    formationCheckboxes.forEach(checkbox => {
+        checkbox.checked = formation.split(", ").includes(checkbox.value);
+        checkbox.onclick = function() {
+            formationCheckboxes.forEach(cb => {
+                if (cb !== checkbox) {
+                    cb.disabled = checkbox.checked;
+                }
+            });
+        };
+    });
 
     // Marcar as formações já atribuídas ao membro
     if (formation) {
