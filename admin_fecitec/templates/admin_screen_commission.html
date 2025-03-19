@@ -126,7 +126,8 @@
 <!-- Modal de editar perfil membro -->
 <div id="editMemberModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        
+        <button id="closeEditMember" class="close" onclick="closeEditModal()" > X </button>
         <h2>Editar Membro</h2>
         <form id="editMemberForm" method="POST" action="{% url 'admin_fecitec:edit_member' %}" enctype="multipart/form-data">
             {% csrf_token %}

@@ -271,15 +271,21 @@ button {
     padding-inline: 8%;
     padding-top: 4%;
     width: 70%;
-    height: 80%;
+    height: 90%;
     right: -17%;
-    top: 10%;
+    top: 5%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 0.8rem;
     outline: 0;
+}
+
+
+.close{    
+    text-align: right;
+    font-size: xx-large;
 }
 
 #editMemberForm{
