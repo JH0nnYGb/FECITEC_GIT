@@ -17,24 +17,7 @@
         width: 130px;
     }
 
-    /*.table_approved{
-         border-collapse: separate;
-        border-spacing: 10px;
-        border: solid 2px #BFC8E5;
-        background-color: #FBFCFF;
-        border-radius: 40px;
-        width: 90%;
-        margin-inline: 20px;
-        padding-block: 30px;
-        padding-inline: 30px;
-    } */
-
-    /* header {
-        padding: 5px;
-    } */
-
-    /* ###################### Estilo banner ###################### */
-    /* Logo */
+    
     .logo {
         width: 80px;
         height: 108px;

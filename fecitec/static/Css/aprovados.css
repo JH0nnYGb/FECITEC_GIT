@@ -19,7 +19,8 @@ td{
 }
 .father-search-desktop{
     display: flex;
-    justify-content: center;
+    padding: 10px;
+    justify-content:space-between;
     align-items: center;
 }
 .search-icon{
