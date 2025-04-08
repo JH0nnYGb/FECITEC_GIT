@@ -29,6 +29,5 @@ A instituição de ensino O INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOG
 
 É proibida a reprodução, distribuição, comercialização ou modificação deste projeto sem a autorização expressa do autor.
 
-Este projeto encontra-se registrado/licenciado sob os termos da [escolha uma licença, ex: Licença MIT / Creative Commons / outra], disponível no repositório oficial do autor:  
-[Link para o GitHub ou outro local onde o projeto esteja publicado]
+Este projeto encontra-se registrado e licenciado sob os termos da Licença MIT, disponível no repositório oficial do autor: https://github.com/JH0nnYGb/FECITEC_GIT.
 
