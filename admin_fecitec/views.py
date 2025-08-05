@@ -26,6 +26,7 @@ def views_admin_dashboard(request):
 @login_required
 def views_admin_submission(request):
     submissions = SubmissionToWork.objects.all()
+    participantes = Participante.objects.values('nome_participante')
     return render(request, 'admin_screen_submission.html',{'submissions':submissions})
 
 @login_required

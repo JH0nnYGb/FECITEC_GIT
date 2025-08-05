@@ -36,7 +36,11 @@ header {
 }
 
 /* messagens de erro ou sucesso  */
-
+.title_page{
+    display: flex;
+    justify-content: center;
+    margin-block: 4rem;
+}
 
 .messages {
   display: flex;
