@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from core.models import GrupoPersonalizado
+from core.models import GruposFecitec
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 
@@ -12,7 +12,7 @@ from django.http import HttpResponse
 
 def redirecionar_usuario(request):
     # Obtém todos os grupos do usuário
-    user_grupos = request.user.grupos_personalizados.all()
+    user_grupos = request.user.grupo_participante.all()
 
     # Verifica se o usuário pertence a algum grupo específico e redireciona
     if user_grupos.filter(nome='Administrador').exists():
