@@ -12,7 +12,7 @@ from django.db import IntegrityError
 
 # IMPORTACAO DO MODELOS CORE
 from core.models import Commission
-from core.models import User,GrupoPersonalizado, Participante,Instituicao
+from core.models import User,GruposFecitec, Participante,Instituicao
 
 # FIM IMPORTACAO DO MODELOS CORE
 
@@ -26,11 +26,16 @@ def views_admin_dashboard(request):
 @login_required
 def views_admin_submission(request):
     submissions = SubmissionToWork.objects.all()
-    participantes = Participante.objects.values('nome_participante')
-    return render(request, 'admin_screen_submission.html',{'submissions':submissions})
+
+    contex = {
+        'submission':submissions
+    }
+    
+    return render(request, 'admin_screen_submission.html',contex)
 
 @login_required
 def views_admin_jurors(request):
+    jurors = ju
     return render(request, 'admin_screen_jurors.html' )
 
 @login_required
@@ -92,7 +97,7 @@ def views_add_members(request):
 
             if password1.isdigit():
                 messages.error(request, "A senha não pode ser totalmente numérica.")
-                errors.append("cadastro_participante.html")
+                
             
             # Verificar se o e-mail já está cadastrado
             if User.objects.filter(email=email_member).exists():
@@ -135,9 +140,9 @@ def views_add_members(request):
                 for funcao in position_member:
                     if funcao in grupo_nomes:
                         try:
-                            grupo = GrupoPersonalizado.objects.get(nome=grupo_nomes[funcao])
+                            grupo = GruposFecitec.objects.get(nome=grupo_nomes[funcao])
                             grupo.usuarios.add(user)
-                        except GrupoPersonalizado.DoesNotExist:
+                        except GruposFecitec.DoesNotExist:
                             errors.append(f"Grupo '{funcao}' não encontrado.")
                             return render(request, 'admin_registered_member_comission.html', {'form': form})
 
@@ -187,13 +192,13 @@ def views_edit_member(request):
         member.position_member = ", ".join(selected_functions)
 
 
-        available_groups = GrupoPersonalizado.objects.filter(nome__in=selected_functions)
-        select_groups = GrupoPersonalizado.objects.filter(nome__in=selected_functions)
+        available_groups = GruposFecitec.objects.filter(nome__in=selected_functions)
+        select_groups = GruposFecitec.objects.filter(nome__in=selected_functions)
 
         for group in available_groups: 
-            member.user.grupos_personalizados.remove(group)
+            member.user.grupos_fecitec.remove(group)
 
-        member.user.grupos_personalizados.add(*select_groups)
+        member.user.grupos_fecitec.add(*select_groups)
 
         member.save()
  

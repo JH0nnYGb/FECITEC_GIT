@@ -16,10 +16,10 @@ from core.forms import SubmissionToWorkForm
 ################ Importacaoes do Cores #######
 
 from core.models import Commission
-from core.models import GrupoPersonalizado
+from core.models import GruposFecitec
 from core.models import Participante
 from core.forms import ParticipantCreationForm
-from core.models import User,GrupoPersonalizado, Participante,Instituicao
+from core.models import User, Participante,Instituicao
 
 ###############################################
 
@@ -110,7 +110,7 @@ def user_login(request):
             login(request, user)
 
             # Obtém todos os grupos do usuário
-            user_groups = request.user.grupos_personalizados.all()
+            user_groups = request.user.grupos_fecitec.all()
             role = request.POST.get('role')
 
             print(user_groups)
@@ -179,7 +179,7 @@ def login_participante_view(request):
         if form.is_valid():
             user = form.get_user()
             # Verifique se o usuário pertence ao grupo 'Participante'
-            if user.grupos_personalizados.filter(nome='Participante').exists():
+            if user.grupos_fecitec.filter(nome='Participante').exists():
                 
                 login(request, user)
                 return redirect('app_participante:dashboard_participante')# Certifique-se de que a URL esteja correta
@@ -242,7 +242,7 @@ def Cadastrar_participante_views(request):
             )
 
             # Associar usuário ao grupo "Participante"
-            grupo_participante = GrupoPersonalizado.objects.get(nome='Participante')
+            grupo_participante = GruposFecitec.objects.get(nome='Participante')
             grupo_participante.usuarios.add(user)
 
             messages.success(request, "Conta criada com sucesso! Faça login para continuar.")

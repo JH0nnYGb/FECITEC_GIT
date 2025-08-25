@@ -32,37 +32,33 @@
                 
                 <tr>
                     <th></th>
-                    <th scope="col">Participante</th>
-                    <th scope="col">Título</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Participantes</th>
                     <th scope="col">Data de Submissão</th>
                     <th scope="col">Situação</th>
-                    <th scope="col">Responsaveis Atuais </th>
                     <th scope="col"></th>
                 </tr>
                 
             </thead>
             <tbody>
-                
+                {% for submissions in submission %}
                     <tr>
                         <td>
-
                             {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
                         </td>
                         <td>
-                            {{participante.nome_participante}}
+                            {{ submissions.title }}
                         </td>
                         <td>
-                            
+                            {{submissions.participante}}
                         </td>
                         <td>
-
+                            {{submissions.submission_date}}
                         </td>
                         <td class="container-status">
-                           
+                           {{submissions.status}}
                         </td>
-                        <td>
-                            Respnosavais atuais(comissao)
-                        </td>
+                        
                         <td>
                             <div class="dropdown">
                                 <span class="dropdown-button">...</span>
@@ -79,12 +75,16 @@
                             </div>
                         </td>
                     </tr>
-
+                    {% empty %}
+                    <tr>
+                        <td colspan="7">Nenhuma submissão encontrada.</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
       </div>
     </div> <!--- fim do content father dentro do main base -->
-    
+ 
     
 
 {% endblock content_admin %} 

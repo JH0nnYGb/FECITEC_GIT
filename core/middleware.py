@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from core.models import GrupoPersonalizado
+from core.models import GruposFecitec
 from django.shortcuts import redirect
 
 class VerificarGrupoMiddleware:
@@ -15,7 +15,7 @@ class VerificarGrupoMiddleware:
             
             grupo_requerido = self._obter_grupo_requerido(request.path)
             if grupo_requerido:
-                if not request.user.grupos_personalizados.filter(nome=grupo_requerido).exists():
+                if not request.user.grupos_fecitec.filter(nome=grupo_requerido).exists():
                     return redirect('fecitec:login_participante')  # Ou outra página de acesso negado
         return self.get_response(request)
 
