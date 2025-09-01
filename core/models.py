@@ -7,13 +7,13 @@ from stdimage.models import StdImageField
 from django.contrib.postgres.fields import ArrayField  # Se estiver usando PostgreSQL
 
 
-class GruposFecitec(models.Model):
-    nome = models.CharField(max_length=50, unique=True, verbose_name="Nome do Grupo")
-    descricao = models.TextField(blank=True, null=True, verbose_name="Descrição")
+class GroupsFecitec(models.Model):
+    namegroup = models.CharField(max_length=50, unique=True, verbose_name="Nome do Grupo")
+    description = models.TextField(blank=True, null=True, verbose_name="Descrição")
     usuarios = models.ManyToManyField(User, related_name='grupos_fecitec', blank=True)
     
     def __str__(self):
-        return self.nome
+        return self.namegroup
     
 ### models do participante fecitec ######
 class Participante(models.Model):

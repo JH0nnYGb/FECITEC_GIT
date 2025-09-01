@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from core.models import GruposFecitec
+from core.models import GroupsFecitec
 from django.shortcuts import redirect
 
 class VerificarGrupoMiddleware:
