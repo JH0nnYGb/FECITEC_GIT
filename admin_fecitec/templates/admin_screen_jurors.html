@@ -15,7 +15,7 @@
 {%endblock%}
 
 {% block content_admin %}
-  <h2 class="title_page">Jurados </h2>
+<h2 class="title_page">Jurados </h2>
 <div class="container-father">
   <section class="table-container">
         <table class="responsive-table">
@@ -23,37 +23,32 @@
                 
                 <tr>
                     <th></th>
-                    <th scope="col">Participante</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Data de Submissão</th>
-                    <th scope="col">Situação</th>
-                    <th scope="col">Responsaveis Atuais </th>
-                    <th scope="col"></th>
+                    <th scope="col">Jurados</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Trabalhos Atribuitos </th> 
+                    <th></th>       
                 </tr>
                 
             </thead>
             <tbody>
-                {% for  submission in submissions %}
+                {% for jurors in commission_jurors %}
                     <tr>
                         <td>
                             {{submission.id}}
                             {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
                         </td>
                         <td>
-                            
+                            {{jurors.name_member}}
                         </td>
                         <td>
-                            
+                            {{jurors.email_member}}
                         </td>
                         <td>
-                            
+                            {{jurors.phone_member}}
                         </td>
                         <td class="container-status">
-                                
-                        </td>
-                        <td>
-                            Respnosavais atuais(comissao)
-                        </td>
+                            
                         <td>
                             <div class="dropdown">
                                 <span class="dropdown-button">...</span>
@@ -70,7 +65,9 @@
                             </div>
                         </td>
                     </tr>
-
+                {% empty %}
+                <li>Nenhum membro existente</li>
+                    
                     
                 {% endfor %}
             </tbody>

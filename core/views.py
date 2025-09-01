@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from core.models import GruposFecitec
+from core.models import GroupsFecitec
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 

@@ -6,9 +6,73 @@
 {% endblock title %}
 
 {% block style_admin %}
-<link rel="stylesheet" href="{% static 'Css/'%}">
+<!-- IMPOTANDO O ESTILO DA TABELA  -->
+<link rel="stylesheet" href="{% static 'Css/screen_submission.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/submission-phone-admin.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submission-tablet-admin.css' %}">
+<!-- FIM IMPOTANDO O ESTILO DA TABELA  -->
 {%endblock%}
 
 {% block content_admin %}
-  <h2 class="title_page">Avaliadores</h2>
+<h2 class="title_page">Avaliadoresm </h2>
+  
+<div class="container-father">
+  <section class="table-container">
+        <table class="responsive-table">
+            <thead>
+                
+                <tr>
+                    <th></th>
+                    <th scope="col">Jurados</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Trabalhos Atribuitos </th> 
+                    <th></th>       
+                </tr>
+                
+            </thead>
+            <tbody>
+                {% for evaluators in commission_evaluators %}
+                    <tr>
+                        <td>
+                            {{submission.id}}
+                            {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
+                        </td>
+                        <td>
+                            {{evaluators.name_member}}
+                        </td>
+                        <td>
+                            {{evaluators.email_member}}
+                        </td>
+                        <td>
+                            {{evaluators.phone_member}}
+                        </td>
+                        <td class="container-status">
+                            
+                        <td>
+                            <div class="dropdown">
+                                <span class="dropdown-button">...</span>
+                                <div class="dropdown-content">
+                                    <a style="color:#79B6DE;" href="#" class="editar">
+                                        Emcaminhar 
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a style="color: red;" href="#" class="cancelar">
+                                        Cancelar
+                                        <i class="fa-solid fa-ban"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                <li>Nenhum membro existente</li>
+                  
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </section> <!--- fim do content father dentro do main base -->
+
+</div>
 {% endblock %}

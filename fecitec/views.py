@@ -16,7 +16,7 @@ from core.forms import SubmissionToWorkForm
 ################ Importacaoes do Cores #######
 
 from core.models import Commission
-from core.models import GruposFecitec
+from core.models import GroupsFecitec
 from core.models import Participante
 from core.forms import ParticipantCreationForm
 from core.models import User, Participante,Instituicao
@@ -117,12 +117,12 @@ def user_login(request):
 
             if len(user_groups) > 1:
                 # O usuário pertence a mais de um grupo
-                if role and user_groups.filter(nome=role).exists():
-                    if role == 'Administrador' and user_groups.filter(nome='Administrador').exists():
+                if role and user_groups.filter(namegroup=role).exists():
+                    if role == 'Administrador' and user_groups.filter(namegroup='Administrador').exists():
                         return redirect('admin_fecitec:dashboard_admin')
-                    elif role == 'Jurado' and user_groups.filter(nome='Jurado').exists():
+                    elif role == 'Jurado' and user_groups.filter(namegroup='Jurado').exists():
                         return redirect('app_jurado:dashboard_jurado')
-                    elif role == 'Avaliador' and user_groups.filter(nome='Avaliador').exists():
+                    elif role == 'Avaliador' and user_groups.filter(namegroup='Avaliador').exists():
                         return redirect('app_avaliador:dashboard_avaliador')
                     else:
                         messages.error(request, 'Função inválida.')
@@ -242,7 +242,7 @@ def Cadastrar_participante_views(request):
             )
 
             # Associar usuário ao grupo "Participante"
-            grupo_participante = GruposFecitec.objects.get(nome='Participante')
+            grupo_participante = GroupsFecitec.objects.get(nome='Participante')
             grupo_participante.usuarios.add(user)
 
             messages.success(request, "Conta criada com sucesso! Faça login para continuar.")

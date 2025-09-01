@@ -6,13 +6,13 @@ class CoreConfig(AppConfig):
     name = 'core'
 
     def ready(self):
-        from .models import GruposFecitec
-        post_migrate.connect(criar_grupos_padrao, sender=self)
+        from .models import GroupsFecitec
+        post_migrate.connect(creat_grupo_defalt, sender=self)
 
 
-def criar_grupos_padrao(sender, **kwargs):
-    from .models import GruposFecitec
+def creat_grupo_defalt(sender, **kwargs):
+    from .models import GroupsFecitec
 
-    grupos_padrao = ['Administrador', 'Jurado', 'Avaliador', 'Participante']
-    for grupo_nome in grupos_padrao:
-        GruposFecitec.objects.get_or_create(nome=grupo_nome)
+    grups_defalt = ['Administrador', 'Jurado', 'Avaliador', 'Participante']
+    for group_name in grups_defalt:
+        GroupsFecitec.objects.get_or_create(namegroup=group_name)

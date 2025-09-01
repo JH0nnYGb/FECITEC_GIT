@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import GruposFecitec
+from .models import GroupsFecitec
 from .models import Participante
 from .models import Commission
 from .models import SubmissionToWork
 # Register your models here.
 
 
-@admin.register(GruposFecitec)
-class GruposFecitec(admin.ModelAdmin):
-    list_display = ('nome', 'descricao')
+@admin.register(GroupsFecitec)
+class GroupsFecitec(admin.ModelAdmin):
+    list_display = ('namegroup', 'description')
     filter_horizontal = ('usuarios',)  # Facilita a seleção de usuários 
     
 @admin.register(Participante)

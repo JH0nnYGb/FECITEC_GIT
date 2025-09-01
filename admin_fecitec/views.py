@@ -12,7 +12,7 @@ from django.db import IntegrityError
 
 # IMPORTACAO DO MODELOS CORE
 from core.models import Commission
-from core.models import User,GruposFecitec, Participante,Instituicao
+from core.models import User,GroupsFecitec, Participante,Instituicao
 
 # FIM IMPORTACAO DO MODELOS CORE
 
@@ -35,12 +35,28 @@ def views_admin_submission(request):
 
 @login_required
 def views_admin_jurors(request):
-    jurors = ju
-    return render(request, 'admin_screen_jurors.html' )
+    # Pega o grupo "Jurado"
+    juror_group = GroupsFecitec.objects.get(namegroup='Jurado')
+    # Pega todos os usuários do grupo
+    juror_users = juror_group.usuarios.all()
+    # Lista de e-mails dos usuários do grupo
+    juror_emails = [user.email for user in juror_users]
+    # Filtra os membros da Commission pelo e-mail (garantindo que não exista erros por escrita  )
+    commission_jurors = Commission.objects.filter(email_member__in=juror_emails)
+    
+    return render(request, 'admin_screen_jurors.html', {'commission_jurors': commission_jurors})
 
 @login_required
 def views_admin_evaluators(request):
-    return render (request, 'admin_screen_evaluators.html')
+    evaluators_group = GroupsFecitec.objects.get(namegroup='Avaliador')
+    
+    evaluators_group_users = evaluators_group.usuarios.all()
+   
+    evaluators_emails = [user.email for user in evaluators_group_users]
+
+    commission_evaluators = Commission.objects.filter(email_member__in=evaluators_emails)
+
+    return render (request, 'admin_screen_evaluators.html', {'commission_evaluators': commission_evaluators})
 
 @login_required
 def views_admin_reviews(request):
@@ -140,9 +156,9 @@ def views_add_members(request):
                 for funcao in position_member:
                     if funcao in grupo_nomes:
                         try:
-                            grupo = GruposFecitec.objects.get(nome=grupo_nomes[funcao])
+                            grupo = GroupsFecitec.objects.get(namegroup=grupo_nomes[funcao])
                             grupo.usuarios.add(user)
-                        except GruposFecitec.DoesNotExist:
+                        except GroupsFecitec.DoesNotExist:
                             errors.append(f"Grupo '{funcao}' não encontrado.")
                             return render(request, 'admin_registered_member_comission.html', {'form': form})
 
@@ -192,8 +208,8 @@ def views_edit_member(request):
         member.position_member = ", ".join(selected_functions)
 
 
-        available_groups = GruposFecitec.objects.filter(nome__in=selected_functions)
-        select_groups = GruposFecitec.objects.filter(nome__in=selected_functions)
+        available_groups = GroupsFecitec.objects.filter(nome__in=selected_functions)
+        select_groups = GroupsFecitec.objects.filter(nome__in=selected_functions)
 
         for group in available_groups: 
             member.user.grupos_fecitec.remove(group)
