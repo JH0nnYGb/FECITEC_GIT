@@ -6,10 +6,54 @@
 {% endblock title %}
 
 {% block style_admin %}
-<link rel="stylesheet" href="{% static 'Css/'%}">
-{%endblock%}
+<link rel="stylesheet" href="{% static 'Css/screen_submission.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Phone/submission-phone-admin.css' %}">
+<link rel="stylesheet" href="{% static 'Css/Midias/Tablet/submission-tablet-admin.css' %}">
+<link rel="stylesheet" href="{% static 'Css/' %}">
+{% endblock %}
 
 {% block content_admin %}
+<div class="container-father">
+    <h2 class="title_page">Sorteio de Trabalhos</h2>
 
-  <h2 class="title_page">Administradores Adcionados</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-sortear">Sortear Trabalhos</button>
+    </form>
+
+    <div class="table-container">
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th scope="col">Jurados</th>
+                    <th scope="col">Trabalhos Sorteados</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if jurors_with_works %}
+                    {% for juror, works in jurors_with_works.items %}
+                        <tr>
+                            <td>{{ juror.name_member }}</td>
+                            <td>
+                                <ul>
+                                    {% for work in works %}
+                                        <li>{{ work.title }} - {{ work.participante }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="2">Nenhum sorteio realizado ainda.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'Js/dropdown.js' %}"></script>
 {% endblock %}
