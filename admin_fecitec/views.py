@@ -1,18 +1,21 @@
+import random
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect, get_object_or_404, reverse 
 from django.contrib import messages
 from django.core.paginator import Paginator
 
-from core.models import Participante
-from core.models import SubmissionToWork
+
 from django.db.models import Count
 
 from core.forms import ComissionMembrerCreationForm
 from django.db import IntegrityError
 
 # IMPORTACAO DO MODELOS CORE
+from core.models import Participante
+from core.models import SubmissionToWork
 from core.models import Commission
 from core.models import User,GroupsFecitec, Participante,Instituicao
+from core.models import JurorAssignment
 
 # FIM IMPORTACAO DO MODELOS CORE
 
@@ -25,13 +28,13 @@ def views_admin_dashboard(request):
 
 @login_required
 def views_admin_submission(request):
+    #Exibir os trabalhos submetidos 
     submissions = SubmissionToWork.objects.all()
-
     contex = {
         'submission':submissions
     }
     
-    return render(request, 'admin_screen_submission.html',contex)
+    return render(request,'admin_screen_submission.html',contex)
 
 @login_required
 def views_admin_jurors(request):
@@ -60,7 +63,36 @@ def views_admin_evaluators(request):
 
 @login_required
 def views_admin_reviews(request):
-    return render (request, 'admin_screen_reviews.html')
+    gruop_jurors = get_object_or_404(GroupsFecitec, namegroup="Jurado")
+    jurors = Commission.objects.filter(user__in = gruop_jurors.usuarios.all())
+    
+    jurors_with_works = {}
+
+    
+    if request.method == "POST":
+        #verificar se ja houve algum sorteio
+        if not JurorAssignment.objects.exists():
+            works = list(SubmissionToWork.objects.all())
+            for juror in jurors:
+                works_drawn = random.sample(works, min(3, len(works)))
+                print(works_drawn)
+                for work in works_drawn:
+                    JurorAssignment.objects.create(juror=juror,work=work)
+                    print(JurorAssignment)
+    # Carrega os sorteios do banco
+    for juror in jurors:
+        assigned_works = JurorAssignment.objects.filter(juror=juror).select_related("work")
+        jurors_with_works[juror] = [a.work for a in assigned_works]
+
+    return render(
+        request,
+        'admin_screen_reviews.html',
+        {
+            'jurors':jurors,
+            'jurors_with_works': jurors_with_works
+        },           
+    )
+
 
 @login_required
 def views_admin_participants(request):
@@ -69,7 +101,7 @@ def views_admin_participants(request):
     )
 
     context = {
-        'participantes': participantes,
+        'partic ipantes': participantes,
     }
 
     return render(request, 'admin_screen_participants.html', context)

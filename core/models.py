@@ -137,10 +137,8 @@ class Commission(models.Model):
     
     def __str__(self):
         return self.name_member
-    
+ 
 # MODELS DOS TRABALHOS 
-
-
 class SubmissionToWork(models.Model):
 
     school_name = models.CharField(max_length=255)
@@ -154,7 +152,12 @@ class SubmissionToWork(models.Model):
         on_delete=models.CASCADE,
         related_name='submissions'
     )
-
+    evaluators = models.ManyToManyField(
+        "Commission",
+        related_name="trabalhos_avaliados",
+        blank=True
+    )
+    
 
     STATE_CHOICES = [
         ('AC', 'Acre'),
@@ -219,3 +222,12 @@ class SubmissionToWork(models.Model):
 
     def __str__(self):
         return self.title
+    
+#MODELS PARA RELAÇÃO DE TRABALHOS SORTEADOS COM SEUS MEMBROS
+class JurorAssignment(models.Model):
+    juror = models.ForeignKey(Commission, on_delete=models.CASCADE,related_name="assignments")
+    work = models.ForeignKey(SubmissionToWork, on_delete=models.CASCADE,related_name="assignments")
+    assignments_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.juror.name_member} - {self.work.title}"
