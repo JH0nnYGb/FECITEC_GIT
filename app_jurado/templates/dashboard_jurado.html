@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="Pt-br">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard_Jurado</title>
-</head>
-<body>
-    <h1> Tela do Dashboard_Jurado </h1>
-</body>
-</html>
+{% extends 'base_jurado.html' %}
+{% load static %}
+
+{% block title%}
+  Dashboard do Administrador 
+{% endblock title %}
+
+{% block style_admin %}
+<link rel="stylesheet" href="{% static 'Css/dashb_admin'%}">
+{%endblock%}
+
+{% block content_admin %}
+  <h1> Tela Jurados</h1>
+{% endblock %}

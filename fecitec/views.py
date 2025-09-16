@@ -132,7 +132,7 @@ def user_login(request):
                     return render(request, 'login.html', {'form': form})
             elif len(user_groups) == 1:
                 # O usuário pertence a apenas um grupo
-                group_name = user_groups[0].nome
+                group_name = user_groups[0].namegroup
                 if role == group_name:
                     if group_name == 'Administrador':
                         return redirect('admin_fecitec:dashboard_admin')
