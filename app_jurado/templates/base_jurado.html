@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        My Project
+      {% endblock %}
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- importacao de icones -->
+    <!-- links do estilo do base -->
+    <link rel="stylesheet" href="{% static 'Css/style_admin.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/Midias/bigDesktop.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/Midias/notebook.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/Midias/Tablet/base-admin-tablet.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/Midias/Phone/base-admin-phone.css' %}" />
+    <!-- fim do links do base -->
+    
+    {% block style_admin %}
+      <!-- colocar o link do css do html pertencente -->
+    {% endblock  %}
+  </head>
+  <body>
+    <header id="topo">
+      <div class="header-container">
+        <div class="banner">
+          <div class="curve-1"></div>
+          <div class="curve-2"></div>
+          <div class="curve-3"></div>
+          
+          <div class="text_banner">
+            
+            
+            <div class="content_title">
+              <div>
+                <img class="logo" src="{% static 'images/Icone-fecitec.svg' %}" alt="" />
+              </div>
+              
+              <div>
+                <h1 class="title">Fecitec</h1>
+                <span class="subtitle">
+                  Jurado
+                </span>
+              </div>
+            </div>
+
+            <div class="user_photo">
+              <label for="profileCheckbox">
+                <input type="checkbox" id="profileCheckbox" class="profile-checkbox">
+                <!-- <img class="pencil-profile" src="{% static 'images/icone-pencil.svg' %}" alt= "lapis"> -->
+                <img src="https://avatars.githubusercontent.com/u/165156032?v=4" alt="Foto de perfil do usuário" class="profile-image">
+              </label>
+            </div>
+
+            <section class="container-profile">
+                <ul class="modal-grup">
+
+                  <li class="modal_items"> <a class="modal_items_links" href="#"> Perfil</a></li>
+                  <li class="modal_items"> <a class="modal_items_links" href="#"> Mais opções</a></li>
+                  <li class="modal_items"> 
+                    <form method="POST" action="{% url 'admin_fecitec:logout' %}">
+                      {% csrf_token %}
+                      <button  type="submit" class="modal_items_links">Sair</button>
+                    </form>
+                </ul>
+            </section>  <!-- caixa que fica inivisivel  -->
+          </div>
+        </div>
+      </div>
+    </header>
+
+    
+    
+    <!-- ###################### NAV BAR DO ADMINISTRADOR TELAS GRANDES ########################## -->
+    <div id="navBarAdmin">
+     <article class="navigation-bar-admin" >
+       <nav class="navbar-admin">
+          <ul>
+            <li>
+              <a href="" class="{% if request.resolver_match.url_name == 'admin_submission' %}active{% endif %}"> Submissões </a>
+            </li>
+            <li>
+              <a href="" class="{% if request.resolver_match.url_name == 'admin_jurors' %}active{% endif %}"> Jurados </a>
+            </li>
+            <li>
+              <a href="" class="{% if request.resolver_match.url_name == 'admin_evaluators' %}active{% endif %}"> Avaliadores </a>
+            </li>
+          </ul>
+
+          
+        </nav>  
+      </article>
+    </div>
+    
+    
+
+    <div class="container-hamburge-seachr"> <!--INICIO DO MENU HAMBURGUER DO ADMINISTRADOR FECITEC -->
+      <nav id="navigation" class="navigation" role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_submission' %}"> Submissões </a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_jurors' %}"> Jurados </a>
+            </li>
+            <li>
+              <a class="select-as" href="{% url 'admin_fecitec:admin_evaluators' %}"> Avaliadores </a>
+            </li>
+          </ul>
+        </div> <!--FIM DO MENU HAMBURGUER DO ADMINISTRADOR FECITEC -->
+        <div style="width: 100%;" >
+          <form action="" >
+            <div class="container-search-bar" >
+              <input type="text" class="seachr-bar" name="buscar" placeholder="Buscar" />
+              <img class="search-icon" src="{% static 'images/icone-lupa.svg' %}" alt="lupa">
+            </div>
+          </form>
+        </div>  
+      </nav>
+      
+    </div>
+
+    <main>
+      {% block content_admin %}
+        <!-- Content will go here -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <div class="icone-seta">
+        <a title="voltar ao topo" href="#topo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#BFC8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V6M5 12l7-7 7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="container-footer">
+        <div class="item">
+          <p>IF Baiano</p>
+          <div class="caixa-icones-footer">
+            <div class="elementos-caixa-icones-footer">
+              <a href=""><img src="{% static 'images/icone-whatsapp-footer.svg' %}" alt="" /></a>
+              <a href=""><img src="{% static 'images/icone-instagram-footer.svg' %}" alt="" /></a>
+              <a href=""><img src="{% static 'images/icone-youtube-footer.svg' %}" alt="" /></a>
+              <a href=""><img src="{% static 'images/icone-threads-footer.svg' %}" alt="" /></a>
+              <a href=""><img src="{% static 'images/icone-tiktok-footer.svg' %}" alt="" /></a>
+              <a href=""><img src="{% static 'images/icone-facebook-footer.svg' %}" alt="" /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Realização</p>
+          <img class="logo-if" src="{% static 'images/logo-if.svg' %}" alt="" />
+        </div>
+
+        <div class="item apoio">
+          <p>Apoio</p>
+          <a href="{% url 'fecitec:formigueiro' %}">
+            <img class="formigueiro-tecnologico" src="{% static 'images/formigueiro-tec.svg' %}" alt=""/>
+          </a>
+        </div>
+      </div>
+
+      <p class="copyright">2024 - Feira de Ciência e Tecnologia do Município de Senhor do Bonfim e do Território de Identidade do Piemonte Norte do Itapicuru.</p>
+    </footer>
+
+    <script src="{% static 'Js/navBarReplacement.js' %}"></script>
+    <script src="{% static 'Js/profileUser.js' %}"></script>
+    <!-- ^^^^^^^^^^scripts html base ^^^^^^^^^^^^ -->
+    {% block script %}
+      <!-- Script content will go here -->
+    {% endblock %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
