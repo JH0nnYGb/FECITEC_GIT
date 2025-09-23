@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block title%}
-  Screen Evaluators
+  Screen Avaliadores
 {% endblock title %}
 
 {% block style_admin %}
+<link rel="stylesheet" href="{% static 'Css/'%}">
 <!-- IMPOTANDO O ESTILO DA TABELA  -->
 <link rel="stylesheet" href="{% static 'Css/screen_submission.css' %}">
 <link rel="stylesheet" href="{% static 'Css/Midias/Phone/submission-phone-admin.css' %}">
@@ -14,8 +15,7 @@
 {%endblock%}
 
 {% block content_admin %}
-<h2 class="title_page">Avaliadoresm </h2>
-  
+<h2 class="title_page">Avaliadores</h2>
 <div class="container-father">
   <section class="table-container">
         <table class="responsive-table">
@@ -23,29 +23,29 @@
                 
                 <tr>
                     <th></th>
-                    <th scope="col">Jurados</th>
+                    <th scope="col">Avaliadores</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
-                    <th scope="col">Trabalhos Atribuitos </th> 
+                    <th scope="col">Trabalhos Atribuitos</th> 
                     <th></th>       
                 </tr>
                 
             </thead>
             <tbody>
-                {% for evaluators in commission_evaluators %}
+                {% for in  %}
                     <tr>
                         <td>
-                            {{submission.id}}
+                            {{appraisers.id}}
                             {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
                         </td>
                         <td>
-                            {{evaluators.name_member}}
+                            {{jurors.name_member}}
                         </td>
                         <td>
-                            {{evaluators.email_member}}
+                            {{jurors.email_member}}
                         </td>
                         <td>
-                            {{evaluators.phone_member}}
+                            {{jurors.phone_member}}
                         </td>
                         <td class="container-status">
                             
@@ -67,12 +67,13 @@
                     </tr>
                 {% empty %}
                 <li>Nenhum membro existente</li>
-                  
+                    
+                    
                 {% endfor %}
             </tbody>
         </table>
       </div>
     </section> <!--- fim do content father dentro do main base -->
-
+    
 </div>
 {% endblock %}
