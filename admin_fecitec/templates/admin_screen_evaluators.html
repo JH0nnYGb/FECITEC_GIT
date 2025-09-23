@@ -32,20 +32,20 @@
                 
             </thead>
             <tbody>
-                {% for in  %}
+                {% for evaluators in commission_evaluators %}
                     <tr>
                         <td>
-                            {{appraisers.id}}
+                            {{submission.id}}
                             {% comment %} <div class="participant_phonto"> <img class="participant_phonto" src="https://avatars.githubusercontent.com/u/148590574?v=4" alt=""></div> {% endcomment %}
                         </td>
                         <td>
-                            {{jurors.name_member}}
+                            {{evaluators.name_member}}
                         </td>
                         <td>
-                            {{jurors.email_member}}
+                            {{evaluators.email_member}}
                         </td>
                         <td>
-                            {{jurors.phone_member}}
+                            {{evaluators.phone_member}}
                         </td>
                         <td class="container-status">
                             
@@ -66,9 +66,7 @@
                         </td>
                     </tr>
                 {% empty %}
-                <li>Nenhum membro existente</li>
-                    
-                    
+                    <li>Nenhum membro existente</li>
                 {% endfor %}
             </tbody>
         </table>

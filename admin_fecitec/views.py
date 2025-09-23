@@ -51,8 +51,9 @@ def views_admin_jurors(request):
 
 @login_required
 def views_admin_evaluators(request):
-    evaluators_group = GroupsFecitec.objects.get(namegroup='Avaliador')
     
+    evaluators_group = GroupsFecitec.objects.get(namegroup='Avaliador')
+
     evaluators_group_users = evaluators_group.usuarios.all()
    
     evaluators_emails = [user.email for user in evaluators_group_users]
