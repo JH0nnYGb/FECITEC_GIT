@@ -224,10 +224,10 @@ class SubmissionToWork(models.Model):
         return self.title
     
 #MODELS PARA RELAÇÃO DE TRABALHOS SORTEADOS COM SEUS MEMBROS
-class JurorAssignment(models.Model):
-    juror = models.ForeignKey(Commission, on_delete=models.CASCADE,related_name="assignments")
+class MemberAssignment(models.Model):
+    appraiser = models.ForeignKey(Commission, on_delete=models.CASCADE,related_name="assignments")
     work = models.ForeignKey(SubmissionToWork, on_delete=models.CASCADE,related_name="assignments")
     assignments_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.juror.name_member} - {self.work.title}"
+        return f"{self.appraiser.name_member} - {self.work.title}"

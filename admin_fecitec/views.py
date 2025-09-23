@@ -15,7 +15,7 @@ from core.models import Participante
 from core.models import SubmissionToWork
 from core.models import Commission
 from core.models import User,GroupsFecitec, Participante,Instituicao
-from core.models import JurorAssignment
+from core.models import MemberAssignment
 
 # FIM IMPORTACAO DO MODELOS CORE
 
@@ -63,33 +63,40 @@ def views_admin_evaluators(request):
 
 @login_required
 def views_admin_reviews(request):
-    gruop_jurors = get_object_or_404(GroupsFecitec, namegroup="Jurado")
-    jurors = Commission.objects.filter(user__in = gruop_jurors.usuarios.all())
-    
-    jurors_with_works = {}
+    evaluators  = list(Commission.objects.filter(position_member="Avaliador"))
+    jurors = list(Commission.objects.filter(position_member="Jurado"))
 
+    if not evaluators:
+        return render(request,'admin_screen_reviews.html',
+                      {'error_message':'Nenhum membro encontrado no grupo Avaliador.'})
+    if not jurors:
+        return render(request,'admin_screen_reviews.html',
+                      {'error_message':'Nenhum membro encontrado no grupo Jurado.'})
     
+
+    responsible_with_works = {}
     if request.method == "POST":
-        #verificar se ja houve algum sorteio
-        if not JurorAssignment.objects.exists():
+        if not MemberAssignment.objects.exists():
             works = list(SubmissionToWork.objects.all())
-            for juror in jurors:
-                works_drawn = random.sample(works, min(3, len(works)))
-                print(works_drawn)
-                for work in works_drawn:
-                    JurorAssignment.objects.create(juror=juror,work=work)
-                    print(JurorAssignment)
-    # Carrega os sorteios do banco
-    for juror in jurors:
-        assigned_works = JurorAssignment.objects.filter(juror=juror).select_related("work")
-        jurors_with_works[juror] = [a.work for a in assigned_works]
 
-    return render(
-        request,
-        'admin_screen_reviews.html',
+            for work in works :
+                evauators_drawn = random.sample(evaluators ,min(3, len(evaluators )))
+                jurors_drawn = random.sample(jurors,min(3, len(jurors)))
+
+                for member in evauators_drawn + jurors_drawn:
+                    MemberAssignment.objects.create(responsible=member, work=work)
+    
+    all_members = evaluators + jurors
+
+    for member in all_members:
+        assigned_works  = MemberAssignment.objects.filter(responsible=member).select_related("work")
+        responsible_with_works[member] = [a.work for a in assigned_works]  
+    
+    
+    return render(request,'admin_screen_reviews.html',
         {
-            'jurors':jurors,
-            'jurors_with_works': jurors_with_works
+            'responsible': all_members,
+            'responsible_with_works':responsible_with_works,
         },           
     )
 
