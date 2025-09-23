@@ -117,7 +117,11 @@ class ParticipantCreationForm(UserCreationForm):
 class SubmissionToWorkForm(forms.ModelForm):
     class Meta:
         model = SubmissionToWork
-        fields = ['school_name', 'area', 'municipality', 'title', 'sub_area', 'summary', 'state', 'formation', 'arquivo_modelo', 'form_of_presentation', 'participante']
+        fields = [
+            'school_name', 'area', 'municipality', 'title', 
+            'sub_area','summary', 'state', 'formation', 'arquivo_modelo', 
+            'form_of_presentation', 'participante'
+        ]
 
 ############ FIM OD FORMULARI DE SUBMISSOA ############
 

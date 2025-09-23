@@ -179,7 +179,7 @@ def login_participante_view(request):
         if form.is_valid():
             user = form.get_user()
             # Verifique se o usuário pertence ao grupo 'Participante'
-            if user.grupos_fecitec.filter(nome='Participante').exists():
+            if user.grupos_fecitec.filter(namegroup='Participante').exists():
                 
                 login(request, user)
                 return redirect('app_participante:dashboard_participante')# Certifique-se de que a URL esteja correta
@@ -242,7 +242,7 @@ def Cadastrar_participante_views(request):
             )
 
             # Associar usuário ao grupo "Participante"
-            grupo_participante = GroupsFecitec.objects.get(nome='Participante')
+            grupo_participante = GroupsFecitec.objects.get(namegroup='Participante')
             grupo_participante.usuarios.add(user)
 
             messages.success(request, "Conta criada com sucesso! Faça login para continuar.")

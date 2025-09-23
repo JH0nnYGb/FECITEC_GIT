@@ -21,17 +21,13 @@ def dash_participante(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Verifica permissões
-    if not request.user.grupos_personalizados.filter(nome='Participante').exists():
-        messages.error(request, "Você não tem permissão para acessar esta página.")
-        return redirect('fecitec:login_participante')
-
     # Contexto enviado para o template
     context = {
         'participante': participante,
         'page_obj': page_obj,
     }
     return render(request, 'dashboard_participante.html', context)
+
 
 def submissao_trabalho(request):
     if request.method == 'POST':
